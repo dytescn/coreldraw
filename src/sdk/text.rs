@@ -1,0 +1,55 @@
+use dyteslogs::logs::LogError;
+use windows::Win32::System::Ole;
+use windows::Win32::System::Com;
+use windows::Win32::System::Variant::VARIANT;
+use windows::core;
+use wincom::dispatch::ComObject;
+use wincom::utils::VariantExt;
+use crate::sdk::types::*;
+// 文本数据
+pub struct IvgText {
+    disp:ComObject
+}
+// 文本数据
+impl IvgText{
+    fn get_Type(){}
+    fn get_FramesInLink(){}
+    fn get_UnusedFramesInLink(){}
+    fn get_Overflow(){}
+    fn get_FontProperties(){}
+    fn put_FontProperties(){}
+    fn get_FontPropertiesInRange(){}
+    fn put_FontPropertiesInRange(){}
+    fn get_AlignProperties(){}
+    fn put_AlignProperties(){}
+    fn get_AlignPropertiesInRange(){}
+    fn put_AlignPropertiesInRange(){}
+    fn get_SpaceProperties(){}
+    fn put_SpaceProperties(){}
+    fn get_SpacePropertiesInRange(){}
+    fn put_SpacePropertiesInRange(){}
+    fn get_HyphenationSettings(){}
+    fn put_HyphenationSettings(){}
+    fn get_HyphenationSettingsInRange(){}
+    fn put_HyphenationSettingsInRange(){}
+    fn get_Contents(){}
+    fn put_Contents(){}
+    fn FitToPath(){}
+    fn Find(){}
+    fn Replace(){}
+    fn ImportFromFile(){}
+    fn ExportToFile(){}
+    fn ConvertToArtistic(){}
+    fn ConvertToParagraph(){}
+    fn get_IsHTMLCompatible(){}
+    fn MakeHTMLCompatible(){}
+    fn get_Story(){}
+    fn get_Selection(){}
+    fn Range(){}
+    fn get_IsEditing(){}
+    fn BeginEdit(){}
+    fn get_Frame(){}
+    fn get_Frames(){}
+    fn get_IsArtisticText(){}
+    fn FitTextToFrame(){}
+}
