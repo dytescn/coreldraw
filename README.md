@@ -1,0 +1,2 @@
+# cdrsdk
+coreldraw  rust sdk
