@@ -14,7 +14,7 @@ mod tests {
     fn test_do_cdr_app_info() {
         // C:\Users\dowell\Desktop\2222.cdr
         // let src = "C:\\Users\\dowell\\codes\\dytes\\cdrsdk\\cache\\123123.cdr".to_string();
-        let res = app::get_app_execute_path("25".to_string());
+        let res = app::get_app_execute_path("26".to_string());
         println!("{:?}",res);
     }
 }

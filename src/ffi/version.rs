@@ -29,7 +29,7 @@ pub fn get_version_info(ver:&str)->Option<u32>{
 // 判断当前已安装的coreldraw版本
 pub fn get_version_list()->Vec<u32>{
     let mut ver_data:Vec<u32> = Vec::new();
-    for i in 15..26  {
+    for i in 15..29  {
         let ver = i.to_string();
         let res = get_version_info(&ver);
         match res {

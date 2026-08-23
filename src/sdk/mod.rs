@@ -1,5 +1,6 @@
 mod types;
 mod opplist;
+pub mod filetypes;
 pub mod document;
 pub mod application;
 pub mod layer;
