@@ -20,7 +20,7 @@
     "properties": {
       "code": {
         "type": "integer",
-        "description": "状态码，200 表示成功"
+        "description": "状态码,200 表示成功"
       },
       "msg": {
         "type": "string",

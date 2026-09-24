@@ -45,11 +45,7 @@ fn write_json_out(json_out: *mut c_char, value: Value) -> c_int {
 pub fn write_error(json_out: *mut c_char, code: i32, msg: &str) -> c_int {
     write_json_out(
         json_out,
-        json!({
-            "code": code,
-            "data": null,
-            "msg": msg
-        }),
+        json!({"code": code, "data": null, "msg": msg}),
     )
 }
 
@@ -58,10 +54,6 @@ pub fn write_error(json_out: *mut c_char, code: i32, msg: &str) -> c_int {
 pub fn write_success(json_out: *mut c_char, msg: &str, data: Value) -> c_int {
     write_json_out(
         json_out,
-        json!({
-            "code": 200,
-            "data": data,
-            "msg": msg
-        }),
+        json!({ "code": 200, "data": data, "msg": msg}),
     )
 }
