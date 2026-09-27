@@ -1,7 +1,7 @@
 [package]
 name = "cdrsdk"
-version = "0.2.0"
-edition = "2021"                 
+version = "0.1.0"
+edition = "2021"
 rust-version = "1.75"
 authors = ["dowell <dowell@funxdata.com>"]
 description = "Rust SDK for CorelDRAW automation via COM IDispatch late binding"
@@ -12,6 +12,8 @@ homepage = "https://github.com/funxdata/cdrsdk"
 documentation = "https://docs.rs/cdrsdk"
 keywords = ["coreldraw", "com", "automation", "idispatch", "graphics"]
 categories = ["api-bindings", "graphics", "windows"]
+
+# tests/ 保留作为使用示例
 exclude = [
     ".github/",
     "docs/",
@@ -22,6 +24,7 @@ exclude = [
 
 [dependencies]
 wincom = "0.2.0"
+dyteslogs = "0.1.0"
 windows = { version = "0.62.0", features = [
     "Win32_System_Com",
     "Win32_System_Ole",
