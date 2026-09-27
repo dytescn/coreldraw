@@ -11,7 +11,7 @@ repository = "https://github.com/funxdata/cdrsdk"
 homepage = "https://github.com/funxdata/cdrsdk"
 documentation = "https://docs.rs/cdrsdk"
 keywords = ["coreldraw", "com", "automation", "idispatch", "graphics"]
-categories = ["api-bindings", "graphics", "windows"]
+categories = ["api-bindings", "graphics", "os::windows-apis"]
 
 # tests/ 保留作为使用示例
 exclude = [
