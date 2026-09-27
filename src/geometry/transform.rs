@@ -1,6 +1,6 @@
-﻿//! `IVGTransformMatrix` 鈥斺€?2脳3 浠垮皠鍙樻崲鐭╅樀
+﻿//! `IVGTransformMatrix` 
 //!
-//! ```
+//! ```text
 //! | d11 d21 tx |
 //! | d12 d22 ty |
 //! |  0   0  1  |

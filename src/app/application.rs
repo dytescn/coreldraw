@@ -1,11 +1,11 @@
-﻿//! `IVGApplication` 鈥斺€?CorelDRAW 搴旂敤瀵硅薄
+﻿//! `IVGApplication` —— CorelDRAW 应用对象
 //!
-//! 閫氳繃 ProgID `CorelDRAW.Application.{version}` 鍒涘缓銆?
+//! 通过 ProgID `CorelDRAW.Application.{version}` 创建。
 //!
 //! ```no_run
-//! use cdrsdk::prelude::*;
+//! use cdrsdk::prelude::*;                          // ← 改 coreldraw → cdrsdk
 //!
-//! let app = IvgApplication::new("24.0").expect("CorelDRAW 鏈惎鍔?);
+//! let app = IvgApplication::new("26").expect("CorelDRAW 未启动");
 //! println!("version = {:?}", app.version());
 //! ```
 
@@ -315,7 +315,6 @@ impl IvgApplication {
             .map(IvgColor::new)
     }
 
-    /// 閫氳繃棰滆壊瀛楃涓诧紙濡?`"RGB255,0,0"`锛夊垱寤洪鑹层€?
     pub fn create_color(&self, color_str: impl Into<String>) -> Option<IvgColor> {
         let args = vec![Variant::from_str(&color_str.into())];
         self.disp
@@ -325,9 +324,6 @@ impl IvgApplication {
             .map(IvgColor::new)
     }
 
-    // ---------------------------------------------------------
-    // 缁撴瀯浣撳伐鍘傦紙IVGStruct*锛?
-    // ---------------------------------------------------------
 
     pub fn create_export_options(&self) -> Option<IvgStructExportOptions> {
         self.invoke_factory(

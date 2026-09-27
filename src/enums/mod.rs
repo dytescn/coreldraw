@@ -1,14 +1,13 @@
-//! CorelDRAW 枚举类型
+﻿//! CorelDRAW 枚举类型
 //!
 //! 命名保持与 VGCore 类型库一致（`cdrXxx` / `clrXxx` / `PrnXxx` / `pdfXxx` / `cuiXxx`），
 //! 每个枚举用 `#[repr(i32)]` 映射 COM 的实际整数值。
 //!
 //! ```no_run
-//! use coreldraw::enums::cdrShapeType;
+//! use cdrsdk::enums::cdrShapeType;                 // ← 改
 //! let t: i32 = 6;
-//! assert_eq!(cdrShapeType::from_i32(t), Some(cdrShapeType::TextShape));
+//! assert_eq!(cdrShapeType::from_i32(t), Some(cdrShapeType::Text));
 //! ```
-
 pub mod app;
 pub mod shape;
 pub mod curve;

@@ -1,15 +1,21 @@
-//! COM 结构体（`IVGStructXxx` 系列）
+﻿//! COM 结构体（`IVGStructXxx` 系列）
 //!
 //! 这些对象不直接"使用"，而是由 [`crate::app::IvgApplication`] 工厂
 //! 创建，作为参数传给其它 API。
 //!
 //! ```no_run
-//! use coreldraw::prelude::*;
+//! use cdrsdk::prelude::*;
 //!
-//! let app = IvgApplication::new("24.0").unwrap();
-//! let opts = app.create_export_options().unwrap();
+//! let app = IvgApplication::new("26").expect("CorelDRAW 未启动");
+//! let doc = app.create_document().expect("create_document");
+//!
+//! let opts = app.create_export_options().expect("create_export_options");
 //! opts.set_overwrite(true);
-//! doc.export_ex("out.png", cdrFilter::PNG as i32, &opts);
+//!
+//! // cdrFilter::PNG 见 crate::enums::filter
+//! doc.export_ex("out.png", 790, &opts);
+//!
+//! doc.close_without_saving();
 //! ```
 
 pub mod save_as_options;
