@@ -44,7 +44,7 @@ impl IvgStructOpenOptions {
     pub fn code_page(&self) -> Option<i64> { self.prop_i64("CodePage") }
     pub fn set_code_page(&self, v: i32) -> bool { self.put_i64("CodePage", v as i64) }
 
-    // ---- 棰滆壊杞崲 ----
+    // ---- 颜色转换 ----
 
     pub fn color_conversion_options(&self) -> Option<IvgStructColorConversionOptions> {
         self.prop_dispatch("ColorConversionOptions")

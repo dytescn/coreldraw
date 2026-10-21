@@ -60,7 +60,7 @@ impl IvgTextureFill {
         self.disp.set_property(name, vec![arg]).is_ok()
     }
 
-    // ---- 鍘熺偣 ----
+    // ---- 原点 ----
 
     pub fn origin_x(&self) -> Option<f64> { self.prop_f64("OriginX") }
     pub fn set_origin_x(&self, v: f64) -> bool { self.put_f64("OriginX", v) }
@@ -68,7 +68,7 @@ impl IvgTextureFill {
     pub fn origin_y(&self) -> Option<f64> { self.prop_f64("OriginY") }
     pub fn set_origin_y(&self, v: f64) -> bool { self.put_f64("OriginY", v) }
 
-    // ---- 骞抽摵 ----
+    // ---- 平铺 ----
 
     pub fn tile_width(&self) -> Option<f64> { self.prop_f64("TileWidth") }
     pub fn set_tile_width(&self, v: f64) -> bool { self.put_f64("TileWidth", v) }
@@ -87,7 +87,7 @@ impl IvgTextureFill {
     pub fn tile_offset(&self) -> Option<i64> { self.prop_i64("TileOffset") }
     pub fn set_tile_offset(&self, v: i32) -> bool { self.put_i64("TileOffset", v as i64) }
 
-    // ---- 鏃嬭浆 / 鍊炬枩 ----
+    // ---- 旋转 / 倾斜 ----
 
     pub fn skew_angle(&self) -> Option<f64> { self.prop_f64("SkewAngle") }
     pub fn set_skew_angle(&self, v: f64) -> bool { self.put_f64("SkewAngle", v) }
@@ -99,7 +99,7 @@ impl IvgTextureFill {
         self.put_f64("RotationAngle", v)
     }
 
-    // ---- 鍙樻崲 ----
+    // ---- 变换 ----
 
     pub fn transform_with_shape(&self) -> Option<bool> {
         self.prop_bool("TransformWithShape")
@@ -134,7 +134,7 @@ impl IvgTextureFill {
         self.prop_string("StyleName")
     }
 
-    // ---- 閫夋嫨 ----
+    // ---- 选择 ----
 
     pub fn select(
         &self,
@@ -154,7 +154,7 @@ impl IvgTextureFill {
         self.disp.invoke_method("SetProperties", args).is_ok()
     }
 
-    // ---- 闀滃儚 ----
+    // ---- 镜像 ----
 
     pub fn mirror_fill(&self) -> Option<bool> { self.prop_bool("MirrorFill") }
     pub fn set_mirror_fill(&self, v: bool) -> bool { self.put_bool("MirrorFill", v) }

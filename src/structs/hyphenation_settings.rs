@@ -51,7 +51,7 @@ impl IvgStructHyphenationSettings {
         self.disp.set_property(name, vec![arg]).is_ok()
     }
 
-    // ---- 鑷姩鏂瓧 ----
+    // ---- 自动断字 ----
 
     pub fn use_automatic_hyphenation(&self) -> Option<bool> {
         self.prop_bool("UseAutomaticHyphenation")
@@ -60,7 +60,7 @@ impl IvgStructHyphenationSettings {
         self.put_bool("UseAutomaticHyphenation", v)
     }
 
-    // ---- 澶у啓鍗曡瘝 ----
+    // ---- 大写单词 ----
 
     pub fn break_capitalized(&self) -> Option<bool> {
         self.prop_bool("BreakCapitalized")
@@ -76,7 +76,7 @@ impl IvgStructHyphenationSettings {
         self.put_bool("BreakAllCapWords", v)
     }
 
-    // ---- 鐑尯 / 闀垮害 ----
+    // ---- 热区 / 长度 ----
 
     pub fn hot_zone(&self) -> Option<f64> { self.prop_f64("HotZone") }
     pub fn set_hot_zone(&self, v: f64) -> bool { self.put_f64("HotZone", v) }

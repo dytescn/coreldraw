@@ -11,35 +11,35 @@
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrEffectType {
-    Blend       = 0,
-    Extrude     = 1,
-    Envelope    = 2,
-    TextOnPath  = 3,
+    Blend = 0,
+    Extrude = 1,
+    Envelope = 2,
+    TextOnPath = 3,
     ControlPath = 4,
-    DropShadow  = 5,
-    Contour     = 6,
-    Distortion  = 7,
+    DropShadow = 5,
+    Contour = 6,
+    Distortion = 7,
     Perspective = 8,
     // 9 缺失
     CustomEffect = 10,
-    Lens        = 11,
+    Lens = 11,
 }
 
 impl cdrEffectType {
     pub fn from_i32(v: i32) -> Option<Self> {
         match v {
-            0  => Some(Self::Blend),
-            1  => Some(Self::Extrude),
-            2  => Some(Self::Envelope),
-            3  => Some(Self::TextOnPath),
-            4  => Some(Self::ControlPath),
-            5  => Some(Self::DropShadow),
-            6  => Some(Self::Contour),
-            7  => Some(Self::Distortion),
-            8  => Some(Self::Perspective),
+            0 => Some(Self::Blend),
+            1 => Some(Self::Extrude),
+            2 => Some(Self::Envelope),
+            3 => Some(Self::TextOnPath),
+            4 => Some(Self::ControlPath),
+            5 => Some(Self::DropShadow),
+            6 => Some(Self::Contour),
+            7 => Some(Self::Distortion),
+            8 => Some(Self::Perspective),
             10 => Some(Self::CustomEffect),
             11 => Some(Self::Lens),
-            _  => None,
+            _ => None,
         }
     }
 }
@@ -53,21 +53,21 @@ impl cdrEffectType {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrDropShadowType {
-    /// 平面阴影。
-    Flat        = 0,
-    /// 底部阴影。
-    Bottom      = 1,
-    /// 右上阴影。
-    RightTop    = 2,
-    // TODO: 待补
+    DropShadowFlat = 0,
+    DropShadowBottom = 1,
+    DropShadowTop = 2,
+    DropShadowLeft = 3,
+    DropShadowRight = 4,
 }
 
 impl cdrDropShadowType {
     pub fn from_i32(v: i32) -> Option<Self> {
         match v {
-            0 => Some(Self::Flat),
-            1 => Some(Self::Bottom),
-            2 => Some(Self::RightTop),
+            0 => Some(Self::DropShadowFlat),
+            1 => Some(Self::DropShadowBottom),
+            2 => Some(Self::DropShadowTop),
+            3 => Some(Self::DropShadowLeft),
+            4 => Some(Self::DropShadowRight),
             _ => None,
         }
     }
@@ -82,9 +82,9 @@ impl cdrDropShadowType {
 #[allow(nonstandard_style)]
 pub enum cdrDistortionType {
     PushPull = 0,
-    Zipper   = 1,
-    Twister  = 2,
-    Custom   = 3,
+    Zipper = 1,
+    Twister = 2,
+    Custom = 3,
 }
 
 // =============================================================
@@ -95,10 +95,10 @@ pub enum cdrDistortionType {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrEnvelopeMode {
-    StraightLine  = 0,
-    SingleArc     = 1,
-    DoubleArc     = 2,
-    // TODO: 待补
+    EnvelopeHorizontal = 0,
+    EnvelopeOriginal = 1,
+    EnvelopePutty = 2,
+    EnvelopeVertical = 3,
 }
 
 // =============================================================
@@ -109,11 +109,12 @@ pub enum cdrEnvelopeMode {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrExtrudeType {
-    SmallBack   = 0,
-    SmallFront  = 1,
-    BigBack     = 2,
-    BigFront    = 3,
-    // TODO: 待补
+    ExtrudeSmallBack = 0,
+    ExtrudeSmallFront = 1,
+    ExtrudeBigBack = 2,
+    ExtrudeBigFront = 3,
+    ExtrudeBackParallel = 4,
+    ExtrudeFrontParallel = 5,
 }
 
 // =============================================================
@@ -124,9 +125,9 @@ pub enum cdrExtrudeType {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrExtrudeShading {
-    Solid       = 0,
-    ObjectColor = 1,
-    // TODO: 待补
+    ExtrudeObjectFill = 0,
+    ExtrudeSolidFill = 1,
+    ExtrudeColorShading = 2,
 }
 
 // =============================================================
@@ -137,15 +138,15 @@ pub enum cdrExtrudeShading {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrExtrudeLightPosition {
-    TopLeft     = 0,
-    TopRight    = 1,
-    BottomLeft  = 2,
+    TopLeft = 0,
+    TopRight = 1,
+    BottomLeft = 2,
     BottomRight = 3,
-    Top         = 4,
-    Bottom      = 5,
-    Left        = 6,
-    Right       = 7,
-    Front       = 8,
+    Top = 4,
+    Bottom = 5,
+    Left = 6,
+    Right = 7,
+    Front = 8,
 }
 
 // =============================================================
@@ -156,9 +157,9 @@ pub enum cdrExtrudeLightPosition {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrExtrudeVPType {
-    Shared      = 0,
-    CopyFrom    = 1,
-    // TODO: 待补
+    VPLockedToShape = 0,
+    VPLockedToPage = 1,
+    VPShared = 2,
 }
 
 // =============================================================
@@ -169,20 +170,17 @@ pub enum cdrExtrudeVPType {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrLensType {
-    NoLens               = 0,
-    Magnify              = 1,
-    Brighten             = 2,
-    Invert               = 3,
-    ColorAdd             = 4,
-    ColorLimit           = 5,
-    ColorMultiply        = 6,
-    Grayscale            = 7,
-    HeatMap              = 8,
-    CustomColorMap       = 9,
-    FishEye              = 10,
-    Wireframe            = 11,
-    Transparency         = 12,
-    // TODO: 待补
+    LensMagnify = 0,
+    LensFishEye = 1,
+    LensWireframe = 2,
+    LensColorLimit = 3,
+    LensColorAdd = 4,
+    LensInvert = 5,
+    LensBrighten = 6,
+    LensTintedGrayscale = 7,
+    LensHeatMap = 8,
+    LensTransparency = 9,
+    LensCustomColorMap = 10,
 }
 
 // =============================================================
@@ -193,9 +191,9 @@ pub enum cdrLensType {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrContourDirection {
-    ToCenter  = 0,
-    Outside   = 1,
-    Inside    = 2,
+    ToCenter = 0,
+    Outside = 1,
+    Inside = 2,
 }
 
 // =============================================================
@@ -206,9 +204,9 @@ pub enum cdrContourDirection {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrContourEndCapType {
-    // TODO: 待补
-    Flat = 0,
-    // ...
+    ContourButtCap = 0,
+    ContourRoundCap = 1,
+    ContourSquareCap = 2,
 }
 
 // =============================================================
@@ -219,9 +217,12 @@ pub enum cdrContourEndCapType {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrContourCornerType {
-    // TODO: 待补
-    Miter = 0,
-    // ...
+    ContourCornerBevel = 0,
+    ContourCornerOffsetBevel = 1,
+    ContourCornerRound = 2,
+    ContourCornerMiteredBevel = 3,
+    ContourCornerMiteredOffsetBevel = 4,
+    ContourCornerMiteredRound = 5,
 }
 
 // =============================================================
@@ -232,9 +233,8 @@ pub enum cdrContourCornerType {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrBlendMode {
-    Steps        = 0,
-    Spacing      = 1,
-    // TODO: 待补
+    BlendSteps = 0,
+    BlendSpacing = 1,
 }
 
 // =============================================================
@@ -245,9 +245,11 @@ pub enum cdrBlendMode {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrFeatherType {
-    Linear  = 0,
-    Radial  = 1,
-    // TODO: 待补
+    FeatherInside = 0,
+    FeatherMiddle = 1,
+    FeatherOutside = 2,
+    FeatherAverage = 3,
+    FeatherGaussianBlur = 4,
 }
 
 // =============================================================
@@ -258,9 +260,12 @@ pub enum cdrFeatherType {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrEdgeType {
-    Linear  = 0,
-    Curved  = 1,
-    // TODO: 待补
+    EdgeLinear = 0,
+    EdgeSquared = 1,
+    EdgeFlat = 2,
+    EdgeInverseSquared = 3,
+    EdgeMesa = 4,
+    EdgeGaussian = 5,
 }
 
 // =============================================================
@@ -271,12 +276,34 @@ pub enum cdrEdgeType {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrMergeMode {
-    Normal       = 0,
-    Additive     = 1,
-    Subtract     = 2,
-    Multiply     = 3,
-    Divide       = 4,
-    // TODO: 待补
+    MergeNormal = 0,
+    MergeAND = 1,
+    MergeOR = 2,
+    MergeXOR = 3,
+    MergeInvert = 6,
+    MergeAdd = 7,
+    MergeSubtract = 8,
+    MergeMultiply = 9,
+    MergeDivide = 10,
+    MergeIfLighter = 11,
+    MergeIfDarker = 12,
+    MergeTexturize = 13,
+    MergeColor = 14,
+    MergeHue = 15,
+    MergeSaturation = 16,
+    MergeLightness = 17,
+    MergeRed = 18,
+    MergeGreen = 19,
+    MergeBlue = 20,
+    MergeDifference = 24,
+    MergeBehind = 27,
+    MergeScreen = 28,
+    MergeOverlay = 29,
+    MergeSoftlight = 30,
+    MergeHardlight = 31,
+    MergeDodge = 33,
+    MergeBurn = 34,
+    MergeExclusion = 36,
 }
 
 // =============================================================
@@ -287,10 +314,11 @@ pub enum cdrMergeMode {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrFittedOrientation {
-    Rotate   = 0,
-    Vertical = 1,
-    Skew     = 2,
-    // TODO: 待补
+    RotateOrientation = 0,
+    VerticalSkewOrientation = 1,
+    HorizontalSkewOrientation = 2,
+    UprightOrientation = 3,
+    TransformOrientation = 4,
 }
 
 // =============================================================
@@ -301,11 +329,9 @@ pub enum cdrFittedOrientation {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrFittedPlacement {
-    Baseline = 0,
-    Top      = 1,
-    Center   = 2,
-    Bottom   = 3,
-    // TODO: 待补
+    LeftPlacement = 0,
+    RightPlacement = 1,
+    CenterPlacement = 2,
 }
 
 // =============================================================
@@ -316,11 +342,10 @@ pub enum cdrFittedPlacement {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrFittedQuadrant {
-    TopLeft     = 0,
-    TopRight    = 1,
-    BottomLeft  = 2,
-    BottomRight = 3,
-    // TODO: 待补
+    LeftQuadrant = 0,
+    RightQuadrant = 1,
+    TopQuadrant = 2,
+    BottomQuadrant = 3,
 }
 
 // =============================================================
@@ -331,7 +356,9 @@ pub enum cdrFittedQuadrant {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrFittedVertPlacement {
-    // TODO: 待补
-    Top = 0,
-    // ...
+    CustomVertPlacement = 0,
+    BaselineVertPlacement = 1,
+    AscenderVertPlacement = 2,
+    DescenderVertPlacement = 3,
+    CenterVertPlacement = 4,
 }

@@ -1,0 +1,588 @@
+{
+  "crate": "cdrsdk",
+  "version": "0.3.0",
+  "source": "src/",
+  "description": "CorelDRAW COM IDispatch late-binding SDK interface metadata",
+  "type_count": 253,
+  "method_count": 4649,
+  "modules": [
+    {
+      "module": "app",
+      "files": [
+        "src/app/application.rs",
+        "src/app/application_event.rs",
+        "src/app/mod.rs",
+        "src/app/status.rs",
+        "src/app/window.rs"
+      ],
+      "types": 3,
+      "methods": 85,
+      "tests": {
+        "files": [
+          "tests/app.rs",
+          "tests/e2e.rs",
+          "tests/effect.rs",
+          "tests/shape.rs",
+          "tests/smoke.rs"
+        ],
+        "cases": 22
+      },
+      "coverage": {
+        "method_name_count": 81,
+        "covered_method_name_count": 51,
+        "coverage_pct": 63.0
+      }
+    },
+    {
+      "module": "color",
+      "files": [
+        "src/color/color.rs",
+        "src/color/colors.rs",
+        "src/color/context.rs",
+        "src/color/duotone.rs",
+        "src/color/manager.rs",
+        "src/color/mod.rs",
+        "src/color/profile.rs"
+      ],
+      "types": 10,
+      "methods": 226,
+      "tests": {
+        "files": [
+          "tests/color.rs"
+        ],
+        "cases": 6
+      },
+      "coverage": {
+        "method_name_count": 197,
+        "covered_method_name_count": 27,
+        "coverage_pct": 13.7
+      }
+    },
+    {
+      "module": "curve",
+      "files": [
+        "src/curve/bspline.rs",
+        "src/curve/cross_point.rs",
+        "src/curve/curve.rs",
+        "src/curve/mod.rs",
+        "src/curve/node.rs",
+        "src/curve/node_range.rs",
+        "src/curve/segment.rs",
+        "src/curve/segment_range.rs",
+        "src/curve/sub_path.rs"
+      ],
+      "types": 14,
+      "methods": 258,
+      "tests": {
+        "files": [
+          "tests/curve.rs"
+        ],
+        "cases": 2
+      },
+      "coverage": {
+        "method_name_count": 144,
+        "covered_method_name_count": 30,
+        "coverage_pct": 20.8
+      }
+    },
+    {
+      "module": "document",
+      "files": [
+        "src/document/data_fields.rs",
+        "src/document/document.rs",
+        "src/document/document_event.rs",
+        "src/document/documents.rs",
+        "src/document/metadata.rs",
+        "src/document/mod.rs"
+      ],
+      "types": 7,
+      "methods": 161,
+      "tests": {
+        "files": [
+          "tests/document.rs",
+          "tests/e2e.rs",
+          "tests/effect.rs",
+          "tests/shape.rs",
+          "tests/smoke.rs"
+        ],
+        "cases": 20
+      },
+      "coverage": {
+        "method_name_count": 142,
+        "covered_method_name_count": 60,
+        "coverage_pct": 42.3
+      }
+    },
+    {
+      "module": "effect",
+      "files": [
+        "src/effect/blend.rs",
+        "src/effect/contour.rs",
+        "src/effect/control_path.rs",
+        "src/effect/distortion.rs",
+        "src/effect/drop_shadow.rs",
+        "src/effect/effect.rs",
+        "src/effect/effects.rs",
+        "src/effect/envelope.rs",
+        "src/effect/extrude.rs",
+        "src/effect/lens.rs",
+        "src/effect/mod.rs",
+        "src/effect/perspective.rs",
+        "src/effect/text_on_path.rs"
+      ],
+      "types": 18,
+      "methods": 315,
+      "tests": {
+        "files": [
+          "tests/effect.rs"
+        ],
+        "cases": 2
+      },
+      "coverage": {
+        "method_name_count": 261,
+        "covered_method_name_count": 26,
+        "coverage_pct": 10.0
+      }
+    },
+    {
+      "module": "fill",
+      "files": [
+        "src/fill/fill.rs",
+        "src/fill/fountain.rs",
+        "src/fill/hatch.rs",
+        "src/fill/metadata.rs",
+        "src/fill/mod.rs",
+        "src/fill/pattern.rs",
+        "src/fill/postscript.rs",
+        "src/fill/texture.rs"
+      ],
+      "types": 20,
+      "methods": 340,
+      "tests": {
+        "files": [
+          "tests/fill_outline.rs"
+        ],
+        "cases": 2
+      },
+      "coverage": {
+        "method_name_count": 230,
+        "covered_method_name_count": 39,
+        "coverage_pct": 17.0
+      }
+    },
+    {
+      "module": "geometry",
+      "files": [
+        "src/geometry/math_utils.rs",
+        "src/geometry/mod.rs",
+        "src/geometry/point.rs",
+        "src/geometry/rect.rs",
+        "src/geometry/snap_point.rs",
+        "src/geometry/transform.rs",
+        "src/geometry/units.rs",
+        "src/geometry/vector.rs"
+      ],
+      "types": 13,
+      "methods": 227,
+      "tests": {
+        "files": [
+          "tests/geometry.rs"
+        ],
+        "cases": 3
+      },
+      "coverage": {
+        "method_name_count": 171,
+        "covered_method_name_count": 35,
+        "coverage_pct": 20.5
+      }
+    },
+    {
+      "module": "import_export",
+      "files": [
+        "src/import_export/export_filter.rs",
+        "src/import_export/handlers.rs",
+        "src/import_export/import_filter.rs",
+        "src/import_export/mod.rs"
+      ],
+      "types": 6,
+      "methods": 52,
+      "tests": {
+        "files": [
+          "tests/import_export.rs"
+        ],
+        "cases": 1
+      },
+      "coverage": {
+        "method_name_count": 27,
+        "covered_method_name_count": 7,
+        "coverage_pct": 25.9
+      }
+    },
+    {
+      "module": "layer",
+      "files": [
+        "src/layer/layer.rs",
+        "src/layer/layers.rs",
+        "src/layer/mod.rs"
+      ],
+      "types": 2,
+      "methods": 93,
+      "tests": {
+        "files": [
+          "tests/e2e.rs",
+          "tests/effect.rs",
+          "tests/page_layer.rs",
+          "tests/shape.rs",
+          "tests/smoke.rs"
+        ],
+        "cases": 15
+      },
+      "coverage": {
+        "method_name_count": 89,
+        "covered_method_name_count": 33,
+        "coverage_pct": 37.1
+      }
+    },
+    {
+      "module": "misc",
+      "files": [
+        "src/misc/clipboard.rs",
+        "src/misc/clone_link.rs",
+        "src/misc/component.rs",
+        "src/misc/filetypes.rs",
+        "src/misc/font_list.rs",
+        "src/misc/gms.rs",
+        "src/misc/grid.rs",
+        "src/misc/mod.rs",
+        "src/misc/on_screen.rs",
+        "src/misc/opplist.rs",
+        "src/misc/palette.rs",
+        "src/misc/properties.rs",
+        "src/misc/recent_files.rs",
+        "src/misc/ruler.rs",
+        "src/misc/script_tools.rs",
+        "src/misc/tool_shape.rs",
+        "src/misc/tool_state.rs",
+        "src/misc/trace_settings.rs",
+        "src/misc/transparency.rs",
+        "src/misc/url.rs",
+        "src/misc/workspace.rs"
+      ],
+      "types": 33,
+      "methods": 392,
+      "tests": {
+        "files": [
+          "tests/misc.rs"
+        ],
+        "cases": 3
+      },
+      "coverage": {
+        "method_name_count": 298,
+        "covered_method_name_count": 50,
+        "coverage_pct": 16.8
+      }
+    },
+    {
+      "module": "outline",
+      "files": [
+        "src/outline/arrow_head.rs",
+        "src/outline/mod.rs",
+        "src/outline/outline.rs",
+        "src/outline/outline_style.rs"
+      ],
+      "types": 6,
+      "methods": 117,
+      "tests": {
+        "files": [
+          "tests/fill_outline.rs"
+        ],
+        "cases": 2
+      },
+      "coverage": {
+        "method_name_count": 94,
+        "covered_method_name_count": 29,
+        "coverage_pct": 30.9
+      }
+    },
+    {
+      "module": "page",
+      "files": [
+        "src/page/mod.rs",
+        "src/page/page.rs",
+        "src/page/page_size.rs",
+        "src/page/pages.rs",
+        "src/page/spread.rs"
+      ],
+      "types": 6,
+      "methods": 130,
+      "tests": {
+        "files": [
+          "tests/e2e.rs",
+          "tests/page_layer.rs",
+          "tests/smoke.rs"
+        ],
+        "cases": 10
+      },
+      "coverage": {
+        "method_name_count": 83,
+        "covered_method_name_count": 37,
+        "coverage_pct": 44.6
+      }
+    },
+    {
+      "module": "print",
+      "files": [
+        "src/print/document.rs",
+        "src/print/job.rs",
+        "src/print/layout.rs",
+        "src/print/mod.rs",
+        "src/print/options.rs",
+        "src/print/pdf_settings.rs",
+        "src/print/postscript.rs",
+        "src/print/prepress.rs",
+        "src/print/printer.rs",
+        "src/print/separations.rs",
+        "src/print/settings.rs",
+        "src/print/trapping.rs"
+      ],
+      "types": 19,
+      "methods": 431,
+      "tests": {
+        "files": [
+          "tests/print.rs"
+        ],
+        "cases": 2
+      },
+      "coverage": {
+        "method_name_count": 361,
+        "covered_method_name_count": 49,
+        "coverage_pct": 13.6
+      }
+    },
+    {
+      "module": "shape",
+      "files": [
+        "src/shape/bitmap.rs",
+        "src/shape/connector.rs",
+        "src/shape/custom_shape.rs",
+        "src/shape/ellipse.rs",
+        "src/shape/eps.rs",
+        "src/shape/guide.rs",
+        "src/shape/image.rs",
+        "src/shape/mod.rs",
+        "src/shape/polygon.rs",
+        "src/shape/power_clip.rs",
+        "src/shape/rectangle.rs",
+        "src/shape/selection_info.rs",
+        "src/shape/shape.rs",
+        "src/shape/shape_range.rs",
+        "src/shape/shapes.rs"
+      ],
+      "types": 16,
+      "methods": 553,
+      "tests": {
+        "files": [
+          "tests/e2e.rs",
+          "tests/shape.rs",
+          "tests/smoke.rs"
+        ],
+        "cases": 11
+      },
+      "coverage": {
+        "method_name_count": 435,
+        "covered_method_name_count": 70,
+        "coverage_pct": 16.1
+      }
+    },
+    {
+      "module": "structs",
+      "files": [
+        "src/structs/align_properties.rs",
+        "src/structs/color_conversion_options.rs",
+        "src/structs/create_options.rs",
+        "src/structs/export_options.rs",
+        "src/structs/font_properties.rs",
+        "src/structs/hyphenation_settings.rs",
+        "src/structs/import_options.rs",
+        "src/structs/mod.rs",
+        "src/structs/open_options.rs",
+        "src/structs/palette_options.rs",
+        "src/structs/paste_options.rs",
+        "src/structs/save_as_options.rs",
+        "src/structs/space_properties.rs"
+      ],
+      "types": 12,
+      "methods": 236,
+      "tests": {
+        "files": [
+          "tests/structs.rs"
+        ],
+        "cases": 8
+      },
+      "coverage": {
+        "method_name_count": 183,
+        "covered_method_name_count": 56,
+        "coverage_pct": 30.6
+      }
+    },
+    {
+      "module": "style",
+      "files": [
+        "src/style/mod.rs",
+        "src/style/style.rs",
+        "src/style/style_character.rs",
+        "src/style/style_fill.rs",
+        "src/style/style_frame.rs",
+        "src/style/style_outline.rs",
+        "src/style/style_paragraph.rs",
+        "src/style/style_sheet.rs",
+        "src/style/style_transparency.rs",
+        "src/style/styles.rs"
+      ],
+      "types": 9,
+      "methods": 201,
+      "tests": {
+        "files": [
+          "tests/style.rs"
+        ],
+        "cases": 1
+      },
+      "coverage": {
+        "method_name_count": 173,
+        "covered_method_name_count": 38,
+        "coverage_pct": 22.0
+      }
+    },
+    {
+      "module": "symbol",
+      "files": [
+        "src/symbol/definition.rs",
+        "src/symbol/library.rs",
+        "src/symbol/mod.rs",
+        "src/symbol/symbol.rs"
+      ],
+      "types": 5,
+      "methods": 63,
+      "tests": {
+        "files": [
+          "tests/symbol.rs"
+        ],
+        "cases": 1
+      },
+      "coverage": {
+        "method_name_count": 43,
+        "covered_method_name_count": 13,
+        "coverage_pct": 30.2
+      }
+    },
+    {
+      "module": "text",
+      "files": [
+        "src/text/characters.rs",
+        "src/text/columns.rs",
+        "src/text/frame.rs",
+        "src/text/lines.rs",
+        "src/text/mod.rs",
+        "src/text/paragraphs.rs",
+        "src/text/range.rs",
+        "src/text/tab_positions.rs",
+        "src/text/text.rs",
+        "src/text/words.rs"
+      ],
+      "types": 12,
+      "methods": 288,
+      "tests": {
+        "files": [
+          "tests/text.rs"
+        ],
+        "cases": 1
+      },
+      "coverage": {
+        "method_name_count": 221,
+        "covered_method_name_count": 42,
+        "coverage_pct": 19.0
+      }
+    },
+    {
+      "module": "tree",
+      "files": [
+        "src/tree/manager.rs",
+        "src/tree/mod.rs",
+        "src/tree/node.rs",
+        "src/tree/nodes.rs"
+      ],
+      "types": 3,
+      "methods": 51,
+      "tests": {
+        "files": [
+          "tests/view_tree.rs"
+        ],
+        "cases": 2
+      },
+      "coverage": {
+        "method_name_count": 44,
+        "covered_method_name_count": 15,
+        "coverage_pct": 34.1
+      }
+    },
+    {
+      "module": "ui",
+      "files": [
+        "src/ui/application.rs",
+        "src/ui/automation.rs",
+        "src/ui/command_bar.rs",
+        "src/ui/control.rs",
+        "src/ui/data_context.rs",
+        "src/ui/dock_host.rs",
+        "src/ui/dock_item.rs",
+        "src/ui/frame_window.rs",
+        "src/ui/framework.rs",
+        "src/ui/image_list.rs",
+        "src/ui/mod.rs",
+        "src/ui/screen_rect.rs",
+        "src/ui/status_text.rs",
+        "src/ui/task_manager.rs",
+        "src/ui/view_host.rs",
+        "src/ui/view_window.rs",
+        "src/ui/warning.rs"
+      ],
+      "types": 33,
+      "methods": 307,
+      "tests": {
+        "files": [
+          "tests/ui.rs"
+        ],
+        "cases": 1
+      },
+      "coverage": {
+        "method_name_count": 182,
+        "covered_method_name_count": 53,
+        "coverage_pct": 29.1
+      }
+    },
+    {
+      "module": "view",
+      "files": [
+        "src/view/active_view.rs",
+        "src/view/mod.rs",
+        "src/view/view.rs",
+        "src/view/views.rs",
+        "src/view/window.rs",
+        "src/view/windows.rs"
+      ],
+      "types": 6,
+      "methods": 123,
+      "tests": {
+        "files": [
+          "tests/view_tree.rs"
+        ],
+        "cases": 2
+      },
+      "coverage": {
+        "method_name_count": 93,
+        "covered_method_name_count": 28,
+        "coverage_pct": 30.1
+      }
+    }
+  ]
+}

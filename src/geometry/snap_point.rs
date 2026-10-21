@@ -1,10 +1,10 @@
 ﻿//! `IVGSnapPoint` 涓€鏃?鈥斺€?鎶撳彇鐐?
 //!
 //! - [`IvgSnapPoint`]          : 閫氱敤鎶撳彇鐐?
-//! - [`IvgSnapPoints`]         : 闆嗗悎
-//! - [`IvgSnapPointRange`]     : 鑼冨洿
-//! - [`IvgUserSnapPoint`]      : 鐢ㄦ埛鑷畾涔夋姄鍙栫偣
-//! - [`IvgObjectSnapPoint`]    : 瀵硅薄鎶撳彇鐐癸紙涓偣銆佺鐐广€佸渾蹇冣€︹€︼級
+//! - [`IvgSnapPoints`]         : 集合
+//! - [`IvgSnapPointRange`]     : 范围
+//! - [`IvgUserSnapPoint`]      : 用户自定义抓取点
+//! - [`IvgObjectSnapPoint`]    : 对象抓取点（中点、端点、圆心……）
 //! - [`IvgBBoxSnapPoint`]      : 鍖呭洿鐩掕鐐?
 //! - [`IvgEdgeSnapPoint`]      : 杈圭紭鎶撳彇鐐?
 
@@ -65,7 +65,7 @@ impl IvgSnapPoint {
         self.disp.set_property(name, vec![arg]).is_ok()
     }
 
-    // ---- 浣嶇疆 ----
+    // ---- 位置 ----
 
     pub fn position_x(&self) -> Option<f64> { self.prop_f64("PositionX") }
     pub fn set_position_x(&self, v: f64) -> bool { self.put_f64("PositionX", v) }
@@ -89,7 +89,7 @@ impl IvgSnapPoint {
         self.disp.invoke_method("Move", args).is_ok()
     }
 
-    // ---- 绫诲瀷 / 鏂瑰悜 ----
+    // ---- 类型 / 方向 ----
 
     /// `cdrPointType`
     pub fn point_type(&self) -> Option<i64> { self.prop_i64("Type") }
@@ -114,7 +114,7 @@ impl IvgSnapPoint {
         self.disp.invoke_method("CreateSelection", vec![]).is_ok()
     }
 
-    // ---- 鍏宠仈 ----
+    // ---- 关联 ----
 
     pub fn node(&self) -> Option<IvgNode> {
         self.prop_dispatch("Node").map(IvgNode::new)
@@ -129,7 +129,7 @@ impl IvgSnapPoint {
         self.prop_string("ReferenceData")
     }
 
-    // ---- 瀛愮被瑙嗗浘锛堟寜绫诲瀷鍙栵級 ----
+    // ---- 子类视图（按类型取） ----
 
     pub fn user(&self) -> Option<IvgUserSnapPoint> {
         self.prop_dispatch("User").map(IvgUserSnapPoint::new)
@@ -147,7 +147,7 @@ impl IvgSnapPoint {
         self.prop_dispatch("Edge").map(IvgEdgeSnapPoint::new)
     }
 
-    // ---- 鎿嶄綔 ----
+    // ---- 操作 ----
 
     pub fn delete(&self) -> bool {
         self.disp.invoke_method("Delete", vec![]).is_ok()
@@ -287,7 +287,7 @@ impl IvgSnapPoints {
         (1..=n).filter_map(|i| self.item(i)).collect()
     }
 
-    // ---- 鍒嗙被鑾峰彇 ----
+    // ---- 分类获取 ----
 
     pub fn user(&self, id: impl Into<String>) -> Option<IvgSnapPoint> {
         let args = vec![Variant::from_str(id.into())];
@@ -362,7 +362,7 @@ impl IvgSnapPoints {
             .map(IvgSnapPoint::new)
     }
 
-    // ---- 鑼冨洿 ----
+    // ---- 范围 ----
 
     /// 鎸夊紩鐢ㄦ暟缁勫彇鑼冨洿銆?
     pub fn range(&self, references: Variant) -> Option<IvgSnapPointRange> {

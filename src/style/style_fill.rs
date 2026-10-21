@@ -61,13 +61,13 @@ impl IvgStyleFill {
         self.disp.set_property(name, vec![arg]).is_ok()
     }
 
-    // ---- 绫诲瀷 ----
+    // ---- 类型 ----
 
     /// `cdrFillStyleType`
     pub fn fill_type(&self) -> Option<i64> { self.prop_i64("Type") }
     pub fn set_fill_type(&self, v: i32) -> bool { self.put_i64("Type", v as i64) }
 
-    // ---- 鍙犲嵃 / 缂犵粫 ----
+    // ---- 叠印 / 缠绕 ----
 
     pub fn overprint(&self) -> Option<bool> { self.prop_bool("Overprint") }
     pub fn set_overprint(&self, v: bool) -> bool { self.put_bool("Overprint", v) }
@@ -75,7 +75,7 @@ impl IvgStyleFill {
     pub fn winding_fill(&self) -> Option<bool> { self.prop_bool("WindingFill") }
     pub fn set_winding_fill(&self, v: bool) -> bool { self.put_bool("WindingFill", v) }
 
-    // ---- 娓愬彉 ----
+    // ---- 渐变 ----
 
     /// `cdrFountainFillType`
     pub fn fountain_fill_type(&self) -> Option<i64> { self.prop_i64("FountainFillType") }
@@ -126,7 +126,7 @@ impl IvgStyleFill {
         self.put_string("PostScriptName", v)
     }
 
-    // ---- 骞抽摵 ----
+    // ---- 平铺 ----
 
     pub fn tile_width(&self) -> Option<f64> { self.prop_f64("TileWidth") }
     pub fn set_tile_width(&self, v: f64) -> bool { self.put_f64("TileWidth", v) }
@@ -149,7 +149,7 @@ impl IvgStyleFill {
     pub fn tile_offset(&self) -> Option<i64> { self.prop_i64("TileOffset") }
     pub fn set_tile_offset(&self, v: i32) -> bool { self.put_i64("TileOffset", v as i64) }
 
-    // ---- 鏃嬭浆 / 鍊炬枩 / 闀滃儚 / 鍙樻崲 ----
+    // ---- 旋转 / 倾斜 / 镜像 / 变换 ----
 
     pub fn rotation_angle(&self) -> Option<f64> { self.prop_f64("RotationAngle") }
     pub fn set_rotation_angle(&self, v: f64) -> bool { self.put_f64("RotationAngle", v) }
@@ -171,7 +171,7 @@ impl IvgStyleFill {
         self.put_bool("TransformWithShape", v)
     }
 
-    // ---- 棰滆壊 ----
+    // ---- 颜色 ----
 
     pub fn primary_color(&self) -> Option<crate::color::IvgColor> {
         self.prop_dispatch("PrimaryColor").map(crate::color::IvgColor::new)
@@ -191,7 +191,7 @@ impl IvgStyleFill {
     }
     pub fn set_secondary_opacity(&self, v: u8) -> bool { self.put_u8("SecondaryOpacity", v) }
 
-    // ---- 娓愬彉涓績鍋忕Щ锛坒64 鐗堬級 ----
+    // ---- 渐变中心偏移（f64 版） ----
 
     pub fn fountain_center_x_offset(&self) -> Option<f64> {
         self.prop_f64("FountainCenterXOffset")
@@ -239,13 +239,13 @@ impl IvgStyleFill {
         self.put_i64("FountainSpreadMethod", v as i64)
     }
 
-    // ---- 娣峰悎妯″紡 ----
+    // ---- 混合模式 ----
 
     /// `cdrMergeMode`
     pub fn merge_mode(&self) -> Option<i64> { self.prop_i64("MergeMode") }
     pub fn set_merge_mode(&self, v: i32) -> bool { self.put_i64("MergeMode", v as i64) }
 
-    // ---- 淇濆瓨 / 鍔犺浇 ----
+    // ---- 保存 / 加载 ----
 
     pub fn save_fill(
         &self,
@@ -278,7 +278,7 @@ impl IvgStyleFill {
         Some((meta, true))
     }
 
-    // ---- 鍏宠仈鏍峰紡 ----
+    // ---- 关联样式 ----
 
     pub fn style(&self) -> Option<crate::style::IvgStyle> {
         self.prop_dispatch("Style").map(crate::style::IvgStyle::new)

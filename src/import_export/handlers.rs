@@ -1,8 +1,8 @@
 ﻿//! 瀵煎叆鍥炶皟鎺ュ彛 & 鍙傛暟缁撴瀯浣?
 //!
 //! - [`IImportCropHandler`]      : 瀵煎叆鏃惰鍓洖璋?
-//! - [`IImportResampleHandler`]  : 瀵煎叆鏃堕噸閲囨牱鍥炶皟
-//! - [`IStructImportCropOptions`] / [`IStructImportResampleOptions`] : 鍙傛暟
+//! - [`IImportResampleHandler`]  : 导入时重采样回调
+//! - [`IStructImportCropOptions`] / [`IStructImportResampleOptions`] : 参数
 
 use wincom::{ComObject, Variant};
 use windows::Win32::System::Com::IDispatch;
@@ -68,7 +68,7 @@ impl IStructImportCropOptions {
         self.prop_i64("DpiY")
     }
 
-    // ---- 鍙鍐欙細瑁佸壀鍖哄煙 ----
+    // ---- 可读写：裁剪区域 ----
 
     pub fn width(&self) -> Option<i64> { self.prop_i64("Width") }
     pub fn set_width(&self, v: i32) -> bool { self.put_i64("Width", v as i64) }
@@ -142,7 +142,7 @@ impl IStructImportResampleOptions {
         self.disp.set_property(name, vec![arg]).is_ok()
     }
 
-    // ---- 鍙 ----
+    // ---- 只读 ----
 
     pub fn file_name(&self) -> Option<String> {
         self.prop_string("FileName")
@@ -156,7 +156,7 @@ impl IStructImportResampleOptions {
         self.prop_i64("CustomData")
     }
 
-    // ---- 鍙鍐欙細鐩爣灏哄 / DPI ----
+    // ---- 可读写：目标尺寸 / DPI ----
 
     pub fn width(&self) -> Option<i64> { self.prop_i64("Width") }
     pub fn set_width(&self, v: i32) -> bool { self.put_i64("Width", v as i64) }

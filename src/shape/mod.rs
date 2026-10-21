@@ -5,7 +5,7 @@
 //!   - [`IvgRectangle`] : 矩形
 //!   - [`IvgEllipse`]   : 椭圆
 //!   - [`IvgPolygon`]   : 多边形
-//!   - [`IvgBitmap`]    : 位图
+//!   - [`IvgBitmap`]    : λͼ
 //!   - [`IvgEps`]       : EPS
 //!   - [`IvgConnector`] : 连接器
 //!   - [`IvgGuide`]     : 参考线

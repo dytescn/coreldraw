@@ -8,7 +8,7 @@
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrPageOrientation {
-    Portrait  = 0,
+    Portrait = 0,
     Landscape = 1,
 }
 
@@ -30,10 +30,9 @@ impl cdrPageOrientation {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrPageBackground {
-    NoBackground        = 0,
-    SolidBackground     = 1,
-    BitmapBackground    = 2,
-    // TODO: 待补
+    PageBackgroundNone = 0,
+    PageBackgroundSolid = 1,
+    PageBackgroundBitmap = 2,
 }
 
 // =============================================================
@@ -45,58 +44,59 @@ pub enum cdrPageBackground {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrUnit {
+    TenthMicron = 0,
     /// 英寸。
-    Inch       = 0,
+    Inch = 1,
+    /// 英尺。
+    Foot = 2,
     /// 毫米。
-    Millimeter = 1,
-    /// 点（pica）。
-    Pica       = 2,
-    /// 磅（point）。
-    Point      = 3,
+    Millimeter = 3,
     /// 厘米。
     Centimeter = 4,
     /// 像素。
-    Pixel      = 5,
-    /// 西塞罗（cicero）。
-    Cicero     = 6,
-    /// 迪多点（didot）。
-    Didot      = 7,
-    /// 英尺。
-    Foot       = 8,
-    /// 码。
-    Yard       = 9,
-    /// 米。
-    Meter      = 10,
-    /// 千米。
-    Kilometer  = 11,
+    Pixel = 5,
     /// 英里。
-    Mile       = 12,
-    /// 派卡（pica，与 Pica 区分）。
-    Pica2      = 13,
+    Mile = 6,
+    /// 米。
+    Meter = 7,
+    /// 千米。
+    Kilometer = 8,
+    Didots = 9,
     /// 阿加特（agate）。
-    Agate      = 14,
-    // TODO: 待补
+    Agate = 10,
+    /// 码。
+    Yard = 11,
+    /// 点（pica）。
+    Pica = 12,
+    /// 西塞罗（cicero）。
+    Cicero = 13,
+    /// 磅（point）。
+    Point = 14,
+    UnitQ = 15,
+    UnitH = 16,
 }
 
 impl cdrUnit {
     pub fn from_i32(v: i32) -> Option<Self> {
         match v {
-            0  => Some(Self::Inch),
-            1  => Some(Self::Millimeter),
-            2  => Some(Self::Pica),
-            3  => Some(Self::Point),
-            4  => Some(Self::Centimeter),
-            5  => Some(Self::Pixel),
-            6  => Some(Self::Cicero),
-            7  => Some(Self::Didot),
-            8  => Some(Self::Foot),
-            9  => Some(Self::Yard),
-            10 => Some(Self::Meter),
-            11 => Some(Self::Kilometer),
-            12 => Some(Self::Mile),
-            13 => Some(Self::Pica2),
-            14 => Some(Self::Agate),
-            _  => None,
+            0 => Some(Self::TenthMicron),
+            1 => Some(Self::Inch),
+            2 => Some(Self::Foot),
+            3 => Some(Self::Millimeter),
+            4 => Some(Self::Centimeter),
+            5 => Some(Self::Pixel),
+            6 => Some(Self::Mile),
+            7 => Some(Self::Meter),
+            8 => Some(Self::Kilometer),
+            9 => Some(Self::Didots),
+            10 => Some(Self::Agate),
+            11 => Some(Self::Yard),
+            12 => Some(Self::Pica),
+            13 => Some(Self::Cicero),
+            14 => Some(Self::Point),
+            15 => Some(Self::UnitQ),
+            16 => Some(Self::UnitH),
+            _ => None,
         }
     }
 }
@@ -109,20 +109,20 @@ impl cdrUnit {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrGuideType {
-    AllGuides       = -1,
+    AllGuides = -1,
     HorizontalGuide = 0,
-    VerticalGuide   = 1,
-    SlantedGuide    = 2,
+    VerticalGuide = 1,
+    SlantedGuide = 2,
 }
 
 impl cdrGuideType {
     pub fn from_i32(v: i32) -> Option<Self> {
         match v {
             -1 => Some(Self::AllGuides),
-            0  => Some(Self::HorizontalGuide),
-            1  => Some(Self::VerticalGuide),
-            2  => Some(Self::SlantedGuide),
-            _  => None,
+            0 => Some(Self::HorizontalGuide),
+            1 => Some(Self::VerticalGuide),
+            2 => Some(Self::SlantedGuide),
+            _ => None,
         }
     }
 }
@@ -135,9 +135,8 @@ impl cdrGuideType {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrGridType {
-    Rectangular = 0,
-    Polar       = 1,
-    // TODO: 待补
+    GridDot = 0,
+    GridLine = 1,
 }
 
 // =============================================================
@@ -149,7 +148,7 @@ pub enum cdrGridType {
 #[allow(nonstandard_style)]
 pub enum cdrSpreadType {
     // TODO: 待补
-    Left  = 0,
+    Left = 0,
     Right = 1,
-    Full  = 2,
+    Full = 2,
 }

@@ -138,7 +138,7 @@ impl IvgLocalizableString {
         self.put_string("DefaultLangString", v)
     }
 
-    // ---- 鏌ヨ / 璁剧疆鐗瑰畾璇█ ----
+    // ---- 查询 / 设置特定语言 ----
 
     pub fn get_lang_string(&self, language: impl Into<String>) -> Option<String> {
         let args = vec![Variant::from_str(language.into())];
@@ -171,7 +171,7 @@ impl IvgLocalizableString {
         self.disp.invoke_method("GetLanguages", vec![]).ok()
     }
 
-    // ---- 鎿嶄綔 ----
+    // ---- 操作 ----
 
     pub fn clear(&self) -> bool {
         self.disp.invoke_method("Clear", vec![]).is_ok()

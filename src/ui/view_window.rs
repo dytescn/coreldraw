@@ -86,7 +86,7 @@ impl ICuiViewWindow {
         self.disp.get_property(name).ok()?.to_idispatch().ok()
     }
 
-    // ---- 鏍囪瘑 ----
+    // ---- 标识 ----
 
     pub fn id(&self) -> Option<String> { self.prop_string("ID") }
     pub fn kind(&self) -> Option<String> { self.prop_string("Kind") }
@@ -107,7 +107,7 @@ impl ICuiViewWindow {
         self.prop_dispatch("AppView")
     }
 
-    // ---- 鎿嶄綔 ----
+    // ---- 操作 ----
 
     pub fn activate(&self) -> bool {
         self.disp.invoke_method("Activate", vec![]).is_ok()

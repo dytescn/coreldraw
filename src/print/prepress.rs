@@ -39,7 +39,7 @@ impl IvgPrnPrepress {
         self.disp.set_property(name, vec![arg]).is_ok()
     }
 
-    // ---- 缈昏浆 / 闀滃儚 ----
+    // ---- 翻转 / 镜像 ----
 
     pub fn invert(&self) -> Option<bool> { self.prop_bool("Invert") }
     pub fn set_invert(&self, v: bool) -> bool { self.put_bool("Invert", v) }
@@ -47,7 +47,7 @@ impl IvgPrnPrepress {
     pub fn mirror(&self) -> Option<bool> { self.prop_bool("Mirror") }
     pub fn set_mirror(&self, v: bool) -> bool { self.put_bool("Mirror", v) }
 
-    // ---- 浣滀笟淇℃伅 ----
+    // ---- 作业信息 ----
 
     pub fn file_info(&self) -> Option<bool> { self.prop_bool("FileInfo") }
     pub fn set_file_info(&self, v: bool) -> bool { self.put_bool("FileInfo", v) }
@@ -65,7 +65,7 @@ impl IvgPrnPrepress {
         self.put_bool("InfoWithinPage", v)
     }
 
-    // ---- 瑁佸垏鏍囪 ----
+    // ---- 裁切标记 ----
 
     pub fn crop_marks(&self) -> Option<bool> { self.prop_bool("CropMarks") }
     pub fn set_crop_marks(&self, v: bool) -> bool { self.put_bool("CropMarks", v) }
@@ -75,7 +75,7 @@ impl IvgPrnPrepress {
         self.put_bool("ExteriorCropMarks", v)
     }
 
-    // ---- 濂楀噯鏍囪 ----
+    // ---- 套准标记 ----
 
     pub fn registration_marks(&self) -> Option<bool> { self.prop_bool("RegistrationMarks") }
     pub fn set_registration_marks(&self, v: bool) -> bool {

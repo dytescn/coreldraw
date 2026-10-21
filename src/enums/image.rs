@@ -14,17 +14,17 @@ pub enum cdrImageType {
     /// 黑白（1 位）。
     BlackAndWhite = 0,
     /// 16 色。
-    Colors16      = 1,
+    Colors16 = 1,
     /// 灰度。
-    Grayscale     = 2,
+    Grayscale = 2,
     /// 调色板。
-    Paletted      = 3,
+    Paletted = 3,
     /// RGB 彩色。
-    RGBColor      = 4,
+    RGBColor = 4,
     /// CMYK 彩色。
-    CMYKColor     = 5,
+    CMYKColor = 5,
     /// 双色调。
-    Duotone       = 6,
+    Duotone = 6,
 }
 
 impl cdrImageType {
@@ -50,9 +50,9 @@ impl cdrImageType {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrAntiAliasingType {
-    NoAntiAliasing     = 0,
+    NoAntiAliasing = 0,
     NormalAntiAliasing = 1,
-    Supersampling      = 2,
+    Supersampling = 2,
 }
 
 impl cdrAntiAliasingType {
@@ -74,9 +74,13 @@ impl cdrAntiAliasingType {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrRenderType {
-    Threshold  = 0,
-    Halftone   = 1,
-    // TODO: 待补
+    RenderLineArt = 0,
+    RenderOrdered = 1,
+    RenderJarvis = 2,
+    RenderStucki = 3,
+    RenderFloyd = 4,
+    RenderHalftone = 5,
+    RenderCardinality = 6,
 }
 
 // =============================================================
@@ -87,9 +91,12 @@ pub enum cdrRenderType {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrHalftoneType {
-    // TODO: 待补
-    Square = 0,
-    // ...
+    HalftoneSquare = 0,
+    HalftoneRound = 1,
+    HalftoneLine = 2,
+    HalftoneCross = 3,
+    HalftoneFixed4x4 = 4,
+    HalftoneFixed8x8 = 5,
 }
 
 // =============================================================
@@ -100,10 +107,11 @@ pub enum cdrHalftoneType {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrDitherType {
-    None       = 0,
-    Ordered    = 1,
-    Diffusion  = 2,
-    // TODO: 待补
+    DitherNone = 0,
+    DitherOrdered = 1,
+    DitherJarvis = 2,
+    DitherStucki = 3,
+    DitherFloyd = 4,
 }
 
 // =============================================================
@@ -114,9 +122,16 @@ pub enum cdrDitherType {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrImagePaletteType {
-    // TODO: 待补
-    Optimized = 0,
-    // ...
+    PaletteUniform = 0,
+    PaletteStdVGA = 1,
+    PaletteAdaptive = 2,
+    PaletteOptimized = 3,
+    PaletteBlackBody = 4,
+    PaletteGrayscale = 5,
+    PaletteSystem = 6,
+    PaletteIE = 7,
+    PaletteNetscape = 8,
+    PaletteCustom = 9,
 }
 
 // =============================================================
@@ -127,8 +142,14 @@ pub enum cdrImagePaletteType {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrTraceType {
-    LineArt    = 0,
-    // TODO: 待补
+    TraceLineArt = 1,
+    TraceLogo = 2,
+    TraceDetailedLogo = 3,
+    TraceClipart = 4,
+    TraceLowQualityImage = 5,
+    TraceHighQualityImage = 6,
+    TraceTechnical = 7,
+    TraceLineDrawing = 8,
 }
 
 // =============================================================
@@ -139,7 +160,6 @@ pub enum cdrTraceType {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrTraceBackgroundMode {
-    // TODO: 待补
-    Auto = 0,
-    // ...
+    TraceBackgroundAutomatic = 1,
+    TraceBackgroundManual = 2,
 }

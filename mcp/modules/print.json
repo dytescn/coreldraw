@@ -1,0 +1,2299 @@
+{
+  "module": "print",
+  "files": [
+    "src/print/document.rs",
+    "src/print/job.rs",
+    "src/print/layout.rs",
+    "src/print/mod.rs",
+    "src/print/options.rs",
+    "src/print/pdf_settings.rs",
+    "src/print/postscript.rs",
+    "src/print/prepress.rs",
+    "src/print/printer.rs",
+    "src/print/separations.rs",
+    "src/print/settings.rs",
+    "src/print/trapping.rs"
+  ],
+  "types": [
+    {
+      "name": "IvgPrnDocuments",
+      "file": "src/print/document.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<IvgPrnDocument>"
+        }
+      ]
+    },
+    {
+      "name": "IvgPrnDocument",
+      "file": "src/print/document.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "internal_ptr",
+          "params": "&self",
+          "returns": "Option<i64>"
+        }
+      ]
+    },
+    {
+      "name": "IvgPrnPages",
+      "file": "src/print/document.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<IvgPrnPage>"
+        }
+      ]
+    },
+    {
+      "name": "IvgPrnPage",
+      "file": "src/print/document.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "internal_document_ptr",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "internal_page_index",
+          "params": "&self",
+          "returns": "Option<i64>"
+        }
+      ]
+    },
+    {
+      "name": "IvgPrnJob",
+      "file": "src/print/job.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "settings",
+          "params": "&self",
+          "returns": "Option<IvgPrnSettings>"
+        },
+        {
+          "name": "documents",
+          "params": "&self",
+          "returns": "Option<IvgPrnDocuments>"
+        },
+        {
+          "name": "pages",
+          "params": "&self",
+          "returns": "Option<IvgPrnPages>"
+        },
+        {
+          "name": "clear",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "print_out",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "add_document",
+          "params": "&self, doc: &IvgPrnDocument, page_range: impl Into<String>,",
+          "returns": "bool"
+        },
+        {
+          "name": "add_page",
+          "params": "&self, page: &IvgPrnPage",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgPrnLayout",
+      "file": "src/print/layout.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "use_bleed_limit",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_use_bleed_limit",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "bleed_limit",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_bleed_limit",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "print_tiled_pages",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_print_tiled_pages",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "print_tiling_marks",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_print_tiling_marks",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "tile_overlap",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_tile_overlap",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "placement",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_placement",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgPrnOptions",
+      "file": "src/print/options.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "use_color_profile",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_use_color_profile",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "print_vectors",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_print_vectors",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "print_bitmaps",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_print_bitmaps",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "print_text",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_print_text",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "text_in_black",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_text_in_black",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "color_mode",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_color_mode",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "bitmap_color_mode",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_bitmap_color_mode",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "objects_color_mode",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_objects_color_mode",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "marks_to_page",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_marks_to_page",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "fountain_steps",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_fountain_steps",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "rasterize_page",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_rasterize_page",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "rasterize_resolution",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_rasterize_resolution",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "downsample_color",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_downsample_color",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "downsample_gray",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_downsample_gray",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "downsample_mono",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_downsample_mono",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "color_resolution",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_color_resolution",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "gray_resolution",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_gray_resolution",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "mono_resolution",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_mono_resolution",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "job_information",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_job_information",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "app_info",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_app_info",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "driver_info",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_driver_info",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "print_job_info",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_print_job_info",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "seps_info",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_seps_info",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "font_info",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_font_info",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "link_info",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_link_info",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "in_rip_trap_info",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_in_rip_trap_info",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "preserve_pure_black",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_preserve_pure_black",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgPdfVbaSettings",
+      "file": "src/print/pdf_settings.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "reset",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "load",
+          "params": "&self, setting_name: impl Into<String>",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "save",
+          "params": "&self, setting_name: impl Into<String>",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "show_dialog",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "publish_to_pdf",
+          "params": "&self, file_name: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "publish_range",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_publish_range",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "page_range",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_page_range",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "author",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_author",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "subject",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_subject",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "keywords",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_keywords",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "bitmap_compression",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_bitmap_compression",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "jpeg_quality_factor",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_jpeg_quality_factor",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "jp2_quality_factor",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_jp2_quality_factor",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "text_as_curves",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_text_as_curves",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "embed_fonts",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_embed_fonts",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "embed_base_fonts",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_embed_base_fonts",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "truetype_to_type1",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_truetype_to_type1",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "subset_fonts",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_subset_fonts",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "subset_pct",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_subset_pct",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "compress_text",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_compress_text",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "encoding",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_encoding",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "protected_text_as_curves",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_protected_text_as_curves",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "text_export_mode",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_text_export_mode",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "downsample_color",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_downsample_color",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "downsample_gray",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_downsample_gray",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "downsample_mono",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_downsample_mono",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "color_resolution",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_color_resolution",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "mono_resolution",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_mono_resolution",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "gray_resolution",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_gray_resolution",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "hyperlinks",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_hyperlinks",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "bookmarks",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_bookmarks",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "thumbnails",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_thumbnails",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "startup",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_startup",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "complex_fills_as_bitmaps",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_complex_fills_as_bitmaps",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "overprints",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_overprints",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "halftones",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_halftones",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "spot_colors",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_spot_colors",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "maintain_opi_links",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_maintain_opi_links",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "fountain_steps",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_fountain_steps",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "eps_as",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_eps_as",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "pdf_version",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_pdf_version",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "include_bleed",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_include_bleed",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "bleed",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_bleed",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "linearize",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_linearize",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "crop_marks",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_crop_marks",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "registration_marks",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_registration_marks",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "densitometer_scales",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_densitometer_scales",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "file_information",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_file_information",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "color_mode",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_color_mode",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "use_color_profile",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_use_color_profile",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "color_profile",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_color_profile",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "convert_spot_colors",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_convert_spot_colors",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "output_spot_colors_as",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_output_spot_colors_as",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "overprint_black_limit",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_overprint_black_limit",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "embed_filename",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_embed_filename",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "embed_file",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_embed_file",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "print_permissions",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_print_permissions",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "edit_permissions",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_edit_permissions",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "content_copying_allowed",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_content_copying_allowed",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "open_password",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_open_password",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "permission_password",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_permission_password",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "encrypt_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_encrypt_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgPrnPostScript",
+      "file": "src/print/postscript.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "level",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_level",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "conform_to_dsc",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_conform_to_dsc",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "jpeg_compression",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_jpeg_compression",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "jpeg_quality",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_jpeg_quality",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "maintain_opi_links",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_maintain_opi_links",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "resolve_dcs_links",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_resolve_dcs_links",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "download_type1",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_download_type1",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "truetype_to_type1",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_truetype_to_type1",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "pdf_startup",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_pdf_startup",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "pdf_hyperlinks",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_pdf_hyperlinks",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "pdf_bookmarks",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_pdf_bookmarks",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "max_points_per_curve",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_max_points_per_curve",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "flatness",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_flatness",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "auto_increase_flatness",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_auto_increase_flatness",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "auto_increase_fountain_steps",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_auto_increase_fountain_steps",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "optimize_fountain_fills",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_optimize_fountain_fills",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "screen_frequency",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_screen_frequency",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgPrnPrepress",
+      "file": "src/print/prepress.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "invert",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_invert",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "mirror",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_mirror",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "file_info",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_file_info",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "job_name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_job_name",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "page_numbers",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_page_numbers",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "info_within_page",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_info_within_page",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "crop_marks",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_crop_marks",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "exterior_crop_marks",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_exterior_crop_marks",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "registration_marks",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_registration_marks",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "registration_style",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_registration_style",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "color_calibration_bar",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_color_calibration_bar",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "densitometer_scale",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_densitometer_scale",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "densities",
+          "params": "&self, index: i32",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_densities",
+          "params": "&self, index: i32, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "marks_to_objects",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_marks_to_objects",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgPrnPrinters",
+      "file": "src/print/printer.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<IvgPrnPrinter>"
+        },
+        {
+          "name": "default",
+          "params": "&self",
+          "returns": "Option<IvgPrnPrinter>"
+        },
+        {
+          "name": "all",
+          "params": "&self",
+          "returns": "Vec<IvgPrnPrinter>"
+        }
+      ]
+    },
+    {
+      "name": "IvgPrnPrinter",
+      "file": "src/print/printer.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "printer_type",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "is_default",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "ready",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "port",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "description",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "postscript_enabled",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "color_enabled",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "page_size_matching_supported",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_page_size_matching_supported",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "show_dialog",
+          "params": "&self",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgPrnSeparations",
+      "file": "src/print/separations.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "enabled",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_enabled",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "in_color",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_in_color",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "hexachrome",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_hexachrome",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "spot_to_cmyk",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_spot_to_cmyk",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "empty_plates",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_empty_plates",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "preserve_overprints",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_preserve_overprints",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "always_overprint_black",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_always_overprint_black",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "auto_spreading",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_auto_spreading",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "auto_spread_amount",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_auto_spread_amount",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "auto_spread_fixed",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_auto_spread_fixed",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "auto_spread_text_above",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_auto_spread_text_above",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "advanced_settings",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_advanced_settings",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "plates",
+          "params": "&self",
+          "returns": "Option<IvgPrnSeparationPlates>"
+        },
+        {
+          "name": "resolution",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_resolution",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "basic_screen",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_basic_screen",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "halftone_type",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_halftone_type",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "screen_technology",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_screen_technology",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgPrnSeparationPlates",
+      "file": "src/print/separations.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<IvgPrnSeparationPlate>"
+        }
+      ]
+    },
+    {
+      "name": "IvgPrnSeparationPlate",
+      "file": "src/print/separations.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "enabled",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_enabled",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "plate_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "color",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "frequency",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_frequency",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "angle",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_angle",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "overprint_text",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_overprint_text",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "overprint_graphic",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_overprint_graphic",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgPrnSettings",
+      "file": "src/print/settings.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "printer",
+          "params": "&self",
+          "returns": "Option<IvgPrnPrinter>"
+        },
+        {
+          "name": "select_printer",
+          "params": "&self, name: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "use_ppd",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_use_ppd",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "ppd_file",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_ppd_file",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "print_to_file",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_print_to_file",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "file_name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_file_name",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "for_mac",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_for_mac",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "file_mode",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_file_mode",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "print_range",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_print_range",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "page_set",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_page_set",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "page_range",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_page_range",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "copies",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_copies",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "collate",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_collate",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "paper_orientation",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_paper_orientation",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "paper_size",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_paper_size",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "set_paper_size_ex",
+          "params": "&self, size: i32, orientation: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "paper_width",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "paper_height",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_custom_paper_size",
+          "params": "&self, width: f64, height: f64, orientation: i32,",
+          "returns": "bool"
+        },
+        {
+          "name": "page_matching_mode",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_page_matching_mode",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "separations",
+          "params": "&self",
+          "returns": "Option<IvgPrnSeparations>"
+        },
+        {
+          "name": "prepress",
+          "params": "&self",
+          "returns": "Option<IvgPrnPrepress>"
+        },
+        {
+          "name": "postscript",
+          "params": "&self",
+          "returns": "Option<IvgPrnPostScript>"
+        },
+        {
+          "name": "trapping",
+          "params": "&self",
+          "returns": "Option<IvgPrnTrapping>"
+        },
+        {
+          "name": "options",
+          "params": "&self",
+          "returns": "Option<IvgPrnOptions>"
+        },
+        {
+          "name": "layout",
+          "params": "&self",
+          "returns": "Option<IvgPrnLayout>"
+        },
+        {
+          "name": "reset",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "load",
+          "params": "&self, file_name: impl Into<String>",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "save",
+          "params": "&self, file_name: impl Into<String>",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "show_dialog",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "print_out",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "print_color_proof",
+          "params": "&self, proof_settings: Variant",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgPrnTrapping",
+      "file": "src/print/trapping.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "enabled",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_enabled",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "layers",
+          "params": "&self",
+          "returns": "Option<IvgPrnTrapLayers>"
+        },
+        {
+          "name": "width",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_width",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "black_width",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_black_width",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "color_scaling",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_color_scaling",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "step_limit",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_step_limit",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "black_color_limit",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_black_color_limit",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "black_density_limit",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_black_density_limit",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "sliding_trap_limit",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_sliding_trap_limit",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "image_trap",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_image_trap",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "objects_to_image",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_objects_to_image",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "internal_image_trapping",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_internal_image_trapping",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "trap_mono_bitmaps",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_trap_mono_bitmaps",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgPrnTrapLayers",
+      "file": "src/print/trapping.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<IvgPrnTrapLayer>"
+        }
+      ]
+    },
+    {
+      "name": "IvgPrnTrapLayer",
+      "file": "src/print/trapping.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "trap_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "color",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "density",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_density",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "trap_kind",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_trap_kind",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "order",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_order",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        }
+      ]
+    }
+  ],
+  "tests": {
+    "files": [
+      "tests/print.rs"
+    ],
+    "cases": 2
+  },
+  "coverage": {
+    "method_name_count": 361,
+    "covered_method_name_count": 49,
+    "coverage_pct": 13.6
+  }
+}

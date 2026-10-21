@@ -1,0 +1,502 @@
+{
+  "module": "layer",
+  "files": [
+    "src/layer/layer.rs",
+    "src/layer/layers.rs",
+    "src/layer/mod.rs"
+  ],
+  "types": [
+    {
+      "name": "IvgLayer",
+      "file": "src/layer/layer.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_name",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "index",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "absolute_index",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "page",
+          "params": "&self",
+          "returns": "Option<IvgPage>"
+        },
+        {
+          "name": "tree_node",
+          "params": "&self",
+          "returns": "Option<IvgTreeNode>"
+        },
+        {
+          "name": "visible",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_visible",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "printable",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_printable",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "editable",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_editable",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "master",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_master",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "override_color",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_override_color",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "color",
+          "params": "&self",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "set_color",
+          "params": "&self, c: &IvgColor",
+          "returns": "bool"
+        },
+        {
+          "name": "is_guides_layer",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_desktop_layer",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_grid_layer",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_special_layer",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "master_layer",
+          "params": "&self",
+          "returns": "Option<IvgLayer>"
+        },
+        {
+          "name": "above",
+          "params": "&self, ignore_masters: bool",
+          "returns": "Option<IvgLayer>"
+        },
+        {
+          "name": "below",
+          "params": "&self, ignore_masters: bool",
+          "returns": "Option<IvgLayer>"
+        },
+        {
+          "name": "properties",
+          "params": "&self",
+          "returns": "Option<crate::misc::IvgProperties>"
+        },
+        {
+          "name": "master_properties",
+          "params": "&self",
+          "returns": "Option<crate::misc::IvgProperties>"
+        },
+        {
+          "name": "shapes",
+          "params": "&self",
+          "returns": "Option<IvgShapes>"
+        },
+        {
+          "name": "selectable_shapes",
+          "params": "&self",
+          "returns": "Option<IvgShapes>"
+        },
+        {
+          "name": "activate",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "delete",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "move_above",
+          "params": "&self, other: &IvgLayer",
+          "returns": "bool"
+        },
+        {
+          "name": "move_below",
+          "params": "&self, other: &IvgLayer",
+          "returns": "bool"
+        },
+        {
+          "name": "import",
+          "params": "&self, file_name: impl Into<String>, filter: i32, options: &IvgStructImportOptions,",
+          "returns": "bool"
+        },
+        {
+          "name": "import_ex",
+          "params": "&self, file_name: impl Into<String>, filter: i32, options: &IvgStructImportOptions,",
+          "returns": "Option<ICorelImportFilter>"
+        },
+        {
+          "name": "paste",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "paste_ex",
+          "params": "&self, options: &IvgStructPasteOptions",
+          "returns": "Option<IvgShapeRange>"
+        },
+        {
+          "name": "paste_special",
+          "params": "&self, format_name: impl Into<String>, paste_link: bool, display_as_icon: bool, caption: impl Into<String>, icon: Variant,",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "find_shape",
+          "params": "&self, name: impl Into<String>, shape_type: i32, static_id: i32, recursive: bool,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "find_shapes",
+          "params": "&self, name: impl Into<String>, shape_type: i32, recursive: bool,",
+          "returns": "Option<IvgShapeRange>"
+        },
+        {
+          "name": "create_rectangle",
+          "params": "&self, left: f64, top: f64, right: f64, bottom: f64, corner_ul: i32, corner_ur: i32, corner_lr: i32, corner_ll: i32,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "create_rectangle2",
+          "params": "&self, x: f64, y: f64, w: f64, h: f64, radius_ul: f64, radius_ur: f64, radius_lr: f64, radius_ll: f64,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "create_rectangle_rect",
+          "params": "&self, rect: &IvgRect, radius_ul: f64, radius_ur: f64, radius_lr: f64, radius_ll: f64,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "create_ellipse",
+          "params": "&self, left: f64, top: f64, right: f64, bottom: f64, start_angle: f64, end_angle: f64, pie: bool,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "create_ellipse2",
+          "params": "&self, cx: f64, cy: f64, r1: f64, r2: f64, start_angle: f64, end_angle: f64, pie: bool,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "create_ellipse_rect",
+          "params": "&self, rect: &IvgRect, start_angle: f64, end_angle: f64, pie: bool,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "create_polygon",
+          "params": "&self, left: f64, top: f64, right: f64, bottom: f64, sides: i32, sub_paths: i32, complexity: i32, star: bool, star_complexity: i32, max_complexity: i32,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "create_polygon2",
+          "params": "&self, cx: f64, cy: f64, radius: f64, sides: i32, angle: f64, inner_radius: f64, star: bool, sharpness: i32,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "create_grid_boxes",
+          "params": "&self, left: f64, top: f64, right: f64, bottom: f64, wide: i32, high: i32,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "create_spiral",
+          "params": "&self, left: f64, top: f64, right: f64, bottom: f64, revolutions: i32, spiral_type: i32, growth_rate: i32,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "create_line_segment",
+          "params": "&self, start_x: f64, start_y: f64, end_x: f64, end_y: f64,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "create_curve_segment",
+          "params": "&self, start_x: f64, start_y: f64, end_x: f64, end_y: f64, start_ctrl_len: f64, start_ctrl_angle: f64, end_ctrl_len: f64, end_ctrl_angle: f64,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "create_curve_segment2",
+          "params": "&self, x1: f64, y1: f64, start_ctrl_x: f64, start_ctrl_y: f64, end_ctrl_x: f64, end_ctrl_y: f64, x2: f64, y2: f64,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "create_curve",
+          "params": "&self, source: &IvgCurve",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "create_bspline",
+          "params": "&self, source: &crate::curve::IvgBSpline",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "create_connector",
+          "params": "&self, start: &IvgSnapPoint, end: &IvgSnapPoint,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "create_connector_ex",
+          "params": "&self, conn_type: i32, start: &IvgSnapPoint, end: &IvgSnapPoint,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "create_right_angle_connector",
+          "params": "&self, start: &IvgSnapPoint, end: &IvgSnapPoint, corner_radius: f64,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "create_free_connector",
+          "params": "&self, x1: f64, y1: f64, x2: f64, y2: f64,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "create_artistic_text",
+          "params": "&self, left: f64, bottom: f64, text: impl Into<String>, language_id: i32, char_set: i32, font: impl Into<String>, size: f32, bold: i32, italic: i32, underline: i32, alignment: i32,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "create_artistic_text_wide",
+          "params": "&self, left: f64, bottom: f64, text: impl Into<String>, language_id: i32, char_set: i32, font: impl Into<String>, size: f32, bold: i32, italic: i32, underline: i32, alignment: i32,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "create_paragraph_text",
+          "params": "&self, left: f64, top: f64, right: f64, bottom: f64, text: impl Into<String>, language_id: i32, char_set: i32, font: impl Into<String>, size: f32, bold: i32, italic: i32, underline: i32, alignment: i32,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "create_paragraph_text_wide",
+          "params": "&self, left: f64, top: f64, right: f64, bottom: f64, text: impl Into<String>, language_id: i32, char_set: i32, font: impl Into<String>, size: f32, bold: i32, italic: i32, underline: i32, alignment: i32,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "create_guide_angle",
+          "params": "&self, x: f64, y: f64, angle: f64,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "create_guide",
+          "params": "&self, x1: f64, y1: f64, x2: f64, y2: f64,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "create_custom_shape",
+          "params": "&self, type_id: impl Into<String>, parameters: Variant,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "create_tool_shape",
+          "params": "&self, tool_shape_guid: impl Into<String>, shape_properties: &crate::misc::IvgProperties,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "create_bitmap",
+          "params": "&self, left: f64, top: f64, right: f64, bottom: f64, image: &crate::shape::IvgImage, image_alpha: &crate::shape::IvgImage,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "create_bitmap2",
+          "params": "&self, x: f64, y: f64, w: f64, h: f64, image: &crate::shape::IvgImage, image_alpha: &crate::shape::IvgImage,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "create_bitmap_rect",
+          "params": "&self, rect: &IvgRect, image: &crate::shape::IvgImage, image_alpha: &crate::shape::IvgImage,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "create_linear_dimension",
+          "params": "&self, dim_type: i32, point1: &IvgSnapPoint, point2: &IvgSnapPoint, text_centered: bool, text_x: f64, text_y: f64, style: i32, precision: i32, show_units: bool, units: i32, placement: i32, horizontal_text: bool, boxed_text: bool, leading_zero: bool, prefix: impl Into<String>, suffix: impl Into<String>, outline_width: f64, arrows: &crate::outline::IvgArrowHead, outline_color: &IvgColor, text_font: impl Into<String>, text_size: f64, text_color: &IvgColor,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "create_angular_dimension",
+          "params": "&self, center: &IvgSnapPoint, point1: &IvgSnapPoint, point2: &IvgSnapPoint, text_x: f64, text_y: f64, precision: i32, show_units: bool, units: i32, boxed_text: bool, leading_zero: bool, prefix: impl Into<String>, suffix: impl Into<String>, outline_width: f64, arrows: &crate::outline::IvgArrowHead, outline_color: &IvgColor, text_font: impl Into<String>, text_size: f64, text_color: &IvgColor,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "create_symbol",
+          "params": "&self, x: f64, y: f64, symbol_name: impl Into<String>, library: &crate::symbol::IvgSymbolLibrary,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "create_ole_object",
+          "params": "&self, object_id: impl Into<String>, display_as_icon: bool, caption: impl Into<String>, icon: Variant,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "create_ole_object_from_file",
+          "params": "&self, file_name: impl Into<String>, link: bool, display_as_icon: bool, caption: impl Into<String>, icon: Variant,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "custom_command",
+          "params": "&self, component_id: impl Into<String>, command_id: impl Into<String>, parameters: Variant,",
+          "returns": "Option<Variant>"
+        }
+      ]
+    },
+    {
+      "name": "IvgLayers",
+      "file": "src/layer/layers.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "application",
+          "params": "&self",
+          "returns": "Option<crate::app::IvgApplication>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index_or_name: Variant",
+          "returns": "Option<IvgLayer>"
+        },
+        {
+          "name": "item_by_index",
+          "params": "&self, i: i32",
+          "returns": "Option<IvgLayer>"
+        },
+        {
+          "name": "item_by_name",
+          "params": "&self, name: impl Into<String>",
+          "returns": "Option<IvgLayer>"
+        },
+        {
+          "name": "find",
+          "params": "&self, layer_name: impl Into<String>",
+          "returns": "Option<IvgLayer>"
+        },
+        {
+          "name": "top",
+          "params": "&self",
+          "returns": "Option<IvgLayer>"
+        },
+        {
+          "name": "bottom",
+          "params": "&self",
+          "returns": "Option<IvgLayer>"
+        },
+        {
+          "name": "all",
+          "params": "&self",
+          "returns": "Vec<IvgLayer>"
+        }
+      ]
+    }
+  ],
+  "tests": {
+    "files": [
+      "tests/e2e.rs",
+      "tests/effect.rs",
+      "tests/page_layer.rs",
+      "tests/shape.rs",
+      "tests/smoke.rs"
+    ],
+    "cases": 15
+  },
+  "coverage": {
+    "method_name_count": 89,
+    "covered_method_name_count": 33,
+    "coverage_pct": 37.1
+  }
+}

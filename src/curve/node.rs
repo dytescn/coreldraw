@@ -35,7 +35,7 @@ impl IvgNodes {
         self.disp.get_property("Last").ok()?.to_idispatch().ok().map(IvgNode::new)
     }
 
-    /// 鎸夌储寮曟暟缁勫彇鑺傜偣鑼冨洿
+    /// 按索引数组取节点范围
     pub fn range(&self, indices: Variant) -> Option<IvgNodeRange> {
         let args = vec![indices];
         self.disp.invoke_method("Range", args).ok()?.to_idispatch().ok().map(IvgNodeRange::new)
@@ -92,7 +92,7 @@ impl IvgNode {
         self.disp.set_property(name, vec![arg]).is_ok()
     }
 
-    // ---- 浣嶇疆 ----
+    // ---- 位置 ----
 
     pub fn position_x(&self) -> Option<f64> { self.prop_f64("PositionX") }
     pub fn set_position_x(&self, v: f64) -> bool { self.put_f64("PositionX", v) }
@@ -116,7 +116,7 @@ impl IvgNode {
         self.disp.invoke_method("Move", args).is_ok()
     }
 
-    // ---- 绫诲瀷 / 绱㈠紩 ----
+    // ---- 类型 / 索引 ----
 
     /// `cdrNodeType` 瑙?`enums::curve`
     pub fn node_type(&self) -> Option<i64> { self.prop_i64("Type") }
@@ -130,7 +130,7 @@ impl IvgNode {
     pub fn is_selected(&self) -> Option<bool> { self.prop_bool("Selected") }
     pub fn set_selected(&self, v: bool) -> bool { self.put_bool("Selected", v) }
 
-    // ---- 鍏崇郴 ----
+    // ---- 关系 ----
 
     pub fn sub_path(&self) -> Option<IvgSubPath> {
         self.prop_dispatch("SubPath").map(IvgSubPath::new)
@@ -156,7 +156,7 @@ impl IvgNode {
         self.disp.invoke_method("Previous", vec![]).ok()?.to_idispatch().ok().map(IvgNode::new)
     }
 
-    // ---- 鎿嶄綔 ----
+    // ---- 操作 ----
 
     pub fn join_with(&self, target: &IvgNode) -> bool {
         let args = vec![target.as_variant()];

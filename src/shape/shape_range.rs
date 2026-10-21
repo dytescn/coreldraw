@@ -52,7 +52,7 @@ impl IvgShapeRange {
     //     self.disp.set_property(name, vec![arg]).is_ok()
     // }
 
-    // ---- 鍩烘湰 ----
+    // ---- 基本 ----
 
     pub fn count(&self) -> Option<i64> { self.prop_i64("Count") }
     pub fn shapes(&self) -> Option<IvgShapes> {
@@ -79,7 +79,7 @@ impl IvgShapeRange {
         self.item(Variant::from_i64(i as i64))
     }
 
-    // ---- 鍑犱綍 ----
+    // ---- 几何 ----
 
     pub fn position_x(&self) -> Option<f64> { self.prop_f64("PositionX") }
     pub fn set_position_x(&self, v: f64) -> bool { self.put_f64("PositionX", v) }
@@ -108,7 +108,7 @@ impl IvgShapeRange {
         self.prop_dispatch("BoundingBox").map(IvgRect::new)
     }
 
-    // ---- 鍙樻崲 ----
+    // ---- 变换 ----
 
     pub fn move_by(&self, dx: f64, dy: f64) -> bool {
         let args = vec![
@@ -170,7 +170,7 @@ impl IvgShapeRange {
         self.disp.invoke_method("Stretch", args).is_ok()
     }
 
-    // ---- 澶嶅埗 / 鍒犻櫎 ----
+    // ---- 复制 / 删除 ----
 
     pub fn duplicate(&self, dx: f64, dy: f64) -> Option<IvgShapeRange> {
         let args = vec![
@@ -210,7 +210,7 @@ impl IvgShapeRange {
         self.disp.invoke_method("Cut", vec![]).is_ok()
     }
 
-    // ---- 缇ょ粍 ----
+    // ---- 群组 ----
 
     pub fn group(&self) -> Option<IvgShape> {
         self.disp
@@ -260,7 +260,7 @@ impl IvgShapeRange {
         self.disp.invoke_method("BreakApart", vec![]).is_ok()
     }
 
-    // ---- Z 椤哄簭 ----
+    // ---- Z 顺序 ----
 
     pub fn order_to_front(&self) -> bool {
         self.disp.invoke_method("OrderToFront", vec![]).is_ok()
@@ -272,7 +272,7 @@ impl IvgShapeRange {
         self.disp.invoke_method("OrderReverse", vec![]).is_ok()
     }
 
-    // ---- 闆嗗悎鎿嶄綔 ----
+    // ---- 集合操作 ----
 
     pub fn add(&self, shape: &IvgShape) -> bool {
         let args = vec![shape.as_variant()];
@@ -304,7 +304,7 @@ impl IvgShapeRange {
         self.disp.invoke_method("Exists", args).ok()?.to_bool().ok()
     }
 
-    // ---- 閫夋嫨 ----
+    // ---- 选择 ----
 
     pub fn create_selection(&self) -> bool {
         self.disp.invoke_method("CreateSelection", vec![]).is_ok()
@@ -316,7 +316,7 @@ impl IvgShapeRange {
         self.disp.invoke_method("RemoveFromSelection", vec![]).is_ok()
     }
 
-    // ---- 濉厖 / 杞粨 ----
+    // ---- 填充 / 轮廓 ----
 
     pub fn apply_no_fill(&self) -> bool {
         self.disp.invoke_method("ApplyNoFill", vec![]).is_ok()
@@ -372,7 +372,7 @@ impl IvgShapeRange {
         self.disp.invoke_method("SetOutlineProperties", args).is_ok()
     }
 
-    // ---- 鍙樻崲 / 杞崲 ----
+    // ---- 变换 / 转换 ----
 
     pub fn convert_to_curves(&self) -> bool {
         self.disp.invoke_method("ConvertToCurves", vec![]).is_ok()
@@ -404,7 +404,7 @@ impl IvgShapeRange {
             .map(IvgShape::new)
     }
 
-    // ---- 鏍峰紡 ----
+    // ---- 样式 ----
 
     pub fn apply_style(&self, style_name: impl Into<String>) -> bool {
         let args = vec![Variant::from_str(style_name.into())];
@@ -428,7 +428,7 @@ impl IvgShapeRange {
             .map(IvgShapeRange::new)
     }
 
-    // ---- 瀵归綈 / 鍒嗗竷 ----
+    // ---- 对齐 / 分布 ----
 
     pub fn align_to_shape(&self, align_type: i32, shape: &IvgShape, text_origin: i32) -> bool {
         let args = vec![
@@ -481,7 +481,7 @@ impl IvgShapeRange {
         self.disp.invoke_method("Distribute", args).is_ok()
     }
 
-    // ---- 鍏跺畠 ----
+    // ---- 其它 ----
 
     pub fn set_bounding_box(
         &self,

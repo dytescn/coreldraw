@@ -38,7 +38,7 @@ impl IvgPrnJob {
         self.prop_dispatch("Pages").map(IvgPrnPages::new)
     }
 
-    // ---- 鎿嶄綔 ----
+    // ---- 操作 ----
 
     pub fn clear(&self) -> bool {
         self.disp.invoke_method("Clear", vec![]).is_ok()

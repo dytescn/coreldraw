@@ -58,7 +58,7 @@ impl IvgRectangle {
     pub fn equal_corners(&self) -> Option<bool> { self.prop_bool("EqualCorners") }
     pub fn max_radius(&self) -> Option<f64> { self.prop_f64("MaxRadius") }
 
-    // ---- 鍦嗚鍗婂緞 ----
+    // ---- 圆角半径 ----
 
     pub fn radius_upper_left(&self) -> Option<f64> { self.prop_f64("RadiusUpperLeft") }
     pub fn set_radius_upper_left(&self, v: f64) -> bool { self.put_f64("RadiusUpperLeft", v) }
@@ -72,7 +72,7 @@ impl IvgRectangle {
     pub fn radius_lower_right(&self) -> Option<f64> { self.prop_f64("RadiusLowerRight") }
     pub fn set_radius_lower_right(&self, v: f64) -> bool { self.put_f64("RadiusLowerRight", v) }
 
-    // ---- 鎿嶄綔 ----
+    // ---- 操作 ----
 
     pub fn set_roundness(&self, roundness: i32) -> bool {
         let args = vec![Variant::from_i64(roundness as i64)];

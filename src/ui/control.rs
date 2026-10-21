@@ -186,7 +186,7 @@ impl ICuiControl {
 
     pub fn id(&self) -> Option<String> { self.prop_string("ID") }
 
-    // ---- 灏哄 ----
+    // ---- 尺寸 ----
 
     pub fn width(&self) -> Option<i64> { self.prop_i64("Width") }
     pub fn set_width(&self, v: i32) -> bool { self.put_i64("Width", v as i64) }
@@ -194,7 +194,7 @@ impl ICuiControl {
     pub fn height(&self) -> Option<i64> { self.prop_i64("Height") }
     pub fn set_height(&self, v: i32) -> bool { self.put_i64("Height", v as i64) }
 
-    // ---- 鍙傛暟 / 鍙 ----
+    // ---- 参数 / 可见 ----
 
     /// 鑷畾涔夊弬鏁帮紙`VARIANT`锛夈€?
     pub fn parameter(&self) -> Option<Variant> {
@@ -207,7 +207,7 @@ impl ICuiControl {
     pub fn visible(&self) -> Option<bool> { self.prop_bool("Visible") }
     pub fn set_visible(&self, v: bool) -> bool { self.put_bool("Visible", v) }
 
-    // ---- 鍥炬爣 ----
+    // ---- 图标 ----
 
     pub fn set_icon(&self, row_index: i32, column_index: i32) -> bool {
         let args = vec![

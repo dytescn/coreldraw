@@ -1,0 +1,1401 @@
+{
+  "module": "curve",
+  "files": [
+    "src/curve/bspline.rs",
+    "src/curve/cross_point.rs",
+    "src/curve/curve.rs",
+    "src/curve/mod.rs",
+    "src/curve/node.rs",
+    "src/curve/node_range.rs",
+    "src/curve/segment.rs",
+    "src/curve/segment_range.rs",
+    "src/curve/sub_path.rs"
+  ],
+  "types": [
+    {
+      "name": "IvgBSplineControlPoints",
+      "file": "src/curve/bspline.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<IvgBSplineControlPoint>"
+        },
+        {
+          "name": "first",
+          "params": "&self",
+          "returns": "Option<IvgBSplineControlPoint>"
+        },
+        {
+          "name": "last",
+          "params": "&self",
+          "returns": "Option<IvgBSplineControlPoint>"
+        },
+        {
+          "name": "resize",
+          "params": "&self, n: i32",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgBSplineControlPoint",
+      "file": "src/curve/bspline.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "clamped",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_clamped",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "index",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "move_by",
+          "params": "&self, x: f64, y: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "delete",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "get_position",
+          "params": "&self",
+          "returns": "Option<(f64, f64)>"
+        },
+        {
+          "name": "set_position",
+          "params": "&self, x: f64, y: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "set_properties",
+          "params": "&self, x: f64, y: f64, clamped: bool",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgBSpline",
+      "file": "src/curve/bspline.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "control_points",
+          "params": "&self",
+          "returns": "Option<IvgBSplineControlPoints>"
+        },
+        {
+          "name": "is_closed",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_closed",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "insert_control_point",
+          "params": "&self, index: i32, x: f64, y: f64, clamped: bool,",
+          "returns": "bool"
+        },
+        {
+          "name": "insert_control_points",
+          "params": "&self, index: i32, how_many: i32, x: f64, y: f64, clamped: bool,",
+          "returns": "bool"
+        },
+        {
+          "name": "get_copy",
+          "params": "&self",
+          "returns": "Option<IvgBSpline>"
+        },
+        {
+          "name": "copy_assign",
+          "params": "&self, other: &IvgBSpline",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgCrossPoints",
+      "file": "src/curve/cross_point.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<IvgCrossPoint>"
+        }
+      ]
+    },
+    {
+      "name": "IvgCrossPoint",
+      "file": "src/curve/cross_point.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "position_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "position_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "offset",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "offset2",
+          "params": "&self",
+          "returns": "Option<f64>"
+        }
+      ]
+    },
+    {
+      "name": "IvgCurve",
+      "file": "src/curve/curve.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "length",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "sub_paths",
+          "params": "&self",
+          "returns": "Option<IvgSubPaths>"
+        },
+        {
+          "name": "nodes",
+          "params": "&self",
+          "returns": "Option<crate::curve::node::IvgNodes>"
+        },
+        {
+          "name": "segments",
+          "params": "&self",
+          "returns": "Option<crate::curve::segment::IvgSegments>"
+        },
+        {
+          "name": "is_closed",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_closed",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "selection",
+          "params": "&self",
+          "returns": "Option<IvgNodeRange>"
+        },
+        {
+          "name": "clear_selection",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "create_sub_path",
+          "params": "&self, x: f64, y: f64",
+          "returns": "Option<IvgSubPath>"
+        },
+        {
+          "name": "create_sub_path_from_array",
+          "params": "&self, coords: Variant, closed: bool, num_elements: i32,",
+          "returns": "Option<IvgSubPath>"
+        },
+        {
+          "name": "append_subpath_circle",
+          "params": "&self, cx: f64, cy: f64, r: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "append_subpath_rectangle",
+          "params": "&self, l: f64, t: f64, r: f64, b: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "append_subpath_three_point_arc",
+          "params": "&self, sx: f64, sy: f64, ex: f64, ey: f64, tx: f64, ty: f64,",
+          "returns": "bool"
+        },
+        {
+          "name": "append_subpath_ellipse",
+          "params": "&self, cx: f64, cy: f64, rh: f64, rv: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "append_curve",
+          "params": "&self, other: &IvgCurve",
+          "returns": "bool"
+        },
+        {
+          "name": "reverse_direction",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "self_weld_closed_subpaths",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "is_on_curve",
+          "params": "&self, x: f64, y: f64, hot_area: f64",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "is_point_inside",
+          "params": "&self, x: f64, y: f64",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_rect_on_edge",
+          "params": "&self, x1: f64, y1: f64, x2: f64, y2: f64",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_clockwise",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "area",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "bounding_box",
+          "params": "&self",
+          "returns": "Option<IvgRect>"
+        },
+        {
+          "name": "get_bounding_box",
+          "params": "&self",
+          "returns": "Option<(f64, f64, f64, f64)>"
+        },
+        {
+          "name": "find_node_at_point",
+          "params": "&self, x: f64, y: f64, hot_area: f64",
+          "returns": "Option<IvgNode>"
+        },
+        {
+          "name": "find_closest_segment",
+          "params": "&self, x: f64, y: f64",
+          "returns": "Option<(IvgSegment, f64)>"
+        },
+        {
+          "name": "apply_transform_matrix",
+          "params": "&self, matrix: &crate::geometry::IvgTransformMatrix",
+          "returns": "bool"
+        },
+        {
+          "name": "get_copy",
+          "params": "&self",
+          "returns": "Option<IvgCurve>"
+        },
+        {
+          "name": "copy_assign",
+          "params": "&self, other: &IvgCurve",
+          "returns": "bool"
+        },
+        {
+          "name": "weld_with",
+          "params": "&self, other: &IvgCurve",
+          "returns": "Option<IvgCurve>"
+        },
+        {
+          "name": "weld_ex",
+          "params": "&self, target: &IvgCurve, method: i32, winding_source: bool, winding_target: bool, flags: i32,",
+          "returns": "Option<IvgCurve>"
+        },
+        {
+          "name": "bind_to_document",
+          "params": "&self, doc: &crate::document::IvgDocument",
+          "returns": "bool"
+        },
+        {
+          "name": "get_polyline",
+          "params": "&self, precision: i32",
+          "returns": "Option<IvgCurve>"
+        },
+        {
+          "name": "remove_overlaps",
+          "params": "&self",
+          "returns": "Option<IvgCurve>"
+        },
+        {
+          "name": "auto_reduce_nodes",
+          "params": "&self, amount: f64, selected_only: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "join_touching_subpaths",
+          "params": "&self, allow_reversal: bool, tolerance: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "to_shape",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        }
+      ]
+    },
+    {
+      "name": "IvgNodes",
+      "file": "src/curve/node.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<IvgNode>"
+        },
+        {
+          "name": "first",
+          "params": "&self",
+          "returns": "Option<IvgNode>"
+        },
+        {
+          "name": "last",
+          "params": "&self",
+          "returns": "Option<IvgNode>"
+        },
+        {
+          "name": "range",
+          "params": "&self, indices: Variant",
+          "returns": "Option<IvgNodeRange>"
+        },
+        {
+          "name": "all",
+          "params": "&self",
+          "returns": "Option<IvgNodeRange>"
+        }
+      ]
+    },
+    {
+      "name": "IvgNode",
+      "file": "src/curve/node.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "position_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_position_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "position_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_position_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "get_position",
+          "params": "&self",
+          "returns": "Option<(f64, f64)>"
+        },
+        {
+          "name": "set_position",
+          "params": "&self, x: f64, y: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "move_by",
+          "params": "&self, dx: f64, dy: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "node_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_node_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "index",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "sub_path_index",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "absolute_index",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "is_ending",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_selected",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_selected",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "sub_path",
+          "params": "&self",
+          "returns": "Option<IvgSubPath>"
+        },
+        {
+          "name": "segment",
+          "params": "&self",
+          "returns": "Option<IvgSegment>"
+        },
+        {
+          "name": "prev_segment",
+          "params": "&self",
+          "returns": "Option<IvgSegment>"
+        },
+        {
+          "name": "next_segment",
+          "params": "&self",
+          "returns": "Option<IvgSegment>"
+        },
+        {
+          "name": "next",
+          "params": "&self",
+          "returns": "Option<IvgNode>"
+        },
+        {
+          "name": "previous",
+          "params": "&self",
+          "returns": "Option<IvgNode>"
+        },
+        {
+          "name": "join_with",
+          "params": "&self, target: &IvgNode",
+          "returns": "bool"
+        },
+        {
+          "name": "connect_with",
+          "params": "&self, target: &IvgNode",
+          "returns": "bool"
+        },
+        {
+          "name": "break_apart",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "delete",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "fillet",
+          "params": "&self, radius: f64, combine: bool",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "chamfer",
+          "params": "&self, a: f64, b: f64, combine: bool",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "scallop",
+          "params": "&self, radius: f64, combine: bool",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "create_selection",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "get_distance_from",
+          "params": "&self, other: &IvgNode",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "extend_sub_paths",
+          "params": "&self, other: &IvgNode, join: bool",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "average_position_with",
+          "params": "&self, other: &IvgNode, join: bool",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgNodeRange",
+      "file": "src/curve/node_range.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "node_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "position_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "position_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "size_width",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "size_height",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<IvgNode>"
+        },
+        {
+          "name": "first_node",
+          "params": "&self",
+          "returns": "Option<IvgNode>"
+        },
+        {
+          "name": "last_node",
+          "params": "&self",
+          "returns": "Option<IvgNode>"
+        },
+        {
+          "name": "segment_range",
+          "params": "&self",
+          "returns": "Option<IvgSegmentRange>"
+        },
+        {
+          "name": "bounding_box",
+          "params": "&self",
+          "returns": "Option<IvgRect>"
+        },
+        {
+          "name": "add",
+          "params": "&self, node: &IvgNode",
+          "returns": "bool"
+        },
+        {
+          "name": "add_range",
+          "params": "&self, range: &IvgNodeRange",
+          "returns": "bool"
+        },
+        {
+          "name": "remove",
+          "params": "&self, index: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "remove_range",
+          "params": "&self, range: &IvgNodeRange",
+          "returns": "bool"
+        },
+        {
+          "name": "remove_all",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "delete",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "move_by",
+          "params": "&self, dx: f64, dy: f64, anchor: i32, elastic: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "stretch",
+          "params": "&self, rx: f32, ry: f32, use_anchor: bool, ax: f64, ay: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "rotate",
+          "params": "&self, angle: f64, use_center: bool, cx: f64, cy: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "skew",
+          "params": "&self, ax: f64, ay: f64, use_anchor: bool, sx: f64, sy: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "set_type",
+          "params": "&self, node_type: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "auto_reduce",
+          "params": "&self, margin: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "smoothen",
+          "params": "&self, smoothness: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "break_apart",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "fillet",
+          "params": "&self, radius: f64, combine: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "chamfer",
+          "params": "&self, a: f64, b: f64, combine: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "scallop",
+          "params": "&self, radius: f64, combine: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "create_selection",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "add_to_selection",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "remove_from_selection",
+          "params": "&self",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgSegments",
+      "file": "src/curve/segment.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<IvgSegment>"
+        },
+        {
+          "name": "first",
+          "params": "&self",
+          "returns": "Option<IvgSegment>"
+        },
+        {
+          "name": "last",
+          "params": "&self",
+          "returns": "Option<IvgSegment>"
+        },
+        {
+          "name": "range",
+          "params": "&self, indices:Variant",
+          "returns": "Option<IvgSegmentRange>"
+        },
+        {
+          "name": "all",
+          "params": "&self",
+          "returns": "Option<IvgSegmentRange>"
+        }
+      ]
+    },
+    {
+      "name": "IvgSegment",
+      "file": "src/curve/segment.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "segment_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_segment_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "index",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "sub_path_index",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "absolute_index",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "length",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "is_selected",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_selected",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "sub_path",
+          "params": "&self",
+          "returns": "Option<IvgSubPath>"
+        },
+        {
+          "name": "start_node",
+          "params": "&self",
+          "returns": "Option<IvgNode>"
+        },
+        {
+          "name": "end_node",
+          "params": "&self",
+          "returns": "Option<IvgNode>"
+        },
+        {
+          "name": "starting_control_point_length",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_starting_control_point_length",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "starting_control_point_angle",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_starting_control_point_angle",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "ending_control_point_length",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_ending_control_point_length",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "ending_control_point_angle",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_ending_control_point_angle",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "starting_control_point_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_starting_control_point_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "starting_control_point_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_starting_control_point_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "ending_control_point_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_ending_control_point_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "ending_control_point_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_ending_control_point_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "next",
+          "params": "&self",
+          "returns": "Option<IvgSegment>"
+        },
+        {
+          "name": "previous",
+          "params": "&self",
+          "returns": "Option<IvgSegment>"
+        },
+        {
+          "name": "get_copy",
+          "params": "&self",
+          "returns": "Option<crate::curve::IvgCurve>"
+        },
+        {
+          "name": "create_selection",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "add_node_at",
+          "params": "&self, offset: f64, offset_type: i32",
+          "returns": "Option<IvgNode>"
+        },
+        {
+          "name": "break_apart_at",
+          "params": "&self, offset: f64, offset_type: i32",
+          "returns": "Option<IvgNode>"
+        },
+        {
+          "name": "get_perpendicular_at",
+          "params": "&self, offset: f64, offset_type: i32",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "get_tangent_at",
+          "params": "&self, offset: f64, offset_type: i32",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "get_curvature_at",
+          "params": "&self, offset: f64, offset_type: i32",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "get_intersections",
+          "params": "&self, target: &IvgSegment, offset_type: i32",
+          "returns": "Option<IvgCrossPoints>"
+        },
+        {
+          "name": "is_rect_on_edge",
+          "params": "&self, x1: f64, y1: f64, x2: f64, y2: f64",
+          "returns": "Option<bool>"
+        }
+      ]
+    },
+    {
+      "name": "IvgSegmentRange",
+      "file": "src/curve/segment_range.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "segment_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "length",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<IvgSegment>"
+        },
+        {
+          "name": "first_segment",
+          "params": "&self",
+          "returns": "Option<IvgSegment>"
+        },
+        {
+          "name": "last_segment",
+          "params": "&self",
+          "returns": "Option<IvgSegment>"
+        },
+        {
+          "name": "node_range",
+          "params": "&self",
+          "returns": "Option<IvgNodeRange>"
+        },
+        {
+          "name": "add",
+          "params": "&self, segment: &IvgSegment",
+          "returns": "bool"
+        },
+        {
+          "name": "add_range",
+          "params": "&self, range: &IvgSegmentRange",
+          "returns": "bool"
+        },
+        {
+          "name": "remove",
+          "params": "&self, index: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "remove_range",
+          "params": "&self, range: &IvgSegmentRange",
+          "returns": "bool"
+        },
+        {
+          "name": "remove_all",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "add_node",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "set_type",
+          "params": "&self, segment_type: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "create_selection",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "add_to_selection",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "remove_from_selection",
+          "params": "&self",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgSubPaths",
+      "file": "src/curve/sub_path.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<IvgSubPath>"
+        },
+        {
+          "name": "first",
+          "params": "&self",
+          "returns": "Option<IvgSubPath>"
+        },
+        {
+          "name": "last",
+          "params": "&self",
+          "returns": "Option<IvgSubPath>"
+        }
+      ]
+    },
+    {
+      "name": "IvgSubPath",
+      "file": "src/curve/sub_path.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "nodes",
+          "params": "&self",
+          "returns": "Option<IvgNodes>"
+        },
+        {
+          "name": "segments",
+          "params": "&self",
+          "returns": "Option<IvgSegments>"
+        },
+        {
+          "name": "index",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "length",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "is_closed",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_closed",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "position_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_position_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "position_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_position_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "size_width",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "size_height",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "start_node",
+          "params": "&self",
+          "returns": "Option<IvgNode>"
+        },
+        {
+          "name": "end_node",
+          "params": "&self",
+          "returns": "Option<IvgNode>"
+        },
+        {
+          "name": "first_segment",
+          "params": "&self",
+          "returns": "Option<IvgSegment>"
+        },
+        {
+          "name": "last_segment",
+          "params": "&self",
+          "returns": "Option<IvgSegment>"
+        },
+        {
+          "name": "is_clockwise",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "area",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "bounding_box",
+          "params": "&self",
+          "returns": "Option<IvgRect>"
+        },
+        {
+          "name": "selection",
+          "params": "&self",
+          "returns": "Option<IvgNodeRange>"
+        },
+        {
+          "name": "reverse_direction",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "next",
+          "params": "&self",
+          "returns": "Option<IvgSubPath>"
+        },
+        {
+          "name": "previous",
+          "params": "&self",
+          "returns": "Option<IvgSubPath>"
+        },
+        {
+          "name": "append_line_segment",
+          "params": "&self, x: f64, y: f64, at_beginning: bool",
+          "returns": "Option<IvgSegment>"
+        },
+        {
+          "name": "append_curve_segment",
+          "params": "&self, x: f64, y: f64, sc_len: f64, sc_angle: f64, ec_len: f64, ec_angle: f64, at_beginning: bool,",
+          "returns": "Option<IvgSegment>"
+        },
+        {
+          "name": "delete",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "move_by",
+          "params": "&self, dx: f64, dy: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "get_position",
+          "params": "&self",
+          "returns": "Option<(f64, f64)>"
+        },
+        {
+          "name": "set_position",
+          "params": "&self, x: f64, y: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "extract",
+          "params": "&self",
+          "returns": "Option<(crate::shape::IvgShape, crate::shape::IvgShape)>"
+        },
+        {
+          "name": "is_on_sub_path",
+          "params": "&self, x: f64, y: f64, hot_area: f64",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "is_point_inside",
+          "params": "&self, x: f64, y: f64",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "get_copy",
+          "params": "&self",
+          "returns": "Option<IvgCurve>"
+        }
+      ]
+    }
+  ],
+  "tests": {
+    "files": [
+      "tests/curve.rs"
+    ],
+    "cases": 2
+  },
+  "coverage": {
+    "method_name_count": 144,
+    "covered_method_name_count": 30,
+    "coverage_pct": 20.8
+  }
+}

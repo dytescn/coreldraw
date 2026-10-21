@@ -60,7 +60,7 @@ impl IvgRect {
 
     pub fn is_empty(&self) -> Option<bool> { self.prop_bool("IsEmpty") }
 
-    // ---- 璁剧疆 / 鑾峰彇 ----
+    // ---- 设置 / 获取 ----
 
     pub fn set_rect(&self, x: f64, y: f64, w: f64, h: f64) -> bool {
         let args = vec![
@@ -81,7 +81,7 @@ impl IvgRect {
         self.disp.invoke_method("Clear", vec![]).is_ok()
     }
 
-    // ---- 澶嶅埗 ----
+    // ---- 复制 ----
 
     pub fn copy_assign(&self, src: &IvgRect) -> bool {
         let args = vec![src.as_variant()];
@@ -97,7 +97,7 @@ impl IvgRect {
             .map(IvgRect::new)
     }
 
-    // ---- 闆嗗悎杩愮畻 ----
+    // ---- 集合运算 ----
 
     pub fn intersect(&self, other: &IvgRect) -> Option<IvgRect> {
         let args = vec![other.as_variant()];
@@ -119,7 +119,7 @@ impl IvgRect {
             .map(IvgRect::new)
     }
 
-    // ---- 骞崇Щ / 鑶ㄨ儉 ----
+    // ---- 平移 / 膨胀 ----
 
     pub fn offset(&self, dx: f64, dy: f64) -> bool {
         let args = vec![
@@ -139,7 +139,7 @@ impl IvgRect {
         self.disp.invoke_method("Inflate", args).ok()?.to_bool().ok()
     }
 
-    // ---- 鍒ゆ柇 ----
+    // ---- 判断 ----
 
     pub fn is_point_inside(&self, x: f64, y: f64) -> Option<bool> {
         let args = vec![

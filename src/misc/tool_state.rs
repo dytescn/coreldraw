@@ -206,7 +206,7 @@ impl IvgToolStateAttributes {
             .map(crate::document::IvgDocument::new)
     }
 
-    // ---- 鏂规硶 ----
+    // ---- 方法 ----
 
     pub fn set_status_info(&self, value: impl Into<String>) -> bool {
         self.put_string("StatusInfo", value)

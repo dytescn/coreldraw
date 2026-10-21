@@ -1,0 +1,643 @@
+{
+  "module": "outline",
+  "files": [
+    "src/outline/arrow_head.rs",
+    "src/outline/mod.rs",
+    "src/outline/outline.rs",
+    "src/outline/outline_style.rs"
+  ],
+  "types": [
+    {
+      "name": "IvgArrowHead",
+      "file": "src/outline/arrow_head.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "index",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_name",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "display_name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "curve",
+          "params": "&self",
+          "returns": "Option<IvgCurve>"
+        },
+        {
+          "name": "base_outline_scale",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "center_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "center_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "line_offset",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "bind_to_document",
+          "params": "&self, doc: &crate::document::IvgDocument",
+          "returns": "Option<IvgArrowHead>"
+        },
+        {
+          "name": "compare_with",
+          "params": "&self, other: &IvgArrowHead",
+          "returns": "Option<bool>"
+        }
+      ]
+    },
+    {
+      "name": "IvgArrowHeadOptions",
+      "file": "src/outline/arrow_head.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "length",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_length",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "width",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_width",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "offset_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_offset_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "offset_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_offset_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "rotation_angle",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_rotation_angle",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "flip_horizontal",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_flip_horizontal",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "flip_vertical",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_flip_vertical",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "flip_verical",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_flip_verical",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "flip",
+          "params": "&self, axes: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "copy_assign",
+          "params": "&self, src: &IvgArrowHeadOptions",
+          "returns": "bool"
+        },
+        {
+          "name": "get_copy",
+          "params": "&self",
+          "returns": "Option<IvgArrowHeadOptions>"
+        }
+      ]
+    },
+    {
+      "name": "IvgArrowHeads",
+      "file": "src/outline/arrow_head.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<IvgArrowHead>"
+        },
+        {
+          "name": "add",
+          "params": "&self, arrow: &IvgArrowHead",
+          "returns": "Option<IvgArrowHead>"
+        },
+        {
+          "name": "replace",
+          "params": "&self, index: i32, arrow: &IvgArrowHead",
+          "returns": "Option<IvgArrowHead>"
+        },
+        {
+          "name": "remove",
+          "params": "&self, index: i32",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgOutline",
+      "file": "src/outline/outline.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "width",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_width",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "size",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_size",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "outline_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_outline_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "color",
+          "params": "&self",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "set_color",
+          "params": "&self, c: &IvgColor",
+          "returns": "bool"
+        },
+        {
+          "name": "style",
+          "params": "&self",
+          "returns": "Option<IvgOutlineStyle>"
+        },
+        {
+          "name": "set_style",
+          "params": "&self, s: &IvgOutlineStyle",
+          "returns": "bool"
+        },
+        {
+          "name": "dash_dot_length",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_dash_dot_length",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "pen_width",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_pen_width",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "nib_angle",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_nib_angle",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "nib_stretch",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_nib_stretch",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "line_caps",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_line_caps",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "line_join",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_line_join",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "miter_limit",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_miter_limit",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "justification",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_justification",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "adjust_dashes",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_adjust_dashes",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "behind_fill",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_behind_fill",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "scale_with_shape",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_scale_with_shape",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "start_arrow",
+          "params": "&self",
+          "returns": "Option<IvgArrowHead>"
+        },
+        {
+          "name": "set_start_arrow",
+          "params": "&self, a: &IvgArrowHead",
+          "returns": "bool"
+        },
+        {
+          "name": "end_arrow",
+          "params": "&self",
+          "returns": "Option<IvgArrowHead>"
+        },
+        {
+          "name": "set_end_arrow",
+          "params": "&self, a: &IvgArrowHead",
+          "returns": "bool"
+        },
+        {
+          "name": "start_arrow_options",
+          "params": "&self",
+          "returns": "Option<IvgArrowHeadOptions>"
+        },
+        {
+          "name": "set_start_arrow_options",
+          "params": "&self, o: &IvgArrowHeadOptions",
+          "returns": "bool"
+        },
+        {
+          "name": "end_arrow_options",
+          "params": "&self",
+          "returns": "Option<IvgArrowHeadOptions>"
+        },
+        {
+          "name": "set_end_arrow_options",
+          "params": "&self, o: &IvgArrowHeadOptions",
+          "returns": "bool"
+        },
+        {
+          "name": "ps_screen",
+          "params": "&self",
+          "returns": "Option<crate::fill::IvgPSScreenOptions>"
+        },
+        {
+          "name": "set_properties",
+          "params": "&self, width: f64, style: &IvgOutlineStyle, color: &IvgColor, start_arrow: &IvgArrowHead, end_arrow: &IvgArrowHead, behind_fill: i32, scale_with_shape: i32, line_caps: i32, line_join: i32, nib_angle: f64, nib_stretch: i32, dash_dot_length: f64, pen_width: f64, miter_limit: f64,",
+          "returns": "bool"
+        },
+        {
+          "name": "set_properties_ex",
+          "params": "&self, width: f64, style: &IvgOutlineStyle, color: &IvgColor, start_arrow: &IvgArrowHead, end_arrow: &IvgArrowHead, behind_fill: i32, scale_with_shape: i32, line_caps: i32, line_join: i32, nib_angle: f64, nib_stretch: i32, dash_dot_length: f64, pen_width: f64, miter_limit: f64, justification: i32,",
+          "returns": "bool"
+        },
+        {
+          "name": "get_copy",
+          "params": "&self",
+          "returns": "Option<IvgOutline>"
+        },
+        {
+          "name": "copy_assign",
+          "params": "&self, other: &IvgOutline",
+          "returns": "bool"
+        },
+        {
+          "name": "compare_with",
+          "params": "&self, other: &IvgOutline",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "to_outline_string",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "string_assign",
+          "params": "&self, s: impl Into<String>",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "convert_to_object",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "set_no_outline",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "user_assign",
+          "params": "&self, parent_window_handle: i32",
+          "returns": "Option<bool>"
+        }
+      ]
+    },
+    {
+      "name": "IvgOutlineStyle",
+      "file": "src/outline/outline_style.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "index",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "dash_count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_dash_count",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "dash_length",
+          "params": "&self, index: i32",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_dash_length",
+          "params": "&self, index: i32, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "gap_length",
+          "params": "&self, index: i32",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_gap_length",
+          "params": "&self, index: i32, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "enhanced",
+          "params": "&self",
+          "returns": "Option<bool>"
+        }
+      ]
+    },
+    {
+      "name": "IvgOutlineStyles",
+      "file": "src/outline/outline_style.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<IvgOutlineStyle>"
+        },
+        {
+          "name": "add",
+          "params": "&self",
+          "returns": "Option<IvgOutlineStyle>"
+        },
+        {
+          "name": "add_style",
+          "params": "&self, style: &IvgOutlineStyle",
+          "returns": "Option<IvgOutlineStyle>"
+        },
+        {
+          "name": "remove",
+          "params": "&self, index: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "save",
+          "params": "&self",
+          "returns": "bool"
+        }
+      ]
+    }
+  ],
+  "tests": {
+    "files": [
+      "tests/fill_outline.rs"
+    ],
+    "cases": 2
+  },
+  "coverage": {
+    "method_name_count": 94,
+    "covered_method_name_count": 29,
+    "coverage_pct": 30.9
+  }
+}

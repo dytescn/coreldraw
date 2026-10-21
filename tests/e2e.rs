@@ -2,6 +2,7 @@
 
 mod common;
 
+use cdrsdk::enums::filter::cdrFilter;
 use common::ComGuard;
 
 #[test]
@@ -55,8 +56,8 @@ fn e2e_draw_and_export() {
     let path_str = path.to_string_lossy().to_string();
     println!("[6] exporting to: {}", path_str);
 
-    // cdrFilter::PNG 值约 790（见 enums/filter）
-    let filter_png: i32 = 790;
+    // cdrFilter::PNG（值 802，见 enums/filter）
+    let filter_png: i32 = cdrFilter::PNG as i32;
 
     let exported = if let Some(opts) = app.create_export_options() {
         let _ = opts.set_overwrite(true);

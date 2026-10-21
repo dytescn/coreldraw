@@ -1,0 +1,1087 @@
+{
+  "module": "style",
+  "files": [
+    "src/style/mod.rs",
+    "src/style/style.rs",
+    "src/style/style_character.rs",
+    "src/style/style_fill.rs",
+    "src/style/style_frame.rs",
+    "src/style/style_outline.rs",
+    "src/style/style_paragraph.rs",
+    "src/style/style_sheet.rs",
+    "src/style/style_transparency.rs",
+    "src/style/styles.rs"
+  ],
+  "types": [
+    {
+      "name": "IvgStyle",
+      "file": "src/style/style.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "display_name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "category_name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "display_category_name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "is_style_set",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_object_defaults",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "based_on",
+          "params": "&self",
+          "returns": "Option<IvgStyle>"
+        },
+        {
+          "name": "derived_styles",
+          "params": "&self",
+          "returns": "Option<IvgStyles>"
+        },
+        {
+          "name": "set_based_on",
+          "params": "&self, name: impl Into<String>",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "outline",
+          "params": "&self",
+          "returns": "Option<IvgStyleOutline>"
+        },
+        {
+          "name": "fill",
+          "params": "&self",
+          "returns": "Option<IvgStyleFill>"
+        },
+        {
+          "name": "character",
+          "params": "&self",
+          "returns": "Option<IvgStyleCharacter>"
+        },
+        {
+          "name": "paragraph",
+          "params": "&self",
+          "returns": "Option<IvgStyleParagraph>"
+        },
+        {
+          "name": "frame",
+          "params": "&self",
+          "returns": "Option<IvgStyleFrame>"
+        },
+        {
+          "name": "transparency",
+          "params": "&self",
+          "returns": "Option<IvgStyleTransparency>"
+        },
+        {
+          "name": "all_property_names",
+          "params": "&self",
+          "returns": "Option<Variant>"
+        },
+        {
+          "name": "override_property_names",
+          "params": "&self",
+          "returns": "Option<Variant>"
+        },
+        {
+          "name": "is_property_inherited",
+          "params": "&self, name: impl Into<String>",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "get_property",
+          "params": "&self, name: impl Into<String>",
+          "returns": "Option<Variant>"
+        },
+        {
+          "name": "set_property",
+          "params": "&self, name: impl Into<String>, value: Variant",
+          "returns": "bool"
+        },
+        {
+          "name": "clear_property",
+          "params": "&self, name: impl Into<String>",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "get_property_as_string",
+          "params": "&self, name: impl Into<String>",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_property_as_string",
+          "params": "&self, name: impl Into<String>, value: impl Into<String>,",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "get_copy",
+          "params": "&self",
+          "returns": "Option<IvgStyle>"
+        },
+        {
+          "name": "assign",
+          "params": "&self, other: &IvgStyle",
+          "returns": "bool"
+        },
+        {
+          "name": "to_style_string",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "string_assign",
+          "params": "&self, s: impl Into<String>",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "rename",
+          "params": "&self, new_name: impl Into<String>",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "delete",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_name_public",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "apply_to",
+          "params": "&self, shape: &crate::shape::IvgShape",
+          "returns": "bool"
+        },
+        {
+          "name": "set_transparency_public",
+          "params": "&self, t: &IvgStyleTransparency",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgStyleCharacter",
+      "file": "src/style/style_character.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "style",
+          "params": "&self",
+          "returns": "Option<crate::style::IvgStyle>"
+        }
+      ]
+    },
+    {
+      "name": "IvgStyleFill",
+      "file": "src/style/style_fill.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "fill_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_fill_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "overprint",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_overprint",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "winding_fill",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_winding_fill",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "fountain_fill_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_fountain_fill_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "edge_pad",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_edge_pad",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "fountain_center_offset_x",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_fountain_center_offset_x",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "fountain_center_offset_y",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_fountain_center_offset_y",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "fountain_steps",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_fountain_steps",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "fountain_blend_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_fountain_blend_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "mid_point",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_mid_point",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "flip_colors",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_flip_colors",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "postscript_name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_postscript_name",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "tile_width",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_tile_width",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "tile_height",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_tile_height",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "tile_origin_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_tile_origin_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "tile_origin_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_tile_origin_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "tile_offset_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_tile_offset_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "tile_offset",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_tile_offset",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "rotation_angle",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_rotation_angle",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "skew_angle",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_skew_angle",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "mirror_fill",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_mirror_fill",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "mirror_fill_x",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_mirror_fill_x",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "mirror_fill_y",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_mirror_fill_y",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "transform_with_shape",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_transform_with_shape",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "primary_color",
+          "params": "&self",
+          "returns": "Option<crate::color::IvgColor>"
+        },
+        {
+          "name": "secondary_color",
+          "params": "&self",
+          "returns": "Option<crate::color::IvgColor>"
+        },
+        {
+          "name": "primary_opacity",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_primary_opacity",
+          "params": "&self, v: u8",
+          "returns": "bool"
+        },
+        {
+          "name": "secondary_opacity",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_secondary_opacity",
+          "params": "&self, v: u8",
+          "returns": "bool"
+        },
+        {
+          "name": "fountain_center_x_offset",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_fountain_center_x_offset",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "fountain_center_y_offset",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_fountain_center_y_offset",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "fountain_blend_acceleration",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_fountain_blend_acceleration",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "fountain_scale_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_fountain_scale_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "fountain_scale_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_fountain_scale_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "fountain_anisotropic",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_fountain_anisotropic",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "fountain_spread_method",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_fountain_spread_method",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "merge_mode",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_merge_mode",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "save_fill",
+          "params": "&self, file_name: impl Into<String>, metadata: &crate::fill::IvgFillMetadata,",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "load_fill",
+          "params": "&self, file_name: impl Into<String>,",
+          "returns": "Option<(crate::fill::IvgFillMetadata, bool)>"
+        },
+        {
+          "name": "style",
+          "params": "&self",
+          "returns": "Option<crate::style::IvgStyle>"
+        }
+      ]
+    },
+    {
+      "name": "IvgStyleFrame",
+      "file": "src/style/style_frame.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "style",
+          "params": "&self",
+          "returns": "Option<crate::style::IvgStyle>"
+        }
+      ]
+    },
+    {
+      "name": "IvgStyleOutline",
+      "file": "src/style/style_outline.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "outline_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_outline_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "width",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_width",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "color",
+          "params": "&self",
+          "returns": "Option<crate::color::IvgColor>"
+        },
+        {
+          "name": "set_color",
+          "params": "&self, c: &crate::color::IvgColor",
+          "returns": "bool"
+        },
+        {
+          "name": "overprint",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_overprint",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "behind_fill",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_behind_fill",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "scale_with_shape",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_scale_with_shape",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "overlap_arrow",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_overlap_arrow",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "share_arrow",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_share_arrow",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "miter_limit",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_miter_limit",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "nib_stretch",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_nib_stretch",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "nib_angle",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_nib_angle",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "wideline_width",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_wideline_width",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "line_caps",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_line_caps",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "line_join",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_line_join",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "justification",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_justification",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "adjust_dashes",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_adjust_dashes",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "style",
+          "params": "&self",
+          "returns": "Option<crate::style::IvgStyle>"
+        }
+      ]
+    },
+    {
+      "name": "IvgStyleParagraph",
+      "file": "src/style/style_paragraph.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "style",
+          "params": "&self",
+          "returns": "Option<crate::style::IvgStyle>"
+        }
+      ]
+    },
+    {
+      "name": "IvgStyleSheet",
+      "file": "src/style/style_sheet.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "styles",
+          "params": "&self",
+          "returns": "Option<IvgStyles>"
+        },
+        {
+          "name": "style_sets",
+          "params": "&self",
+          "returns": "Option<IvgStyles>"
+        },
+        {
+          "name": "object_defaults",
+          "params": "&self",
+          "returns": "Option<IvgStyles>"
+        },
+        {
+          "name": "all_styles",
+          "params": "&self",
+          "returns": "Option<IvgStyles>"
+        },
+        {
+          "name": "all_style_sets",
+          "params": "&self",
+          "returns": "Option<IvgStyles>"
+        },
+        {
+          "name": "all_color_styles",
+          "params": "&self",
+          "returns": "Option<crate::color::IvgColors>"
+        },
+        {
+          "name": "find_style",
+          "params": "&self, name: impl Into<String>",
+          "returns": "Option<IvgStyle>"
+        },
+        {
+          "name": "create_style_from_shape",
+          "params": "&self, shape: &IvgShape, category: impl Into<String>, name: impl Into<String>, replace_existing: bool,",
+          "returns": "Option<IvgStyles>"
+        },
+        {
+          "name": "create_style_from_shape_range",
+          "params": "&self, range: &IvgShapeRange, category: impl Into<String>, name: impl Into<String>, replace_existing: bool,",
+          "returns": "Option<IvgStyles>"
+        },
+        {
+          "name": "create_style_from_text_range",
+          "params": "&self, range: &IvgTextRange, category: impl Into<String>, name: impl Into<String>, replace_existing: bool,",
+          "returns": "Option<IvgStyles>"
+        },
+        {
+          "name": "create_style",
+          "params": "&self, category: impl Into<String>, based_on: impl Into<String>, name: impl Into<String>, replace_existing: bool,",
+          "returns": "Option<IvgStyle>"
+        },
+        {
+          "name": "create_style_set",
+          "params": "&self, based_on: impl Into<String>, name: impl Into<String>, replace_existing: bool,",
+          "returns": "Option<IvgStyle>"
+        },
+        {
+          "name": "create_color_style",
+          "params": "&self, name: impl Into<String>, color: &crate::color::IvgColor, harmony_index: i32, index_in_harmony: i32, replace_existing: bool,",
+          "returns": "Option<crate::color::IvgColor>"
+        },
+        {
+          "name": "delete_all_color_styles",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "delete_color_style",
+          "params": "&self, name: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "rename_color_style",
+          "params": "&self, old_name: impl Into<String>, new_name: impl Into<String>,",
+          "returns": "bool"
+        },
+        {
+          "name": "export",
+          "params": "&self, file_name: impl Into<String>, styles: bool, style_sets: bool, object_defaults: bool, color_styles: bool,",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "import",
+          "params": "&self, file_name: impl Into<String>, merge_styles: bool, styles: bool, style_sets: bool, object_defaults: bool, color_styles: bool,",
+          "returns": "Option<bool>"
+        }
+      ]
+    },
+    {
+      "name": "IvgStyleTransparency",
+      "file": "src/style/style_transparency.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "style",
+          "params": "&self",
+          "returns": "Option<crate::style::IvgStyle>"
+        },
+        {
+          "name": "fill",
+          "params": "&self",
+          "returns": "Option<crate::style::IvgStyleFill>"
+        },
+        {
+          "name": "mode",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_mode",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "uniform_transparency",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_uniform_transparency",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "white_transparency",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_white_transparency",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "black_transparency",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_black_transparency",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "applies_to",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_applies_to",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgStyles",
+      "file": "src/style/styles.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<IvgStyle>"
+        },
+        {
+          "name": "find",
+          "params": "&self, name: impl Into<String>",
+          "returns": "Option<IvgStyle>"
+        },
+        {
+          "name": "first",
+          "params": "&self",
+          "returns": "Option<IvgStyle>"
+        },
+        {
+          "name": "last",
+          "params": "&self",
+          "returns": "Option<IvgStyle>"
+        },
+        {
+          "name": "all",
+          "params": "&self",
+          "returns": "Vec<IvgStyle>"
+        }
+      ]
+    }
+  ],
+  "tests": {
+    "files": [
+      "tests/style.rs"
+    ],
+    "cases": 1
+  },
+  "coverage": {
+    "method_name_count": 173,
+    "covered_method_name_count": 38,
+    "coverage_pct": 22.0
+  }
+}

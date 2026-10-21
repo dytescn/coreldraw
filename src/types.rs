@@ -1,4 +1,4 @@
-﻿//! CLSID / IID / ProgID / 甯搁噺
+﻿//! CLSID / IID / ProgID / 常量
 //!
 //! - **CLSID** 浠?`VGCore.dll` 绫诲瀷搴撶殑 co-class 娈垫妱褰?
 //! - **IID** 浠庡悇 `IVGXxx` 鎺ュ彛鐨?`#[uuid]` 鎶勫綍锛堝綋鍓嶈蛋 `IDispatch` 鍚庢湡缁戝畾锛屾殏鏈敤鍒帮紝鐣欎綔澶囩敤锛?
@@ -6,7 +6,7 @@
 use windows::core::GUID;
 
 // ---------------------------------------------------------------
-// ProgID 杈呭姪
+// ProgID 辅助
 // ---------------------------------------------------------------
 
 /// 鐢熸垚 `CorelDRAW.Application.{version}` 褰㈠紡鐨?ProgID
@@ -50,11 +50,11 @@ pub const CLSID_POINT:        GUID = GUID::from_u128(0xde3d00c1_fee3_4ec0_9845_5
 pub const CLSID_VECTOR:       GUID = GUID::from_u128(0xde3d00c3_fee3_4ec0_9845_53d17354ae24);
 pub const CLSID_RECT:         GUID = GUID::from_u128(0xde3d006f_fee3_4ec0_9845_53d17354ae24);
 
-// 鍏朵綑 co-class CLSID 鎸夐渶琛ワ細
+// 其余 co-class CLSID 按需补：
 // CLSID_STRUCT_EXPORT_OPTIONS, CLSID_STRUCT_SAVE_AS_OPTIONS, ...
 
 // ---------------------------------------------------------------
-// 鎺ュ彛 IID锛堝鐢級
+// 接口 IID（备用）
 // ---------------------------------------------------------------
 
 pub const IID_IVGAPPLICATION: GUID = GUID::from_u128(0xb058000b_9aa4_44fd_9547_4f91eb757ac4);

@@ -1,9 +1,9 @@
 ﻿//! `IVGEffectDistortion` 鈥斺€?鍙樺舰鏁堟灉
 //!
 //! 鍥涚妯″紡锛?
-//! - Push-Pull锛堟帹鎷夛級
-//! - Zipper锛堟媺閾撅級
-//! - Twister锛堟壄鏇诧級
+//! - Push-Pull（推拉）
+//! - Zipper（拉链）
+//! - Twister（扭曲）
 //! - Custom锛堣嚜瀹氫箟锛?
 
 use wincom::{ComObject, Variant};

@@ -2,6 +2,7 @@
 
 mod common;
 
+use cdrsdk::enums::page::cdrUnit;
 use common::ComGuard;
 
 #[test]
@@ -50,16 +51,20 @@ fn geom_units() {
     let _com = ComGuard::init().expect("CoInitialize failed");
     let app = require_app!();
 
-    // 全表覆盖
+    // 全表覆盖（使用枚举值，避免硬编码整数与类型库脱节）
+    let inch = cdrUnit::Inch as i32;
+    let mm = cdrUnit::Millimeter as i32;
+    let pt = cdrUnit::Point as i32;
+    let cm = cdrUnit::Centimeter as i32;
     for (val, from, to, expected, label) in [
-        (1.0,   0, 1, 25.4,   "1 inch → mm"),
-        (1.0,   0, 3, 72.0,   "1 inch → pt"),
-        (1.0,   0, 4, 2.54,   "1 inch → cm"),
-        (25.4,  1, 0, 1.0,    "25.4 mm → inch"),
-        (2.54,  4, 0, 1.0,    "2.54 cm → inch"),
-        (100.0, 4, 1, 1000.0, "100 cm → mm"),
-        (72.0,  3, 0, 1.0,    "72 pt → inch"),
-        (72.0,  3, 1, 25.4,   "72 pt → mm"),
+        (1.0,   inch, mm, 25.4,   "1 inch → mm"),
+        (1.0,   inch, pt, 72.0,   "1 inch → pt"),
+        (1.0,   inch, cm, 2.54,   "1 inch → cm"),
+        (25.4,  mm,   inch, 1.0,    "25.4 mm → inch"),
+        (2.54,  cm,   inch, 1.0,    "2.54 cm → inch"),
+        (100.0, cm,   mm, 1000.0, "100 cm → mm"),
+        (72.0,  pt,   inch, 1.0,    "72 pt → inch"),
+        (72.0,  pt,   mm, 25.4,   "72 pt → mm"),
     ] {
         match app.convert_units(val, from, to) {
             Some(v) => {

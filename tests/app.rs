@@ -73,7 +73,7 @@ fn app_visibility() {
 
     let after = app.visible();
     println!("visible (after)  = {:?}", after);
-    assert_eq!(after, Some(true), "visible 应为 true");
+    assert_eq!(after, Some(true), "visible ӦΪ true");
 }
 
 // =============================================================
@@ -212,7 +212,7 @@ fn app_unit() {
     assert!(app.set_unit(0), "set_unit(0) inch 应成功");
     let after = app.unit();
     println!("after set 0 -> {:?}", after);
-    assert_eq!(after, Some(0), "Unit 应为 0 (inch)");
+    assert_eq!(after, Some(0), "Unit ӦΪ 0 (inch)");
 
     // 恢复
     if let Some(v) = before {

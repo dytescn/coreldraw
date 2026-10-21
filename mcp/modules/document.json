@@ -1,0 +1,875 @@
+{
+  "module": "document",
+  "files": [
+    "src/document/data_fields.rs",
+    "src/document/document.rs",
+    "src/document/document_event.rs",
+    "src/document/documents.rs",
+    "src/document/metadata.rs",
+    "src/document/mod.rs"
+  ],
+  "types": [
+    {
+      "name": "IvgDataItems",
+      "file": "src/document/data_fields.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index_or_name: Variant",
+          "returns": "Option<IvgDataItem>"
+        },
+        {
+          "name": "item_by_index",
+          "params": "&self, i: i32",
+          "returns": "Option<IvgDataItem>"
+        },
+        {
+          "name": "item_by_name",
+          "params": "&self, name: impl Into<String>",
+          "returns": "Option<IvgDataItem>"
+        },
+        {
+          "name": "copy_from",
+          "params": "&self, shape: &crate::shape::IvgShape",
+          "returns": "bool"
+        },
+        {
+          "name": "clear",
+          "params": "&self",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgDataItem",
+      "file": "src/document/data_fields.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "value",
+          "params": "&self",
+          "returns": "Option<Variant>"
+        },
+        {
+          "name": "set_value",
+          "params": "&self, v: Variant",
+          "returns": "bool"
+        },
+        {
+          "name": "data_field",
+          "params": "&self",
+          "returns": "Option<IvgDataField>"
+        },
+        {
+          "name": "formatted_value",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "clear",
+          "params": "&self",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgDataFields",
+      "file": "src/document/data_fields.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index_or_name: Variant",
+          "returns": "Option<IvgDataField>"
+        },
+        {
+          "name": "item_by_index",
+          "params": "&self, i: i32",
+          "returns": "Option<IvgDataField>"
+        },
+        {
+          "name": "item_by_name",
+          "params": "&self, name: impl Into<String>",
+          "returns": "Option<IvgDataField>"
+        },
+        {
+          "name": "add",
+          "params": "&self, name: impl Into<String>, format: impl Into<String>, app_default: bool, doc_default: bool, summarize_group: bool,",
+          "returns": "Option<IvgDataField>"
+        },
+        {
+          "name": "add_ex",
+          "params": "&self, name: impl Into<String>, data_type: i32, default_value: impl Into<String>, constraint: impl Into<String>, target: impl Into<String>, format: impl Into<String>, app_default: bool, doc_default: bool, summarize_group: bool, field_width: i32,",
+          "returns": "Option<IvgDataField>"
+        },
+        {
+          "name": "is_present",
+          "params": "&self, field_name: impl Into<String>",
+          "returns": "Option<bool>"
+        }
+      ]
+    },
+    {
+      "name": "IvgDataField",
+      "file": "src/document/data_fields.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_name",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "format_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "format",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_format",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "field_width",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_field_width",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "data_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_data_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "target",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_target",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "default_value",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_default_value",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "constraint",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_constraint",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "parent_name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_parent_name",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "element_name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_element_name",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "index",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "app_default",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_app_default",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "doc_default",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_doc_default",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "summarize_group",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_summarize_group",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "delete",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "reorder",
+          "params": "&self, new_index: i32",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgDocument",
+      "file": "src/document/document.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_dispatch",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "file_name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "full_file_name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "file_path",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "dirty",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_dirty",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "reset_dirty",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "read_only",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "saved",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "version",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "unit",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_unit",
+          "params": "&self, unit: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "reference_point",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_reference_point",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "world_scale",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_world_scale",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "application",
+          "params": "&self",
+          "returns": "Option<crate::app::IvgApplication>"
+        },
+        {
+          "name": "pages",
+          "params": "&self",
+          "returns": "Option<IvgPages>"
+        },
+        {
+          "name": "active_page",
+          "params": "&self",
+          "returns": "Option<IvgPage>"
+        },
+        {
+          "name": "spreads",
+          "params": "&self",
+          "returns": "Option<IvgSpreads>"
+        },
+        {
+          "name": "active_spread",
+          "params": "&self",
+          "returns": "Option<IvgSpread>"
+        },
+        {
+          "name": "create_page",
+          "params": "&self",
+          "returns": "Option<IvgPage>"
+        },
+        {
+          "name": "active_layer",
+          "params": "&self",
+          "returns": "Option<IvgLayer>"
+        },
+        {
+          "name": "active_virtual_layer",
+          "params": "&self",
+          "returns": "Option<IvgLayer>"
+        },
+        {
+          "name": "active_page_layers",
+          "params": "&self",
+          "returns": "Option<IvgLayers>"
+        },
+        {
+          "name": "create_layer",
+          "params": "&self, name: impl Into<String>",
+          "returns": "Option<IvgLayer>"
+        },
+        {
+          "name": "shapes",
+          "params": "&self",
+          "returns": "Option<IvgShapes>"
+        },
+        {
+          "name": "selection_range",
+          "params": "&self",
+          "returns": "Option<IvgShapeRange>"
+        },
+        {
+          "name": "active_shape",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "clear_selection",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "find_shape",
+          "params": "&self, name: impl Into<String>, shape_type: i32, static_id: i32, recursive: bool,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "find_shapes",
+          "params": "&self, name: impl Into<String>, shape_type: i32, recursive: bool,",
+          "returns": "Option<IvgShapeRange>"
+        },
+        {
+          "name": "create_curve",
+          "params": "&self",
+          "returns": "Option<IvgCurve>"
+        },
+        {
+          "name": "convert_units",
+          "params": "&self, value: f64, from: i32, to: i32",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "data_fields",
+          "params": "&self",
+          "returns": "Option<crate::document::IvgDataFields>"
+        },
+        {
+          "name": "metadata",
+          "params": "&self",
+          "returns": "Option<IvgMetadata>"
+        },
+        {
+          "name": "save",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "save_as",
+          "params": "&self, file_name: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "save_as_ex",
+          "params": "&self, file_name: impl Into<String>, options: &IvgStructSaveAsOptions,",
+          "returns": "bool"
+        },
+        {
+          "name": "close",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "close_without_saving",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "export",
+          "params": "&self, file_name: impl Into<String>, filter: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "export_ex",
+          "params": "&self, file_name: impl Into<String>, filter: i32, options: &IvgStructExportOptions,",
+          "returns": "bool"
+        },
+        {
+          "name": "print_out",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "print_settings",
+          "params": "&self",
+          "returns": "Option<crate::print::IvgPrnJob>"
+        },
+        {
+          "name": "pdf_settings",
+          "params": "&self",
+          "returns": "Option<crate::print::IvgPdfVbaSettings>"
+        },
+        {
+          "name": "begin_command_group",
+          "params": "&self, name: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "end_command_group",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "clear_undo_stack",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "views",
+          "params": "&self",
+          "returns": "Option<crate::view::IvgViews>"
+        },
+        {
+          "name": "windows",
+          "params": "&self",
+          "returns": "Option<crate::view::IvgWindows>"
+        },
+        {
+          "name": "grid",
+          "params": "&self",
+          "returns": "Option<crate::misc::IvgGrid>"
+        },
+        {
+          "name": "rulers",
+          "params": "&self",
+          "returns": "Option<crate::misc::IvgRulers>"
+        },
+        {
+          "name": "style_sheet",
+          "params": "&self",
+          "returns": "Option<crate::style::IvgStyleSheet>"
+        },
+        {
+          "name": "tree_manager",
+          "params": "&self",
+          "returns": "Option<crate::tree::IvgTreeManager>"
+        },
+        {
+          "name": "selection_info",
+          "params": "&self",
+          "returns": "Option<crate::shape::IvgSelectionInformation>"
+        }
+      ]
+    },
+    {
+      "name": "IvgDocuments",
+      "file": "src/document/documents.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "application",
+          "params": "&self",
+          "returns": "Option<crate::app::IvgApplication>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index_or_name: Variant",
+          "returns": "Option<IvgDocument>"
+        },
+        {
+          "name": "item_by_index",
+          "params": "&self, i: i32",
+          "returns": "Option<IvgDocument>"
+        },
+        {
+          "name": "item_by_name",
+          "params": "&self, name: impl Into<String>",
+          "returns": "Option<IvgDocument>"
+        },
+        {
+          "name": "all",
+          "params": "&self",
+          "returns": "Vec<IvgDocument>"
+        },
+        {
+          "name": "add",
+          "params": "&self",
+          "returns": "Option<IvgDocument>"
+        },
+        {
+          "name": "add_from_template",
+          "params": "&self, template: impl Into<String>, include_graphics: bool,",
+          "returns": "Option<IvgDocument>"
+        },
+        {
+          "name": "open",
+          "params": "&self, file_name: impl Into<String>",
+          "returns": "Option<IvgDocument>"
+        },
+        {
+          "name": "close_all",
+          "params": "&self",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgMetadata",
+      "file": "src/document/metadata.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "title",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_title",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "subject",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_subject",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "author",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_author",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "last_author",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_last_author",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "keywords",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_keywords",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "notes",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_notes",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "copyright",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_copyright",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "revision",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_revision",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "doc_id",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_doc_id",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "doc_language",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_doc_language",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "template_sided",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_template_sided",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "template_folds",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_template_folds",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "template_type",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_template_type",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "template_industry",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_template_industry",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "template_designer_notes",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_template_designer_notes",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "localizable_keywords",
+          "params": "&self",
+          "returns": "Option<crate::fill::IvgLocalizableString>"
+        },
+        {
+          "name": "localizable_notes",
+          "params": "&self",
+          "returns": "Option<crate::fill::IvgLocalizableString>"
+        },
+        {
+          "name": "localizable_title",
+          "params": "&self",
+          "returns": "Option<crate::fill::IvgLocalizableString>"
+        },
+        {
+          "name": "localizable_subject",
+          "params": "&self",
+          "returns": "Option<crate::fill::IvgLocalizableString>"
+        },
+        {
+          "name": "localizable_copyright",
+          "params": "&self",
+          "returns": "Option<crate::fill::IvgLocalizableString>"
+        },
+        {
+          "name": "localizable_template_designer_notes",
+          "params": "&self,",
+          "returns": "Option<crate::fill::IvgLocalizableString>"
+        },
+        {
+          "name": "category",
+          "params": "&self",
+          "returns": "Option<crate::fill::IvgLocalizableString>"
+        }
+      ]
+    }
+  ],
+  "tests": {
+    "files": [
+      "tests/document.rs",
+      "tests/e2e.rs",
+      "tests/effect.rs",
+      "tests/shape.rs",
+      "tests/smoke.rs"
+    ],
+    "cases": 20
+  },
+  "coverage": {
+    "method_name_count": 142,
+    "covered_method_name_count": 60,
+    "coverage_pct": 42.3
+  }
+}

@@ -1,0 +1,261 @@
+{
+  "method_name_count": 3552,
+  "covered_method_name_count": 788,
+  "coverage_pct": 22.2,
+  "global_method_name_count": 2701,
+  "global_covered_method_name_count": 357,
+  "global_coverage_pct": 13.2,
+  "test_case_count": 66,
+  "test_files": [
+    "tests/app.rs",
+    "tests/color.rs",
+    "tests/curve.rs",
+    "tests/document.rs",
+    "tests/e2e.rs",
+    "tests/effect.rs",
+    "tests/enums.rs",
+    "tests/fill_outline.rs",
+    "tests/geometry.rs",
+    "tests/import_export.rs",
+    "tests/misc.rs",
+    "tests/page_layer.rs",
+    "tests/print.rs",
+    "tests/shape.rs",
+    "tests/smoke.rs",
+    "tests/structs.rs",
+    "tests/style.rs",
+    "tests/symbol.rs",
+    "tests/text.rs",
+    "tests/ui.rs",
+    "tests/view_tree.rs"
+  ],
+  "note": "方法名按“去重后的 pub fn 名称”统计；同名方法跨类型会被高估，仅用于趋势参考。",
+  "modules": [
+    {
+      "module": "app",
+      "test_files": [
+        "tests/app.rs",
+        "tests/e2e.rs",
+        "tests/effect.rs",
+        "tests/shape.rs",
+        "tests/smoke.rs"
+      ],
+      "test_cases": 22,
+      "method_name_count": 81,
+      "covered_method_name_count": 51,
+      "coverage_pct": 63.0
+    },
+    {
+      "module": "color",
+      "test_files": [
+        "tests/color.rs"
+      ],
+      "test_cases": 6,
+      "method_name_count": 197,
+      "covered_method_name_count": 27,
+      "coverage_pct": 13.7
+    },
+    {
+      "module": "curve",
+      "test_files": [
+        "tests/curve.rs"
+      ],
+      "test_cases": 2,
+      "method_name_count": 144,
+      "covered_method_name_count": 30,
+      "coverage_pct": 20.8
+    },
+    {
+      "module": "document",
+      "test_files": [
+        "tests/document.rs",
+        "tests/e2e.rs",
+        "tests/effect.rs",
+        "tests/shape.rs",
+        "tests/smoke.rs"
+      ],
+      "test_cases": 20,
+      "method_name_count": 142,
+      "covered_method_name_count": 60,
+      "coverage_pct": 42.3
+    },
+    {
+      "module": "effect",
+      "test_files": [
+        "tests/effect.rs"
+      ],
+      "test_cases": 2,
+      "method_name_count": 261,
+      "covered_method_name_count": 26,
+      "coverage_pct": 10.0
+    },
+    {
+      "module": "fill",
+      "test_files": [
+        "tests/fill_outline.rs"
+      ],
+      "test_cases": 2,
+      "method_name_count": 230,
+      "covered_method_name_count": 39,
+      "coverage_pct": 17.0
+    },
+    {
+      "module": "geometry",
+      "test_files": [
+        "tests/geometry.rs"
+      ],
+      "test_cases": 3,
+      "method_name_count": 171,
+      "covered_method_name_count": 35,
+      "coverage_pct": 20.5
+    },
+    {
+      "module": "import_export",
+      "test_files": [
+        "tests/import_export.rs"
+      ],
+      "test_cases": 1,
+      "method_name_count": 27,
+      "covered_method_name_count": 7,
+      "coverage_pct": 25.9
+    },
+    {
+      "module": "layer",
+      "test_files": [
+        "tests/e2e.rs",
+        "tests/effect.rs",
+        "tests/page_layer.rs",
+        "tests/shape.rs",
+        "tests/smoke.rs"
+      ],
+      "test_cases": 15,
+      "method_name_count": 89,
+      "covered_method_name_count": 33,
+      "coverage_pct": 37.1
+    },
+    {
+      "module": "misc",
+      "test_files": [
+        "tests/misc.rs"
+      ],
+      "test_cases": 3,
+      "method_name_count": 298,
+      "covered_method_name_count": 50,
+      "coverage_pct": 16.8
+    },
+    {
+      "module": "outline",
+      "test_files": [
+        "tests/fill_outline.rs"
+      ],
+      "test_cases": 2,
+      "method_name_count": 94,
+      "covered_method_name_count": 29,
+      "coverage_pct": 30.9
+    },
+    {
+      "module": "page",
+      "test_files": [
+        "tests/e2e.rs",
+        "tests/page_layer.rs",
+        "tests/smoke.rs"
+      ],
+      "test_cases": 10,
+      "method_name_count": 83,
+      "covered_method_name_count": 37,
+      "coverage_pct": 44.6
+    },
+    {
+      "module": "print",
+      "test_files": [
+        "tests/print.rs"
+      ],
+      "test_cases": 2,
+      "method_name_count": 361,
+      "covered_method_name_count": 49,
+      "coverage_pct": 13.6
+    },
+    {
+      "module": "shape",
+      "test_files": [
+        "tests/e2e.rs",
+        "tests/shape.rs",
+        "tests/smoke.rs"
+      ],
+      "test_cases": 11,
+      "method_name_count": 435,
+      "covered_method_name_count": 70,
+      "coverage_pct": 16.1
+    },
+    {
+      "module": "structs",
+      "test_files": [
+        "tests/structs.rs"
+      ],
+      "test_cases": 8,
+      "method_name_count": 183,
+      "covered_method_name_count": 56,
+      "coverage_pct": 30.6
+    },
+    {
+      "module": "style",
+      "test_files": [
+        "tests/style.rs"
+      ],
+      "test_cases": 1,
+      "method_name_count": 173,
+      "covered_method_name_count": 38,
+      "coverage_pct": 22.0
+    },
+    {
+      "module": "symbol",
+      "test_files": [
+        "tests/symbol.rs"
+      ],
+      "test_cases": 1,
+      "method_name_count": 43,
+      "covered_method_name_count": 13,
+      "coverage_pct": 30.2
+    },
+    {
+      "module": "text",
+      "test_files": [
+        "tests/text.rs"
+      ],
+      "test_cases": 1,
+      "method_name_count": 221,
+      "covered_method_name_count": 42,
+      "coverage_pct": 19.0
+    },
+    {
+      "module": "tree",
+      "test_files": [
+        "tests/view_tree.rs"
+      ],
+      "test_cases": 2,
+      "method_name_count": 44,
+      "covered_method_name_count": 15,
+      "coverage_pct": 34.1
+    },
+    {
+      "module": "ui",
+      "test_files": [
+        "tests/ui.rs"
+      ],
+      "test_cases": 1,
+      "method_name_count": 182,
+      "covered_method_name_count": 53,
+      "coverage_pct": 29.1
+    },
+    {
+      "module": "view",
+      "test_files": [
+        "tests/view_tree.rs"
+      ],
+      "test_cases": 2,
+      "method_name_count": 93,
+      "covered_method_name_count": 28,
+      "coverage_pct": 30.1
+    }
+  ]
+}

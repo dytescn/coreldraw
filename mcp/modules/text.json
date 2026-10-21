@@ -1,0 +1,1540 @@
+{
+  "module": "text",
+  "files": [
+    "src/text/characters.rs",
+    "src/text/columns.rs",
+    "src/text/frame.rs",
+    "src/text/lines.rs",
+    "src/text/mod.rs",
+    "src/text/paragraphs.rs",
+    "src/text/range.rs",
+    "src/text/tab_positions.rs",
+    "src/text/text.rs",
+    "src/text/words.rs"
+  ],
+  "types": [
+    {
+      "name": "IvgTextCharacters",
+      "file": "src/text/characters.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32, count: i32",
+          "returns": "Option<IvgTextRange>"
+        },
+        {
+          "name": "all",
+          "params": "&self",
+          "returns": "Option<IvgTextRange>"
+        },
+        {
+          "name": "first",
+          "params": "&self",
+          "returns": "Option<IvgTextRange>"
+        },
+        {
+          "name": "last",
+          "params": "&self",
+          "returns": "Option<IvgTextRange>"
+        }
+      ]
+    },
+    {
+      "name": "IvgTextColumns",
+      "file": "src/text/columns.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32, count: i32",
+          "returns": "Option<IvgTextRange>"
+        },
+        {
+          "name": "all",
+          "params": "&self",
+          "returns": "Option<IvgTextRange>"
+        },
+        {
+          "name": "first",
+          "params": "&self",
+          "returns": "Option<IvgTextRange>"
+        },
+        {
+          "name": "last",
+          "params": "&self",
+          "returns": "Option<IvgTextRange>"
+        }
+      ]
+    },
+    {
+      "name": "IvgTextFrames",
+      "file": "src/text/frame.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<IvgTextFrame>"
+        },
+        {
+          "name": "first",
+          "params": "&self",
+          "returns": "Option<IvgTextFrame>"
+        },
+        {
+          "name": "last",
+          "params": "&self",
+          "returns": "Option<IvgTextFrame>"
+        },
+        {
+          "name": "range",
+          "params": "&self, index: i32, count: i32",
+          "returns": "Option<IvgTextRange>"
+        },
+        {
+          "name": "all",
+          "params": "&self",
+          "returns": "Option<IvgTextRange>"
+        }
+      ]
+    },
+    {
+      "name": "IvgTextFrame",
+      "file": "src/text/frame.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "range",
+          "params": "&self",
+          "returns": "Option<IvgTextRange>"
+        },
+        {
+          "name": "previous",
+          "params": "&self",
+          "returns": "Option<IvgTextFrame>"
+        },
+        {
+          "name": "next",
+          "params": "&self",
+          "returns": "Option<IvgTextFrame>"
+        },
+        {
+          "name": "index",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "is_empty",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_first",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_last",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_inside_container",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_fitted_to_path",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "vertical_alignment",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_vertical_alignment",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "multicolumn",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "column_count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "column_width",
+          "params": "&self, index: i32",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "column_gutter",
+          "params": "&self, index: i32",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_columns",
+          "params": "&self, num_columns: i32, equal_columns: bool, widths_and_gutters: Variant,",
+          "returns": "bool"
+        },
+        {
+          "name": "link_to",
+          "params": "&self, shape: &IvgShape",
+          "returns": "bool"
+        },
+        {
+          "name": "unlink",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "container",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "path",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "frame_shape",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "fill",
+          "params": "&self",
+          "returns": "Option<IvgFill>"
+        },
+        {
+          "name": "set_fill",
+          "params": "&self, f: &IvgFill",
+          "returns": "bool"
+        },
+        {
+          "name": "outline",
+          "params": "&self",
+          "returns": "Option<IvgOutline>"
+        },
+        {
+          "name": "set_outline",
+          "params": "&self, o: &IvgOutline",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgTextLines",
+      "file": "src/text/lines.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32, count: i32",
+          "returns": "Option<IvgTextRange>"
+        },
+        {
+          "name": "all",
+          "params": "&self",
+          "returns": "Option<IvgTextRange>"
+        },
+        {
+          "name": "first",
+          "params": "&self",
+          "returns": "Option<IvgTextRange>"
+        },
+        {
+          "name": "last",
+          "params": "&self",
+          "returns": "Option<IvgTextRange>"
+        }
+      ]
+    },
+    {
+      "name": "IvgTextParagraphs",
+      "file": "src/text/paragraphs.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32, count: i32",
+          "returns": "Option<IvgTextRange>"
+        },
+        {
+          "name": "all",
+          "params": "&self",
+          "returns": "Option<IvgTextRange>"
+        },
+        {
+          "name": "first",
+          "params": "&self",
+          "returns": "Option<IvgTextRange>"
+        },
+        {
+          "name": "last",
+          "params": "&self",
+          "returns": "Option<IvgTextRange>"
+        }
+      ]
+    },
+    {
+      "name": "IvgTextRange",
+      "file": "src/text/range.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "text",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_text",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "wide_text",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_wide_text",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "start",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_start",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "end",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_end",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "length",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_length",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "is_empty",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_range",
+          "params": "&self, start: i32, end: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "characters",
+          "params": "&self",
+          "returns": "Option<IvgTextCharacters>"
+        },
+        {
+          "name": "words",
+          "params": "&self",
+          "returns": "Option<IvgTextWords>"
+        },
+        {
+          "name": "lines",
+          "params": "&self",
+          "returns": "Option<IvgTextLines>"
+        },
+        {
+          "name": "paragraphs",
+          "params": "&self",
+          "returns": "Option<IvgTextParagraphs>"
+        },
+        {
+          "name": "columns",
+          "params": "&self",
+          "returns": "Option<IvgTextColumns>"
+        },
+        {
+          "name": "frames",
+          "params": "&self",
+          "returns": "Option<IvgTextFrames>"
+        },
+        {
+          "name": "tabs",
+          "params": "&self",
+          "returns": "Option<IvgTextTabPositions>"
+        },
+        {
+          "name": "style",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_style",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "bold",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_bold",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "italic",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_italic",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "underline",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_underline",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "strikethru",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_strikethru",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "overscore",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_overscore",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "font",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_font",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "size",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_size",
+          "params": "&self, v: f32",
+          "returns": "bool"
+        },
+        {
+          "name": "position",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_position",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "case",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_case",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "char_angle",
+          "params": "&self",
+          "returns": "Option<f32>"
+        },
+        {
+          "name": "set_char_angle",
+          "params": "&self, v: f32",
+          "returns": "bool"
+        },
+        {
+          "name": "language_id",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_language_id",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "char_set",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_char_set",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "range_kerning",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_range_kerning",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "alignment",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_alignment",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "first_line_indent",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_first_line_indent",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "left_indent",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_left_indent",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "right_indent",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_right_indent",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "min_word_spacing",
+          "params": "&self",
+          "returns": "Option<f32>"
+        },
+        {
+          "name": "set_min_word_spacing",
+          "params": "&self, v: f32",
+          "returns": "bool"
+        },
+        {
+          "name": "max_word_spacing",
+          "params": "&self",
+          "returns": "Option<f32>"
+        },
+        {
+          "name": "set_max_word_spacing",
+          "params": "&self, v: f32",
+          "returns": "bool"
+        },
+        {
+          "name": "max_char_spacing",
+          "params": "&self",
+          "returns": "Option<f32>"
+        },
+        {
+          "name": "set_max_char_spacing",
+          "params": "&self, v: f32",
+          "returns": "bool"
+        },
+        {
+          "name": "char_spacing",
+          "params": "&self",
+          "returns": "Option<f32>"
+        },
+        {
+          "name": "set_char_spacing",
+          "params": "&self, v: f32",
+          "returns": "bool"
+        },
+        {
+          "name": "word_spacing",
+          "params": "&self",
+          "returns": "Option<f32>"
+        },
+        {
+          "name": "set_word_spacing",
+          "params": "&self, v: f32",
+          "returns": "bool"
+        },
+        {
+          "name": "line_spacing",
+          "params": "&self",
+          "returns": "Option<f32>"
+        },
+        {
+          "name": "set_line_spacing",
+          "params": "&self, v: f32",
+          "returns": "bool"
+        },
+        {
+          "name": "line_spacing_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "para_spacing_before",
+          "params": "&self",
+          "returns": "Option<f32>"
+        },
+        {
+          "name": "set_para_spacing_before",
+          "params": "&self, v: f32",
+          "returns": "bool"
+        },
+        {
+          "name": "para_spacing_after",
+          "params": "&self",
+          "returns": "Option<f32>"
+        },
+        {
+          "name": "set_para_spacing_after",
+          "params": "&self, v: f32",
+          "returns": "bool"
+        },
+        {
+          "name": "horiz_shift",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_horiz_shift",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "vert_shift",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_vert_shift",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "auto_hyphenate",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_auto_hyphenate",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "hyphen_hot_zone",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_hyphen_hot_zone",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "hyphen_min_chars_before",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_hyphen_min_chars_before",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "hyphen_min_chars_after",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_hyphen_min_chars_after",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "hyphen_min_word_length",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_hyphen_min_word_length",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "hyphenate_capitals",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_hyphenate_capitals",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "hyphenate_all_cap_words",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_hyphenate_all_cap_words",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "fill",
+          "params": "&self",
+          "returns": "Option<IvgFill>"
+        },
+        {
+          "name": "outline",
+          "params": "&self",
+          "returns": "Option<IvgOutline>"
+        },
+        {
+          "name": "char_back_fill",
+          "params": "&self",
+          "returns": "Option<IvgFill>"
+        },
+        {
+          "name": "effect",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "apply_no_effect",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "apply_bullet_effect",
+          "params": "&self, symbol: impl Into<String>, font: impl Into<String>, size: f32, baseline_shift: f32, horizontal_position: f64, hanging_indent: bool,",
+          "returns": "bool"
+        },
+        {
+          "name": "apply_drop_cap_effect",
+          "params": "&self, lines_dropped: i32, distance_from_text: f64, hanging_indent: bool,",
+          "returns": "bool"
+        },
+        {
+          "name": "drop_cap_lines_dropped",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_drop_cap_lines_dropped",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "drop_cap_distance_from_text",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_drop_cap_distance_from_text",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "drop_cap_hanging_indent",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_drop_cap_hanging_indent",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "bullet_font",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_bullet_font",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "bullet_symbol",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_bullet_symbol",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "bullet_size",
+          "params": "&self",
+          "returns": "Option<f32>"
+        },
+        {
+          "name": "set_bullet_size",
+          "params": "&self, v: f32",
+          "returns": "bool"
+        },
+        {
+          "name": "bullet_baseline_shift",
+          "params": "&self",
+          "returns": "Option<f32>"
+        },
+        {
+          "name": "set_bullet_baseline_shift",
+          "params": "&self, v: f32",
+          "returns": "bool"
+        },
+        {
+          "name": "bullet_horizontal_position",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_bullet_horizontal_position",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "bullet_hanging_indent",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_bullet_hanging_indent",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "delete",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "select",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "copy",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "paste",
+          "params": "&self",
+          "returns": "Option<IvgTextRange>"
+        },
+        {
+          "name": "collapse",
+          "params": "&self, to_end: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "combine",
+          "params": "&self, range: &IvgTextRange",
+          "returns": "bool"
+        },
+        {
+          "name": "in_range",
+          "params": "&self, range: &IvgTextRange",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_same",
+          "params": "&self, range: &IvgTextRange",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "change_case",
+          "params": "&self, case: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "duplicate",
+          "params": "&self",
+          "returns": "Option<IvgTextRange>"
+        },
+        {
+          "name": "insert_before",
+          "params": "&self, text: impl Into<String>, language_id: i32, char_set: i32, font: impl Into<String>,",
+          "returns": "Option<IvgTextRange>"
+        },
+        {
+          "name": "insert_after",
+          "params": "&self, text: impl Into<String>, language_id: i32, char_set: i32, font: impl Into<String>,",
+          "returns": "Option<IvgTextRange>"
+        },
+        {
+          "name": "range",
+          "params": "&self, start: i32, end: i32",
+          "returns": "Option<IvgTextRange>"
+        },
+        {
+          "name": "set_line_spacing_ex",
+          "params": "&self, line_spacing_type: i32, line_spacing: f32, para_before: f32, para_after: f32,",
+          "returns": "bool"
+        },
+        {
+          "name": "copy_attributes",
+          "params": "&self, source: &IvgTextRange",
+          "returns": "bool"
+        },
+        {
+          "name": "apply_style",
+          "params": "&self, style_name: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "object_style",
+          "params": "&self",
+          "returns": "Option<crate::style::IvgStyle>"
+        },
+        {
+          "name": "baselines",
+          "params": "&self",
+          "returns": "Option<IvgCurve>"
+        },
+        {
+          "name": "text_line_rects",
+          "params": "&self",
+          "returns": "Option<IvgCurve>"
+        },
+        {
+          "name": "straighten",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "align_to_baseline",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "get_open_type_feature",
+          "params": "&self, feature: impl Into<String>",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_open_type_feature",
+          "params": "&self, feature: impl Into<String>, state: i32,",
+          "returns": "bool"
+        },
+        {
+          "name": "text_formatter",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_text_formatter",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "enum_ranges",
+          "params": "&self, property_filter: i32",
+          "returns": "Option<IvgTextRanges>"
+        },
+        {
+          "name": "find_ranges",
+          "params": "&self, query: impl Into<String>",
+          "returns": "Option<IvgTextRanges>"
+        },
+        {
+          "name": "evaluate",
+          "params": "&self, expr: impl Into<String>",
+          "returns": "Option<Variant>"
+        }
+      ]
+    },
+    {
+      "name": "IvgTextRanges",
+      "file": "src/text/range.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<IvgTextRange>"
+        },
+        {
+          "name": "first",
+          "params": "&self",
+          "returns": "Option<IvgTextRange>"
+        },
+        {
+          "name": "last",
+          "params": "&self",
+          "returns": "Option<IvgTextRange>"
+        },
+        {
+          "name": "reverse",
+          "params": "&self",
+          "returns": "Option<IvgTextRanges>"
+        }
+      ]
+    },
+    {
+      "name": "IvgTextTabPositions",
+      "file": "src/text/tab_positions.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<IvgTextTabPosition>"
+        },
+        {
+          "name": "leader_spacing",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_leader_spacing",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "leader_character",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_leader_character",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "clear",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "add",
+          "params": "&self, position: f64, alignment: i32, leadered: bool,",
+          "returns": "Option<IvgTextTabPosition>"
+        },
+        {
+          "name": "add_every",
+          "params": "&self, position: f64, alignment: i32, leadered: bool,",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgTextTabPosition",
+      "file": "src/text/tab_positions.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "position",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_position",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "index",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "alignment",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_alignment",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "leadered",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_leadered",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "delete",
+          "params": "&self",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgText",
+      "file": "src/text/text.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "text_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "frames_in_link",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "unused_frames_in_link",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "overflow",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_artistic_text",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_editing",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_html_compatible",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "font_properties",
+          "params": "&self, frames: i32",
+          "returns": "Option<IvgStructFontProperties>"
+        },
+        {
+          "name": "set_font_properties",
+          "params": "&self, frames: i32, props: &IvgStructFontProperties,",
+          "returns": "bool"
+        },
+        {
+          "name": "font_properties_in_range",
+          "params": "&self, start: i32, count: i32, indexing: i32,",
+          "returns": "Option<IvgStructFontProperties>"
+        },
+        {
+          "name": "set_font_properties_in_range",
+          "params": "&self, start: i32, count: i32, indexing: i32, props: &IvgStructFontProperties,",
+          "returns": "bool"
+        },
+        {
+          "name": "align_properties",
+          "params": "&self, frames: i32",
+          "returns": "Option<IvgStructAlignProperties>"
+        },
+        {
+          "name": "set_align_properties",
+          "params": "&self, frames: i32, props: &IvgStructAlignProperties,",
+          "returns": "bool"
+        },
+        {
+          "name": "align_properties_in_range",
+          "params": "&self, start: i32, count: i32, indexing: i32,",
+          "returns": "Option<IvgStructAlignProperties>"
+        },
+        {
+          "name": "set_align_properties_in_range",
+          "params": "&self, start: i32, count: i32, indexing: i32, props: &IvgStructAlignProperties,",
+          "returns": "bool"
+        },
+        {
+          "name": "space_properties",
+          "params": "&self, frames: i32",
+          "returns": "Option<IvgStructSpaceProperties>"
+        },
+        {
+          "name": "set_space_properties",
+          "params": "&self, frames: i32, props: &IvgStructSpaceProperties,",
+          "returns": "bool"
+        },
+        {
+          "name": "space_properties_in_range",
+          "params": "&self, start: i32, count: i32, indexing: i32,",
+          "returns": "Option<IvgStructSpaceProperties>"
+        },
+        {
+          "name": "set_space_properties_in_range",
+          "params": "&self, start: i32, count: i32, indexing: i32, props: &IvgStructSpaceProperties,",
+          "returns": "bool"
+        },
+        {
+          "name": "hyphenation_settings",
+          "params": "&self, frames: i32,",
+          "returns": "Option<IvgStructHyphenationSettings>"
+        },
+        {
+          "name": "set_hyphenation_settings",
+          "params": "&self, frames: i32, s: &IvgStructHyphenationSettings,",
+          "returns": "bool"
+        },
+        {
+          "name": "hyphenation_settings_in_range",
+          "params": "&self, start: i32, count: i32, indexing: i32,",
+          "returns": "Option<IvgStructHyphenationSettings>"
+        },
+        {
+          "name": "set_hyphenation_settings_in_range",
+          "params": "&self, start: i32, count: i32, indexing: i32, s: &IvgStructHyphenationSettings,",
+          "returns": "bool"
+        },
+        {
+          "name": "contents",
+          "params": "&self, frames: i32",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_contents",
+          "params": "&self, frames: i32, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "fit_to_path",
+          "params": "&self, path: &IvgShape",
+          "returns": "Option<IvgEffect>"
+        },
+        {
+          "name": "fit_text_to_frame",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "find",
+          "params": "&self, text: impl Into<String>, case_sensitive: bool, start_index: i32, wrap_around: bool, indexing: i32,",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "replace",
+          "params": "&self, old_text: impl Into<String>, new_text: impl Into<String>, case_sensitive: bool, start_index: i32, replace_all: bool, wrap_around: bool, indexing: i32,",
+          "returns": "bool"
+        },
+        {
+          "name": "import_from_file",
+          "params": "&self, file_name: impl Into<String>, start_index: i32, indexing: i32,",
+          "returns": "bool"
+        },
+        {
+          "name": "export_to_file",
+          "params": "&self, file_name: impl Into<String>, start_index: i32, count: i32, indexing: i32,",
+          "returns": "bool"
+        },
+        {
+          "name": "convert_to_artistic",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "convert_to_paragraph",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "make_html_compatible",
+          "params": "&self, html: bool",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "story",
+          "params": "&self",
+          "returns": "Option<IvgTextRange>"
+        },
+        {
+          "name": "selection",
+          "params": "&self",
+          "returns": "Option<IvgTextRange>"
+        },
+        {
+          "name": "range",
+          "params": "&self, start: i32, end: i32",
+          "returns": "Option<IvgTextRange>"
+        },
+        {
+          "name": "begin_edit",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "frame",
+          "params": "&self",
+          "returns": "Option<IvgTextFrame>"
+        },
+        {
+          "name": "frames",
+          "params": "&self",
+          "returns": "Option<IvgTextFrames>"
+        }
+      ]
+    },
+    {
+      "name": "IvgTextWords",
+      "file": "src/text/words.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32, count: i32",
+          "returns": "Option<IvgTextRange>"
+        },
+        {
+          "name": "all",
+          "params": "&self",
+          "returns": "Option<IvgTextRange>"
+        },
+        {
+          "name": "first",
+          "params": "&self",
+          "returns": "Option<IvgTextRange>"
+        },
+        {
+          "name": "last",
+          "params": "&self",
+          "returns": "Option<IvgTextRange>"
+        }
+      ]
+    }
+  ],
+  "tests": {
+    "files": [
+      "tests/text.rs"
+    ],
+    "cases": 1
+  },
+  "coverage": {
+    "method_name_count": 221,
+    "covered_method_name_count": 42,
+    "coverage_pct": 19.0
+  }
+}

@@ -1,0 +1,2197 @@
+{
+  "module": "misc",
+  "files": [
+    "src/misc/clipboard.rs",
+    "src/misc/clone_link.rs",
+    "src/misc/component.rs",
+    "src/misc/filetypes.rs",
+    "src/misc/font_list.rs",
+    "src/misc/gms.rs",
+    "src/misc/grid.rs",
+    "src/misc/mod.rs",
+    "src/misc/on_screen.rs",
+    "src/misc/opplist.rs",
+    "src/misc/palette.rs",
+    "src/misc/properties.rs",
+    "src/misc/recent_files.rs",
+    "src/misc/ruler.rs",
+    "src/misc/script_tools.rs",
+    "src/misc/tool_shape.rs",
+    "src/misc/tool_state.rs",
+    "src/misc/trace_settings.rs",
+    "src/misc/transparency.rs",
+    "src/misc/url.rs",
+    "src/misc/workspace.rs"
+  ],
+  "types": [
+    {
+      "name": "IvgClipboard",
+      "file": "src/misc/clipboard.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "valid",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_empty",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "clear",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "data_present",
+          "params": "&self, format_name: impl Into<String>",
+          "returns": "Option<bool>"
+        }
+      ]
+    },
+    {
+      "name": "IvgCloneLink",
+      "file": "src/misc/clone_link.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "clone_parent",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "fill_linked",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_fill_linked",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "outline_linked",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_outline_linked",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "shape_linked",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_shape_linked",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "transform_linked",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_transform_linked",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "bitmap_color_mask_linked",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_bitmap_color_mask_linked",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "restore_all_links",
+          "params": "&self",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgComponents",
+      "file": "src/misc/component.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_dispatch",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index_or_name: Variant",
+          "returns": "Option<IvgComponent>"
+        },
+        {
+          "name": "item_by_index",
+          "params": "&self, i: i32",
+          "returns": "Option<IvgComponent>"
+        },
+        {
+          "name": "item_by_name",
+          "params": "&self, name: impl Into<String>",
+          "returns": "Option<IvgComponent>"
+        },
+        {
+          "name": "is_component_installed",
+          "params": "&self, component_id: impl Into<String>",
+          "returns": "Option<bool>"
+        }
+      ]
+    },
+    {
+      "name": "IvgComponent",
+      "file": "src/misc/component.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_dispatch",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "component_id",
+          "params": "&self",
+          "returns": "Option<String>"
+        }
+      ]
+    },
+    {
+      "name": "IvgFontList",
+      "file": "src/misc/font_list.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: windows::Win32::System::Com::IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "all",
+          "params": "&self",
+          "returns": "Vec<String>"
+        }
+      ]
+    },
+    {
+      "name": "IvgGmsManager",
+      "file": "src/misc/gms.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "gms_path",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "user_gms_path",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "projects",
+          "params": "&self",
+          "returns": "Option<IvgGmsProjects>"
+        },
+        {
+          "name": "run_macro",
+          "params": "&self, module_name: impl Into<String>, macro_name: impl Into<String>, parameters: Variant,",
+          "returns": "Option<Variant>"
+        }
+      ]
+    },
+    {
+      "name": "IvgGmsProjects",
+      "file": "src/misc/gms.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index_or_name: Variant",
+          "returns": "Option<IvgGmsProject>"
+        },
+        {
+          "name": "load",
+          "params": "&self, file_name: impl Into<String>, copy_file: bool, for_all_users: bool,",
+          "returns": "Option<IvgGmsProject>"
+        },
+        {
+          "name": "create",
+          "params": "&self, name: impl Into<String>, for_all_users: bool, file_name: impl Into<String>,",
+          "returns": "Option<IvgGmsProject>"
+        }
+      ]
+    },
+    {
+      "name": "IvgGmsProject",
+      "file": "src/misc/gms.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_name",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "display_name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "file_name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "file_path",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "full_file_name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "dirty",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_dirty",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "locked",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "password_protected",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "macros",
+          "params": "&self",
+          "returns": "Option<IvgGmsMacros>"
+        },
+        {
+          "name": "unload",
+          "params": "&self",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgGmsMacros",
+      "file": "src/misc/gms.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index_or_name: Variant",
+          "returns": "Option<IvgGmsMacro>"
+        },
+        {
+          "name": "create",
+          "params": "&self, name: impl Into<String>",
+          "returns": "Option<IvgGmsMacro>"
+        }
+      ]
+    },
+    {
+      "name": "IvgGmsMacro",
+      "file": "src/misc/gms.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "run",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "edit",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "delete",
+          "params": "&self",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgGrid",
+      "file": "src/misc/grid.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "visible",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_visible",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "grid_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_grid_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "snap",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_snap",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "set_frequency",
+          "params": "&self, x: f64, y: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "spacing_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_spacing_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "spacing_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_spacing_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgOnScreenCurve",
+      "file": "src/misc/on_screen.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "show",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "hide",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "set_pen",
+          "params": "&self, color: i32, width_in_pixels: i32, style: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "set_no_pen",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "set_brush",
+          "params": "&self, color: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "set_no_brush",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "set_curve",
+          "params": "&self, curve: &IvgCurve",
+          "returns": "bool"
+        },
+        {
+          "name": "set_line",
+          "params": "&self, x1: f64, y1: f64, x2: f64, y2: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "set_rectangle",
+          "params": "&self, x1: f64, y1: f64, x2: f64, y2: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "set_circle",
+          "params": "&self, cx: f64, cy: f64, radius: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "set_points",
+          "params": "&self, points: &IvgPointRange",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgOnScreenHandle",
+      "file": "src/misc/on_screen.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "show",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "hide",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "set_handle_color",
+          "params": "&self, color: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "set_position",
+          "params": "&self, x: f64, y: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "update_hot_tracking",
+          "params": "&self, mx: f64, my: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "is_hot_tracked",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_on_handle",
+          "params": "&self, mx: f64, my: f64",
+          "returns": "Option<bool>"
+        }
+      ]
+    },
+    {
+      "name": "IvgOnScreenText",
+      "file": "src/misc/on_screen.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "show",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "hide",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "set_text_color",
+          "params": "&self, color: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "set_text_and_position",
+          "params": "&self, text: impl Into<String>, x: f64, y: f64, align: i32, x_ref: f64, y_ref: f64,",
+          "returns": "bool"
+        },
+        {
+          "name": "set_text",
+          "params": "&self, text: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "set_pixel_offset",
+          "params": "&self, x: i32, y: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "update_position",
+          "params": "&self, x: f64, y: f64",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "PropertyEntry",
+      "file": "src/misc/opplist.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "name: impl Into<String>, id: i32",
+          "returns": "Self"
+        },
+        {
+          "name": "with_value",
+          "params": "mut self, v: Variant",
+          "returns": "Self"
+        }
+      ]
+    },
+    {
+      "name": "PropertyList",
+      "file": "src/misc/opplist.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "",
+          "returns": "Self"
+        },
+        {
+          "name": "add",
+          "params": "&mut self, entry: PropertyEntry",
+          "returns": null
+        },
+        {
+          "name": "len",
+          "params": "&self",
+          "returns": "usize"
+        },
+        {
+          "name": "is_empty",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "iter",
+          "params": "&self",
+          "returns": "std::slice::Iter<'_, PropertyEntry>"
+        },
+        {
+          "name": "find",
+          "params": "&self, name: &str, id: i32",
+          "returns": "Option<&PropertyEntry>"
+        },
+        {
+          "name": "remove",
+          "params": "&mut self, name: &str, id: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "clear",
+          "params": "&mut self",
+          "returns": null
+        }
+      ]
+    },
+    {
+      "name": "IvgPalettes",
+      "file": "src/misc/palette.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index_or_name: Variant",
+          "returns": "Option<IvgPalette>"
+        },
+        {
+          "name": "open",
+          "params": "&self, file_name: impl Into<String>",
+          "returns": "Option<IvgPalette>"
+        },
+        {
+          "name": "open_fixed",
+          "params": "&self, palette_id: i32",
+          "returns": "Option<IvgPalette>"
+        }
+      ]
+    },
+    {
+      "name": "IvgPalette",
+      "file": "src/misc/palette.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_name",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "palette_id",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "file_name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "identifier",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "is_empty",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "locked",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_default",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_open",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "close",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "open",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "save",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "make_default",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "delete",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "color",
+          "params": "&self, index: i32",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "set_color",
+          "params": "&self, index: i32, color: &IvgColor",
+          "returns": "bool"
+        },
+        {
+          "name": "add_color",
+          "params": "&self, color: &IvgColor",
+          "returns": "bool"
+        },
+        {
+          "name": "insert_color",
+          "params": "&self, index: i32, color: &IvgColor",
+          "returns": "bool"
+        },
+        {
+          "name": "remove_color",
+          "params": "&self, index: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "color_count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "match_color",
+          "params": "&self, color: &IvgColor",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "find_color",
+          "params": "&self, name: impl Into<String>",
+          "returns": "Option<i64>"
+        }
+      ]
+    },
+    {
+      "name": "IvgPaletteManager",
+      "file": "src/misc/palette.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "palette_count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "get_palette",
+          "params": "&self, index_or_name: Variant",
+          "returns": "Option<IvgPalette>"
+        },
+        {
+          "name": "default_palette",
+          "params": "&self",
+          "returns": "Option<IvgPalette>"
+        },
+        {
+          "name": "open_palettes",
+          "params": "&self",
+          "returns": "Option<IvgPalettes>"
+        },
+        {
+          "name": "load_all_palettes",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "load_palette",
+          "params": "&self, file_name: impl Into<String>",
+          "returns": "Option<IvgPalette>"
+        }
+      ]
+    },
+    {
+      "name": "IvgProperties",
+      "file": "src/misc/properties.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, name: impl Into<String>, id: i32",
+          "returns": "Option<Variant>"
+        },
+        {
+          "name": "set_item",
+          "params": "&self, name: impl Into<String>, id: i32, value: Variant,",
+          "returns": "bool"
+        },
+        {
+          "name": "item_by_index",
+          "params": "&self, index: i32",
+          "returns": "Option<Variant>"
+        },
+        {
+          "name": "index_of",
+          "params": "&self, name: impl Into<String>, id: i32",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "exists",
+          "params": "&self, name: impl Into<String>, id: i32",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "description",
+          "params": "&self, index: i32",
+          "returns": "Option<(String, i32)>"
+        },
+        {
+          "name": "delete",
+          "params": "&self, name: impl Into<String>, id: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "delete_by_index",
+          "params": "&self, index: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "delete_all",
+          "params": "&self, name: impl Into<String>",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "put_file",
+          "params": "&self, name: impl Into<String>, id: i32, file_name: impl Into<String>,",
+          "returns": "bool"
+        },
+        {
+          "name": "get_file",
+          "params": "&self, name: impl Into<String>, id: i32, file_name: impl Into<String>,",
+          "returns": "bool"
+        },
+        {
+          "name": "get_point",
+          "params": "&self, uuid_name: impl Into<String>",
+          "returns": "Option<IvgPoint>"
+        },
+        {
+          "name": "set_point",
+          "params": "&self, uuid_name: impl Into<String>, p: &IvgPoint",
+          "returns": "bool"
+        },
+        {
+          "name": "get_vector",
+          "params": "&self, uuid_name: impl Into<String>",
+          "returns": "Option<IvgVector>"
+        },
+        {
+          "name": "set_vector",
+          "params": "&self, uuid_name: impl Into<String>, v: &IvgVector",
+          "returns": "bool"
+        },
+        {
+          "name": "get_curve",
+          "params": "&self, uuid_name: impl Into<String>",
+          "returns": "Option<IvgCurve>"
+        },
+        {
+          "name": "set_curve",
+          "params": "&self, uuid_name: impl Into<String>, c: &IvgCurve",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgRecentFiles",
+      "file": "src/misc/recent_files.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "maximum",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<IvgRecentFile>"
+        },
+        {
+          "name": "add",
+          "params": "&self, name: impl Into<String>, path: impl Into<String>",
+          "returns": "Option<IvgRecentFile>"
+        }
+      ]
+    },
+    {
+      "name": "IvgRecentFile",
+      "file": "src/misc/recent_files.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "index",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_name",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "path",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_path",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "full_name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_full_name",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "delete",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "open",
+          "params": "&self",
+          "returns": "Option<crate::document::IvgDocument>"
+        }
+      ]
+    },
+    {
+      "name": "IvgRulers",
+      "file": "src/misc/ruler.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "v_units",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_v_units",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "h_units",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_h_units",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "ICorelScriptTools",
+      "file": "src/misc/script_tools.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "length_convert",
+          "params": "&self, from: i32, to: i32, value: f64",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "angle_convert",
+          "params": "&self, from: i32, to: i32, value: f64",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "asin",
+          "params": "&self, value: f64",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "log",
+          "params": "&self, value: f64",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "build_date",
+          "params": "&self, year: i32, month: i32, day: i32",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "format_time",
+          "params": "&self, time: f64, format: impl Into<String>",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "file_attr",
+          "params": "&self, folder_file: impl Into<String>",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "get_temp_folder",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "get_curr_folder",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "get_script_folder",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "mk_folder",
+          "params": "&self, folder: impl Into<String>",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "rm_folder",
+          "params": "&self, folder: impl Into<String>",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "kill",
+          "params": "&self, file_name: impl Into<String>",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "rename",
+          "params": "&self, src: impl Into<String>, dst: impl Into<String>, overwrite: i32,",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "get_file_box",
+          "params": "&self, filter: impl Into<String>, title: impl Into<String>, dialog_type: i32, file: impl Into<String>, extension: impl Into<String>, folder: impl Into<String>, button: impl Into<String>,",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "get_folder",
+          "params": "&self, init_folder: impl Into<String>, title: impl Into<String>, parent_window_handle: i32,",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "get_app_handle",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "get_win_handle",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "get_command_line",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "get_version",
+          "params": "&self, option: i32",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "begin_wait_cursor",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "end_wait_cursor",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "dec",
+          "params": "&self, hex: impl Into<String>",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "from_centimeters",
+          "params": "&self, v: f64",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "to_centimeters",
+          "params": "&self, v: f64",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "from_inches",
+          "params": "&self, v: f64",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "to_inches",
+          "params": "&self, v: f64",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "from_points",
+          "params": "&self, v: f64",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "to_points",
+          "params": "&self, v: f64",
+          "returns": "Option<f64>"
+        }
+      ]
+    },
+    {
+      "name": "IvgToolShapeAttributes",
+      "file": "src/misc/tool_shape.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "set_can_resize",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "set_can_rotate",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "set_can_skew",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "set_can_size_disproportionally",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "set_can_apply_nonlinear_transforms",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "set_regenerate_on_transform",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "set_regenerate_on_style_change",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "set_property_bar_guid",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "set_context_menu_guid",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "set_object_manager_bitmap_guid",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "set_edit_state_guid",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "set_default_shape_name",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgToolShape",
+      "file": "src/misc/tool_shape.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "on_generate_shape",
+          "params": "&self, parent: &IvgLayer, object_properties: &IvgProperties, style_attributes: &IvgStyle, transformation: &crate::geometry::IvgTransformMatrix, is_preview_only: bool,",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgToolState",
+      "file": "src/misc/tool_state.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "is_drawing",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "on_start_state",
+          "params": "&self, attrs: &IvgToolStateAttributes",
+          "returns": "bool"
+        },
+        {
+          "name": "on_exit_state",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "on_mouse_move",
+          "params": "&self, pt: &IvgPoint",
+          "returns": "bool"
+        },
+        {
+          "name": "on_lbutton_down",
+          "params": "&self, pt: &IvgPoint",
+          "returns": "bool"
+        },
+        {
+          "name": "on_lbutton_up",
+          "params": "&self, pt: &IvgPoint",
+          "returns": "bool"
+        },
+        {
+          "name": "on_lbutton_dbl_click",
+          "params": "&self, pt: &IvgPoint",
+          "returns": "bool"
+        },
+        {
+          "name": "on_click",
+          "params": "&self, pt: &IvgPoint",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "on_rbutton_down",
+          "params": "&self, pt: &IvgPoint",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "on_rbutton_up",
+          "params": "&self, pt: &IvgPoint",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "on_key_down",
+          "params": "&self, key_code: i32",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "on_key_up",
+          "params": "&self, key_code: i32",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "on_delete",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "on_abort",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "on_commit",
+          "params": "&self, pt: &IvgPoint",
+          "returns": "bool"
+        },
+        {
+          "name": "on_timer",
+          "params": "&self, timer_id: i32, time_ellapsed: i32",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgToolStateAttributes",
+      "file": "src/misc/tool_state.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "property_bar_guid",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_property_bar_guid",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "context_menu_guid",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_context_menu_guid",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "use_tablet_pressure",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_use_tablet_pressure",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "allow_temp_pick_state",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_allow_temp_pick_state",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "allow_autopan",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_allow_autopan",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "allow_context_menu",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_allow_context_menu",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "can_update_selection_on_mouse_click",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_can_update_selection_on_mouse_click",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "deselect_on_lbutton_down",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_deselect_on_lbutton_down",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "enter_grace_state_on_lbutton_down",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_enter_grace_state_on_lbutton_down",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "current_pressure",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "document",
+          "params": "&self",
+          "returns": "Option<crate::document::IvgDocument>"
+        },
+        {
+          "name": "set_status_info",
+          "params": "&self, value: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "set_cursor",
+          "params": "&self, cursor_shape: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "set_cursor_guid",
+          "params": "&self, new_val: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "set_state_hints_page",
+          "params": "&self, new_val: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "start_timer",
+          "params": "&self, timer_id: i32, time_to_tick: i32, one_time: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "stop_timer",
+          "params": "&self, timer_id: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "snap_mouse",
+          "params": "&self, pt: &mut IvgPoint",
+          "returns": "bool"
+        },
+        {
+          "name": "anchored_snap_mouse",
+          "params": "&self, pt: &mut IvgPoint, anchor: &IvgPoint",
+          "returns": "bool"
+        },
+        {
+          "name": "constrain_mouse",
+          "params": "&self, pt: &mut IvgPoint, anchor: &IvgPoint",
+          "returns": "bool"
+        },
+        {
+          "name": "is_key_down",
+          "params": "&self, key_code: i32",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "exit_temporary_tool_state",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "set_focus",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "capture_mouse",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "release_mouse",
+          "params": "&self",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgTraceSettings",
+      "file": "src/misc/trace_settings.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "trace_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_trace_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "smoothing",
+          "params": "&self",
+          "returns": "Option<i16>"
+        },
+        {
+          "name": "set_smoothing",
+          "params": "&self, v: i16",
+          "returns": "bool"
+        },
+        {
+          "name": "detail_level",
+          "params": "&self",
+          "returns": "Option<i16>"
+        },
+        {
+          "name": "set_detail_level",
+          "params": "&self, v: i16",
+          "returns": "bool"
+        },
+        {
+          "name": "detail_level_percent",
+          "params": "&self",
+          "returns": "Option<i16>"
+        },
+        {
+          "name": "set_detail_level_percent",
+          "params": "&self, v: i16",
+          "returns": "bool"
+        },
+        {
+          "name": "max_detail_level",
+          "params": "&self",
+          "returns": "Option<i16>"
+        },
+        {
+          "name": "min_detail_level",
+          "params": "&self",
+          "returns": "Option<i16>"
+        },
+        {
+          "name": "corner_smoothness",
+          "params": "&self",
+          "returns": "Option<i16>"
+        },
+        {
+          "name": "set_corner_smoothness",
+          "params": "&self, v: i16",
+          "returns": "bool"
+        },
+        {
+          "name": "color_mode",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "palette_id",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "color_count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "color",
+          "params": "&self, index: i32",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "set_color_count",
+          "params": "&self, color_count: i32",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_color_mode",
+          "params": "&self, color_mode: i32, palette_id: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "delete_original_object",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_delete_original_object",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "remove_background",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_remove_background",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "remove_entire_back_color",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_remove_entire_back_color",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "background_removal_mode",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_background_removal_mode",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "background_color",
+          "params": "&self",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "merge_adjacent_objects",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_merge_adjacent_objects",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "remove_overlap",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_remove_overlap",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "group_objects_by_color",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_group_objects_by_color",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "curve_count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "node_count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "bitmap_width",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "bitmap_height",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "apply_changes",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "finish",
+          "params": "&self",
+          "returns": "Option<IvgShapeRange>"
+        },
+        {
+          "name": "show_dialog",
+          "params": "&self, parent_window_handle: i32",
+          "returns": "Option<bool>"
+        }
+      ]
+    },
+    {
+      "name": "IvgTransparency",
+      "file": "src/misc/transparency.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "transparency_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "uniform",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_uniform",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "fountain",
+          "params": "&self",
+          "returns": "Option<IvgFountainFill>"
+        },
+        {
+          "name": "set_fountain",
+          "params": "&self, f: &IvgFountainFill",
+          "returns": "bool"
+        },
+        {
+          "name": "pattern",
+          "params": "&self",
+          "returns": "Option<IvgPatternFill>"
+        },
+        {
+          "name": "set_pattern",
+          "params": "&self, f: &IvgPatternFill",
+          "returns": "bool"
+        },
+        {
+          "name": "texture",
+          "params": "&self",
+          "returns": "Option<IvgTextureFill>"
+        },
+        {
+          "name": "set_texture",
+          "params": "&self, f: &IvgTextureFill",
+          "returns": "bool"
+        },
+        {
+          "name": "start",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_start",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "end",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_end",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "frozen",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "apply_no_transparency",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "apply_uniform_transparency",
+          "params": "&self, value: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "apply_fountain_transparency",
+          "params": "&self, start: i32, end: i32, fill_type: i32, angle: f64, steps: i32, edge_pad: i32, mid_point: i32, center_offset_x: f64, center_offset_y: f64,",
+          "returns": "Option<IvgFountainFill>"
+        },
+        {
+          "name": "apply_pattern_transparency",
+          "params": "&self, pattern_type: i32, file_name: impl Into<String>, canvas_index: i32, front: i32, back: i32, transform_with_shape: bool,",
+          "returns": "Option<IvgPatternFill>"
+        },
+        {
+          "name": "apply_texture_transparency",
+          "params": "&self, texture_name: impl Into<String>, library_name: impl Into<String>, front: i32, back: i32,",
+          "returns": "Option<IvgTextureFill>"
+        },
+        {
+          "name": "freeze",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "unfreeze",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "applied_to",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_applied_to",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "merge_mode",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_merge_mode",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "user_assign",
+          "params": "&self, transparency_type: i32, pattern_type: i32, parent_window_handle: i32,",
+          "returns": "Option<bool>"
+        }
+      ]
+    },
+    {
+      "name": "IvgUrl",
+      "file": "src/misc/url.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "address",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_address",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "target_frame",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_target_frame",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "alt_comment",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_alt_comment",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "bookmark",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_bookmark",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "region",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_region",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgWorkspaces",
+      "file": "src/misc/workspace.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index_or_name: Variant",
+          "returns": "Option<IvgWorkspace>"
+        },
+        {
+          "name": "item_by_index",
+          "params": "&self, i: i32",
+          "returns": "Option<IvgWorkspace>"
+        },
+        {
+          "name": "item_by_name",
+          "params": "&self, name: impl Into<String>",
+          "returns": "Option<IvgWorkspace>"
+        }
+      ]
+    },
+    {
+      "name": "IvgWorkspace",
+      "file": "src/misc/workspace.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "description",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "active",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "activate",
+          "params": "&self",
+          "returns": "bool"
+        }
+      ]
+    }
+  ],
+  "tests": {
+    "files": [
+      "tests/misc.rs"
+    ],
+    "cases": 3
+  },
+  "coverage": {
+    "method_name_count": 298,
+    "covered_method_name_count": 50,
+    "coverage_pct": 16.8
+  }
+}

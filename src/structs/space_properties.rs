@@ -52,7 +52,7 @@ impl IvgStructSpaceProperties {
     pub fn word_spacing(&self) -> Option<f32> { self.prop_f32("WordSpacing") }
     pub fn set_word_spacing(&self, v: f32) -> bool { self.put_f32("WordSpacing", v) }
 
-    // ---- 琛岃窛 ----
+    // ---- 行距 ----
 
     pub fn line_spacing(&self) -> Option<f32> { self.prop_f32("LineSpacing") }
     pub fn set_line_spacing(&self, v: f32) -> bool {
@@ -65,7 +65,7 @@ impl IvgStructSpaceProperties {
         self.put_i64("LineSpacingType", v as i64)
     }
 
-    // ---- 娈靛墠 / 娈靛悗 ----
+    // ---- 段前 / 段后 ----
 
     pub fn before_paragraph_spacing(&self) -> Option<f32> {
         self.prop_f32("BeforeParagraphSpacing")

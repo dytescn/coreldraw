@@ -112,7 +112,9 @@ Most methods return `Option<T>` or `bool`. For raw `HRESULT`, use `.raw()`.
 
 | cdrsdk | CorelDRAW | Status |
 |---|---|---|
-| 0.1.x | 2018 – 2024 (v20 – v26) | Tested on v26 |
+| 0.3.x | 2018 – 2024 (v20 – v26) | Tested on v26 (26.1.0.143) |
+| 0.2.x | 2018 – 2024 (v20 – v26) | Superseded |
+| 0.1.x | 2018 – 2024 (v20 – v26) | Superseded |
 
 ## License
 

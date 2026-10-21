@@ -62,13 +62,13 @@ impl IvgFountainFill {
         self.disp.set_property(name, vec![c.as_variant()]).is_ok()
     }
 
-    // ---- 绫诲瀷 ----
+    // ---- 类型 ----
 
     /// `cdrFountainFillType`
     pub fn fountain_type(&self) -> Option<i64> { self.prop_i64("Type") }
     pub fn set_fountain_type(&self, v: i32) -> bool { self.put_i64("Type", v as i64) }
 
-    // ---- 璧锋鍧愭爣 ----
+    // ---- 起止坐标 ----
 
     pub fn start_x(&self) -> Option<f64> { self.prop_f64("StartX") }
     pub fn set_start_x(&self, v: f64) -> bool { self.put_f64("StartX", v) }
@@ -88,7 +88,7 @@ impl IvgFountainFill {
     pub fn end2_y(&self) -> Option<f64> { self.prop_f64("End2Y") }
     pub fn set_end2_y(&self, v: f64) -> bool { self.put_f64("End2Y", v) }
 
-    // ---- 瑙掑害 ----
+    // ---- 角度 ----
 
     pub fn angle(&self) -> Option<f64> { self.prop_f64("Angle") }
 
@@ -97,7 +97,7 @@ impl IvgFountainFill {
         self.disp.invoke_method("SetAngle", args).is_ok()
     }
 
-    // ---- 姝ヨ繘 / 娣峰悎 ----
+    // ---- 步进 / 混合 ----
 
     pub fn steps(&self) -> Option<i64> { self.prop_i64("Steps") }
     pub fn set_steps(&self, v: i32) -> bool { self.put_i64("Steps", v as i64) }
@@ -122,7 +122,7 @@ impl IvgFountainFill {
         self.put_f64("BlendAcceleration", v)
     }
 
-    // ---- 棰滆壊 ----
+    // ---- 颜色 ----
 
     pub fn colors(&self) -> Option<IvgFountainColors> {
         self.prop_dispatch("Colors").map(IvgFountainColors::new)
@@ -148,7 +148,7 @@ impl IvgFountainFill {
         self.put_color("EndColor", c)
     }
 
-    // ---- 涓績鍋忕Щ ----
+    // ---- 中心偏移 ----
 
     pub fn center_offset_x(&self) -> Option<f64> {
         self.prop_f64("CenterOffsetX")
@@ -164,7 +164,7 @@ impl IvgFountainFill {
         self.put_f64("CenterOffsetY", v)
     }
 
-    // ---- 骞虫粦 / 鎵╂暎 ----
+    // ---- 平滑 / 扩散 ----
 
     pub fn smooth_blend(&self) -> Option<bool> { self.prop_bool("SmoothBlend") }
     pub fn set_smooth_blend(&self, v: bool) -> bool { self.put_bool("SmoothBlend", v) }
@@ -180,7 +180,7 @@ impl IvgFountainFill {
     pub fn anisotropic(&self) -> Option<bool> { self.prop_bool("Anisotropic") }
     pub fn set_anisotropic(&self, v: bool) -> bool { self.put_bool("Anisotropic", v) }
 
-    // ---- 閫忔槑 / 娣峰悎妯″紡 ----
+    // ---- 透明 / 混合模式 ----
 
     pub fn is_transparent(&self) -> Option<bool> { self.prop_bool("IsTransparent") }
 
@@ -188,7 +188,7 @@ impl IvgFountainFill {
     pub fn merge_mode(&self) -> Option<i64> { self.prop_i64("MergeMode") }
     pub fn set_merge_mode(&self, v: i32) -> bool { self.put_i64("MergeMode", v as i64) }
 
-    // ---- 缂╂斁 / 鍊炬枩 ----
+    // ---- 缩放 / 倾斜 ----
 
     pub fn scale_x(&self) -> Option<f64> { self.prop_f64("ScaleX") }
     pub fn set_scale_x(&self, v: f64) -> bool { self.put_f64("ScaleX", v) }
@@ -199,9 +199,9 @@ impl IvgFountainFill {
     pub fn skew(&self) -> Option<f64> { self.prop_f64("Skew") }
     pub fn set_skew(&self, v: f64) -> bool { self.put_f64("Skew", v) }
 
-    // ---- 鍙樻崲鐭╅樀 ----
+    // ---- 变换矩阵 ----
 
-    /// 杩斿洖 (d11, d12, d21, d22)
+    /// 返回 (d11, d12, d21, d22)
     pub fn get_transformations(&self) -> Option<(f64, f64, f64, f64)> {
         // 4 涓?out 鍙傛暟鍦?IDispatch 閲屾嬁涓嶅埌锛岃繑鍥?None 鍗犱綅锛?
         // 鐢?ScaleX / ScaleY / Skew 鏇夸唬銆?
@@ -225,7 +225,7 @@ impl IvgFountainFill {
         self.prop_bool("HasNonLinearBlends")
     }
 
-    // ---- 鎿嶄綔 ----
+    // ---- 操作 ----
 
     pub fn translate(&self, x: f64, y: f64) -> bool {
         let args = vec![

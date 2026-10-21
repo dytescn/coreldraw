@@ -65,7 +65,7 @@ impl IvgPatternFill {
         self.disp.set_property(name, vec![c.as_variant()]).is_ok()
     }
 
-    // ---- 绫诲瀷 / 棰滆壊 ----
+    // ---- 类型 / 颜色 ----
 
     /// `cdrPatternFillType`
     pub fn pattern_type(&self) -> Option<i64> { self.prop_i64("Type") }
@@ -87,7 +87,7 @@ impl IvgPatternFill {
         self.put_color("BackColor", c)
     }
 
-    // ---- 鐢诲竷 ----
+    // ---- 画布 ----
 
     pub fn canvas(&self) -> Option<IvgPatternCanvas> {
         self.prop_dispatch("Canvas").map(IvgPatternCanvas::new)
@@ -101,7 +101,7 @@ impl IvgPatternFill {
         self.prop_string("FilePath")
     }
 
-    // ---- 鍘熺偣 ----
+    // ---- 原点 ----
 
     pub fn origin_x(&self) -> Option<f64> { self.prop_f64("OriginX") }
     pub fn set_origin_x(&self, v: f64) -> bool { self.put_f64("OriginX", v) }
@@ -109,7 +109,7 @@ impl IvgPatternFill {
     pub fn origin_y(&self) -> Option<f64> { self.prop_f64("OriginY") }
     pub fn set_origin_y(&self, v: f64) -> bool { self.put_f64("OriginY", v) }
 
-    // ---- 骞抽摵灏哄 ----
+    // ---- 平铺尺寸 ----
 
     pub fn tile_width(&self) -> Option<f64> { self.prop_f64("TileWidth") }
     pub fn set_tile_width(&self, v: f64) -> bool { self.put_f64("TileWidth", v) }
@@ -128,7 +128,7 @@ impl IvgPatternFill {
     pub fn tile_offset(&self) -> Option<i64> { self.prop_i64("TileOffset") }
     pub fn set_tile_offset(&self, v: i32) -> bool { self.put_i64("TileOffset", v as i64) }
 
-    // ---- 鏃嬭浆 / 鍊炬枩 ----
+    // ---- 旋转 / 倾斜 ----
 
     pub fn skew_angle(&self) -> Option<f64> { self.prop_f64("SkewAngle") }
     pub fn set_skew_angle(&self, v: f64) -> bool { self.put_f64("SkewAngle", v) }
@@ -140,7 +140,7 @@ impl IvgPatternFill {
         self.put_f64("RotationAngle", v)
     }
 
-    // ---- 鍙樻崲鏍囧織 ----
+    // ---- 变换标志 ----
 
     pub fn transform_with_shape(&self) -> Option<bool> {
         self.prop_bool("TransformWithShape")
@@ -149,7 +149,7 @@ impl IvgPatternFill {
         self.put_bool("TransformWithShape", v)
     }
 
-    // ---- 闀滃儚 ----
+    // ---- 镜像 ----
 
     pub fn mirror_fill(&self) -> Option<bool> { self.prop_bool("MirrorFill") }
     pub fn set_mirror_fill(&self, v: bool) -> bool { self.put_bool("MirrorFill", v) }
@@ -160,7 +160,7 @@ impl IvgPatternFill {
     pub fn mirror_fill_y(&self) -> Option<bool> { self.prop_bool("MirrorFillY") }
     pub fn set_mirror_fill_y(&self, v: bool) -> bool { self.put_bool("MirrorFillY", v) }
 
-    // ---- 鍔犺浇 ----
+    // ---- 加载 ----
 
     pub fn load(&self, file: impl Into<String>) -> Option<bool> {
         let args = vec![Variant::from_str(file.into())];
@@ -227,7 +227,7 @@ impl IvgPatternCanvas {
         self.put_string("Data", v)
     }
 
-    // ---- 鍍忕礌鎿嶄綔 ----
+    // ---- 像素操作 ----
 
     pub fn pixel(&self, x: i32, y: i32) -> Option<bool> {
         let args = vec![
@@ -246,7 +246,7 @@ impl IvgPatternCanvas {
         self.disp.invoke_method("put_Pixel", args).is_ok()
     }
 
-    // ---- 鍖哄煙鎿嶄綔 ----
+    // ---- 区域操作 ----
 
     pub fn fill_area(&self, x1: i32, y1: i32, x2: i32, y2: i32, state: bool) -> bool {
         let args = vec![
@@ -293,7 +293,7 @@ impl IvgPatternCanvas {
         self.disp.invoke_method("RotateArea", args).is_ok()
     }
 
-    // ---- 鍏跺畠 ----
+    // ---- 其它 ----
 
     pub fn select(&self, index: i32) -> bool {
         let args = vec![Variant::from_i64(index as i64)];

@@ -84,7 +84,7 @@ impl IvgHatchFill {
         self.disp.invoke_method("SetNoBackColor", vec![]).is_ok()
     }
 
-    // ---- 鍙樻崲 ----
+    // ---- 变换 ----
 
     pub fn transform_with_shape(&self) -> Option<bool> {
         self.prop_bool("TransformWithShape")
@@ -125,7 +125,7 @@ impl IvgHatchFill {
         self.prop_dispatch("Library").map(IvgHatchLibrary::new)
     }
 
-    // ---- 缂╂斁 ----
+    // ---- 缩放 ----
 
     pub fn fill_scale_x(&self) -> Option<f64> { self.prop_f64("FillScaleX") }
     pub fn set_fill_scale_x(&self, v: f64) -> bool { self.put_f64("FillScaleX", v) }
@@ -161,7 +161,7 @@ impl IvgHatchFill {
         self.disp.invoke_method("GetLineScale", vec![]).ok()?.to_f64().ok()
     }
 
-    // ---- 鍥炬 ----
+    // ---- 图案 ----
 
     pub fn patterns(&self) -> Option<IvgHatchPatterns> {
         self.prop_dispatch("Patterns").map(IvgHatchPatterns::new)
@@ -344,7 +344,7 @@ impl IvgHatchPattern {
         self.prop_dispatch("Outline").map(crate::outline::IvgOutline::new)
     }
 
-    // ---- 鎿嶄綔 ----
+    // ---- 操作 ----
 
     pub fn delete(&self) -> bool {
         self.disp.invoke_method("Delete", vec![]).is_ok()

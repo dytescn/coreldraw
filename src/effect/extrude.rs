@@ -117,7 +117,7 @@ impl IvgEffectExtrude {
         self.disp.set_property(name, vec![arg]).is_ok()
     }
 
-    // ---- 绫诲瀷 ----
+    // ---- 类型 ----
 
     /// `cdrExtrudeType`
     pub fn extrude_type(&self) -> Option<i64> { self.prop_i64("Type") }
@@ -127,7 +127,7 @@ impl IvgEffectExtrude {
         self.prop_dispatch("VanishingPoint").map(IvgExtrudeVanishingPoint::new)
     }
 
-    // ---- 娣卞害 / 瑙掑害 ----
+    // ---- 深度 / 角度 ----
 
     pub fn depth(&self) -> Option<i64> { self.prop_i64("Depth") }
     pub fn set_depth(&self, v: i32) -> bool { self.put_i64("Depth", v as i64) }
@@ -168,7 +168,7 @@ impl IvgEffectExtrude {
         self.put_bool("UseFullColorRange", v)
     }
 
-    // ---- 鏂滈潰 ----
+    // ---- 斜面 ----
 
     pub fn use_bevel(&self) -> Option<bool> { self.prop_bool("UseBevel") }
     pub fn set_use_bevel(&self, v: bool) -> bool { self.put_bool("UseBevel", v) }
@@ -207,7 +207,7 @@ impl IvgEffectExtrude {
 
     // ---- 鍏夋簮锛? 涓級 ----
 
-    /// 绱㈠紩 1..3
+    /// 索引 1..3
     pub fn light_present(&self, index: i32) -> Option<bool> {
         let args = vec![Variant::from_i64(index as i64)];
         self.disp.invoke_method("LightPresent", args).ok()?.to_bool().ok()
@@ -278,7 +278,7 @@ impl IvgEffectExtrude {
         self.prop_dispatch("ExtrudeGroup").map(IvgShape::new)
     }
 
-    // ---- 鏃嬭浆 / 澶嶅埗 ----
+    // ---- 旋转 / 复制 ----
 
     pub fn rotate(&self, ax: f64, ay: f64, az: f64) -> bool {
         let args = vec![

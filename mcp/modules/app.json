@@ -1,0 +1,470 @@
+{
+  "module": "app",
+  "files": [
+    "src/app/application.rs",
+    "src/app/application_event.rs",
+    "src/app/mod.rs",
+    "src/app/status.rs",
+    "src/app/window.rs"
+  ],
+  "types": [
+    {
+      "name": "IvgApplication",
+      "file": "src/app/application.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "version: &str",
+          "returns": "Option<Self>"
+        },
+        {
+          "name": "try_new",
+          "params": "version: &str",
+          "returns": "wincom::Result<Self>"
+        },
+        {
+          "name": "version",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "version_major",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "version_minor",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "version_build",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "path",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "config_path",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "setup_path",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "program_path",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "addon_path",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "user_data_path",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "user_workspace_path",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "language_path",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "help_file",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "visible",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_visible",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "documents",
+          "params": "&self",
+          "returns": "Option<IvgDocuments>"
+        },
+        {
+          "name": "active_document",
+          "params": "&self",
+          "returns": "Option<IvgDocument>"
+        },
+        {
+          "name": "open_document",
+          "params": "&self, src: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "open_document_ex",
+          "params": "&self, src: impl Into<String>, options: &IvgStructOpenOptions,",
+          "returns": "Option<IvgDocument>"
+        },
+        {
+          "name": "create_document",
+          "params": "&self",
+          "returns": "Option<IvgDocument>"
+        },
+        {
+          "name": "create_document_ex",
+          "params": "&self, options: &IvgStructCreateOptions,",
+          "returns": "Option<IvgDocument>"
+        },
+        {
+          "name": "create_document_from_template",
+          "params": "&self, template: impl Into<String>, include_graphics: bool,",
+          "returns": "Option<IvgDocument>"
+        },
+        {
+          "name": "active_page",
+          "params": "&self",
+          "returns": "Option<IvgPage>"
+        },
+        {
+          "name": "active_layer",
+          "params": "&self",
+          "returns": "Option<IvgLayer>"
+        },
+        {
+          "name": "active_shape",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "active_selection_range",
+          "params": "&self",
+          "returns": "Option<IvgShapeRange>"
+        },
+        {
+          "name": "page_sizes",
+          "params": "&self",
+          "returns": "Option<IvgPageSizes>"
+        },
+        {
+          "name": "active_window",
+          "params": "&self",
+          "returns": "Option<IvgWindow>"
+        },
+        {
+          "name": "windows",
+          "params": "&self",
+          "returns": "Option<IvgWindows>"
+        },
+        {
+          "name": "create_rgb_color",
+          "params": "&self, r: i32, g: i32, b: i32",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "create_cmyk_color",
+          "params": "&self, c: i32, m: i32, y: i32, k: i32,",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "create_gray_color",
+          "params": "&self, gray: i32",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "create_color",
+          "params": "&self, color_str: impl Into<String>",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "create_export_options",
+          "params": "&self",
+          "returns": "Option<IvgStructExportOptions>"
+        },
+        {
+          "name": "create_save_as_options",
+          "params": "&self",
+          "returns": "Option<IvgStructSaveAsOptions>"
+        },
+        {
+          "name": "create_import_options",
+          "params": "&self",
+          "returns": "Option<IvgStructImportOptions>"
+        },
+        {
+          "name": "create_palette_options",
+          "params": "&self",
+          "returns": "Option<IvgStructPaletteOptions>"
+        },
+        {
+          "name": "create_open_options",
+          "params": "&self",
+          "returns": "Option<IvgStructOpenOptions>"
+        },
+        {
+          "name": "create_create_options",
+          "params": "&self",
+          "returns": "Option<IvgStructCreateOptions>"
+        },
+        {
+          "name": "create_paste_options",
+          "params": "&self",
+          "returns": "Option<IvgStructPasteOptions>"
+        },
+        {
+          "name": "create_font_properties",
+          "params": "&self",
+          "returns": "Option<IvgStructFontProperties>"
+        },
+        {
+          "name": "create_align_properties",
+          "params": "&self",
+          "returns": "Option<IvgStructAlignProperties>"
+        },
+        {
+          "name": "create_space_properties",
+          "params": "&self",
+          "returns": "Option<IvgStructSpaceProperties>"
+        },
+        {
+          "name": "create_hyphenation_settings",
+          "params": "&self,",
+          "returns": "Option<IvgStructHyphenationSettings>"
+        },
+        {
+          "name": "create_rect",
+          "params": "&self, x: f64, y: f64, w: f64, h: f64,",
+          "returns": "Option<IvgRect>"
+        },
+        {
+          "name": "create_snap_point",
+          "params": "&self, x: f64, y: f64",
+          "returns": "Option<IvgSnapPoint>"
+        },
+        {
+          "name": "unit",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_unit",
+          "params": "&self, unit: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "convert_units",
+          "params": "&self, value: f64, from: i32, to: i32",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "evaluate",
+          "params": "&self, expr: impl Into<String>",
+          "returns": "Option<Variant>"
+        },
+        {
+          "name": "refresh",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "quit",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "from_dispatch",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        }
+      ]
+    },
+    {
+      "name": "IvgAppStatus",
+      "file": "src/app/status.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: ComObject",
+          "returns": "Self"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "progress",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_progress",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "aborted",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "begin_progress",
+          "params": "&self, message: impl Into<String>, can_abort: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "update_progress",
+          "params": "&self, step: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "set_progress_message",
+          "params": "&self, message: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "end_progress",
+          "params": "&self",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgAppWindow",
+      "file": "src/app/window.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: ComObject",
+          "returns": "Self"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "caption",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_caption",
+          "params": "&self, s: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "active",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "left",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_left",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "top",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_top",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "width",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_width",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "height",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_height",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "client_width",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "client_height",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "handle",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "window_state",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_window_state",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "activate",
+          "params": "&self",
+          "returns": "bool"
+        }
+      ]
+    }
+  ],
+  "tests": {
+    "files": [
+      "tests/app.rs",
+      "tests/e2e.rs",
+      "tests/effect.rs",
+      "tests/shape.rs",
+      "tests/smoke.rs"
+    ],
+    "cases": 22
+  },
+  "coverage": {
+    "method_name_count": 81,
+    "covered_method_name_count": 51,
+    "coverage_pct": 63.0
+  }
+}

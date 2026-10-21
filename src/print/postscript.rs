@@ -30,7 +30,7 @@ impl IvgPrnPostScript {
         self.disp.set_property(name, vec![arg]).is_ok()
     }
 
-    // ---- PostScript 绾у埆 ----
+    // ---- PostScript 级别 ----
 
     /// `PrnPostScriptLevel`
     pub fn level(&self) -> Option<i64> { self.prop_i64("Level") }
@@ -39,7 +39,7 @@ impl IvgPrnPostScript {
     pub fn conform_to_dsc(&self) -> Option<bool> { self.prop_bool("ConformToDSC") }
     pub fn set_conform_to_dsc(&self, v: bool) -> bool { self.put_bool("ConformToDSC", v) }
 
-    // ---- JPEG 鍘嬬缉 ----
+    // ---- JPEG 压缩 ----
 
     pub fn jpeg_compression(&self) -> Option<bool> { self.prop_bool("JPEGCompression") }
     pub fn set_jpeg_compression(&self, v: bool) -> bool {
@@ -49,7 +49,7 @@ impl IvgPrnPostScript {
     pub fn jpeg_quality(&self) -> Option<i64> { self.prop_i64("JPEGQuality") }
     pub fn set_jpeg_quality(&self, v: i32) -> bool { self.put_i64("JPEGQuality", v as i64) }
 
-    // ---- 閾炬帴 ----
+    // ---- 链接 ----
 
     pub fn maintain_opi_links(&self) -> Option<bool> { self.prop_bool("MaintainOPILinks") }
     pub fn set_maintain_opi_links(&self, v: bool) -> bool {
@@ -61,7 +61,7 @@ impl IvgPrnPostScript {
         self.put_bool("ResolveDCSLinks", v)
     }
 
-    // ---- 瀛椾綋 ----
+    // ---- 字体 ----
 
     pub fn download_type1(&self) -> Option<bool> { self.prop_bool("DownloadType1") }
     pub fn set_download_type1(&self, v: bool) -> bool {
@@ -73,7 +73,7 @@ impl IvgPrnPostScript {
         self.put_bool("TrueTypeToType1", v)
     }
 
-    // ---- PDF 閫夐」 ----
+    // ---- PDF 选项 ----
 
     /// `PrnPDFStartup`
     pub fn pdf_startup(&self) -> Option<i64> { self.prop_i64("PDFStartup") }
@@ -89,7 +89,7 @@ impl IvgPrnPostScript {
         self.put_bool("pdfBookmarks", v)
     }
 
-    // ---- 鏇茬嚎 / 骞虫粦 ----
+    // ---- 曲线 / 平滑 ----
 
     pub fn max_points_per_curve(&self) -> Option<i64> { self.prop_i64("MaxPointsPerCurve") }
     pub fn set_max_points_per_curve(&self, v: i32) -> bool {

@@ -66,7 +66,7 @@ impl IvgStructImportOptions {
         self.disp.set_property("ResampleHandler", vec![arg]).is_ok()
     }
 
-    // ---- 棰滆壊 ----
+    // ---- 颜色 ----
 
     pub fn use_color_profile(&self) -> Option<bool> { self.prop_bool("UseColorProfile") }
     pub fn set_use_color_profile(&self, v: bool) -> bool {

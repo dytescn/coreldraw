@@ -62,7 +62,7 @@ impl IvgStructFontProperties {
         self.disp.set_property(name, vec![v]).is_ok()
     }
 
-    // ---- 瀛椾綋 ----
+    // ---- 字体 ----
 
     pub fn name(&self) -> Option<String> { self.prop_string("Name") }
     pub fn set_name(&self, v: impl Into<String>) -> bool {
@@ -104,7 +104,7 @@ impl IvgStructFontProperties {
         self.put_i64("RangeKerning", v as i64)
     }
 
-    // ---- 濉厖 / 杞粨 ----
+    // ---- 填充 / 轮廓 ----
 
     pub fn fill(&self) -> Option<IvgFill> {
         self.prop_dispatch("Fill").map(IvgFill::new)

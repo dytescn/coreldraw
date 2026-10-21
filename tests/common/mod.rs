@@ -82,3 +82,22 @@ macro_rules! require_app {
         }
     };
 }
+
+// =============================================================
+// 测试串行化
+// =============================================================
+
+use std::sync::{Mutex, MutexGuard, OnceLock};
+
+static DOCUMENT_LOCK: OnceLock<Mutex<()>> = OnceLock::new();
+
+/// 串行化会创建 / 关闭文档的测试。
+///
+/// CorelDRAW 只有一个全局 `Documents` 集合，多个测试并行改它会让
+/// `Count` 断言互相干扰（`doc_collection` 曾因此 flaky）。
+pub fn serial() -> MutexGuard<'static, ()> {
+    DOCUMENT_LOCK
+        .get_or_init(|| Mutex::new(()))
+        .lock()
+        .unwrap_or_else(|poisoned| poisoned.into_inner())
+}

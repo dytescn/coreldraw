@@ -50,7 +50,7 @@ impl IvgTraceSettings {
         self.disp.set_property(name, vec![arg]).is_ok()
     }
 
-    // ---- 绫诲瀷 / 骞虫粦 ----
+    // ---- 类型 / 平滑 ----
 
     /// `cdrTraceType`
     pub fn trace_type(&self) -> Option<i64> { self.prop_i64("TraceType") }
@@ -77,7 +77,7 @@ impl IvgTraceSettings {
         self.put_i16("CornerSmoothness", v)
     }
 
-    // ---- 棰滆壊 ----
+    // ---- 颜色 ----
 
     /// `cdrColorType`
     pub fn color_mode(&self) -> Option<i64> { self.prop_i64("ColorMode") }
@@ -110,7 +110,7 @@ impl IvgTraceSettings {
         self.disp.invoke_method("SetColorMode", args).is_ok()
     }
 
-    // ---- 鑳屾櫙 ----
+    // ---- 背景 ----
 
     pub fn delete_original_object(&self) -> Option<bool> {
         self.prop_bool("DeleteOriginalObject")
@@ -145,7 +145,7 @@ impl IvgTraceSettings {
         self.prop_dispatch("BackgroundColor").map(IvgColor::new)
     }
 
-    // ---- 鍚堝苟 / 鍒嗙粍 ----
+    // ---- 合并 / 分组 ----
 
     pub fn merge_adjacent_objects(&self) -> Option<bool> {
         self.prop_bool("MergeAdjacentObjects")
@@ -166,14 +166,14 @@ impl IvgTraceSettings {
         self.put_bool("GroupObjectsByColor", v)
     }
 
-    // ---- 缁熻 ----
+    // ---- 统计 ----
 
     pub fn curve_count(&self) -> Option<i64> { self.prop_i64("CurveCount") }
     pub fn node_count(&self) -> Option<i64> { self.prop_i64("NodeCount") }
     pub fn bitmap_width(&self) -> Option<i64> { self.prop_i64("BitmapWidth") }
     pub fn bitmap_height(&self) -> Option<i64> { self.prop_i64("BitmapHeight") }
 
-    // ---- 鎿嶄綔 ----
+    // ---- 操作 ----
 
     pub fn apply_changes(&self) -> bool {
         self.disp.invoke_method("ApplyChanges", vec![]).is_ok()

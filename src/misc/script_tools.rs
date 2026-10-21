@@ -16,7 +16,7 @@ impl ICorelScriptTools {
         Self::new(disp)
     }
 
-    // ---- 鍗曚綅杞崲 ----
+    // ---- 单位转换 ----
 
     pub fn length_convert(&self, from: i32, to: i32, value: f64) -> Option<f64> {
         let args = vec![
@@ -36,7 +36,7 @@ impl ICorelScriptTools {
         self.disp.invoke_method("AngleConvert", args).ok()?.to_f64().ok()
     }
 
-    // ---- 鏁板 ----
+    // ---- 数学 ----
 
     pub fn asin(&self, value: f64) -> Option<f64> {
         let args = vec![Variant::from_f64(value)];
@@ -148,7 +148,7 @@ impl ICorelScriptTools {
         self.disp.invoke_method("GetFolder", args).ok()?.to_string().ok()
     }
 
-    // ---- 绯荤粺 ----
+    // ---- 系统 ----
 
     pub fn get_app_handle(&self) -> Option<i64> {
         self.disp.invoke_method("GetAppHandle", vec![]).ok()?.to_i64().ok()
@@ -167,7 +167,7 @@ impl ICorelScriptTools {
         self.disp.invoke_method("GetVersion", args).ok()?.to_i64().ok()
     }
 
-    // ---- 鍏跺畠 ----
+    // ---- 其它 ----
 
     pub fn begin_wait_cursor(&self) -> bool {
         self.disp.invoke_method("BeginWaitCursor", vec![]).is_ok()
@@ -182,7 +182,7 @@ impl ICorelScriptTools {
         self.disp.invoke_method("Dec", args).ok()?.to_i64().ok()
     }
 
-    // ---- 鍗曚綅鎹㈢畻鎵归噺 ----
+    // ---- 单位换算批量 ----
 
     pub fn from_centimeters(&self, v: f64) -> Option<f64> {
         self.length_convert(0, 4, v)

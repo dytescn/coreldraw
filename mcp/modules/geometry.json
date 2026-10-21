@@ -1,0 +1,1239 @@
+{
+  "module": "geometry",
+  "files": [
+    "src/geometry/math_utils.rs",
+    "src/geometry/mod.rs",
+    "src/geometry/point.rs",
+    "src/geometry/rect.rs",
+    "src/geometry/snap_point.rs",
+    "src/geometry/transform.rs",
+    "src/geometry/units.rs",
+    "src/geometry/vector.rs"
+  ],
+  "types": [
+    {
+      "name": "IvgMathUtils",
+      "file": "src/geometry/math_utils.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "interpolate",
+          "params": "&self, s: &IvgPoint, e: &IvgPoint, t: f64",
+          "returns": "Option<IvgPoint>"
+        },
+        {
+          "name": "intersect_line_segments",
+          "params": "&self, s1: &IvgPoint, e1: &IvgPoint, s2: &IvgPoint, e2: &IvgPoint,",
+          "returns": "Option<IvgPoint>"
+        },
+        {
+          "name": "distance_to_line_segment",
+          "params": "&self, s: &IvgPoint, e: &IvgPoint, p: &IvgPoint,",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "closest_point_to_line_segment",
+          "params": "&self, s: &IvgPoint, e: &IvgPoint, p: &IvgPoint,",
+          "returns": "Option<IvgPoint>"
+        },
+        {
+          "name": "intersect_infinite_lines",
+          "params": "&self, s1: &IvgPoint, e1: &IvgPoint, s2: &IvgPoint, e2: &IvgPoint,",
+          "returns": "Option<IvgPoint>"
+        },
+        {
+          "name": "distance_to_infinite_line",
+          "params": "&self, s: &IvgPoint, e: &IvgPoint, p: &IvgPoint,",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "closest_point_to_infinite_line",
+          "params": "&self, s: &IvgPoint, e: &IvgPoint, p: &IvgPoint,",
+          "returns": "Option<IvgPoint>"
+        },
+        {
+          "name": "random_real",
+          "params": "&self, low: f64, high: f64",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "random_integer",
+          "params": "&self, low: i32, high: i32",
+          "returns": "Option<i32>"
+        },
+        {
+          "name": "fit_line_to_points",
+          "params": "&self, points: &IvgPointRange",
+          "returns": "Option<IvgPoint>"
+        },
+        {
+          "name": "midpoint",
+          "params": "&self, s: &IvgPoint, e: &IvgPoint",
+          "returns": "Option<IvgPoint>"
+        },
+        {
+          "name": "create_point",
+          "params": "&self, x: f64, y: f64",
+          "returns": "Option<IvgPoint>"
+        },
+        {
+          "name": "create_vector",
+          "params": "&self, x: f64, y: f64",
+          "returns": "Option<IvgVector>"
+        },
+        {
+          "name": "create_point_range",
+          "params": "&self",
+          "returns": "Option<IvgPointRange>"
+        },
+        {
+          "name": "create_identity_transform_matrix",
+          "params": "&self",
+          "returns": "Option<IvgTransformMatrix>"
+        },
+        {
+          "name": "create_rotation_transform_matrix",
+          "params": "&self, angle: f64, origin_x: f64, origin_y: f64,",
+          "returns": "Option<IvgTransformMatrix>"
+        },
+        {
+          "name": "create_translation_transform_matrix",
+          "params": "&self, tx: f64, ty: f64,",
+          "returns": "Option<IvgTransformMatrix>"
+        },
+        {
+          "name": "create_scale_transform_matrix",
+          "params": "&self, sx: f64, sy: f64, origin_x: f64, origin_y: f64,",
+          "returns": "Option<IvgTransformMatrix>"
+        },
+        {
+          "name": "create_line_segment_transform_matrix",
+          "params": "&self, from_start: &IvgPoint, from_end: &IvgPoint, to_start: &IvgPoint, to_end: &IvgPoint,",
+          "returns": "Option<IvgTransformMatrix>"
+        }
+      ]
+    },
+    {
+      "name": "IvgPoint",
+      "file": "src/geometry/point.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "get_xy",
+          "params": "&self",
+          "returns": "Option<(f64, f64)>"
+        },
+        {
+          "name": "set_xy",
+          "params": "&self, x: f64, y: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "add",
+          "params": "&self, v: &IvgVector",
+          "returns": "bool"
+        },
+        {
+          "name": "subtract",
+          "params": "&self, v: &IvgVector",
+          "returns": "bool"
+        },
+        {
+          "name": "distance_to",
+          "params": "&self, other: &IvgPoint",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "get_copy",
+          "params": "&self",
+          "returns": "Option<IvgPoint>"
+        },
+        {
+          "name": "bind_to_document",
+          "params": "&self, doc: &crate::document::IvgDocument",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgPointRange",
+      "file": "src/geometry/point.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<IvgPoint>"
+        },
+        {
+          "name": "first",
+          "params": "&self",
+          "returns": "Option<IvgPoint>"
+        },
+        {
+          "name": "last",
+          "params": "&self",
+          "returns": "Option<IvgPoint>"
+        },
+        {
+          "name": "all",
+          "params": "&self",
+          "returns": "Vec<IvgPoint>"
+        },
+        {
+          "name": "add_point",
+          "params": "&self, p: &IvgPoint",
+          "returns": "bool"
+        },
+        {
+          "name": "add_point_xy",
+          "params": "&self, x: f64, y: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "insert_point",
+          "params": "&self, index: i32, p: &IvgPoint",
+          "returns": "bool"
+        },
+        {
+          "name": "add_points",
+          "params": "&self, other: &IvgPointRange",
+          "returns": "bool"
+        },
+        {
+          "name": "insert_points",
+          "params": "&self, index: i32, other: &IvgPointRange",
+          "returns": "bool"
+        },
+        {
+          "name": "remove",
+          "params": "&self, index: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "remove_range",
+          "params": "&self, start: i32, end: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "remove_all",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "remove_adjacent_duplicates",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "reverse",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "smoothen",
+          "params": "&self, n_points: f64, closed: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "get_copy",
+          "params": "&self",
+          "returns": "Option<IvgPointRange>"
+        },
+        {
+          "name": "bind_to_document",
+          "params": "&self, doc: &crate::document::IvgDocument",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgRect",
+      "file": "src/geometry/rect.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "width",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_width",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "height",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_height",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "left",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "right",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "top",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "bottom",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "center_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "center_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "is_empty",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_rect",
+          "params": "&self, x: f64, y: f64, w: f64, h: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "get_rect",
+          "params": "&self",
+          "returns": "Option<(f64, f64, f64, f64)>"
+        },
+        {
+          "name": "clear",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "copy_assign",
+          "params": "&self, src: &IvgRect",
+          "returns": "bool"
+        },
+        {
+          "name": "get_copy",
+          "params": "&self",
+          "returns": "Option<IvgRect>"
+        },
+        {
+          "name": "intersect",
+          "params": "&self, other: &IvgRect",
+          "returns": "Option<IvgRect>"
+        },
+        {
+          "name": "union",
+          "params": "&self, other: &IvgRect",
+          "returns": "Option<IvgRect>"
+        },
+        {
+          "name": "offset",
+          "params": "&self, dx: f64, dy: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "inflate",
+          "params": "&self, l: f64, t: f64, r: f64, b: f64",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_point_inside",
+          "params": "&self, x: f64, y: f64",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "change_context",
+          "params": "&self, src_doc: &crate::document::IvgDocument, dst_doc: &crate::document::IvgDocument,",
+          "returns": "Option<IvgRect>"
+        }
+      ]
+    },
+    {
+      "name": "IvgSnapPoint",
+      "file": "src/geometry/snap_point.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "position_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_position_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "position_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_position_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "get_position",
+          "params": "&self",
+          "returns": "Option<(f64, f64)>"
+        },
+        {
+          "name": "set_position",
+          "params": "&self, x: f64, y: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "move_by",
+          "params": "&self, dx: f64, dy: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "point_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "direction",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_direction",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "uses_direction",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_uses_direction",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "is_selectable",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_deletable",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_movable",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "can_change_direction",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "selected",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_selected",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "create_selection",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "node",
+          "params": "&self",
+          "returns": "Option<IvgNode>"
+        },
+        {
+          "name": "shape",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "reference_data",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "user",
+          "params": "&self",
+          "returns": "Option<IvgUserSnapPoint>"
+        },
+        {
+          "name": "object",
+          "params": "&self",
+          "returns": "Option<IvgObjectSnapPoint>"
+        },
+        {
+          "name": "bbox",
+          "params": "&self",
+          "returns": "Option<IvgBBoxSnapPoint>"
+        },
+        {
+          "name": "edge",
+          "params": "&self",
+          "returns": "Option<IvgEdgeSnapPoint>"
+        },
+        {
+          "name": "delete",
+          "params": "&self",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgUserSnapPoint",
+      "file": "src/geometry/snap_point.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "id",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "auto_snap",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_auto_snap",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgObjectSnapPoint",
+      "file": "src/geometry/snap_point.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "snap_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        }
+      ]
+    },
+    {
+      "name": "IvgBBoxSnapPoint",
+      "file": "src/geometry/snap_point.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "snap_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        }
+      ]
+    },
+    {
+      "name": "IvgEdgeSnapPoint",
+      "file": "src/geometry/snap_point.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "segment_index",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "segment_offset",
+          "params": "&self",
+          "returns": "Option<f64>"
+        }
+      ]
+    },
+    {
+      "name": "IvgSnapPoints",
+      "file": "src/geometry/snap_point.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<IvgSnapPoint>"
+        },
+        {
+          "name": "all",
+          "params": "&self",
+          "returns": "Vec<IvgSnapPoint>"
+        },
+        {
+          "name": "user",
+          "params": "&self, id: impl Into<String>",
+          "returns": "Option<IvgSnapPoint>"
+        },
+        {
+          "name": "bbox",
+          "params": "&self, ref_point: i32",
+          "returns": "Option<IvgSnapPoint>"
+        },
+        {
+          "name": "object",
+          "params": "&self, snap_type: i32",
+          "returns": "Option<IvgSnapPoint>"
+        },
+        {
+          "name": "edge",
+          "params": "&self, segment_index: i32, segment_offset: f64",
+          "returns": "Option<IvgSnapPoint>"
+        },
+        {
+          "name": "auto_snap_point",
+          "params": "&self",
+          "returns": "Option<IvgSnapPoint>"
+        },
+        {
+          "name": "find_closest",
+          "params": "&self, type_set: i32, x: f64, y: f64,",
+          "returns": "Option<IvgSnapPoint>"
+        },
+        {
+          "name": "range",
+          "params": "&self, references: Variant",
+          "returns": "Option<IvgSnapPointRange>"
+        },
+        {
+          "name": "selection",
+          "params": "&self",
+          "returns": "Option<IvgSnapPointRange>"
+        },
+        {
+          "name": "all_range",
+          "params": "&self",
+          "returns": "Option<IvgSnapPointRange>"
+        },
+        {
+          "name": "clear_selection",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "add_user_snap_point",
+          "params": "&self, x: f64, y: f64, direction: f64, use_direction: bool,",
+          "returns": "Option<IvgSnapPoint>"
+        },
+        {
+          "name": "add_user_snap_point_ex",
+          "params": "&self, id: impl Into<String>, x: f64, y: f64, direction: f64, use_direction: bool,",
+          "returns": "Option<IvgSnapPoint>"
+        }
+      ]
+    },
+    {
+      "name": "IvgSnapPointRange",
+      "file": "src/geometry/snap_point.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<IvgSnapPoint>"
+        },
+        {
+          "name": "all",
+          "params": "&self",
+          "returns": "Vec<IvgSnapPoint>"
+        },
+        {
+          "name": "move_by",
+          "params": "&self, dx: f64, dy: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "delete",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "add",
+          "params": "&self, sp: &IvgSnapPoint",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "remove",
+          "params": "&self, index: i32",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "remove_by_reference",
+          "params": "&self, reference_data: impl Into<String>",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "find",
+          "params": "&self, reference_data: impl Into<String>",
+          "returns": "Option<IvgSnapPoint>"
+        },
+        {
+          "name": "create_selection",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "add_to_selection",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "remove_from_selection",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "change_direction",
+          "params": "&self, direction: f64, uses_direction: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "set_auto_snap",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgTransformMatrix",
+      "file": "src/geometry/transform.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "d11",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_d11",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "d12",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_d12",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "d21",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_d21",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "d22",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_d22",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "translation_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_translation_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "translation_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_translation_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "translation",
+          "params": "&self",
+          "returns": "Option<IvgVector>"
+        },
+        {
+          "name": "set_translation",
+          "params": "&self, x: f64, y: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "is_identity",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_skewed_or_rotated_or_mirrored",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "contains_only_translation",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_skewed_or_rotated",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_scaled_or_skewed_or_rotated",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_orthogonal",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_orthonormal_axis_aligned",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_orthonormal",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_mirrored",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_scaled",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_translated",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_to_identity",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "invert",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "translate_by",
+          "params": "&self, x: f64, y: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "translate_by_vector",
+          "params": "&self, v: &IvgVector",
+          "returns": "bool"
+        },
+        {
+          "name": "rotate",
+          "params": "&self, angle: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "rotate_around",
+          "params": "&self, angle: f64, x: f64, y: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "scale",
+          "params": "&self, sx: f64, sy: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "scale_around",
+          "params": "&self, sx: f64, sy: f64, x: f64, y: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "transform",
+          "params": "&self, other: &IvgTransformMatrix",
+          "returns": "bool"
+        },
+        {
+          "name": "transform_around",
+          "params": "&self, other: &IvgTransformMatrix, x: f64, y: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "transform_point",
+          "params": "&self, p: &IvgPoint",
+          "returns": "bool"
+        },
+        {
+          "name": "transform_points",
+          "params": "&self, points: &IvgPointRange",
+          "returns": "bool"
+        },
+        {
+          "name": "transform_vector",
+          "params": "&self, v: &IvgVector",
+          "returns": "bool"
+        },
+        {
+          "name": "untransform_point",
+          "params": "&self, p: &IvgPoint",
+          "returns": "bool"
+        },
+        {
+          "name": "untransform_points",
+          "params": "&self, points: &IvgPointRange",
+          "returns": "bool"
+        },
+        {
+          "name": "untransform_vector",
+          "params": "&self, v: &IvgVector",
+          "returns": "bool"
+        },
+        {
+          "name": "get_copy",
+          "params": "&self",
+          "returns": "Option<IvgTransformMatrix>"
+        },
+        {
+          "name": "bind_to_document",
+          "params": "&self, doc: &crate::document::IvgDocument",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgVector",
+      "file": "src/geometry/vector.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "length",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_length",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "angle",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_angle",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "get_offsetted_point",
+          "params": "&self, origin: &IvgPoint, distance: f64",
+          "returns": "Option<IvgPoint>"
+        },
+        {
+          "name": "add",
+          "params": "&self, other: &IvgVector",
+          "returns": "bool"
+        },
+        {
+          "name": "subtract",
+          "params": "&self, other: &IvgVector",
+          "returns": "bool"
+        },
+        {
+          "name": "multiply_by",
+          "params": "&self, k: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "negate",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "normalize",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "angle_between",
+          "params": "&self, other: &IvgVector",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "small_angle_between",
+          "params": "&self, other: &IvgVector",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "dot_product",
+          "params": "&self, other: &IvgVector",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "cross_product",
+          "params": "&self, other: &IvgVector",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_from_points",
+          "params": "&self, start: &IvgPoint, end: &IvgPoint",
+          "returns": "bool"
+        },
+        {
+          "name": "project_onto",
+          "params": "&self, other: &IvgVector",
+          "returns": "Option<IvgVector>"
+        },
+        {
+          "name": "get_copy",
+          "params": "&self",
+          "returns": "Option<IvgVector>"
+        },
+        {
+          "name": "bind_to_document",
+          "params": "&self, doc: &crate::document::IvgDocument",
+          "returns": "bool"
+        }
+      ]
+    }
+  ],
+  "tests": {
+    "files": [
+      "tests/geometry.rs"
+    ],
+    "cases": 3
+  },
+  "coverage": {
+    "method_name_count": 171,
+    "covered_method_name_count": 35,
+    "coverage_pct": 20.5
+  }
+}

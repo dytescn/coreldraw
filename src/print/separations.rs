@@ -73,7 +73,7 @@ impl IvgPrnSeparations {
     pub fn empty_plates(&self) -> Option<bool> { self.prop_bool("EmptyPlates") }
     pub fn set_empty_plates(&self, v: bool) -> bool { self.put_bool("EmptyPlates", v) }
 
-    // ---- 鍙犲嵃 ----
+    // ---- 叠印 ----
 
     pub fn preserve_overprints(&self) -> Option<bool> { self.prop_bool("PreserveOverprints") }
     pub fn set_preserve_overprints(&self, v: bool) -> bool {
@@ -111,7 +111,7 @@ impl IvgPrnSeparations {
         self.put_f64("AutoSpreadTextAbove", v)
     }
 
-    // ---- 楂樼骇璁剧疆 ----
+    // ---- 高级设置 ----
 
     pub fn advanced_settings(&self) -> Option<bool> { self.prop_bool("AdvancedSettings") }
     pub fn set_advanced_settings(&self, v: bool) -> bool {

@@ -1,0 +1,1846 @@
+{
+  "module": "fill",
+  "files": [
+    "src/fill/fill.rs",
+    "src/fill/fountain.rs",
+    "src/fill/hatch.rs",
+    "src/fill/metadata.rs",
+    "src/fill/mod.rs",
+    "src/fill/pattern.rs",
+    "src/fill/postscript.rs",
+    "src/fill/texture.rs"
+  ],
+  "types": [
+    {
+      "name": "IvgFill",
+      "file": "src/fill/fill.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "fill_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "uniform_color",
+          "params": "&self",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "set_uniform_color",
+          "params": "&self, c: &IvgColor",
+          "returns": "bool"
+        },
+        {
+          "name": "fountain",
+          "params": "&self",
+          "returns": "Option<IvgFountainFill>"
+        },
+        {
+          "name": "pattern",
+          "params": "&self",
+          "returns": "Option<IvgPatternFill>"
+        },
+        {
+          "name": "texture",
+          "params": "&self",
+          "returns": "Option<IvgTextureFill>"
+        },
+        {
+          "name": "postscript",
+          "params": "&self",
+          "returns": "Option<IvgPostScriptFill>"
+        },
+        {
+          "name": "hatch",
+          "params": "&self",
+          "returns": "Option<IvgHatchFill>"
+        },
+        {
+          "name": "apply_no_fill",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "apply_uniform_fill",
+          "params": "&self, color: &IvgColor",
+          "returns": "bool"
+        },
+        {
+          "name": "apply_fountain_fill",
+          "params": "&self, start_color: &IvgColor, end_color: &IvgColor, fill_type: i32, angle: f64, steps: i32, edge_pad: i32, mid_point: i32, blend_type: i32, center_offset_x: f64, center_offset_y: f64,",
+          "returns": "Option<IvgFountainFill>"
+        },
+        {
+          "name": "apply_pattern_fill",
+          "params": "&self, pattern_type: i32, file_name: impl Into<String>, canvas_index: i32, front_color: &IvgColor, back_color: &IvgColor, transform_with_shape: bool,",
+          "returns": "Option<IvgPatternFill>"
+        },
+        {
+          "name": "apply_texture_fill",
+          "params": "&self, texture_name: impl Into<String>, library_name: impl Into<String>,",
+          "returns": "Option<IvgTextureFill>"
+        },
+        {
+          "name": "apply_postscript_fill",
+          "params": "&self, index_or_name: Variant",
+          "returns": "Option<IvgPostScriptFill>"
+        },
+        {
+          "name": "apply_custom_hatch_fill",
+          "params": "&self, angle: f64, spacing: f64, shift: f64, origin_x: f64, origin_y: f64, width: f64, color: &IvgColor, style: &crate::outline::IvgOutlineStyle, dash_dot_length: f64, pen_width: f64, back_color: &IvgColor, transform_with_shape: bool, scale_lines_with_shape: bool, use_world_coordinates: bool, fill_scale: f64, line_scale: f64, fill_angle: f64, fill_skew: f64,",
+          "returns": "Option<IvgHatchFill>"
+        },
+        {
+          "name": "apply_hatch_fill",
+          "params": "&self, library_name: impl Into<String>, hatch_name_or_index: Variant, back_color: &IvgColor, transform_with_shape: bool, scale_lines_with_shape: bool, use_world_coordinates: bool, fill_scale: f64, line_scale: f64, fill_angle: f64, fill_skew: f64,",
+          "returns": "Option<IvgHatchFill>"
+        },
+        {
+          "name": "get_copy",
+          "params": "&self",
+          "returns": "Option<IvgFill>"
+        },
+        {
+          "name": "copy_assign",
+          "params": "&self, other: &IvgFill",
+          "returns": "bool"
+        },
+        {
+          "name": "compare_with",
+          "params": "&self, other: &IvgFill",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "to_fill_string",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "string_assign",
+          "params": "&self, s: impl Into<String>",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "ps_screen",
+          "params": "&self",
+          "returns": "Option<IvgPSScreenOptions>"
+        }
+      ]
+    },
+    {
+      "name": "IvgFountainFill",
+      "file": "src/fill/fountain.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "fountain_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_fountain_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "start_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_start_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "start_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_start_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "end_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_end_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "end_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_end_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "end2_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_end2_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "end2_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_end2_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "angle",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_angle",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "steps",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_steps",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "edge_pad",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_edge_pad",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "blend_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_blend_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "mid_point",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_mid_point",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "blend_acceleration",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_blend_acceleration",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "colors",
+          "params": "&self",
+          "returns": "Option<IvgFountainColors>"
+        },
+        {
+          "name": "set_colors",
+          "params": "&self, colors: &IvgFountainColors",
+          "returns": "bool"
+        },
+        {
+          "name": "start_color",
+          "params": "&self",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "set_start_color",
+          "params": "&self, c: &IvgColor",
+          "returns": "bool"
+        },
+        {
+          "name": "end_color",
+          "params": "&self",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "set_end_color",
+          "params": "&self, c: &IvgColor",
+          "returns": "bool"
+        },
+        {
+          "name": "center_offset_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_center_offset_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "center_offset_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_center_offset_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "smooth_blend",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_smooth_blend",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "spread_method",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_spread_method",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "anisotropic",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_anisotropic",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "is_transparent",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "merge_mode",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_merge_mode",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "scale_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_scale_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "scale_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_scale_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "skew",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_skew",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "get_transformations",
+          "params": "&self",
+          "returns": "Option<(f64, f64, f64, f64)>"
+        },
+        {
+          "name": "set_transformations",
+          "params": "&self, d11: f64, d12: f64, d21: f64, d22: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "has_hsb_blends",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "has_non_linear_blends",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "translate",
+          "params": "&self, x: f64, y: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "make_opaque",
+          "params": "&self",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgFountainColors",
+      "file": "src/fill/fountain.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<IvgFountainColor>"
+        },
+        {
+          "name": "first",
+          "params": "&self",
+          "returns": "Option<IvgFountainColor>"
+        },
+        {
+          "name": "last",
+          "params": "&self",
+          "returns": "Option<IvgFountainColor>"
+        },
+        {
+          "name": "add",
+          "params": "&self, color: &IvgColor, position: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "add_gray_level",
+          "params": "&self, gray_level: i32, position: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "gray_level",
+          "params": "&self, index: i32",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_gray_level",
+          "params": "&self, index: i32, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "clear",
+          "params": "&self",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgFountainColor",
+      "file": "src/fill/fountain.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "position",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "color",
+          "params": "&self",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "set_color",
+          "params": "&self, c: &IvgColor",
+          "returns": "bool"
+        },
+        {
+          "name": "mid_point",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_mid_point",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "blend_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_blend_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "opacity",
+          "params": "&self",
+          "returns": "Option<u8>"
+        },
+        {
+          "name": "set_opacity",
+          "params": "&self, v: u8",
+          "returns": "bool"
+        },
+        {
+          "name": "move_to",
+          "params": "&self, new_position: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "delete",
+          "params": "&self",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgHatchFill",
+      "file": "src/fill/hatch.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "back_color",
+          "params": "&self",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "set_back_color",
+          "params": "&self, c: &IvgColor",
+          "returns": "bool"
+        },
+        {
+          "name": "has_background",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_no_back_color",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "transform_with_shape",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_transform_with_shape",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "scale_lines_with_shape",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_scale_lines_with_shape",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "use_world_coordinates",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_use_world_coordinates",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "library_name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "hatch_name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "is_from_library",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "index",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "library",
+          "params": "&self",
+          "returns": "Option<IvgHatchLibrary>"
+        },
+        {
+          "name": "fill_scale_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_fill_scale_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "fill_scale_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_fill_scale_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "rotation_angle",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_rotation_angle",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "skew_angle",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_skew_angle",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "set_fill_scale",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "get_fill_scale",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_line_scale",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "get_line_scale",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "patterns",
+          "params": "&self",
+          "returns": "Option<IvgHatchPatterns>"
+        },
+        {
+          "name": "add_pattern",
+          "params": "&self, angle: f64, spacing: f64, shift: f64, origin_x: f64, origin_y: f64, width: f64, color: &IvgColor, style: &IvgOutlineStyle, dash_dot_length: f64, pen_width: f64,",
+          "returns": "Option<IvgHatchPattern>"
+        },
+        {
+          "name": "add_to_library",
+          "params": "&self, library_name: impl Into<String>, hatch_name: impl Into<String>,",
+          "returns": "bool"
+        },
+        {
+          "name": "select",
+          "params": "&self, library_name: impl Into<String>, hatch_name_or_index: Variant, back_color: &IvgColor, transform_with_shape: bool, scale_lines_with_shape: bool, use_world_coordinates: bool, fill_scale: f64, line_scale: f64, fill_angle: f64, fill_skew: f64,",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgHatchPatterns",
+      "file": "src/fill/hatch.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<IvgHatchPattern>"
+        },
+        {
+          "name": "reset",
+          "params": "&self",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgHatchPattern",
+      "file": "src/fill/hatch.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "angle",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_angle",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "origin_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_origin_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "origin_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_origin_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "spacing",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_spacing",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "shift",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_shift",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "shift_percent",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_shift_percent",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "index",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "outline",
+          "params": "&self",
+          "returns": "Option<crate::outline::IvgOutline>"
+        },
+        {
+          "name": "delete",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "set_origin",
+          "params": "&self, x: f64, y: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "get_origin",
+          "params": "&self",
+          "returns": "Option<(f64, f64)>"
+        },
+        {
+          "name": "set_properties",
+          "params": "&self, angle: Variant, spacing: f64, shift: Variant, origin_x: Variant, origin_y: Variant, width: f64, color: &IvgColor, style: &IvgOutlineStyle, dash_dot_length: f64, pen_width: f64,",
+          "returns": "bool"
+        },
+        {
+          "name": "reset",
+          "params": "&self",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgHatchLibrary",
+      "file": "src/fill/hatch.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "display_name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "index",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "active",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "fills",
+          "params": "&self",
+          "returns": "Option<IvgHatchFills>"
+        },
+        {
+          "name": "activate",
+          "params": "&self",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgHatchLibraries",
+      "file": "src/fill/hatch.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index_or_name: Variant",
+          "returns": "Option<IvgHatchLibrary>"
+        },
+        {
+          "name": "find",
+          "params": "&self, name: impl Into<String>",
+          "returns": "Option<IvgHatchLibrary>"
+        },
+        {
+          "name": "active_library",
+          "params": "&self",
+          "returns": "Option<IvgHatchLibrary>"
+        },
+        {
+          "name": "default_library",
+          "params": "&self",
+          "returns": "Option<IvgHatchLibrary>"
+        }
+      ]
+    },
+    {
+      "name": "IvgHatchFills",
+      "file": "src/fill/hatch.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index_or_name: Variant",
+          "returns": "Option<crate::fill::IvgFill>"
+        },
+        {
+          "name": "find",
+          "params": "&self, name: impl Into<String>",
+          "returns": "Option<crate::fill::IvgFill>"
+        }
+      ]
+    },
+    {
+      "name": "IvgFillMetadata",
+      "file": "src/fill/metadata.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "title",
+          "params": "&self",
+          "returns": "Option<IvgLocalizableString>"
+        },
+        {
+          "name": "description",
+          "params": "&self",
+          "returns": "Option<IvgLocalizableString>"
+        },
+        {
+          "name": "keywords",
+          "params": "&self",
+          "returns": "Option<IvgLocalizableString>"
+        },
+        {
+          "name": "subject",
+          "params": "&self",
+          "returns": "Option<IvgLocalizableString>"
+        },
+        {
+          "name": "copyright",
+          "params": "&self",
+          "returns": "Option<IvgLocalizableString>"
+        },
+        {
+          "name": "category",
+          "params": "&self",
+          "returns": "Option<IvgLocalizableString>"
+        },
+        {
+          "name": "creator_tool",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "document_id",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "instance_id",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "derived_from",
+          "params": "&self",
+          "returns": "Option<Variant>"
+        },
+        {
+          "name": "creation_date",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "modification_date",
+          "params": "&self",
+          "returns": "Option<f64>"
+        }
+      ]
+    },
+    {
+      "name": "IvgLocalizableString",
+      "file": "src/fill/metadata.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "is_empty",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "has_default_lang_string",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "has_default_lang_string_only",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "has_non_default_lang_strings",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "default_lang_string",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_default_lang_string",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "get_lang_string",
+          "params": "&self, language: impl Into<String>",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_lang_string",
+          "params": "&self, language: impl Into<String>, value: impl Into<String>,",
+          "returns": "bool"
+        },
+        {
+          "name": "has_lang_string",
+          "params": "&self, language: impl Into<String>",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "languages",
+          "params": "&self",
+          "returns": "Option<Variant>"
+        },
+        {
+          "name": "clear",
+          "params": "&self",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgPatternFill",
+      "file": "src/fill/pattern.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "pattern_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_pattern_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "front_color",
+          "params": "&self",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "set_front_color",
+          "params": "&self, c: &IvgColor",
+          "returns": "bool"
+        },
+        {
+          "name": "back_color",
+          "params": "&self",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "set_back_color",
+          "params": "&self, c: &IvgColor",
+          "returns": "bool"
+        },
+        {
+          "name": "canvas",
+          "params": "&self",
+          "returns": "Option<IvgPatternCanvas>"
+        },
+        {
+          "name": "set_canvas",
+          "params": "&self, c: &IvgPatternCanvas",
+          "returns": "bool"
+        },
+        {
+          "name": "file_path",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "origin_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_origin_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "origin_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_origin_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "tile_width",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_tile_width",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "tile_height",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_tile_height",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "tile_offset_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_tile_offset_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "tile_offset",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_tile_offset",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "skew_angle",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_skew_angle",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "rotation_angle",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_rotation_angle",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "transform_with_shape",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_transform_with_shape",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "mirror_fill",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_mirror_fill",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "mirror_fill_x",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_mirror_fill_x",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "mirror_fill_y",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_mirror_fill_y",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "load",
+          "params": "&self, file: impl Into<String>",
+          "returns": "Option<bool>"
+        }
+      ]
+    },
+    {
+      "name": "IvgPatternCanvas",
+      "file": "src/fill/pattern.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "size",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_size",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "index",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "width",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_width",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "height",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_height",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "data",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_data",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "pixel",
+          "params": "&self, x: i32, y: i32",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_pixel",
+          "params": "&self, x: i32, y: i32, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "fill_area",
+          "params": "&self, x1: i32, y1: i32, x2: i32, y2: i32, state: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "copy_area",
+          "params": "&self, x1: i32, y1: i32, x2: i32, y2: i32, x: i32, y: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "flip_area",
+          "params": "&self, x1: i32, y1: i32, x2: i32, y2: i32, axes: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "rotate_area",
+          "params": "&self, x1: i32, y1: i32, x2: i32, y2: i32, angle: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "select",
+          "params": "&self, index: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "clear",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "put_copy",
+          "params": "&self, src: &IvgPatternCanvas",
+          "returns": "bool"
+        },
+        {
+          "name": "p_set",
+          "params": "&self, step: i16, x: i32, y: i32, color: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "line",
+          "params": "&self, flags: i16, x1: i32, y1: i32, x2: i32, y2: i32, color: bool,",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgPatternCanvases",
+      "file": "src/fill/pattern.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<IvgPatternCanvas>"
+        },
+        {
+          "name": "add",
+          "params": "&self, canvas: &IvgPatternCanvas",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "remove",
+          "params": "&self, index: i32",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgPostScriptFill",
+      "file": "src/fill/postscript.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "index",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "get_property_at",
+          "params": "&self, index: i32",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_property_at",
+          "params": "&self, index: i32, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "select",
+          "params": "&self, index_or_name: Variant",
+          "returns": "bool"
+        },
+        {
+          "name": "set_properties",
+          "params": "&self, p1: i32, p2: i32, p3: i32, p4: i32, p5: i32,",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgPSScreenOptions",
+      "file": "src/fill/postscript.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "index",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "angle",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_angle",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "frequency",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_frequency",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "select",
+          "params": "&self, name: impl Into<String>",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_properties",
+          "params": "&self, index_or_name: Variant, angle: f64, frequency: i32,",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "name_by_index",
+          "params": "&self, index: i32",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "reset",
+          "params": "&self",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgTextureFill",
+      "file": "src/fill/texture.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "origin_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_origin_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "origin_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_origin_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "tile_width",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_tile_width",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "tile_height",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_tile_height",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "tile_offset_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_tile_offset_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "tile_offset",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_tile_offset",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "skew_angle",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_skew_angle",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "rotation_angle",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_rotation_angle",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "transform_with_shape",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_transform_with_shape",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "resolution",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_resolution",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "maximum_tile_width",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_maximum_tile_width",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "library_name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "texture_name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "style_name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "select",
+          "params": "&self, texture: impl Into<String>, library: impl Into<String>,",
+          "returns": "bool"
+        },
+        {
+          "name": "set_properties",
+          "params": "&self, setting_array: Variant",
+          "returns": "bool"
+        },
+        {
+          "name": "mirror_fill",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_mirror_fill",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "mirror_fill_x",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_mirror_fill_x",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "mirror_fill_y",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_mirror_fill_y",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "properties",
+          "params": "&self",
+          "returns": "Option<IvgTextureFillProperties>"
+        }
+      ]
+    },
+    {
+      "name": "IvgTextureFillProperties",
+      "file": "src/fill/texture.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index_or_name: Variant",
+          "returns": "Option<IvgTextureFillProperty>"
+        }
+      ]
+    },
+    {
+      "name": "IvgTextureFillProperty",
+      "file": "src/fill/texture.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "prop_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "value",
+          "params": "&self",
+          "returns": "Option<Variant>"
+        },
+        {
+          "name": "set_value",
+          "params": "&self, v: Variant",
+          "returns": "bool"
+        }
+      ]
+    }
+  ],
+  "tests": {
+    "files": [
+      "tests/fill_outline.rs"
+    ],
+    "cases": 2
+  },
+  "coverage": {
+    "method_name_count": 230,
+    "covered_method_name_count": 39,
+    "coverage_pct": 17.0
+  }
+}

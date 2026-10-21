@@ -33,7 +33,7 @@ impl ICuiScreenRect {
         self.disp.set_property(name, vec![arg]).is_ok()
     }
 
-    // ---- 鍥涜竟 ----
+    // ---- 四边 ----
 
     pub fn left(&self) -> Option<i64> { self.prop_i64("Left") }
     pub fn set_left(&self, v: i32) -> bool { self.put_i64("Left", v as i64) }
@@ -47,7 +47,7 @@ impl ICuiScreenRect {
     pub fn bottom(&self) -> Option<i64> { self.prop_i64("Bottom") }
     pub fn set_bottom(&self, v: i32) -> bool { self.put_i64("Bottom", v as i64) }
 
-    // ---- 灏哄 ----
+    // ---- 尺寸 ----
 
     pub fn width(&self) -> Option<i64> { self.prop_i64("Width") }
     pub fn set_width(&self, v: i32) -> bool { self.put_i64("Width", v as i64) }
@@ -55,7 +55,7 @@ impl ICuiScreenRect {
     pub fn height(&self) -> Option<i64> { self.prop_i64("Height") }
     pub fn set_height(&self, v: i32) -> bool { self.put_i64("Height", v as i64) }
 
-    // ---- 涓績 ----
+    // ---- 中心 ----
 
     pub fn center_x(&self) -> Option<i64> { self.prop_i64("CenterX") }
     pub fn set_center_x(&self, v: i32) -> bool { self.put_i64("CenterX", v as i64) }
@@ -63,12 +63,12 @@ impl ICuiScreenRect {
     pub fn center_y(&self) -> Option<i64> { self.prop_i64("CenterY") }
     pub fn set_center_y(&self, v: i32) -> bool { self.put_i64("CenterY", v as i64) }
 
-    // ---- 鍙 ----
+    // ---- 只读 ----
 
     pub fn is_read_only(&self) -> Option<bool> { self.prop_bool("ReadOnly") }
     pub fn is_empty(&self) -> Option<bool> { self.prop_bool("IsEmpty") }
 
-    // ---- 鎿嶄綔 ----
+    // ---- 操作 ----
 
     pub fn set_position(&self, left: i32, top: i32, w: i32, h: i32) -> bool {
         let args = vec![
@@ -140,7 +140,7 @@ impl ICuiScreenRect {
             .ok()
     }
 
-    // ---- 闆嗗悎杩愮畻 ----
+    // ---- 集合运算 ----
 
     pub fn union(&self, other: &ICuiScreenRect) -> Option<ICuiScreenRect> {
         let args = vec![other.as_variant()];
