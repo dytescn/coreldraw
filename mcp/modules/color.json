@@ -1,0 +1,1215 @@
+{
+  "module": "color",
+  "files": [
+    "src/color/color.rs",
+    "src/color/colors.rs",
+    "src/color/context.rs",
+    "src/color/duotone.rs",
+    "src/color/manager.rs",
+    "src/color/mod.rs",
+    "src/color/profile.rs"
+  ],
+  "types": [
+    {
+      "name": "IvgColor",
+      "file": "src/color/color.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "color_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "assign_rgb",
+          "params": "&self, r: i32, g: i32, b: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "rgb_red",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_rgb_red",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "rgb_green",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_rgb_green",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "rgb_blue",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_rgb_blue",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "convert_to_rgb",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "assign_cmyk",
+          "params": "&self, c: i32, m: i32, y: i32, k: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "cmyk_cyan",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_cmyk_cyan",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "cmyk_magenta",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_cmyk_magenta",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "cmyk_yellow",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_cmyk_yellow",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "cmyk_black",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_cmyk_black",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "convert_to_cmyk",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "assign_hsb",
+          "params": "&self, h: i32, s: i32, b: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "hsb_hue",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_hsb_hue",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "hsb_saturation",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_hsb_saturation",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "hsb_brightness",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_hsb_brightness",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "convert_to_hsb",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "assign_hls",
+          "params": "&self, h: i32, l: i32, s: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "hls_hue",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_hls_hue",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "hls_lightness",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_hls_lightness",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "hls_saturation",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_hls_saturation",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "convert_to_hls",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "assign_gray",
+          "params": "&self, gray: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "gray",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_gray",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "convert_to_gray",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "assign_bw",
+          "params": "&self, white: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "bw",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_bw",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "convert_to_bw",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "name",
+          "params": "&self, components: bool",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_name",
+          "params": "&self, s: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "to_color_string",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "string_assign",
+          "params": "&self, s: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "hex_value",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_hex_value",
+          "params": "&self, s: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "copy_assign",
+          "params": "&self, other: &IvgColor",
+          "returns": "bool"
+        },
+        {
+          "name": "get_copy",
+          "params": "&self",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "is_same",
+          "params": "&self, other: &IvgColor",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_similar",
+          "params": "&self, other: &IvgColor",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "distance_from",
+          "params": "&self, other: &IvgColor",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "is_in_gamut",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_cmyk",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_gray",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_white",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_spot",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_tintable",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "palette_id",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "palette_index",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_palette_index",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "tint",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_tint",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "spot_color_id",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_spot_color_id",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "spot_color_name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "palette_identifier",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "color_context",
+          "params": "&self",
+          "returns": "Option<IvgColorContext>"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        }
+      ]
+    },
+    {
+      "name": "IvgColors",
+      "file": "src/color/colors.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        }
+      ]
+    },
+    {
+      "name": "IvgColorContext",
+      "file": "src/color/context.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "rgb_color_profile",
+          "params": "&self",
+          "returns": "Option<IvgColorProfile>"
+        },
+        {
+          "name": "set_rgb_color_profile",
+          "params": "&self, p: &IvgColorProfile",
+          "returns": "bool"
+        },
+        {
+          "name": "cmyk_color_profile",
+          "params": "&self",
+          "returns": "Option<IvgColorProfile>"
+        },
+        {
+          "name": "set_cmyk_color_profile",
+          "params": "&self, p: &IvgColorProfile",
+          "returns": "bool"
+        },
+        {
+          "name": "grayscale_color_profile",
+          "params": "&self",
+          "returns": "Option<IvgColorProfile>"
+        },
+        {
+          "name": "set_grayscale_color_profile",
+          "params": "&self, p: &IvgColorProfile",
+          "returns": "bool"
+        },
+        {
+          "name": "color_profile",
+          "params": "&self, model: i32",
+          "returns": "Option<IvgColorProfile>"
+        },
+        {
+          "name": "rendering_intent",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_rendering_intent",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "blending_color_model",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_blending_color_model",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "get_copy",
+          "params": "&self",
+          "returns": "Option<IvgColorContext>"
+        },
+        {
+          "name": "copy_assign",
+          "params": "&self, other: &IvgColorContext",
+          "returns": "bool"
+        },
+        {
+          "name": "is_same",
+          "params": "&self, other: &IvgColorContext",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "merge",
+          "params": "&self, other: &IvgColorContext",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "color_profiles",
+          "params": "&self",
+          "returns": "Option<IvgColorProfiles>"
+        },
+        {
+          "name": "read_only",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "color_profile_name_list",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "dispatch",
+          "params": "&self",
+          "returns": "&IDispatch"
+        }
+      ]
+    },
+    {
+      "name": "IvgDuotoneOverprint",
+      "file": "src/color/duotone.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "cyan",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_cyan",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "magenta",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_magenta",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "yellow",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_yellow",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "black",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_black",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "color",
+          "params": "&self",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "reset",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "set_values",
+          "params": "&self, c: i32, m: i32, y: i32, k: i32",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgDuotoneInk",
+      "file": "src/color/duotone.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "color",
+          "params": "&self",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "handle_count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "handle_x",
+          "params": "&self, index: i32",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_handle_x",
+          "params": "&self, index: i32, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "handle_y",
+          "params": "&self, index: i32",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_handle_y",
+          "params": "&self, index: i32, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "add_handle",
+          "params": "&self, x: i32, y: i32",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "remove_handle",
+          "params": "&self, index: i32",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "find_handle",
+          "params": "&self, x: i32, y: i32",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "curve_level",
+          "params": "&self, index: i32",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "reset",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "load",
+          "params": "&self, file: impl Into<String>",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "save",
+          "params": "&self, file: impl Into<String>",
+          "returns": "Option<bool>"
+        }
+      ]
+    },
+    {
+      "name": "IvgDuotone",
+      "file": "src/color/duotone.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "duotone_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_duotone_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "use_overprints",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_use_overprints",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "overprint_count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "overprints",
+          "params": "&self, index: i32",
+          "returns": "Option<IvgDuotoneOverprint>"
+        },
+        {
+          "name": "ink_count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "inks",
+          "params": "&self, index: i32",
+          "returns": "Option<IvgDuotoneInk>"
+        },
+        {
+          "name": "get_copy",
+          "params": "&self",
+          "returns": "Option<IvgDuotone>"
+        },
+        {
+          "name": "copy_assign",
+          "params": "&self, other: &IvgDuotone",
+          "returns": "bool"
+        },
+        {
+          "name": "reset_overprints",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "load",
+          "params": "&self, file: impl Into<String>",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "save",
+          "params": "&self, file: impl Into<String>",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        }
+      ]
+    },
+    {
+      "name": "IvgColorProfile",
+      "file": "src/color/manager.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "file_name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "manufacturer",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "device_model",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "device_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "selected",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "generic",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "installed",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "id",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "color_model",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "select",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "create_color_context",
+          "params": "&self, rendering_intent: i32",
+          "returns": "Option<IvgColorContext>"
+        },
+        {
+          "name": "is_same",
+          "params": "&self, other: &IvgColorProfile",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "dispatch",
+          "params": "&self",
+          "returns": "&IDispatch"
+        }
+      ]
+    },
+    {
+      "name": "IvgColorProfiles",
+      "file": "src/color/manager.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index_or_name: Variant",
+          "returns": "Option<IvgColorProfile>"
+        },
+        {
+          "name": "item_by_index",
+          "params": "&self, i: i32",
+          "returns": "Option<IvgColorProfile>"
+        },
+        {
+          "name": "item_by_name",
+          "params": "&self, s: impl Into<String>",
+          "returns": "Option<IvgColorProfile>"
+        },
+        {
+          "name": "device_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "generic_profile",
+          "params": "&self",
+          "returns": "Option<IvgColorProfile>"
+        },
+        {
+          "name": "select_by_name",
+          "params": "&self, name: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "install",
+          "params": "&self, file_name: impl Into<String>",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgColorManagementPolicy",
+      "file": "src/color/manager.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "action_for_rgb",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_action_for_rgb",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "action_for_cmyk",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_action_for_cmyk",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "action_for_grayscale",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_action_for_grayscale",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "warn_on_mismatched_profiles",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_warn_on_mismatched_profiles",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "warn_on_missing_profiles",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_warn_on_missing_profiles",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgColorManager",
+      "file": "src/color/manager.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "scanner_calibrated",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_scanner_calibrated",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "separation_printer_calibrated",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_separation_printer_calibrated",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "composite_printer_calibrated",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "composite_printer_calibration",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_composite_printer_calibration",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "monitor_calibration",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_monitor_calibration",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "show_out_of_gamut",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_show_out_of_gamut",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "out_of_gamut_color",
+          "params": "&self",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "out_of_gamut_transparency",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_out_of_gamut_transparency",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "cmyk_in_percents",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_cmyk_in_percents",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "cmyk_gamut_for_spot_colors",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_cmyk_gamut_for_spot_colors",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "rendering_intent",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_rendering_intent",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "color_engine",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_color_engine",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "style_count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "style_by_index",
+          "params": "&self, index: i32",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "load_style",
+          "params": "&self, name: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "delete_style",
+          "params": "&self, name: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "save_style",
+          "params": "&self, name: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "can_delete_style",
+          "params": "&self, name: impl Into<String>",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "unsaved_style_name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "current_profile",
+          "params": "&self, device_type: i32",
+          "returns": "Option<IvgColorProfile>"
+        },
+        {
+          "name": "installed_profiles",
+          "params": "&self, device_type: i32",
+          "returns": "Option<IvgColorProfiles>"
+        },
+        {
+          "name": "profiles_by_color_model",
+          "params": "&self, color_model: i32",
+          "returns": "Option<IvgColorProfiles>"
+        },
+        {
+          "name": "profiles_for_device",
+          "params": "&self, device_type: i32, device_name: impl Into<String>,",
+          "returns": "Option<IvgColorProfiles>"
+        },
+        {
+          "name": "default_color_context",
+          "params": "&self",
+          "returns": "Option<IvgColorContext>"
+        },
+        {
+          "name": "color_profiles",
+          "params": "&self",
+          "returns": "Option<IvgColorProfiles>"
+        },
+        {
+          "name": "monitor_color_profiles",
+          "params": "&self",
+          "returns": "Option<IvgColorProfiles>"
+        },
+        {
+          "name": "policy_for_open",
+          "params": "&self",
+          "returns": "Option<IvgColorManagementPolicy>"
+        },
+        {
+          "name": "policy_for_import",
+          "params": "&self",
+          "returns": "Option<IvgColorManagementPolicy>"
+        },
+        {
+          "name": "color_correction_on_import",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_color_correction_on_import",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "color_correction_on_export",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_color_correction_on_export",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "is_icm2_available",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_composite_printer_cmyk",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "map_gray_to_cmyk_black",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_map_gray_to_cmyk_black",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "preserve_pure_black",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_preserve_pure_black",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "spot_color_definition",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_spot_color_definition",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "color_engine_present",
+          "params": "&self, color_engine: i32",
+          "returns": "Option<bool>"
+        }
+      ]
+    }
+  ],
+  "tests": {
+    "files": [
+      "tests/color.rs"
+    ],
+    "cases": 6
+  },
+  "coverage": {
+    "method_name_count": 197,
+    "covered_method_name_count": 27,
+    "coverage_pct": 13.7
+  }
+}

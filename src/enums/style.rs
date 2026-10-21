@@ -8,13 +8,15 @@
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrFillStyleType {
-    Uniform  = 0,
-    Fountain = 1,
-    Pattern  = 2,
-    Texture  = 3,
-    PostScript = 4,
-    Hatch    = 5,
-    // TODO: 待补
+    NoFillStyle = 0,
+    UniformFillStyle = 1,
+    FountainFillStyle = 2,
+    PostscriptFillStyle = 3,
+    TwoColorPatternFillStyle = 4,
+    BitmapPatternFillStyle = 6,
+    TextureFillStyle = 8,
+    FullColorPatternFillStyle = 9,
+    HatchFillStyle = 10,
 }
 
 // =============================================================
@@ -26,8 +28,8 @@ pub enum cdrFillStyleType {
 #[allow(nonstandard_style)]
 pub enum cdrOutlineStyleType {
     NoOutline = 0,
-    Solid     = 1,
-    Dashed    = 2,
+    Solid = 1,
+    Dashed = 2,
     // TODO: 待补
 }
 
@@ -39,9 +41,9 @@ pub enum cdrOutlineStyleType {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrTransparencyAppliedTo {
-    Fill    = 0,
+    Fill = 0,
     Outline = 1,
-    Both    = 2,
+    Both = 2,
 }
 
 // =============================================================
@@ -52,10 +54,9 @@ pub enum cdrTransparencyAppliedTo {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrTransparencyType {
-    NoTransparency     = 0,
-    Uniform            = 1,
-    Fountain           = 2,
-    Pattern            = 3,
-    Texture            = 4,
-    // TODO: 待补
+    NoTransparency = 0,
+    UniformTransparency = 1,
+    FountainTransparency = 2,
+    PatternTransparency = 3,
+    TextureTransparency = 4,
 }

@@ -51,7 +51,7 @@ impl IvgEffectLens {
         self.disp.set_property(name, vec![arg]).is_ok()
     }
 
-    // ---- 鍐荤粨 ----
+    // ---- 冻结 ----
 
     pub fn freeze(&self) -> bool { self.disp.invoke_method("Freeze", vec![]).is_ok() }
     pub fn unfreeze(&self) -> bool { self.disp.invoke_method("Unfreeze", vec![]).is_ok() }
@@ -71,7 +71,7 @@ impl IvgEffectLens {
         self.prop_dispatch("Shapes").map(IvgShapes::new)
     }
 
-    // ---- 绫诲瀷 ----
+    // ---- 类型 ----
 
     /// `cdrLensType`
     pub fn lens_type(&self) -> Option<i64> { self.prop_i64("Type") }
@@ -83,7 +83,7 @@ impl IvgEffectLens {
     pub fn magnification(&self) -> Option<f64> { self.prop_f64("Magnification") }
     pub fn set_magnification(&self, v: f64) -> bool { self.put_f64("Magnification", v) }
 
-    // ---- 棰滆壊 ----
+    // ---- 颜色 ----
 
     pub fn color(&self) -> Option<IvgColor> {
         self.prop_dispatch("Color").map(IvgColor::new)
@@ -128,7 +128,7 @@ impl IvgEffectLens {
         self.put_i64("ColorMapPalette", v as i64)
     }
 
-    // ---- 瑙嗙偣 ----
+    // ---- 视点 ----
 
     pub fn use_view_point(&self) -> Option<bool> { self.prop_bool("UseViewPoint") }
     pub fn set_use_view_point(&self, v: bool) -> bool { self.put_bool("UseViewPoint", v) }

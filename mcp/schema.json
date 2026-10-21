@@ -1,0 +1,120 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "cdrsdk MCP interface metadata",
+  "description": "Schema for mcp/interfaces.json, mcp/modules/*.json and mcp/enums.json",
+  "$defs": {
+    "method": {
+      "type": "object",
+      "required": ["name", "params"],
+      "properties": {
+        "name": { "type": "string", "description": "Rust 方法名（snake_case）" },
+        "params": { "type": "string", "description": "参数列表原文（已做空白归一化）" },
+        "returns": {
+          "type": ["string", "null"],
+          "description": "返回类型；无返回值为 null"
+        }
+      }
+    },
+    "type": {
+      "type": "object",
+      "required": ["name", "methods"],
+      "properties": {
+        "name": { "type": "string", "description": "COM 包装类型名，如 IvgShape" },
+        "file": { "type": "string", "description": "定义所在源文件" },
+        "methods": { "type": "array", "items": { "$ref": "#/$defs/method" } }
+      }
+    },
+    "testsInfo": {
+      "type": "object",
+      "required": ["files", "cases"],
+      "properties": {
+        "files": { "type": "array", "items": { "type": "string" } },
+        "cases": { "type": "integer", "description": "关联测试文件中的 #[test] 数量" }
+      }
+    },
+    "coverageInfo": {
+      "type": "object",
+      "required": ["method_name_count", "covered_method_name_count", "coverage_pct"],
+      "properties": {
+        "method_name_count": { "type": "integer" },
+        "covered_method_name_count": { "type": "integer" },
+        "coverage_pct": { "type": "number" }
+      }
+    },
+    "module": {
+      "type": "object",
+      "required": ["module", "types"],
+      "properties": {
+        "module": { "type": "string", "description": "模块名，如 shape" },
+        "files": { "type": "array", "items": { "type": "string" } },
+        "types": { "type": "array", "items": { "$ref": "#/$defs/type" } },
+        "tests": { "$ref": "#/$defs/testsInfo" },
+        "coverage": { "$ref": "#/$defs/coverageInfo" }
+      }
+    },
+    "enumVariant": {
+      "type": "object",
+      "required": ["name", "value"],
+      "properties": {
+        "name": { "type": "string" },
+        "value": { "type": "integer" }
+      }
+    },
+    "enumAlias": {
+      "type": "object",
+      "required": ["name", "alias_of"],
+      "properties": {
+        "name": { "type": "string" },
+        "alias_of": { "type": "string" }
+      }
+    },
+    "enum": {
+      "type": "object",
+      "required": ["name", "module", "variants"],
+      "properties": {
+        "name": { "type": "string" },
+        "module": { "type": "string" },
+        "variant_count": { "type": "integer" },
+        "variants": { "type": "array", "items": { "$ref": "#/$defs/enumVariant" } },
+        "aliases": { "type": "array", "items": { "$ref": "#/$defs/enumAlias" } }
+      }
+    }
+  },
+  "oneOf": [
+    {
+      "type": "object",
+      "required": ["type_count", "method_count", "modules"],
+      "properties": {
+        "crate": { "type": "string" },
+        "version": { "type": "string" },
+        "source": { "type": "string" },
+        "type_count": { "type": "integer" },
+        "method_count": { "type": "integer" },
+        "modules": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["module", "files", "types", "methods"],
+            "properties": {
+              "module": { "type": "string" },
+              "files": { "type": "array", "items": { "type": "string" } },
+              "types": { "type": "integer" },
+              "methods": { "type": "integer" },
+              "tests": { "$ref": "#/$defs/testsInfo" },
+              "coverage": { "$ref": "#/$defs/coverageInfo" }
+            }
+          }
+        }
+      }
+    },
+    { "$ref": "#/$defs/module" },
+    {
+      "type": "object",
+      "required": ["enum_count", "enums"],
+      "properties": {
+        "enum_count": { "type": "integer" },
+        "enums": { "type": "array", "items": { "$ref": "#/$defs/enum" } }
+      }
+    }
+  ]
+}

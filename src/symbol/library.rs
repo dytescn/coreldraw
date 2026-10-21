@@ -126,7 +126,7 @@ impl IvgSymbolLibrary {
         self.disp.get_property(name).ok()?.to_idispatch().ok()
     }
 
-    // ---- 鍩烘湰淇℃伅 ----
+    // ---- 基本信息 ----
 
     pub fn name(&self) -> Option<String> { self.prop_string("Name") }
     pub fn file_path(&self) -> Option<String> { self.prop_string("FilePath") }
@@ -137,7 +137,7 @@ impl IvgSymbolLibrary {
         self.prop_dispatch("Symbols").map(IvgSymbolDefinitions::new)
     }
 
-    // ---- 鎿嶄綔 ----
+    // ---- 操作 ----
 
     pub fn delete(&self) -> bool {
         self.disp.invoke_method("Delete", vec![]).is_ok()

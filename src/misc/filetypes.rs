@@ -16,9 +16,9 @@ pub fn extension_for(filter: cdrFilter) -> &'static str {
         PSD   => "psd",
         CDR   => "cdr",
         CDX   => "cdx",
-        CMX   => "cmx",
+        CMX6  => "cmx",
         SVG   => "svg",
-        PDF   => "pdf",
+        cdrFilter::PDF => "pdf",
         AI    => "ai",
         EPS   => "eps",
         WMF   => "wmf",
@@ -26,6 +26,7 @@ pub fn extension_for(filter: cdrFilter) -> &'static str {
         DXF   => "dxf",
         DWG   => "dwg",
         AutoSense => "",
+        _ => "",
     }
 }
 
@@ -43,9 +44,9 @@ pub fn filter_from_extension(ext: &str) -> Option<cdrFilter> {
         "psd"        => Some(PSD),
         "cdr"        => Some(CDR),
         "cdx"        => Some(CDX),
-        "cmx"        => Some(CMX),
+        "cmx"        => Some(CMX6),
         "svg"        => Some(SVG),
-        "pdf"        => Some(PDF),
+        "pdf"        => Some(cdrFilter::PDF),
         "ai"         => Some(AI),
         "eps"        => Some(EPS),
         "wmf"        => Some(WMF),

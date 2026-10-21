@@ -103,7 +103,7 @@ impl IvgSymbolDefinition {
     }
 
     // ---------------------------------------------------------
-    // 鍩烘湰淇℃伅
+    // 基本信息
     // ---------------------------------------------------------
 
     pub fn name(&self) -> Option<String> { self.prop_string("Name") }
@@ -118,7 +118,7 @@ impl IvgSymbolDefinition {
     pub fn symbol_type(&self) -> Option<i64> { self.prop_i64("Type") }
 
     // ---------------------------------------------------------
-    // 閾炬帴
+    // 链接
     // ---------------------------------------------------------
 
     pub fn linked(&self) -> Option<bool> { self.prop_bool("Linked") }
@@ -131,7 +131,7 @@ impl IvgSymbolDefinition {
     pub fn has_updated_links(&self) -> Option<bool> { self.prop_bool("HasUpdatedLinks") }
 
     // ---------------------------------------------------------
-    // 宓屽
+    // 嵌套
     // ---------------------------------------------------------
 
     pub fn nested(&self) -> Option<bool> { self.prop_bool("Nested") }
@@ -156,7 +156,7 @@ impl IvgSymbolDefinition {
     }
 
     // ---------------------------------------------------------
-    // 缂栬緫 / 澶嶅埗 / 鍒犻櫎
+    // 编辑 / 复制 / 删除
     // ---------------------------------------------------------
 
     pub fn enter_edit_mode(&self) -> bool {
@@ -186,7 +186,7 @@ impl IvgSymbolDefinition {
     }
 
     // ---------------------------------------------------------
-    // 閾炬帴缁存姢
+    // 链接维护
     // ---------------------------------------------------------
 
     pub fn break_link(&self) -> bool {

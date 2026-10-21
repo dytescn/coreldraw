@@ -90,7 +90,7 @@ impl ICuiFrameWindow {
         self.disp.get_property(name).ok()?.to_idispatch().ok()
     }
 
-    // ---- 鏍囪瘑 ----
+    // ---- 标识 ----
 
     pub fn id(&self) -> Option<String> { self.prop_string("ID") }
     pub fn caption(&self) -> Option<String> { self.prop_string("Caption") }
@@ -109,7 +109,7 @@ impl ICuiFrameWindow {
         self.prop_dispatch("Position").map(ICuiScreenRect::new)
     }
 
-    // ---- 瀹夸富 ----
+    // ---- 宿主 ----
 
     pub fn view_hosts(&self) -> Option<ICuiViewHosts> {
         self.prop_dispatch("ViewHosts").map(ICuiViewHosts::new)
@@ -129,7 +129,7 @@ impl ICuiFrameWindow {
         hs.item(1)
     }
 
-    // ---- 鎿嶄綔 ----
+    // ---- 操作 ----
 
     pub fn minimize(&self) -> bool {
         self.disp.invoke_method("Minimize", vec![]).is_ok()

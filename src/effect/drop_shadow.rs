@@ -46,7 +46,7 @@ impl IvgEffectDropShadow {
         self.disp.set_property(name, vec![arg]).is_ok()
     }
 
-    // ---- 浣嶇疆 ----
+    // ---- 位置 ----
 
     pub fn offset_x(&self) -> Option<f64> { self.prop_f64("OffsetX") }
     pub fn set_offset_x(&self, v: f64) -> bool { self.put_f64("OffsetX", v) }
@@ -62,7 +62,7 @@ impl IvgEffectDropShadow {
         self.disp.invoke_method("SetOffset", args).is_ok()
     }
 
-    // ---- 閫忔槑 / 缇藉寲 ----
+    // ---- 透明 / 羽化 ----
 
     pub fn opacity(&self) -> Option<i64> { self.prop_i64("Opacity") }
     pub fn set_opacity(&self, v: i32) -> bool { self.put_i64("Opacity", v as i64) }
@@ -78,7 +78,7 @@ impl IvgEffectDropShadow {
     pub fn feather_edge(&self) -> Option<i64> { self.prop_i64("FeatherEdge") }
     pub fn set_feather_edge(&self, v: i32) -> bool { self.put_i64("FeatherEdge", v as i64) }
 
-    // ---- 绫诲瀷 ----
+    // ---- 类型 ----
 
     /// `cdrDropShadowType`
     pub fn shadow_type(&self) -> Option<i64> { self.prop_i64("Type") }
@@ -101,7 +101,7 @@ impl IvgEffectDropShadow {
     pub fn fade(&self) -> Option<i64> { self.prop_i64("Fade") }
     pub fn set_fade(&self, v: i32) -> bool { self.put_i64("Fade", v as i64) }
 
-    // ---- 棰滆壊 / 娣峰悎 ----
+    // ---- 颜色 / 混合 ----
 
     pub fn color(&self) -> Option<IvgColor> {
         self.prop_dispatch("Color").map(IvgColor::new)

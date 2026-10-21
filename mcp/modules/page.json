@@ -1,0 +1,711 @@
+{
+  "module": "page",
+  "files": [
+    "src/page/mod.rs",
+    "src/page/page.rs",
+    "src/page/page_size.rs",
+    "src/page/pages.rs",
+    "src/page/spread.rs"
+  ],
+  "types": [
+    {
+      "name": "IvgPage",
+      "file": "src/page/page.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_name",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "index",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "parent",
+          "params": "&self",
+          "returns": "Option<IvgPages>"
+        },
+        {
+          "name": "previous",
+          "params": "&self",
+          "returns": "Option<IvgPage>"
+        },
+        {
+          "name": "next",
+          "params": "&self",
+          "returns": "Option<IvgPage>"
+        },
+        {
+          "name": "spread",
+          "params": "&self",
+          "returns": "Option<crate::page::IvgSpread>"
+        },
+        {
+          "name": "tree_node",
+          "params": "&self",
+          "returns": "Option<IvgTreeNode>"
+        },
+        {
+          "name": "paper",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "size_width",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_size_width",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "size_height",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_size_height",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "resolution",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_resolution",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "bleed",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_bleed",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "orientation",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_orientation",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "background",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_background",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "color",
+          "params": "&self",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "set_color",
+          "params": "&self, c: &IvgColor",
+          "returns": "bool"
+        },
+        {
+          "name": "print_export_background",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_print_export_background",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "left_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "right_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "top_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "bottom_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "center_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "center_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "bounding_box",
+          "params": "&self",
+          "returns": "Option<IvgRect>"
+        },
+        {
+          "name": "get_size",
+          "params": "&self",
+          "returns": "Option<(f64, f64)>"
+        },
+        {
+          "name": "set_size",
+          "params": "&self, w: f64, h: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "get_center_position",
+          "params": "&self",
+          "returns": "Option<(f64, f64)>"
+        },
+        {
+          "name": "select_size",
+          "params": "&self, page_size_name: impl Into<String>, landscape: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "layers",
+          "params": "&self",
+          "returns": "Option<IvgLayers>"
+        },
+        {
+          "name": "all_layers",
+          "params": "&self",
+          "returns": "Option<IvgLayers>"
+        },
+        {
+          "name": "active_layer",
+          "params": "&self",
+          "returns": "Option<IvgLayer>"
+        },
+        {
+          "name": "guides_layer",
+          "params": "&self",
+          "returns": "Option<IvgLayer>"
+        },
+        {
+          "name": "desktop_layer",
+          "params": "&self",
+          "returns": "Option<IvgLayer>"
+        },
+        {
+          "name": "grid_layer",
+          "params": "&self",
+          "returns": "Option<IvgLayer>"
+        },
+        {
+          "name": "create_layer",
+          "params": "&self, layer_name: impl Into<String>",
+          "returns": "Option<IvgLayer>"
+        },
+        {
+          "name": "shapes",
+          "params": "&self",
+          "returns": "Option<IvgShapes>"
+        },
+        {
+          "name": "selectable_shapes",
+          "params": "&self",
+          "returns": "Option<IvgShapes>"
+        },
+        {
+          "name": "find_shape",
+          "params": "&self, name: impl Into<String>, shape_type: i32, static_id: i32, recursive: bool,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "find_shapes",
+          "params": "&self, name: impl Into<String>, shape_type: i32, recursive: bool,",
+          "returns": "Option<IvgShapeRange>"
+        },
+        {
+          "name": "find_shape_at_point",
+          "params": "&self, x: f64, y: f64, treat_as_filled: bool,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "select_shapes_at_point",
+          "params": "&self, x: f64, y: f64, select_unfilled: bool, hot_area: f64,",
+          "returns": "Option<IvgShapeRange>"
+        },
+        {
+          "name": "select_shapes_from_rectangle",
+          "params": "&self, x1: f64, y1: f64, x2: f64, y2: f64, touch: bool,",
+          "returns": "Option<IvgShapeRange>"
+        },
+        {
+          "name": "unlock_all_shapes",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "guides",
+          "params": "&self, guide_type: i32",
+          "returns": "Option<IvgShapeRange>"
+        },
+        {
+          "name": "properties",
+          "params": "&self",
+          "returns": "Option<crate::misc::IvgProperties>"
+        },
+        {
+          "name": "activate",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "delete",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "move_to",
+          "params": "&self, index: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "text_find",
+          "params": "&self, text: impl Into<String>, case_sensitive: bool,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "text_replace",
+          "params": "&self, old_text: impl Into<String>, new_text: impl Into<String>, case_sensitive: bool, replace_selected_only: bool,",
+          "returns": "bool"
+        },
+        {
+          "name": "custom_command",
+          "params": "&self, component_id: impl Into<String>, command_id: impl Into<String>, parameters: Variant,",
+          "returns": "Option<Variant>"
+        }
+      ]
+    },
+    {
+      "name": "IvgPageSizes",
+      "file": "src/page/page_size.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index_or_name: Variant",
+          "returns": "Option<IvgPageSize>"
+        },
+        {
+          "name": "item_by_index",
+          "params": "&self, i: i32",
+          "returns": "Option<IvgPageSize>"
+        },
+        {
+          "name": "item_by_name",
+          "params": "&self, name: impl Into<String>",
+          "returns": "Option<IvgPageSize>"
+        },
+        {
+          "name": "add",
+          "params": "&self, name: impl Into<String>, width: f64, height: f64,",
+          "returns": "Option<IvgPageSize>"
+        },
+        {
+          "name": "all",
+          "params": "&self",
+          "returns": "Vec<IvgPageSize>"
+        }
+      ]
+    },
+    {
+      "name": "IvgPageSize",
+      "file": "src/page/page_size.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "width",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_width",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "height",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_height",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "index",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "built_in",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "fixed_orientation",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "default_unit",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "delete",
+          "params": "&self",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgPages",
+      "file": "src/page/pages.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "application",
+          "params": "&self",
+          "returns": "Option<crate::app::IvgApplication>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<IvgPage>"
+        },
+        {
+          "name": "first",
+          "params": "&self",
+          "returns": "Option<IvgPage>"
+        },
+        {
+          "name": "last",
+          "params": "&self",
+          "returns": "Option<IvgPage>"
+        },
+        {
+          "name": "all",
+          "params": "&self",
+          "returns": "Vec<IvgPage>"
+        }
+      ]
+    },
+    {
+      "name": "IvgSpreads",
+      "file": "src/page/spread.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<IvgSpread>"
+        },
+        {
+          "name": "first",
+          "params": "&self",
+          "returns": "Option<IvgSpread>"
+        },
+        {
+          "name": "last",
+          "params": "&self",
+          "returns": "Option<IvgSpread>"
+        },
+        {
+          "name": "all",
+          "params": "&self",
+          "returns": "Vec<IvgSpread>"
+        }
+      ]
+    },
+    {
+      "name": "IvgSpread",
+      "file": "src/page/spread.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "index",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "size_width",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "size_height",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "left_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "right_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "top_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "bottom_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "center_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "center_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "bounding_box",
+          "params": "&self",
+          "returns": "Option<IvgRect>"
+        },
+        {
+          "name": "get_bounding_box",
+          "params": "&self",
+          "returns": "Option<(f64, f64, f64, f64)>"
+        },
+        {
+          "name": "next",
+          "params": "&self",
+          "returns": "Option<IvgSpread>"
+        },
+        {
+          "name": "previous",
+          "params": "&self",
+          "returns": "Option<IvgSpread>"
+        },
+        {
+          "name": "pages",
+          "params": "&self",
+          "returns": "Option<IvgPages>"
+        },
+        {
+          "name": "layers",
+          "params": "&self",
+          "returns": "Option<IvgLayers>"
+        },
+        {
+          "name": "all_layers",
+          "params": "&self",
+          "returns": "Option<IvgLayers>"
+        },
+        {
+          "name": "active_layer",
+          "params": "&self",
+          "returns": "Option<IvgLayer>"
+        },
+        {
+          "name": "guides_layer",
+          "params": "&self",
+          "returns": "Option<IvgLayer>"
+        },
+        {
+          "name": "desktop_layer",
+          "params": "&self",
+          "returns": "Option<IvgLayer>"
+        },
+        {
+          "name": "grid_layer",
+          "params": "&self",
+          "returns": "Option<IvgLayer>"
+        },
+        {
+          "name": "create_layer",
+          "params": "&self, layer_name: impl Into<String>",
+          "returns": "Option<IvgLayer>"
+        },
+        {
+          "name": "shapes",
+          "params": "&self",
+          "returns": "Option<IvgShapes>"
+        },
+        {
+          "name": "selectable_shapes",
+          "params": "&self",
+          "returns": "Option<IvgShapes>"
+        },
+        {
+          "name": "guides",
+          "params": "&self, guide_type: i32",
+          "returns": "Option<crate::shape::IvgShapeRange>"
+        },
+        {
+          "name": "tree_node",
+          "params": "&self",
+          "returns": "Option<IvgTreeNode>"
+        },
+        {
+          "name": "first_page",
+          "params": "&self",
+          "returns": "Option<IvgPage>"
+        },
+        {
+          "name": "last_page",
+          "params": "&self",
+          "returns": "Option<IvgPage>"
+        }
+      ]
+    }
+  ],
+  "tests": {
+    "files": [
+      "tests/e2e.rs",
+      "tests/page_layer.rs",
+      "tests/smoke.rs"
+    ],
+    "cases": 10
+  },
+  "coverage": {
+    "method_name_count": 83,
+    "covered_method_name_count": 37,
+    "coverage_pct": 44.6
+  }
+}

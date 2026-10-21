@@ -42,7 +42,7 @@ impl IvgColorContext {
     }
 
     // ---------------------------------------------------------
-    // 鍚勬ā寮忕殑 Profile
+    // 各模式的 Profile
     // ---------------------------------------------------------
 
     pub fn rgb_color_profile(&self) -> Option<IvgColorProfile> {
@@ -81,7 +81,7 @@ impl IvgColorContext {
     }
 
     // ---------------------------------------------------------
-    // 娓叉煋鎰忓浘 / 娣峰悎妯″紡
+    // 渲染意图 / 混合模式
     // ---------------------------------------------------------
 
     /// `clrRenderingIntent`
@@ -101,7 +101,7 @@ impl IvgColorContext {
     }
 
     // ---------------------------------------------------------
-    // 澶嶅埗 / 姣旇緝
+    // 复制 / 比较
     // ---------------------------------------------------------
 
     pub fn get_copy(&self) -> Option<IvgColorContext> {
@@ -137,7 +137,7 @@ impl IvgColorContext {
     }
 
     // ---------------------------------------------------------
-    // 鍏跺畠
+    // 其它
     // ---------------------------------------------------------
 
     pub fn color_profiles(&self) -> Option<IvgColorProfiles> {
@@ -157,7 +157,6 @@ impl IvgColorContext {
     }
 
     pub fn dispatch(&self) -> &IDispatch {
-        // 鑻?ComObject 涓嶇洿鎺ユ毚闇?IDispatch锛岄渶瑕佽皟鏁?
-        unimplemented!("鎸?wincom 鐨勫疄闄?API 璋冩暣锛氳繑鍥炲唴閮?IDispatch")
+        self.disp.as_dispatch()
     }
 }

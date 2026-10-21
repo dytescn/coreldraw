@@ -35,7 +35,7 @@ impl IvgPoint {
         self.disp.set_property(name, vec![arg]).is_ok()
     }
 
-    // ---- 鍧愭爣 ----
+    // ---- 坐标 ----
 
     /// 鈿狅笍 娉ㄦ剰灞炴€у悕鏄皬鍐?`x` / `y`锛圕OM 灞傚姝わ級銆?
     pub fn x(&self) -> Option<f64> { self.prop_f64("x") }
@@ -52,7 +52,7 @@ impl IvgPoint {
         self.set_x(x) && self.set_y(y)
     }
 
-    // ---- 杩愮畻 ----
+    // ---- 运算 ----
 
     pub fn add(&self, v: &IvgVector) -> bool {
         let args = vec![v.as_variant()];
@@ -70,7 +70,7 @@ impl IvgPoint {
         self.disp.invoke_method("DistanceTo", args).ok()?.to_f64().ok()
     }
 
-    // ---- 澶嶅埗 / 缁戝畾 ----
+    // ---- 复制 / 绑定 ----
 
     pub fn get_copy(&self) -> Option<IvgPoint> {
         self.disp
@@ -112,7 +112,7 @@ impl IvgPointRange {
         self.disp.get_property(name).ok()?.to_idispatch().ok()
     }
 
-    // ---- 鍩烘湰淇℃伅 ----
+    // ---- 基本信息 ----
 
     pub fn count(&self) -> Option<i64> { self.prop_i64("Count") }
 
@@ -140,7 +140,7 @@ impl IvgPointRange {
         (1..=n).filter_map(|i| self.item(i)).collect()
     }
 
-    // ---- 娣诲姞 ----
+    // ---- 添加 ----
 
     pub fn add_point(&self, p: &IvgPoint) -> bool {
         let args = vec![p.as_variant()];
@@ -176,7 +176,7 @@ impl IvgPointRange {
         self.disp.invoke_method("InsertPoints", args).is_ok()
     }
 
-    // ---- 绉婚櫎 ----
+    // ---- 移除 ----
 
     pub fn remove(&self, index: i32) -> bool {
         let args = vec![Variant::from_i64(index as i64)];
@@ -201,7 +201,7 @@ impl IvgPointRange {
             .is_ok()
     }
 
-    // ---- 鍏跺畠鎿嶄綔 ----
+    // ---- 其它操作 ----
 
     pub fn reverse(&self) -> bool {
         self.disp.invoke_method("Reverse", vec![]).is_ok()

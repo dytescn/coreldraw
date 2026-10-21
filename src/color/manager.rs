@@ -71,7 +71,7 @@ impl IvgColorProfile {
     }
 
     pub fn dispatch(&self) -> &IDispatch {
-        unimplemented!("鎸?wincom 瀹為檯 API 璋冩暣")
+        self.disp.as_dispatch()
     }
 }
 
@@ -243,7 +243,7 @@ impl IvgColorManager {
     }
 
     // ---------------------------------------------------------
-    // 鏍″噯
+    // 校准
     // ---------------------------------------------------------
 
     pub fn scanner_calibrated(&self) -> Option<bool> { self.prop_bool("ScannerCalibrated") }
@@ -273,7 +273,7 @@ impl IvgColorManager {
     }
 
     // ---------------------------------------------------------
-    // 鍑虹晫璀﹀憡
+    // 出界警告
     // ---------------------------------------------------------
 
     pub fn show_out_of_gamut(&self) -> Option<bool> { self.prop_bool("ShowOutOfGamut") }
@@ -291,7 +291,7 @@ impl IvgColorManager {
     }
 
     // ---------------------------------------------------------
-    // CMYK 琛ㄧ幇
+    // CMYK 表现
     // ---------------------------------------------------------
 
     pub fn cmyk_in_percents(&self) -> Option<bool> { self.prop_bool("CMYKInPercents") }
@@ -315,7 +315,7 @@ impl IvgColorManager {
     }
 
     // ---------------------------------------------------------
-    // 鏍峰紡
+    // 样式
     // ---------------------------------------------------------
 
     pub fn style_count(&self) -> Option<i64> { self.prop_i64("StyleCount") }
@@ -370,7 +370,7 @@ impl IvgColorManager {
     }
 
     // ---------------------------------------------------------
-    // Profile 鏌ヨ
+    // Profile 查询
     // ---------------------------------------------------------
 
     pub fn current_profile(&self, device_type: i32) -> Option<IvgColorProfile> {
@@ -433,7 +433,7 @@ impl IvgColorManager {
     }
 
     // ---------------------------------------------------------
-    // 绛栫暐
+    // 策略
     // ---------------------------------------------------------
 
     pub fn policy_for_open(&self) -> Option<IvgColorManagementPolicy> {
@@ -445,7 +445,7 @@ impl IvgColorManager {
     }
 
     // ---------------------------------------------------------
-    // 瀵煎叆 / 瀵煎嚭鏍℃
+    // 导入 / 导出校正
     // ---------------------------------------------------------
 
     pub fn color_correction_on_import(&self) -> Option<i64> {
@@ -463,7 +463,7 @@ impl IvgColorManager {
     }
 
     // ---------------------------------------------------------
-    // 鍏跺畠
+    // 其它
     // ---------------------------------------------------------
 
     pub fn is_icm2_available(&self) -> Option<bool> { self.prop_bool("IsICM2Available") }

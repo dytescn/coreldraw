@@ -1,0 +1,295 @@
+{
+  "module": "tree",
+  "files": [
+    "src/tree/manager.rs",
+    "src/tree/mod.rs",
+    "src/tree/node.rs",
+    "src/tree/nodes.rs"
+  ],
+  "types": [
+    {
+      "name": "IvgTreeManager",
+      "file": "src/tree/manager.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "virtual_layer",
+          "params": "&self",
+          "returns": "Option<IvgLayer>"
+        },
+        {
+          "name": "selected_node_count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "first_selected_node",
+          "params": "&self",
+          "returns": "Option<IvgTreeNode>"
+        },
+        {
+          "name": "create_group_node",
+          "params": "&self",
+          "returns": "Option<IvgTreeNode>"
+        },
+        {
+          "name": "clean_group_node",
+          "params": "&self, group_node: &IvgTreeNode",
+          "returns": "Option<IvgTreeNode>"
+        }
+      ]
+    },
+    {
+      "name": "IvgTreeNode",
+      "file": "src/tree/node.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "node_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "shape_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "shape",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "virtual_shape",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "page",
+          "params": "&self",
+          "returns": "Option<IvgPage>"
+        },
+        {
+          "name": "layer",
+          "params": "&self",
+          "returns": "Option<IvgLayer>"
+        },
+        {
+          "name": "document",
+          "params": "&self",
+          "returns": "Option<IvgDocument>"
+        },
+        {
+          "name": "next",
+          "params": "&self",
+          "returns": "Option<IvgTreeNode>"
+        },
+        {
+          "name": "previous",
+          "params": "&self",
+          "returns": "Option<IvgTreeNode>"
+        },
+        {
+          "name": "parent",
+          "params": "&self",
+          "returns": "Option<IvgTreeNode>"
+        },
+        {
+          "name": "first_child",
+          "params": "&self",
+          "returns": "Option<IvgTreeNode>"
+        },
+        {
+          "name": "last_child",
+          "params": "&self",
+          "returns": "Option<IvgTreeNode>"
+        },
+        {
+          "name": "children",
+          "params": "&self",
+          "returns": "Option<IvgTreeNodes>"
+        },
+        {
+          "name": "is_group_child",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "selected",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "next_selected",
+          "params": "&self",
+          "returns": "Option<IvgTreeNode>"
+        },
+        {
+          "name": "name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_name",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "handle",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "unlink",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "link_before",
+          "params": "&self, other: &IvgTreeNode",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "link_after",
+          "params": "&self, other: &IvgTreeNode",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "link_as_child_of",
+          "params": "&self, other: &IvgTreeNode",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "move_to_first",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "move_to_last",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "move_before",
+          "params": "&self, other: &IvgTreeNode",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "move_after",
+          "params": "&self, other: &IvgTreeNode",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_descendent_of",
+          "params": "&self, other: &IvgTreeNode",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "get_copy",
+          "params": "&self",
+          "returns": "Option<IvgTreeNode>"
+        },
+        {
+          "name": "swap_data",
+          "params": "&self, other: &IvgTreeNode",
+          "returns": "bool"
+        },
+        {
+          "name": "swap_group_data",
+          "params": "&self, other: &IvgTreeNode",
+          "returns": "bool"
+        },
+        {
+          "name": "delete",
+          "params": "&self",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgTreeNodes",
+      "file": "src/tree/nodes.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<IvgTreeNode>"
+        },
+        {
+          "name": "all",
+          "params": "&self",
+          "returns": "Vec<IvgTreeNode>"
+        }
+      ]
+    }
+  ],
+  "tests": {
+    "files": [
+      "tests/view_tree.rs"
+    ],
+    "cases": 2
+  },
+  "coverage": {
+    "method_name_count": 44,
+    "covered_method_name_count": 15,
+    "coverage_pct": 34.1
+  }
+}

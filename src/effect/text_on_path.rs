@@ -50,7 +50,7 @@ impl IvgEffectTextOnPath {
         self.disp.set_property(name, vec![arg]).is_ok()
     }
 
-    // ---- 鍥惧舰 ----
+    // ---- 图形 ----
 
     pub fn text(&self) -> Option<IvgShape> {
         self.prop_dispatch("Text").map(IvgShape::new)
@@ -66,7 +66,7 @@ impl IvgEffectTextOnPath {
         self.put_shape("Path", s)
     }
 
-    // ---- 浣嶇疆 ----
+    // ---- 位置 ----
 
     pub fn distance_from_path(&self) -> Option<f64> {
         self.prop_f64("DistanceFromPath")
@@ -78,7 +78,7 @@ impl IvgEffectTextOnPath {
     pub fn offset(&self) -> Option<f64> { self.prop_f64("Offset") }
     pub fn set_offset(&self, v: f64) -> bool { self.put_f64("Offset", v) }
 
-    // ---- 鏈濆悜 / 鏀剧疆 ----
+    // ---- 朝向 / 放置 ----
 
     /// `cdrFittedOrientation`
     pub fn orientation(&self) -> Option<i64> { self.prop_i64("Orientation") }

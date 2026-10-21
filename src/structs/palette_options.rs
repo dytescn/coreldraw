@@ -55,7 +55,7 @@ impl IvgStructPaletteOptions {
     pub fn num_colors(&self) -> Option<i64> { self.prop_i64("NumColors") }
     pub fn set_num_colors(&self, v: i32) -> bool { self.put_i64("NumColors", v as i64) }
 
-    // ---- 鎶栧姩 ----
+    // ---- 抖动 ----
 
     /// `cdrDitherType`
     pub fn dither_type(&self) -> Option<i64> { self.prop_i64("DitherType") }
@@ -66,7 +66,7 @@ impl IvgStructPaletteOptions {
         self.put_i64("DitherIntensity", v as i64)
     }
 
-    // ---- 骞虫粦 / 棰滆壊鏁忔劅 ----
+    // ---- 平滑 / 颜色敏感 ----
 
     pub fn smoothing(&self) -> Option<i64> { self.prop_i64("Smoothing") }
     pub fn set_smoothing(&self, v: i32) -> bool { self.put_i64("Smoothing", v as i64) }
@@ -84,7 +84,7 @@ impl IvgStructPaletteOptions {
     pub fn importance(&self) -> Option<i64> { self.prop_i64("Importance") }
     pub fn set_importance(&self, v: i32) -> bool { self.put_i64("Importance", v as i64) }
 
-    // ---- 鏄庡害 / 瀹瑰樊 ----
+    // ---- 明度 / 容差 ----
 
     pub fn lightness(&self) -> Option<i64> { self.prop_i64("Lightness") }
     pub fn set_lightness(&self, v: i32) -> bool { self.put_i64("Lightness", v as i64) }

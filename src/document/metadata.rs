@@ -31,7 +31,7 @@ impl IvgMetadata {
     }
 
     // ---------------------------------------------------------
-    // 鍩烘湰瀛楁
+    // 基本字段
     // ---------------------------------------------------------
 
     pub fn title(&self) -> Option<String> { self.prop_string("Title") }
@@ -65,7 +65,7 @@ impl IvgMetadata {
     pub fn set_doc_language(&self, v: i32) -> bool { self.put_i64("DocLanguage", v as i64) }
 
     // ---------------------------------------------------------
-    // 妯℃澘鐩稿叧
+    // 模板相关
     // ---------------------------------------------------------
 
     pub fn template_sided(&self) -> Option<String> { self.prop_string("TemplateSided") }

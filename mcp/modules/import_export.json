@@ -1,0 +1,318 @@
+{
+  "module": "import_export",
+  "files": [
+    "src/import_export/export_filter.rs",
+    "src/import_export/handlers.rs",
+    "src/import_export/import_filter.rs",
+    "src/import_export/mod.rs"
+  ],
+  "types": [
+    {
+      "name": "ICorelExportFilter",
+      "file": "src/import_export/export_filter.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "has_dialog",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "reset",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "finish",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "show_dialog",
+          "params": "&self, h_wnd: i32",
+          "returns": "Option<bool>"
+        }
+      ]
+    },
+    {
+      "name": "IStructImportCropOptions",
+      "file": "src/import_export/handlers.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "file_name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "filter_id",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "custom_data",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "image_width",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "image_height",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "dpi_x",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "dpi_y",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "width",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_width",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "height",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_height",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "left",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_left",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "top",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_top",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IImportCropHandler",
+      "file": "src/import_export/handlers.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "crop",
+          "params": "&self, options: &IStructImportCropOptions",
+          "returns": "Option<bool>"
+        }
+      ]
+    },
+    {
+      "name": "IStructImportResampleOptions",
+      "file": "src/import_export/handlers.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "file_name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "filter_id",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "custom_data",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "width",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_width",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "height",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_height",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "dpi_x",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_dpi_x",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "dpi_y",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_dpi_y",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IImportResampleHandler",
+      "file": "src/import_export/handlers.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "resample",
+          "params": "&self, options: &IStructImportResampleOptions",
+          "returns": "Option<bool>"
+        }
+      ]
+    },
+    {
+      "name": "ICorelImportFilter",
+      "file": "src/import_export/import_filter.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "has_dialog",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "reset",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "finish",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "show_dialog",
+          "params": "&self, h_wnd: i32",
+          "returns": "Option<bool>"
+        }
+      ]
+    }
+  ],
+  "tests": {
+    "files": [
+      "tests/import_export.rs"
+    ],
+    "cases": 1
+  },
+  "coverage": {
+    "method_name_count": 27,
+    "covered_method_name_count": 7,
+    "coverage_pct": 25.9
+  }
+}

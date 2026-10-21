@@ -41,7 +41,7 @@ impl IvgTransformMatrix {
         self.disp.set_property(name, vec![arg]).is_ok()
     }
 
-    // ---- 鐭╅樀鍒嗛噺 ----
+    // ---- 矩阵分量 ----
 
     pub fn d11(&self) -> Option<f64> { self.prop_f64("d11") }
     pub fn set_d11(&self, v: f64) -> bool { self.put_f64("d11", v) }
@@ -173,7 +173,7 @@ impl IvgTransformMatrix {
         self.disp.invoke_method("TransformAround", args).is_ok()
     }
 
-    // ---- 浣滅敤鍒扮偣 / 鍚戦噺锛堝師鍦颁慨鏀癸級 ----
+    // ---- 作用到点 / 向量（原地修改） ----
 
     pub fn transform_point(&self, p: &IvgPoint) -> bool {
         let args = vec![p.as_variant()];
@@ -205,7 +205,7 @@ impl IvgTransformMatrix {
         self.disp.invoke_method("UntransformVector", args).is_ok()
     }
 
-    // ---- 澶嶅埗 / 缁戝畾 ----
+    // ---- 复制 / 绑定 ----
 
     pub fn get_copy(&self) -> Option<IvgTransformMatrix> {
         self.disp

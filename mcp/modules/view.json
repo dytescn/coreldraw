@@ -1,0 +1,675 @@
+{
+  "module": "view",
+  "files": [
+    "src/view/active_view.rs",
+    "src/view/mod.rs",
+    "src/view/view.rs",
+    "src/view/views.rs",
+    "src/view/window.rs",
+    "src/view/windows.rs"
+  ],
+  "types": [
+    {
+      "name": "IvgActiveView",
+      "file": "src/view/active_view.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "view_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_view_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "origin_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_origin_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "origin_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_origin_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "zoom",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_zoom",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "to_fit_page",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "to_fit_page_width",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "to_fit_page_height",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "to_fit_shape",
+          "params": "&self, shape: &IvgShape",
+          "returns": "bool"
+        },
+        {
+          "name": "to_fit_selection",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "to_fit_area",
+          "params": "&self, left: f64, top: f64, right: f64, bottom: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "to_fit_all_objects",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "to_fit_shape_range",
+          "params": "&self, range: &IvgShapeRange",
+          "returns": "bool"
+        },
+        {
+          "name": "set_view_point",
+          "params": "&self, x: f64, y: f64, zoom: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "set_actual_size",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "zoom_in",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "zoom_in_at_point",
+          "params": "&self, x: f64, y: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "zoom_out",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "get_view_area",
+          "params": "&self",
+          "returns": "Option<(f64, f64, f64, f64)>"
+        },
+        {
+          "name": "set_view_area",
+          "params": "&self, x: f64, y: f64, w: f64, h: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "simulate_overprints",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_simulate_overprints",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "show_proof_colors",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_show_proof_colors",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "proof_color_settings",
+          "params": "&self",
+          "returns": "Option<IvgProofColorSettings>"
+        },
+        {
+          "name": "set_proof_color_settings",
+          "params": "&self, s: &IvgProofColorSettings",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgProofColorSettings",
+      "file": "src/view/active_view.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "color_context",
+          "params": "&self",
+          "returns": "Option<IvgColorContext>"
+        },
+        {
+          "name": "set_color_context",
+          "params": "&self, c: &IvgColorContext",
+          "returns": "bool"
+        },
+        {
+          "name": "show_out_of_gamut_warning",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_show_out_of_gamut_warning",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "out_of_gamut_color",
+          "params": "&self",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "set_out_of_gamut_color",
+          "params": "&self, c: &IvgColor",
+          "returns": "bool"
+        },
+        {
+          "name": "out_of_gamut_transparency",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_out_of_gamut_transparency",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "preserve_color_values",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_preserve_color_values",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "get_copy",
+          "params": "&self",
+          "returns": "Option<IvgProofColorSettings>"
+        },
+        {
+          "name": "copy_assign",
+          "params": "&self, src: &IvgProofColorSettings",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgView",
+      "file": "src/view/view.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_name",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "origin_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_origin_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "origin_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_origin_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "use_page",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_use_page",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "page",
+          "params": "&self",
+          "returns": "Option<IvgPage>"
+        },
+        {
+          "name": "set_page",
+          "params": "&self, p: &IvgPage",
+          "returns": "bool"
+        },
+        {
+          "name": "use_zoom",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_use_zoom",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "zoom",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_zoom",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "activate",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "delete",
+          "params": "&self",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgViews",
+      "file": "src/view/views.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index_or_name: Variant",
+          "returns": "Option<IvgView>"
+        },
+        {
+          "name": "item_by_index",
+          "params": "&self, i: i32",
+          "returns": "Option<IvgView>"
+        },
+        {
+          "name": "item_by_name",
+          "params": "&self, name: impl Into<String>",
+          "returns": "Option<IvgView>"
+        },
+        {
+          "name": "add_active_view",
+          "params": "&self, name: impl Into<String>",
+          "returns": "Option<IvgView>"
+        },
+        {
+          "name": "all",
+          "params": "&self",
+          "returns": "Vec<IvgView>"
+        }
+      ]
+    },
+    {
+      "name": "IvgWindow",
+      "file": "src/view/window.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "caption",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "index",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "handle",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "active",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "full_screen",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_full_screen",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "window_state",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_window_state",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "left",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_left",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "top",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_top",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "width",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_width",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "height",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_height",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "parent",
+          "params": "&self",
+          "returns": "Option<IvgWindows>"
+        },
+        {
+          "name": "document",
+          "params": "&self",
+          "returns": "Option<IvgDocument>"
+        },
+        {
+          "name": "page",
+          "params": "&self",
+          "returns": "Option<IvgPage>"
+        },
+        {
+          "name": "active_view",
+          "params": "&self",
+          "returns": "Option<IvgActiveView>"
+        },
+        {
+          "name": "view_window",
+          "params": "&self",
+          "returns": "Option<ICuiViewWindow>"
+        },
+        {
+          "name": "previous",
+          "params": "&self",
+          "returns": "Option<IvgWindow>"
+        },
+        {
+          "name": "next",
+          "params": "&self",
+          "returns": "Option<IvgWindow>"
+        },
+        {
+          "name": "screen_to_document",
+          "params": "&self, xs: i32, ys: i32,",
+          "returns": "Option<(f64, f64)>"
+        },
+        {
+          "name": "document_to_screen",
+          "params": "&self, xd: f64, yd: f64,",
+          "returns": "Option<(i32, i32)>"
+        },
+        {
+          "name": "screen_distance_to_document_distance",
+          "params": "&self, dist: f64",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "document_distance_to_screen_distance",
+          "params": "&self, dist: f64",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "activate",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "close",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "refresh",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "new_window",
+          "params": "&self",
+          "returns": "Option<IvgWindow>"
+        }
+      ]
+    },
+    {
+      "name": "IvgWindows",
+      "file": "src/view/windows.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<IvgWindow>"
+        },
+        {
+          "name": "all",
+          "params": "&self",
+          "returns": "Vec<IvgWindow>"
+        },
+        {
+          "name": "close_all",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "arrange",
+          "params": "&self, style: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "refresh",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "find_window",
+          "params": "&self, caption: impl Into<String>",
+          "returns": "Option<IvgWindow>"
+        }
+      ]
+    }
+  ],
+  "tests": {
+    "files": [
+      "tests/view_tree.rs"
+    ],
+    "cases": 2
+  },
+  "coverage": {
+    "method_name_count": 93,
+    "covered_method_name_count": 28,
+    "coverage_pct": 30.1
+  }
+}

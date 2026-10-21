@@ -115,7 +115,7 @@ impl IvgTextFrame {
         self.disp.set_property(name, vec![v]).is_ok()
     }
 
-    // ---- 鏂囨湰鑼冨洿 ----
+    // ---- 文本范围 ----
 
     pub fn range(&self) -> Option<IvgTextRange> {
         self.prop_dispatch("Range").map(IvgTextRange::new)
@@ -142,7 +142,7 @@ impl IvgTextFrame {
     }
     pub fn is_fitted_to_path(&self) -> Option<bool> { self.prop_bool("IsFittedToPath") }
 
-    // ---- 鍨傜洿瀵归綈 ----
+    // ---- 垂直对齐 ----
 
     /// `cdrVerticalAlignment`
     pub fn vertical_alignment(&self) -> Option<i64> { self.prop_i64("VerticalAlignment") }
@@ -150,7 +150,7 @@ impl IvgTextFrame {
         self.put_i64("VerticalAlignment", v as i64)
     }
 
-    // ---- 鍒嗘爮 ----
+    // ---- 分栏 ----
 
     pub fn multicolumn(&self) -> Option<bool> { self.prop_bool("Multicolumn") }
     pub fn column_count(&self) -> Option<i64> { self.prop_i64("ColumnCount") }
@@ -180,7 +180,7 @@ impl IvgTextFrame {
         self.disp.invoke_method("SetColumns", args).is_ok()
     }
 
-    // ---- 閾炬帴 ----
+    // ---- 链接 ----
 
     /// 鎶婃湰妗嗛摼鎺ュ埌鍙︿竴涓浘褰€?
     pub fn link_to(&self, shape: &IvgShape) -> bool {
@@ -193,7 +193,7 @@ impl IvgTextFrame {
         self.disp.invoke_method("UnLink", vec![]).is_ok()
     }
 
-    // ---- 瀹瑰櫒 / 璺緞 ----
+    // ---- 容器 / 路径 ----
 
     pub fn container(&self) -> Option<IvgShape> {
         self.prop_dispatch("Container").map(IvgShape::new)
@@ -207,7 +207,7 @@ impl IvgTextFrame {
         self.prop_dispatch("FrameShape").map(IvgShape::new)
     }
 
-    // ---- 濉厖 / 杞粨 ----
+    // ---- 填充 / 轮廓 ----
 
     pub fn fill(&self) -> Option<IvgFill> {
         self.prop_dispatch("Fill").map(IvgFill::new)

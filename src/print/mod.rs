@@ -6,7 +6,7 @@
 //! - [`IvgPrnPage`] / [`IvgPrnPages`]           : 打印页面
 //! - [`IvgPrnSettings`]                         : 打印设置（`IPrnVBAPrintSettings`）
 //! - [`IvgPrnSeparations`] 等                   : 分色
-//! - [`IvgPrnPrepress`]                         : 印前
+//! - [`IvgPrnPrepress`]                         : ӡǰ
 //! - [`IvgPrnPostScript`]                       : PostScript
 //! - [`IvgPrnTrapping`] 等                      : 陷印
 //! - [`IvgPrnOptions`]                          : 打印选项

@@ -8,8 +8,8 @@
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrLayerVisibility {
-    Visible   = 0,
-    Hidden    = 1,
+    Visible = 0,
+    Hidden = 1,
     // TODO: 待补
 }
 
@@ -21,9 +21,9 @@ pub enum cdrLayerVisibility {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrLayerType {
-    Normal    = 0,
-    Guides    = 1,
-    Desktop   = 2,
-    Grid      = 3,
-    Master    = 4,
+    Normal = 0,
+    Guides = 1,
+    Desktop = 2,
+    Grid = 3,
+    Master = 4,
 }

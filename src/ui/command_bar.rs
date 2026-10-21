@@ -125,7 +125,7 @@ impl ICuiCommandBar {
 
     pub fn built_in(&self) -> Option<bool> { self.prop_bool("BuiltIn") }
 
-    // ---- 浣嶇疆 / 灏哄 ----
+    // ---- 位置 / 尺寸 ----
 
     pub fn left(&self) -> Option<i64> { self.prop_i64("Left") }
     pub fn set_left(&self, v: i32) -> bool { self.put_i64("Left", v as i64) }
@@ -143,7 +143,7 @@ impl ICuiCommandBar {
 
     pub fn index(&self) -> Option<i64> { self.prop_i64("Index") }
 
-    // ---- 鍚嶇О ----
+    // ---- 名称 ----
 
     pub fn name(&self) -> Option<String> { self.prop_string("Name") }
     pub fn set_name(&self, v: impl Into<String>) -> bool { self.put_string("Name", v) }
@@ -153,7 +153,7 @@ impl ICuiCommandBar {
         self.put_string("NameLocal", v)
     }
 
-    // ---- 浣嶇疆 / 淇濇姢 ----
+    // ---- 位置 / 保护 ----
 
     /// `cuiBarPosition`
     pub fn position(&self) -> Option<i64> { self.prop_i64("Position") }
@@ -163,7 +163,7 @@ impl ICuiCommandBar {
     pub fn protection(&self) -> Option<i64> { self.prop_i64("Protection") }
     pub fn set_protection(&self, v: i32) -> bool { self.put_i64("Protection", v as i64) }
 
-    // ---- 鎺т欢 / 妯″紡 ----
+    // ---- 控件 / 模式 ----
 
     pub fn controls(&self) -> Option<ICuiControls> {
         self.prop_dispatch("Controls").map(ICuiControls::new)
@@ -173,7 +173,7 @@ impl ICuiCommandBar {
         self.prop_dispatch("Modes").map(ICuiCommandBarModes::new)
     }
 
-    // ---- 鎿嶄綔 ----
+    // ---- 操作 ----
 
     pub fn delete(&self) -> bool {
         self.disp.invoke_method("Delete", vec![]).is_ok()

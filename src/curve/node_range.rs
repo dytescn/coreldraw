@@ -29,7 +29,7 @@ impl IvgNodeRange {
         self.disp.get_property(name).ok()?.to_idispatch().ok()
     }
 
-    // ---- 鍩烘湰淇℃伅 ----
+    // ---- 基本信息 ----
 
     pub fn count(&self) -> Option<i64> { self.prop_i64("Count") }
     pub fn node_type(&self) -> Option<i64> { self.prop_i64("Type") }
@@ -59,7 +59,7 @@ impl IvgNodeRange {
         self.prop_dispatch("BoundingBox").map(IvgRect::new)
     }
 
-    // ---- 缂栬緫 ----
+    // ---- 编辑 ----
 
     pub fn add(&self, node: &IvgNode) -> bool {
         let args = vec![node.as_variant()];
@@ -168,7 +168,7 @@ impl IvgNodeRange {
         self.disp.invoke_method("Scallop", args).is_ok()
     }
 
-    // ---- 閫夋嫨 ----
+    // ---- 选择 ----
 
     pub fn create_selection(&self) -> bool { self.disp.invoke_method("CreateSelection", vec![]).is_ok() }
     pub fn add_to_selection(&self) -> bool { self.disp.invoke_method("AddToSelection", vec![]).is_ok() }

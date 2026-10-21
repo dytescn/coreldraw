@@ -26,7 +26,7 @@ impl IvgGuide {
         self.disp.get_property(name).ok()?.to_bool().ok()
     }
 
-    // ---- 绫诲瀷 / 棰勮 ----
+    // ---- 类型 / 预设 ----
 
     /// `cdrGuideType`
     pub fn guide_type(&self) -> Option<i64> { self.prop_i64("Type") }
@@ -70,7 +70,7 @@ impl IvgGuide {
         self.disp.invoke_method("SetPointAndAngle", args).is_ok()
     }
 
-    // ---- 鎴窛 / 涓績 ----
+    // ---- 截距 / 中心 ----
 
     pub fn intercept_x(&self) -> Option<f64> { self.prop_f64("InterceptX") }
     pub fn intercept_y(&self) -> Option<f64> { self.prop_f64("InterceptY") }

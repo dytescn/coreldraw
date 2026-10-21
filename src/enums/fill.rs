@@ -9,36 +9,25 @@
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrFillType {
-    /// 无填充。
-    None       = 0,
-    /// 单色填充。
-    Uniform    = 1,
-    /// 渐变（喷泉）填充。
-    Fountain   = 2,
-    /// 图案填充。
-    Pattern    = 3,
-    /// 纹理填充。
-    Texture    = 4,
-    /// PostScript 填充。
-    PostScript = 5,
-    /// 网状填充。
-    Mesh       = 6,
-    /// 填充继承。
-    Hatch      = 7,
-    // TODO: 更完整的列表待补
+    NoFill = 0,
+    UniformFill = 1,
+    FountainFill = 2,
+    PostscriptFill = 3,
+    TextureFill = 8,
+    PatternFill = 9,
+    HatchFill = 10,
 }
 
 impl cdrFillType {
     pub fn from_i32(v: i32) -> Option<Self> {
         match v {
-            0 => Some(Self::None),
-            1 => Some(Self::Uniform),
-            2 => Some(Self::Fountain),
-            3 => Some(Self::Pattern),
-            4 => Some(Self::Texture),
-            5 => Some(Self::PostScript),
-            6 => Some(Self::Mesh),
-            7 => Some(Self::Hatch),
+            0 => Some(Self::NoFill),
+            1 => Some(Self::UniformFill),
+            2 => Some(Self::FountainFill),
+            3 => Some(Self::PostscriptFill),
+            8 => Some(Self::TextureFill),
+            9 => Some(Self::PatternFill),
+            10 => Some(Self::HatchFill),
             _ => None,
         }
     }
@@ -52,27 +41,19 @@ impl cdrFillType {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrFountainFillType {
-    /// 线性。
-    Linear       = 1,
-    /// 射线。
-    Radial       = 2,
-    /// 圆锥。
-    Conical      = 3,
-    /// 方形。
-    Square       = 4,
-    /// 矩形。
-    Rectangular  = 5,
-    // TODO: 待补
+    LinearFountainFill = 1,
+    RadialFountainFill = 2,
+    ConicalFountainFill = 3,
+    SquareFountainFill = 4,
 }
 
 impl cdrFountainFillType {
     pub fn from_i32(v: i32) -> Option<Self> {
         match v {
-            1 => Some(Self::Linear),
-            2 => Some(Self::Radial),
-            3 => Some(Self::Conical),
-            4 => Some(Self::Square),
-            5 => Some(Self::Rectangular),
+            1 => Some(Self::LinearFountainFill),
+            2 => Some(Self::RadialFountainFill),
+            3 => Some(Self::ConicalFountainFill),
+            4 => Some(Self::SquareFountainFill),
             _ => None,
         }
     }
@@ -86,13 +67,10 @@ impl cdrFountainFillType {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrFountainFillBlendType {
-    /// RGB 直接混合。
-    Direct      = 0,
-    /// RGB 顺时针混合。
-    Clockwise   = 1,
-    /// RGB 逆时针混合。
-    CounterClockwise = 2,
-    // TODO: 待补
+    DirectFountainFillBlend = 0,
+    RainbowCWFountainFillBlend = 1,
+    RainbowCCWFountainFillBlend = 2,
+    CustomFountainFillBlend = 3,
 }
 
 // =============================================================
@@ -103,9 +81,9 @@ pub enum cdrFountainFillBlendType {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrFountainFillSpreadMethod {
-    Pad     = 0,
+    Pad = 0,
     Reflect = 1,
-    Repeat  = 2,
+    Repeat = 2,
 }
 
 // =============================================================
@@ -116,11 +94,9 @@ pub enum cdrFountainFillSpreadMethod {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrPatternFillType {
-    /// 双色位图。
-    Monochrome = 0,
-    /// 全彩位图。
-    FullColor  = 1,
-    // TODO: 待补
+    TwoColorPattern = 0,
+    FullColorPattern = 1,
+    BitmapPattern = 2,
 }
 
 // =============================================================
@@ -144,9 +120,9 @@ pub enum cdrHatchFillType {
 #[allow(nonstandard_style)]
 pub enum cdrFillMode {
     /// 交替填充。
-    Alternate   = 0,
+    Alternate = 0,
     /// 缠绕填充。
-    Winding     = 1,
+    Winding = 1,
 }
 
 // =============================================================
@@ -157,9 +133,8 @@ pub enum cdrFillMode {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrTileOffsetType {
-    // TODO: 待补
-    Percent = 0,
-    // ...
+    TileOffsetRow = 0,
+    TileOffsetColumn = 1,
 }
 
 // =============================================================
@@ -170,7 +145,8 @@ pub enum cdrTileOffsetType {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrTexturePropertyType {
-    // TODO: 待补
-    Integer = 0,
-    // ...
+    TexturePropertyNumeric = 0,
+    TexturePropertyColorRGB = 1,
+    TexturePropertyColorHSB = 2,
+    TexturePropertyColorCMYK = 3,
 }

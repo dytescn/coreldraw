@@ -128,7 +128,7 @@ impl IvgStructExportOptions {
         self.put_bool("AlwaysOverprintBlack", v)
     }
 
-    // ---- 瀵煎嚭鍖哄煙 ----
+    // ---- 导出区域 ----
 
     pub fn export_area(&self) -> Option<IvgRect> {
         self.prop_dispatch("ExportArea").map(IvgRect::new)
@@ -147,7 +147,7 @@ impl IvgStructExportOptions {
         self.put_dispatch("MatteColor", c.as_variant())
     }
 
-    // ---- 鏍℃牱 ----
+    // ---- 校样 ----
 
     pub fn proof_color_settings(&self) -> Option<crate::misc::IvgProperties> {
         // 瀹為檯鏄?IVGProofColorSettings锛屾殏鐢?properties 鍗犱綅

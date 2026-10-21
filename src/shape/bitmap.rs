@@ -42,7 +42,7 @@ impl IvgBitmap {
         self.disp.set_property(name, vec![arg]).is_ok()
     }
 
-    // ---- 鍩烘湰淇℃伅 ----
+    // ---- 基本信息 ----
 
     pub fn size_width(&self) -> Option<i64> { self.prop_i64("SizeWidth") }
     pub fn size_height(&self) -> Option<i64> { self.prop_i64("SizeHeight") }
@@ -74,7 +74,7 @@ impl IvgBitmap {
         self.prop_dispatch("BoundingBoxPath").map(IvgCurve::new)
     }
 
-    // ---- 鎿嶄綔 ----
+    // ---- 操作 ----
 
     pub fn resolve_link(&self) -> bool { self.disp.invoke_method("ResolveLink", vec![]).is_ok() }
     pub fn update_link(&self) -> bool { self.disp.invoke_method("UpdateLink", vec![]).is_ok() }
@@ -125,7 +125,7 @@ impl IvgBitmap {
         self.disp.invoke_method("ResetCropEnvelope", vec![]).is_ok()
     }
 
-    // ---- 淇濆瓨 ----
+    // ---- 保存 ----
 
     pub fn save_as(
         &self,
@@ -205,7 +205,7 @@ impl IvgBitmap {
         self.disp.invoke_method("ConvertToBW", args).is_ok()
     }
 
-    // ---- 鍥惧儚鏁版嵁 ----
+    // ---- 图像数据 ----
 
     pub fn image(&self) -> Option<IvgImage> {
         self.prop_dispatch("Image").map(IvgImage::new)
@@ -231,7 +231,7 @@ impl IvgBitmap {
         self.disp.invoke_method("SetImageData", args).is_ok()
     }
 
-    // ---- 鎻忔懝 ----
+    // ---- 描摹 ----
 
     #[allow(clippy::too_many_arguments)]
     pub fn trace(

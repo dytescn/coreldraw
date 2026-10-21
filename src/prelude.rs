@@ -1,48 +1,48 @@
-﻿//! 甯哥敤绫诲瀷闆嗕腑瀵煎嚭
+﻿//! 常用类型集中导出
 //!
 //! ```no_run
 //! use cdrsdk::prelude::*;
 //! ```
 
-// ---------- 鍩虹灞?----------
+// ---------- 基础层 ----------
 
 pub use crate::types::*;
 pub use crate::enums::*;
 
-// ---------- 搴旂敤 / 鏂囨。 ----------
+// ---------- 应用 / 文档 ----------
 
 pub use crate::app::IvgApplication;
 pub use crate::document::{IvgDocument, IvgDocuments};
 
-// ---------- 椤甸潰 / 鍥惧眰 ----------
+// ---------- 页面 / 图层 ----------
 
 pub use crate::page::{IvgPage, IvgPages};
 pub use crate::layer::{IvgLayer, IvgLayers};
 
-// ---------- 鍥惧舰 / 鏇茬嚎 ----------
+// ---------- 图形 / 曲线 ----------
 
 pub use crate::shape::{IvgShape, IvgShapes, IvgShapeRange};
 pub use crate::curve::IvgCurve;
 
-// ---------- 鍑犱綍 ----------
+// ---------- 几何 ----------
 
 pub use crate::geometry::{IvgPoint, IvgVector, IvgRect};
 
-// ---------- 棰滆壊 ----------
+// ---------- 颜色 ----------
 
 pub use crate::color::{IvgColor, IvgColors, IvgColorContext};
 
-// ---------- 濉厖 / 杞粨 ----------
+// ---------- 填充 / 轮廓 ----------
 
 pub use crate::fill::IvgFill;
 pub use crate::outline::IvgOutline;
 
-// ---------- 鏂囨湰 / 鏁堟灉 ----------
+// ---------- 文本 / 效果 ----------
 
 pub use crate::text::IvgText;
 pub use crate::effect::IvgEffect;
 
-// ---------- 瑙嗗浘 / 鏍?----------
+// ---------- 视图 / 树 ----------
 
 pub use crate::view::IvgView;
 pub use crate::tree::{IvgTreeNode, IvgTreeNodes};

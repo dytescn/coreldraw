@@ -8,12 +8,11 @@
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cuiBarPosition {
-    Floating = 0,
-    Top      = 1,
-    Bottom   = 2,
-    Left     = 3,
-    Right    = 4,
-    // TODO: 待补
+    BarLeft = 0,
+    BarTop = 1,
+    BarRight = 2,
+    BarBottom = 3,
+    BarFloating = 4,
 }
 
 // =============================================================
@@ -24,10 +23,11 @@ pub enum cuiBarPosition {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cuiBarType {
-    MenuBar   = 0,
-    ToolBar   = 1,
-    StatusBar = 2,
-    // TODO: 待补
+    BarTypeNormal = 0,
+    BarTypeMenuBar = 1,
+    BarTypePopup = 2,
+    BarTypeStatusBar = 3,
+    BarTypePropertyBar = 4,
 }
 
 // =============================================================
@@ -38,11 +38,13 @@ pub enum cuiBarType {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cuiBarProtection {
-    None        = 0,
-    NoCustomize = 1,
-    NoMove      = 2,
-    NoResize    = 3,
-    // TODO: 待补
+    BarNoProtection = 0,
+    BarNoCustomize = 1,
+    BarNoMove = 4,
+    BarNoChangeVisible = 8,
+    BarNoChangeDock = 16,
+    BarNoVerticalDock = 32,
+    BarNoHorizontalDock = 64,
 }
 
 // =============================================================
@@ -53,10 +55,9 @@ pub enum cuiBarProtection {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cuiWindowState {
-    Normal    = 0,
-    Minimized = 1,
-    Maximized = 2,
-    // TODO: 待补
+    WindowStateRestored = 0,
+    WindowStateMaximized = 1,
+    WindowStateMinimized = 2,
 }
 
 // =============================================================
@@ -67,9 +68,8 @@ pub enum cuiWindowState {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cuiDockHostOrientation {
-    Horizontal = 0,
-    Vertical   = 1,
-    // TODO: 待补
+    DockHostHorizontal = 0,
+    DockHostVertical = 1,
 }
 
 // =============================================================
@@ -80,9 +80,9 @@ pub enum cuiDockHostOrientation {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cuiDockOperation {
-    /// 未知 / 未定义。
-    Unknown = -1,
-    // TODO: 完整值待补
+    DockOperationInsert = 0,
+    DockOperationSplitTopLeft = 1,
+    DockOperationSplitBottomRight = 2,
 }
 
 // =============================================================
@@ -93,9 +93,8 @@ pub enum cuiDockOperation {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cuiDockItemType {
-    /// 未知 / 未定义。
-    Unknown = -1,
-    // TODO: 完整值待补
+    DockItemDockHost = 0,
+    DockItemViewHost = 1,
 }
 
 // =============================================================
@@ -108,11 +107,8 @@ pub enum cuiDockItemType {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cuiMessageBoxFlags {
-    /// 无标志（默认）。
-    None    = 0,
-    /// 未知 / 未定义（占位）。
-    Unknown = -1,
-    // TODO: 完整标志待补（如 MB_OK / MB_YESNO / MB_ICONWARNING ...）
+    Default = 0,
+    NoAutoWrap = 1,
 }
 
 // =============================================================
@@ -121,10 +117,9 @@ pub enum cuiMessageBoxFlags {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[repr(i32)]
-
 #[allow(nonstandard_style)]
 pub enum cuiTaskPriority {
-    Low    = 0,
+    Low = 0,
     Normal = 1,
-    High   = 2,
+    High = 2,
 }

@@ -91,7 +91,7 @@ impl IvgSegment {
         self.disp.set_property(name, vec![arg]).is_ok()
     }
 
-    // ---- 绫诲瀷 / 绱㈠紩 ----
+    // ---- 类型 / 索引 ----
 
     /// `cdrSegmentType` 瑙?`enums::curve`
     pub fn segment_type(&self) -> Option<i64> { self.prop_i64("Type") }
@@ -105,7 +105,7 @@ impl IvgSegment {
     pub fn is_selected(&self) -> Option<bool> { self.prop_bool("Selected") }
     pub fn set_selected(&self, v: bool) -> bool { self.put_bool("Selected", v) }
 
-    // ---- 鍏宠仈 ----
+    // ---- 关联 ----
 
     pub fn sub_path(&self) -> Option<IvgSubPath> {
         self.prop_dispatch("SubPath").map(IvgSubPath::new)
@@ -179,7 +179,7 @@ impl IvgSegment {
         self.put_f64("EndingControlPointY", v)
     }
 
-    // ---- 閬嶅巻 ----
+    // ---- 遍历 ----
 
     pub fn next(&self) -> Option<IvgSegment> {
         self.disp.invoke_method("Next", vec![]).ok()?.to_idispatch().ok().map(IvgSegment::new)
@@ -189,7 +189,7 @@ impl IvgSegment {
         self.disp.invoke_method("Previous", vec![]).ok()?.to_idispatch().ok().map(IvgSegment::new)
     }
 
-    // ---- 缂栬緫 ----
+    // ---- 编辑 ----
 
     pub fn get_copy(&self) -> Option<crate::curve::IvgCurve> {
         self.disp.invoke_method("GetCopy", vec![]).ok()?.to_idispatch().ok()
@@ -216,7 +216,7 @@ impl IvgSegment {
         self.disp.invoke_method("BreakApartAt", args).ok()?.to_idispatch().ok().map(IvgNode::new)
     }
 
-    // ---- 鍑犱綍鏌ヨ ----
+    // ---- 几何查询 ----
 
     pub fn get_perpendicular_at(&self, offset: f64, offset_type: i32) -> Option<f64> {
         let args = vec![

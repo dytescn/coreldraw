@@ -11,10 +11,10 @@
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrNodeType {
-    Cusp        = 0,
-    Smooth      = 1,
+    Cusp = 0,
+    Smooth = 1,
     Symmetrical = 2,
-    Mixed       = 3,
+    Mixed = 3,
 }
 
 impl cdrNodeType {
@@ -37,9 +37,9 @@ impl cdrNodeType {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrSegmentType {
-    Line   = 1,
-    Curve  = 2,
-    // TODO: 待补
+    LineSegment = 0,
+    CurveSegment = 1,
+    MixedSegments = 2,
 }
 
 // =============================================================
@@ -63,6 +63,8 @@ pub enum cdrSegmentOffsetType {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrWeldMethod {
-    // TODO: 待补
-    Union = 0,
+    WeldMethodUnion = 0,
+    WeldMethodIntersect = 1,
+    WeldMethodSubtract = 2,
+    WeldMethodXor = 3,
 }

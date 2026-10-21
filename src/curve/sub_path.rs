@@ -122,7 +122,7 @@ impl IvgSubPath {
         self.prop_dispatch("BoundingBox").map(IvgRect::new)
     }
 
-    // ---- 閫夋嫨 / 鏂瑰悜 ----
+    // ---- 选择 / 方向 ----
 
     pub fn selection(&self) -> Option<IvgNodeRange> {
         self.disp.invoke_method("Selection", vec![]).ok()?.to_idispatch().ok().map(IvgNodeRange::new)
@@ -170,7 +170,7 @@ impl IvgSubPath {
         self.disp.invoke_method("AppendCurveSegment", args).ok()?.to_idispatch().ok().map(IvgSegment::new)
     }
 
-    // ---- 缂栬緫 ----
+    // ---- 编辑 ----
 
     pub fn delete(&self) -> bool { self.disp.invoke_method("Delete", vec![]).is_ok() }
 
@@ -191,7 +191,7 @@ impl IvgSubPath {
         self.set_position_x(x) && self.set_position_y(y)
     }
 
-    // ---- 鎶界 ----
+    // ---- 抽离 ----
 
     pub fn extract(&self) -> Option<(crate::shape::IvgShape, crate::shape::IvgShape)> {
         // COM 鍙屽嚭鍙傦細`Extract(OldCurve, ppVal)`銆?
@@ -200,7 +200,7 @@ impl IvgSubPath {
         None
     }
 
-    // ---- 鍑犱綍鏌ヨ ----
+    // ---- 几何查询 ----
 
     pub fn is_on_sub_path(&self, x: f64, y: f64, hot_area: f64) -> Option<i64> {
         let args = vec![

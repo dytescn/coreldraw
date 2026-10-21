@@ -51,13 +51,13 @@ impl IvgStructAlignProperties {
         self.disp.set_property(name, vec![arg]).is_ok()
     }
 
-    // ---- 瀵归綈 ----
+    // ---- 对齐 ----
 
     /// `cdrAlignment`
     pub fn alignment(&self) -> Option<i64> { self.prop_i64("Alignment") }
     pub fn set_alignment(&self, v: i32) -> bool { self.put_i64("Alignment", v as i64) }
 
-    // ---- 缂╄繘 ----
+    // ---- 缩进 ----
 
     pub fn first_line_indent(&self) -> Option<f64> { self.prop_f64("FirstLineIndent") }
     pub fn set_first_line_indent(&self, v: f64) -> bool {
@@ -82,7 +82,7 @@ impl IvgStructAlignProperties {
         self.put_f32("MinWordSpacing", v)
     }
 
-    // ---- 瀛楃闂磋窛 ----
+    // ---- 字符间距 ----
 
     pub fn max_character_spacing(&self) -> Option<f32> {
         self.prop_f32("MaxCharacterSpacing")
@@ -91,7 +91,7 @@ impl IvgStructAlignProperties {
         self.put_f32("MaxCharacterSpacing", v)
     }
 
-    // ---- 浣嶇Щ / 鏃嬭浆 ----
+    // ---- 位移 / 旋转 ----
 
     pub fn horizontal_character_shift(&self) -> Option<i64> {
         self.prop_i64("HorizontalCharacterShift")

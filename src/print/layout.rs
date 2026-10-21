@@ -39,7 +39,7 @@ impl IvgPrnLayout {
         self.disp.set_property(name, vec![arg]).is_ok()
     }
 
-    // ---- 鍑鸿 ----
+    // ---- 出血 ----
 
     pub fn use_bleed_limit(&self) -> Option<bool> { self.prop_bool("UseBleedLimit") }
     pub fn set_use_bleed_limit(&self, v: bool) -> bool { self.put_bool("UseBleedLimit", v) }
@@ -47,7 +47,7 @@ impl IvgPrnLayout {
     pub fn bleed_limit(&self) -> Option<f64> { self.prop_f64("BleedLimit") }
     pub fn set_bleed_limit(&self, v: f64) -> bool { self.put_f64("BleedLimit", v) }
 
-    // ---- 骞抽摵 ----
+    // ---- 平铺 ----
 
     pub fn print_tiled_pages(&self) -> Option<bool> { self.prop_bool("PrintTiledPages") }
     pub fn set_print_tiled_pages(&self, v: bool) -> bool {
@@ -62,7 +62,7 @@ impl IvgPrnLayout {
     pub fn tile_overlap(&self) -> Option<f64> { self.prop_f64("TileOverlap") }
     pub fn set_tile_overlap(&self, v: f64) -> bool { self.put_f64("TileOverlap", v) }
 
-    // ---- 浣嶇疆 ----
+    // ---- 位置 ----
 
     /// `PrnPlaceType`
     pub fn placement(&self) -> Option<i64> { self.prop_i64("Placement") }

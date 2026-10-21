@@ -1,0 +1,2896 @@
+{
+  "module": "shape",
+  "files": [
+    "src/shape/bitmap.rs",
+    "src/shape/connector.rs",
+    "src/shape/custom_shape.rs",
+    "src/shape/ellipse.rs",
+    "src/shape/eps.rs",
+    "src/shape/guide.rs",
+    "src/shape/image.rs",
+    "src/shape/mod.rs",
+    "src/shape/polygon.rs",
+    "src/shape/power_clip.rs",
+    "src/shape/rectangle.rs",
+    "src/shape/selection_info.rs",
+    "src/shape/shape.rs",
+    "src/shape/shape_range.rs",
+    "src/shape/shapes.rs"
+  ],
+  "types": [
+    {
+      "name": "IvgBitmap",
+      "file": "src/shape/bitmap.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "size_width",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "size_height",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "resolution_x",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "resolution_y",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "externally_linked",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "link_file_name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_link_file_name",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "mode",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "transparent",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "watermarked",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "opi_linked",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_eps",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "embedded",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "cropped",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "crop_envelope_modified",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "crop_envelope",
+          "params": "&self",
+          "returns": "Option<IvgCurve>"
+        },
+        {
+          "name": "bounding_box_path",
+          "params": "&self",
+          "returns": "Option<IvgCurve>"
+        },
+        {
+          "name": "resolve_link",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "update_link",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "inflate",
+          "params": "&self, w: i32, h: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "resample",
+          "params": "&self, width: i32, height: i32, anti_alias: bool, resolution_x: f64, resolution_y: f64,",
+          "returns": "bool"
+        },
+        {
+          "name": "convert_to",
+          "params": "&self, mode: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "apply_bitmap_effect",
+          "params": "&self, undo_string: impl Into<String>, command: impl Into<String>,",
+          "returns": "bool"
+        },
+        {
+          "name": "crop",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "reset_crop_envelope",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "save_as",
+          "params": "&self, file_name: impl Into<String>, filter: i32, compression: i32,",
+          "returns": "Option<ICorelExportFilter>"
+        },
+        {
+          "name": "convert_to_paletted",
+          "params": "&self, palette_type: i32, dither_type: i32, dither_intensity: i32, smoothing: i32, num_colors: i32, color_sensitive: bool, target_color: i32, importance: i32, lightness: i32, tolerance_a: i32, tolerance_b: i32, palette: Variant,",
+          "returns": "bool"
+        },
+        {
+          "name": "convert_to_paletted2",
+          "params": "&self, options: &IvgStructPaletteOptions",
+          "returns": "bool"
+        },
+        {
+          "name": "convert_to_bw",
+          "params": "&self, render_type: i32, intensity: i32, threshold: i32, halftone: i32, halftone_angle: i32, halftone_size: i32,",
+          "returns": "bool"
+        },
+        {
+          "name": "image",
+          "params": "&self",
+          "returns": "Option<IvgImage>"
+        },
+        {
+          "name": "image_alpha",
+          "params": "&self",
+          "returns": "Option<IvgImage>"
+        },
+        {
+          "name": "set_image_data",
+          "params": "&self, image: &IvgImage, alpha: &IvgImage, offset_x: i32, offset_y: i32,",
+          "returns": "bool"
+        },
+        {
+          "name": "trace",
+          "params": "&self, trace_type: i32, smoothing: i16, detail_level_percent: i16, color_mode: i32, palette_id: i32, color_count: i32, delete_original: bool, remove_background: bool, remove_entire_back: bool,",
+          "returns": "Option<crate::misc::IvgTraceSettings>"
+        }
+      ]
+    },
+    {
+      "name": "IvgConnector",
+      "file": "src/shape/connector.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "start_point",
+          "params": "&self",
+          "returns": "Option<IvgSnapPoint>"
+        },
+        {
+          "name": "set_start_point",
+          "params": "&self, p: &IvgSnapPoint",
+          "returns": "bool"
+        },
+        {
+          "name": "end_point",
+          "params": "&self",
+          "returns": "Option<IvgSnapPoint>"
+        },
+        {
+          "name": "set_end_point",
+          "params": "&self, p: &IvgSnapPoint",
+          "returns": "bool"
+        },
+        {
+          "name": "connector_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        }
+      ]
+    },
+    {
+      "name": "IvgCustomShape",
+      "file": "src/shape/custom_shape.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "type_id",
+          "params": "&self",
+          "returns": "Option<String>"
+        }
+      ]
+    },
+    {
+      "name": "IvgEllipse",
+      "file": "src/shape/ellipse.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "ellipse_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_ellipse_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "start_angle",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_start_angle",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "end_angle",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_end_angle",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "clockwise",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_clockwise",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "center_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_center_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "center_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_center_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "h_radius",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_h_radius",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "v_radius",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_v_radius",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "set_center_position",
+          "params": "&self, x: f64, y: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "get_center_position",
+          "params": "&self",
+          "returns": "Option<(f64, f64)>"
+        },
+        {
+          "name": "set_radius",
+          "params": "&self, h: f64, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "get_radius",
+          "params": "&self",
+          "returns": "Option<(f64, f64)>"
+        }
+      ]
+    },
+    {
+      "name": "IvgEps",
+      "file": "src/shape/eps.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "preview_bitmap",
+          "params": "&self",
+          "returns": "Option<IvgBitmap>"
+        },
+        {
+          "name": "data",
+          "params": "&self",
+          "returns": "Option<Variant>"
+        },
+        {
+          "name": "data_as_string",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "crop_envelope",
+          "params": "&self",
+          "returns": "Option<IvgCurve>"
+        },
+        {
+          "name": "reset_crop_envelope",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "crop_envelope_modified",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "bounding_box_path",
+          "params": "&self",
+          "returns": "Option<IvgCurve>"
+        },
+        {
+          "name": "link_file_name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_link_file_name",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "dcs_file_names",
+          "params": "&self",
+          "returns": "Option<Variant>"
+        }
+      ]
+    },
+    {
+      "name": "IvgGuide",
+      "file": "src/shape/guide.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "guide_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "preset",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "make_editable",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "point1_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "point1_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "point2_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "point2_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "angle",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "get_points",
+          "params": "&self",
+          "returns": "Option<(f64, f64, f64, f64)>"
+        },
+        {
+          "name": "get_point_and_angle",
+          "params": "&self",
+          "returns": "Option<(f64, f64, f64)>"
+        },
+        {
+          "name": "set_points",
+          "params": "&self, x1: f64, y1: f64, x2: f64, y2: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "set_point_and_angle",
+          "params": "&self, x: f64, y: f64, angle: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "intercept_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "intercept_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "center_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "center_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        }
+      ]
+    },
+    {
+      "name": "IvgImage",
+      "file": "src/shape/image.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "image_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "width",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "height",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "read_only",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "pixel",
+          "params": "&self, x: i32, y: i32",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "get_copy",
+          "params": "&self",
+          "returns": "Option<IvgImage>"
+        },
+        {
+          "name": "tiles",
+          "params": "&self",
+          "returns": "Option<IvgImageTiles>"
+        },
+        {
+          "name": "blit",
+          "params": "&self, dest_x: i32, dest_y: i32, dest_w: i32, dest_h: i32, src: &IvgImage, src_x: i32, src_y: i32, src_w: i32, src_h: i32, merge_mode: i32,",
+          "returns": "bool"
+        },
+        {
+          "name": "fill_area",
+          "params": "&self, x: i32, y: i32, w: i32, h: i32, color: &IvgColor,",
+          "returns": "bool"
+        },
+        {
+          "name": "flip_area",
+          "params": "&self, x: i32, y: i32, w: i32, h: i32, axes: i32,",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgImageTiles",
+      "file": "src/shape/image.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<IvgImageTile>"
+        },
+        {
+          "name": "first",
+          "params": "&self",
+          "returns": "Option<IvgImageTile>"
+        },
+        {
+          "name": "last",
+          "params": "&self",
+          "returns": "Option<IvgImageTile>"
+        }
+      ]
+    },
+    {
+      "name": "IvgImageTile",
+      "file": "src/shape/image.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "left",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "top",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "right",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "bottom",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "width",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "height",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "bytes_per_tile",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "bytes_per_line",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "bytes_per_pixel",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "read_only",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "pixel_data",
+          "params": "&self",
+          "returns": "Option<Variant>"
+        },
+        {
+          "name": "set_pixel_data",
+          "params": "&self, v: Variant",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgPolygon",
+      "file": "src/shape/polygon.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "polygon_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_polygon_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "sides",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_sides",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "sharpness",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_sharpness",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgPowerClip",
+      "file": "src/shape/power_clip.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "shapes",
+          "params": "&self",
+          "returns": "Option<IvgShapes>"
+        },
+        {
+          "name": "contents_locked",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_contents_locked",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "enter_edit_mode",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "leave_edit_mode",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "extract_shapes",
+          "params": "&self",
+          "returns": "Option<IvgShapeRange>"
+        }
+      ]
+    },
+    {
+      "name": "IvgRectangle",
+      "file": "src/shape/rectangle.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "corner_upper_left",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_corner_upper_left",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "corner_upper_right",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_corner_upper_right",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "corner_lower_left",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_corner_lower_left",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "corner_lower_right",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_corner_lower_right",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "equal_corners",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "max_radius",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "radius_upper_left",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_radius_upper_left",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "radius_upper_right",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_radius_upper_right",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "radius_lower_left",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_radius_lower_left",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "radius_lower_right",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_radius_lower_right",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "set_roundness",
+          "params": "&self, roundness: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "set_radius",
+          "params": "&self, radius: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "corner_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_corner_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "relative_corner_scaling",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_relative_corner_scaling",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgSelectionInformation",
+      "file": "src/shape/selection_info.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "first_shape",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "second_shape",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "first_shape_with_outline",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "first_shape_with_fill",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "blend_top_shape",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "blend_bottom_shape",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "blend_path",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "distortion_shape",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "distortion_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "extrude_face_shape",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "extrude_group",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "extrude_bevel_group",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "contour_control_shape",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "contour_group",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "drop_shadow_control_shape",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "drop_shadow_group",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "dimension_control_shape",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "dimension_group",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "connector_lines",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "fitted_text_control_shape",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "fitted_text",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "natural_media_control_shape",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "natural_media_group",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "can_create_blend",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "can_print",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "can_apply_fill_outline",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "can_delete_control",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "can_ungroup",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "can_clone",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "can_apply_blend",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "can_apply_contour",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "can_apply_fill",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "can_apply_outline",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "can_apply_transparency",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "can_assign_url",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "can_apply_distortion",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "can_apply_envelope",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "can_lock_shapes",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "can_unlock_shapes",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_editing_text",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_text_selection",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_on_power_clip_contents",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_editing_roll_over",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_control_selected",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_group",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_regular_shape",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_control_shape",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_blend_control",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_blend_group",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_clone_control",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_contour_control",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_contour_group",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_drop_shadow_control",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_drop_shadow_group",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_dimension_control",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_extrude_control",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_extrude_group",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_bevel_group",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "has_auto_label_text",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_envelope",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_perspective",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_distortion",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_connector_line",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_connector",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_fitted_text",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_fitted_text_control",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_natural_media_control",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_natural_media_group",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_second_extrude_control",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_second_contour_control",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_second_drop_shadow_control",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_second_natural_media_control",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_artistic_text_selected",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_paragraph_text_selected",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_text_selected",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_ole_selected",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_bitmap_selected",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_bitmap_present",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_lens_present",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_masked_bitmap_present",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_group_selected",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_link_group_selected",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_link_control_selected",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_attached_to_dimension",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_perspective_present",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_envelope_present",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_distortion_present",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_guideline_selected",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_internet_object_selected",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_sound_object_selected",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_external_bitmap_selected",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_non_external_bitmap_selected",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_mesh_fill_selected",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_mesh_fill_present",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_roll_over_selected",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "contains_roll_over_parent",
+          "params": "&self",
+          "returns": "Option<bool>"
+        }
+      ]
+    },
+    {
+      "name": "IvgShape",
+      "file": "src/shape/shape.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "dispatch",
+          "params": "&self",
+          "returns": "&IDispatch"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "shape_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "static_id",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_name",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "locked",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_locked",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "selected",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_selected",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "visible",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_visible",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "selectable",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "virtual_shape",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "can_have_fill",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "can_have_outline",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_simple_shape",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "position_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_position_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "position_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_position_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "size_width",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_size_width",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "size_height",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_size_height",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "original_width",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "original_height",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "left_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_left_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "right_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_right_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "top_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_top_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "bottom_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_bottom_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "center_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_center_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "center_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_center_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "bounding_box",
+          "params": "&self",
+          "returns": "Option<IvgRect>"
+        },
+        {
+          "name": "get_position",
+          "params": "&self",
+          "returns": "Option<(f64, f64)>"
+        },
+        {
+          "name": "set_position",
+          "params": "&self, x: f64, y: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "get_size",
+          "params": "&self",
+          "returns": "Option<(f64, f64)>"
+        },
+        {
+          "name": "set_size",
+          "params": "&self, w: f64, h: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "set_position_ex",
+          "params": "&self, ref_point: i32, x: f64, y: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "rotation_angle",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_rotation_angle",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "rotation_center_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_rotation_center_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "rotation_center_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_rotation_center_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "set_rotation_center",
+          "params": "&self, x: f64, y: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "rotate",
+          "params": "&self, angle: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "rotate_ex",
+          "params": "&self, angle: f64, cx: f64, cy: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "skew",
+          "params": "&self, ax: f64, ay: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "skew_ex",
+          "params": "&self, ax: f64, ay: f64, cx: f64, cy: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "stretch",
+          "params": "&self, sx: f64, sy: f64, stretch_chars: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "move_by",
+          "params": "&self, dx: f64, dy: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "flip",
+          "params": "&self, axes: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "get_matrix",
+          "params": "&self",
+          "returns": "Option<(f64, f64, f64, f64, f64, f64)>"
+        },
+        {
+          "name": "set_matrix",
+          "params": "&self, d11: f64, d12: f64, d21: f64, d22: f64, tx: f64, ty: f64,",
+          "returns": "bool"
+        },
+        {
+          "name": "transformation_matrix",
+          "params": "&self",
+          "returns": "Option<IvgTransformMatrix>"
+        },
+        {
+          "name": "set_transformation_matrix",
+          "params": "&self, m: &IvgTransformMatrix",
+          "returns": "bool"
+        },
+        {
+          "name": "apply_transform_matrix",
+          "params": "&self, m: &IvgTransformMatrix",
+          "returns": "bool"
+        },
+        {
+          "name": "clear_transformations",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "layer",
+          "params": "&self",
+          "returns": "Option<IvgLayer>"
+        },
+        {
+          "name": "set_layer",
+          "params": "&self, l: &IvgLayer",
+          "returns": "bool"
+        },
+        {
+          "name": "move_to_layer",
+          "params": "&self, l: &IvgLayer",
+          "returns": "bool"
+        },
+        {
+          "name": "copy_to_layer",
+          "params": "&self, l: &IvgLayer",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "copy_to_layer_as_range",
+          "params": "&self, l: &IvgLayer",
+          "returns": "Option<IvgShapeRange>"
+        },
+        {
+          "name": "page",
+          "params": "&self",
+          "returns": "Option<IvgPage>"
+        },
+        {
+          "name": "spread",
+          "params": "&self",
+          "returns": "Option<crate::page::IvgSpread>"
+        },
+        {
+          "name": "tree_node",
+          "params": "&self",
+          "returns": "Option<IvgTreeNode>"
+        },
+        {
+          "name": "fill",
+          "params": "&self",
+          "returns": "Option<IvgFill>"
+        },
+        {
+          "name": "set_fill",
+          "params": "&self, f: &IvgFill",
+          "returns": "bool"
+        },
+        {
+          "name": "outline",
+          "params": "&self",
+          "returns": "Option<IvgOutline>"
+        },
+        {
+          "name": "transparency",
+          "params": "&self",
+          "returns": "Option<IvgTransparency>"
+        },
+        {
+          "name": "fill_mode",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_fill_mode",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "overprint_fill",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_overprint_fill",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "overprint_outline",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_overprint_outline",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "overprint_bitmap",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_overprint_bitmap",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "drape_fill",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_drape_fill",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "apply_no_fill",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "apply_uniform_fill",
+          "params": "&self, color: &IvgColor",
+          "returns": "bool"
+        },
+        {
+          "name": "apply_fountain_fill",
+          "params": "&self, start_color: &IvgColor, end_color: &IvgColor, fill_type: i32, angle: f64, steps: i32, edge_pad: i32, mid_point: i32, blend_type: i32, center_offset_x: f64, center_offset_y: f64,",
+          "returns": "bool"
+        },
+        {
+          "name": "convert_outline_to_object",
+          "params": "&self",
+          "returns": "Option<IvgShapeRange>"
+        },
+        {
+          "name": "curve",
+          "params": "&self",
+          "returns": "Option<IvgCurve>"
+        },
+        {
+          "name": "convert_to_curves",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "display_curve",
+          "params": "&self",
+          "returns": "Option<IvgCurve>"
+        },
+        {
+          "name": "rectangle",
+          "params": "&self",
+          "returns": "Option<IvgRectangle>"
+        },
+        {
+          "name": "ellipse",
+          "params": "&self",
+          "returns": "Option<IvgEllipse>"
+        },
+        {
+          "name": "polygon",
+          "params": "&self",
+          "returns": "Option<IvgPolygon>"
+        },
+        {
+          "name": "bitmap",
+          "params": "&self",
+          "returns": "Option<IvgBitmap>"
+        },
+        {
+          "name": "text",
+          "params": "&self",
+          "returns": "Option<IvgText>"
+        },
+        {
+          "name": "eps",
+          "params": "&self",
+          "returns": "Option<IvgEps>"
+        },
+        {
+          "name": "connector",
+          "params": "&self",
+          "returns": "Option<IvgConnector>"
+        },
+        {
+          "name": "guide",
+          "params": "&self",
+          "returns": "Option<IvgGuide>"
+        },
+        {
+          "name": "power_clip",
+          "params": "&self",
+          "returns": "Option<IvgPowerClip>"
+        },
+        {
+          "name": "custom",
+          "params": "&self",
+          "returns": "Option<IvgCustomShape>"
+        },
+        {
+          "name": "symbol",
+          "params": "&self",
+          "returns": "Option<IvgSymbol>"
+        },
+        {
+          "name": "effects",
+          "params": "&self",
+          "returns": "Option<IvgEffects>"
+        },
+        {
+          "name": "effect",
+          "params": "&self",
+          "returns": "Option<IvgEffect>"
+        },
+        {
+          "name": "create_drop_shadow",
+          "params": "&self, shadow_type: i32, opacity: i32, feather: i32, offset_x: f64, offset_y: f64, color: &IvgColor, feather_type: i32, feather_edge: i32, perspective_angle: f64, perspective_stretch: f64, fade: i32, merge_mode: i32,",
+          "returns": "Option<IvgEffect>"
+        },
+        {
+          "name": "create_blend",
+          "params": "&self, target: &IvgShape, steps: i64, color_blend_type: i32, mode: i32, spacing: f64, angle: f64, loop_: bool, path: Option<&IvgShape>, rotate_shapes: bool, spacing_accel: i32, color_accel: i32, accel_size: bool,",
+          "returns": "Option<IvgEffect>"
+        },
+        {
+          "name": "create_contour",
+          "params": "&self, direction: i32, offset: f64, steps: i32, blend_type: i32, outline_color: &IvgColor, fill_color: &IvgColor, fill_color2: &IvgColor, spacing_accel: i32, color_accel: i32, end_cap_type: i32, corner_type: i32, miter_limit: f64,",
+          "returns": "Option<IvgEffect>"
+        },
+        {
+          "name": "create_envelope",
+          "params": "&self, preset_index: i32, mode: i32, keep_lines: bool,",
+          "returns": "Option<IvgEffect>"
+        },
+        {
+          "name": "create_perspective",
+          "params": "&self, hx: Variant, hy: Variant, vx: Variant, vy: Variant,",
+          "returns": "Option<IvgEffect>"
+        },
+        {
+          "name": "clear_effect",
+          "params": "&self, effect_type: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "flatten_effects",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "group",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "ungroup",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "ungroup_all",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "parent_group",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "combine",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "break_apart",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "separate",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "children",
+          "params": "&self",
+          "returns": "Option<IvgShapes>"
+        },
+        {
+          "name": "weld",
+          "params": "&self, target: &IvgShape, leave_src: bool, leave_tgt: bool",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "trim",
+          "params": "&self, target: &IvgShape, leave_src: bool, leave_tgt: bool",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "intersect",
+          "params": "&self, target: &IvgShape, leave_src: bool, leave_tgt: bool",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "duplicate",
+          "params": "&self, dx: f64, dy: f64",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "duplicate_as_range",
+          "params": "&self, dx: f64, dy: f64",
+          "returns": "Option<IvgShapeRange>"
+        },
+        {
+          "name": "clone",
+          "params": "&self, dx: f64, dy: f64",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "clone_as_range",
+          "params": "&self, dx: f64, dy: f64",
+          "returns": "Option<IvgShapeRange>"
+        },
+        {
+          "name": "clone_link",
+          "params": "&self",
+          "returns": "Option<IvgCloneLink>"
+        },
+        {
+          "name": "clones",
+          "params": "&self",
+          "returns": "Option<IvgShapeRange>"
+        },
+        {
+          "name": "copy",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "cut",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "delete",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "order_to_front",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "order_to_back",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "order_forward_one",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "order_back_one",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "order_front_of",
+          "params": "&self, other: &IvgShape",
+          "returns": "bool"
+        },
+        {
+          "name": "order_back_of",
+          "params": "&self, other: &IvgShape",
+          "returns": "bool"
+        },
+        {
+          "name": "order_reverse",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "z_order",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "properties",
+          "params": "&self",
+          "returns": "Option<IvgProperties>"
+        },
+        {
+          "name": "url",
+          "params": "&self",
+          "returns": "Option<IvgUrl>"
+        },
+        {
+          "name": "snap_points",
+          "params": "&self",
+          "returns": "Option<IvgSnapPoints>"
+        },
+        {
+          "name": "snap_points_of_type",
+          "params": "&self, type_set: i32",
+          "returns": "Option<IvgSnapPoints>"
+        },
+        {
+          "name": "find_snap_point",
+          "params": "&self, reference_data: impl Into<String>",
+          "returns": "Option<IvgSnapPoint>"
+        },
+        {
+          "name": "is_on_shape",
+          "params": "&self, x: f64, y: f64, hot_area: f64",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "find_shape_at_point",
+          "params": "&self, x: f64, y: f64, treat_as_filled: bool,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "is_type_any_of",
+          "params": "&self, type_list: Variant",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "add_to_selection",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "remove_from_selection",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "create_selection",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "convert_to_bitmap",
+          "params": "&self, bit_depth: i32, grayscale: bool, dithered: bool, transparent_bg: bool, resolution: i32, anti_aliasing: i32, use_color_profile: bool, multi_channel: bool, always_overprint_black: bool, overprint_black_limit: i32,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "add_to_power_clip",
+          "params": "&self, shape: &IvgShape, center_in_container: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "remove_from_container",
+          "params": "&self, level: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "power_clip_parent",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "create_boundary",
+          "params": "&self, x: f64, y: f64, place_on_top: bool, delete_source: bool,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "equal_divide",
+          "params": "&self, divisions: i32, gap: f64, group: bool, combine: bool, delete_source: bool,",
+          "returns": "Option<IvgShapeRange>"
+        },
+        {
+          "name": "step_and_repeat",
+          "params": "&self, num_copies: i32, distance_x: f64, distance_y: f64, mode_x: i32, direction_x: i32, mode_y: i32, direction_y: i32,",
+          "returns": "Option<IvgShapeRange>"
+        },
+        {
+          "name": "align_to_shape",
+          "params": "&self, align_type: i32, shape: &IvgShape, text_origin: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "align_to_shape_range",
+          "params": "&self, align_type: i32, range: &IvgShapeRange, text_origin: i32,",
+          "returns": "bool"
+        },
+        {
+          "name": "align_to_page",
+          "params": "&self, align_type: i32, text_origin: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "align_to_page_center",
+          "params": "&self, align_type: i32, text_origin: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "align_to_grid",
+          "params": "&self, align_type: i32, text_origin: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "align_to_point",
+          "params": "&self, align_type: i32, x: f64, y: f64, text_origin: i32,",
+          "returns": "bool"
+        },
+        {
+          "name": "distribute",
+          "params": "&self, dist_type: i32, page_extent: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "fillet",
+          "params": "&self, radius: f64, combine: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "chamfer",
+          "params": "&self, a: f64, b: f64, combine: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "scallop",
+          "params": "&self, radius: f64, combine: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "apply_style",
+          "params": "&self, style_name: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "style",
+          "params": "&self",
+          "returns": "Option<crate::style::IvgStyle>"
+        },
+        {
+          "name": "wrap_text",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_wrap_text",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "text_wrap_offset",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_text_wrap_offset",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "place_text_inside",
+          "params": "&self, text_shape: &IvgShape",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "custom_command",
+          "params": "&self, component_id: impl Into<String>, command_id: impl Into<String>, parameters: Variant,",
+          "returns": "Option<Variant>"
+        },
+        {
+          "name": "copy_properties_from",
+          "params": "&self, source: &IvgShape, properties: i32",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "compare_to",
+          "params": "&self, other: &IvgShape, compare_type: i32, condition: i32,",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "get_colors",
+          "params": "&self, max_bitmap_colors: i32",
+          "returns": "Option<Variant>"
+        },
+        {
+          "name": "get_color_types",
+          "params": "&self",
+          "returns": "Option<Variant>"
+        },
+        {
+          "name": "evaluate",
+          "params": "&self, expr: impl Into<String>",
+          "returns": "Option<Variant>"
+        }
+      ]
+    },
+    {
+      "name": "IvgShapeRange",
+      "file": "src/shape/shape_range.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "shapes",
+          "params": "&self",
+          "returns": "Option<IvgShapes>"
+        },
+        {
+          "name": "first_shape",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "last_shape",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index_or_name: Variant",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "item_by_index",
+          "params": "&self, i: i32",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "position_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_position_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "position_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_position_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "size_width",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_size_width",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "size_height",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_size_height",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "left_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "right_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "top_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "bottom_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "center_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_center_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "center_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_center_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "bounding_box",
+          "params": "&self",
+          "returns": "Option<IvgRect>"
+        },
+        {
+          "name": "move_by",
+          "params": "&self, dx: f64, dy: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "rotate",
+          "params": "&self, angle: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "rotate_ex",
+          "params": "&self, angle: f64, cx: f64, cy: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "skew",
+          "params": "&self, ax: f64, ay: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "set_position",
+          "params": "&self, x: f64, y: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "set_size",
+          "params": "&self, w: f64, h: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "flip",
+          "params": "&self, axes: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "stretch",
+          "params": "&self, sx: f64, sy: f64, stretch_chars: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "duplicate",
+          "params": "&self, dx: f64, dy: f64",
+          "returns": "Option<IvgShapeRange>"
+        },
+        {
+          "name": "clone",
+          "params": "&self, dx: f64, dy: f64",
+          "returns": "Option<IvgShapeRange>"
+        },
+        {
+          "name": "delete",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "copy",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "cut",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "group",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "ungroup",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "ungroup_all",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "ungroup_ex",
+          "params": "&self",
+          "returns": "Option<IvgShapeRange>"
+        },
+        {
+          "name": "ungroup_all_ex",
+          "params": "&self",
+          "returns": "Option<IvgShapeRange>"
+        },
+        {
+          "name": "combine",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "break_apart",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "order_to_front",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "order_to_back",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "order_reverse",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "add",
+          "params": "&self, shape: &IvgShape",
+          "returns": "bool"
+        },
+        {
+          "name": "add_range",
+          "params": "&self, other: &IvgShapeRange",
+          "returns": "bool"
+        },
+        {
+          "name": "remove",
+          "params": "&self, index: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "remove_range",
+          "params": "&self, other: &IvgShapeRange",
+          "returns": "bool"
+        },
+        {
+          "name": "remove_all",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "index_of",
+          "params": "&self, shape: &IvgShape",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "exists",
+          "params": "&self, shape: &IvgShape",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "create_selection",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "add_to_selection",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "remove_from_selection",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "apply_no_fill",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "apply_uniform_fill",
+          "params": "&self, color: &IvgColor",
+          "returns": "bool"
+        },
+        {
+          "name": "apply_outline",
+          "params": "&self, outline: &crate::outline::IvgOutline",
+          "returns": "bool"
+        },
+        {
+          "name": "apply_fill",
+          "params": "&self, fill: &crate::fill::IvgFill",
+          "returns": "bool"
+        },
+        {
+          "name": "set_outline_properties",
+          "params": "&self, width: f64, style: &crate::outline::IvgOutlineStyle, color: &IvgColor, start_arrow: &IvgArrowHead, end_arrow: &IvgArrowHead, behind_fill: i32, scale_with_shape: i32, line_caps: i32, line_join: i32, nib_angle: f64, nib_stretch: i32, dash_dot_length: f64, pen_width: f64, miter_limit: f64,",
+          "returns": "bool"
+        },
+        {
+          "name": "convert_to_curves",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "convert_to_bitmap",
+          "params": "&self, bit_depth: i32, grayscale: bool, dithered: bool, transparent_bg: bool, resolution: i32, anti_aliasing: i32, use_color_profile: bool, multi_channel: bool, always_overprint_black: bool, overprint_black_limit: i32,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "apply_style",
+          "params": "&self, style_name: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "move_to_layer",
+          "params": "&self, l: &IvgLayer",
+          "returns": "bool"
+        },
+        {
+          "name": "copy_to_layer",
+          "params": "&self, l: &IvgLayer",
+          "returns": "Option<IvgShapeRange>"
+        },
+        {
+          "name": "align_to_shape",
+          "params": "&self, align_type: i32, shape: &IvgShape, text_origin: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "align_to_page",
+          "params": "&self, align_type: i32, text_origin: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "align_to_page_center",
+          "params": "&self, align_type: i32, text_origin: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "align_to_grid",
+          "params": "&self, align_type: i32, text_origin: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "align_to_point",
+          "params": "&self, align_type: i32, x: f64, y: f64, text_origin: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "distribute",
+          "params": "&self, dist_type: i32, page_extent: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "set_bounding_box",
+          "params": "&self, x: f64, y: f64, w: f64, h: f64, keep_aspect: bool, ref_point: i32,",
+          "returns": "bool"
+        },
+        {
+          "name": "lock",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "unlock",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "clear_transformations",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "flatten_effects",
+          "params": "&self",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgShapes",
+      "file": "src/shape/shapes.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index_or_name: Variant",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "item_by_index",
+          "params": "&self, i: i32",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "item_by_name",
+          "params": "&self, name: impl Into<String>",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "first",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "last",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "all",
+          "params": "&self",
+          "returns": "Vec<IvgShape>"
+        },
+        {
+          "name": "range",
+          "params": "&self, indices: Variant",
+          "returns": "Option<IvgShapeRange>"
+        },
+        {
+          "name": "all_range",
+          "params": "&self",
+          "returns": "Option<IvgShapeRange>"
+        },
+        {
+          "name": "all_excluding",
+          "params": "&self, indices: Variant",
+          "returns": "Option<IvgShapeRange>"
+        },
+        {
+          "name": "find_shape",
+          "params": "&self, name: impl Into<String>, shape_type: i32, static_id: i32, recursive: bool, query: impl Into<String>,",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "find_shapes",
+          "params": "&self, name: impl Into<String>, shape_type: i32, recursive: bool, query: impl Into<String>,",
+          "returns": "Option<IvgShapeRange>"
+        }
+      ]
+    }
+  ],
+  "tests": {
+    "files": [
+      "tests/e2e.rs",
+      "tests/shape.rs",
+      "tests/smoke.rs"
+    ],
+    "cases": 11
+  },
+  "coverage": {
+    "method_name_count": 435,
+    "covered_method_name_count": 70,
+    "coverage_pct": 16.1
+  }
+}

@@ -55,7 +55,7 @@ impl IvgEffectBlend {
         self.disp.set_property(name, vec![arg]).is_ok()
     }
 
-    // ---- 绔偣鍥惧舰 ----
+    // ---- 端点图形 ----
 
     pub fn start_shape(&self) -> Option<IvgShape> {
         self.prop_dispatch("StartShape").map(IvgShape::new)
@@ -76,7 +76,7 @@ impl IvgEffectBlend {
         self.prop_dispatch("BlendGroup").map(IvgShape::new)
     }
 
-    // ---- 璺緞 ----
+    // ---- 路径 ----
 
     pub fn path(&self) -> Option<IvgShape> {
         self.prop_dispatch("Path").map(IvgShape::new)
@@ -99,7 +99,7 @@ impl IvgEffectBlend {
         self.put_f64("EndShapeOffset", v)
     }
 
-    // ---- 姝ヨ繘 ----
+    // ---- 步进 ----
 
     /// `cdrBlendMode` 鈥斺€?瑙?`enums/effect`
     pub fn mode(&self) -> Option<i64> { self.prop_i64("Mode") }
@@ -114,7 +114,7 @@ impl IvgEffectBlend {
     pub fn angle(&self) -> Option<f64> { self.prop_f64("Angle") }
     pub fn set_angle(&self, v: f64) -> bool { self.put_f64("Angle", v) }
 
-    // ---- 璺緞寰幆 ----
+    // ---- 路径循环 ----
 
     pub fn looping(&self) -> Option<bool> { self.prop_bool("Loop") }
     pub fn set_looping(&self, v: bool) -> bool { self.put_bool("Loop", v) }
@@ -125,7 +125,7 @@ impl IvgEffectBlend {
     pub fn rotate_shapes(&self) -> Option<bool> { self.prop_bool("RotateShapes") }
     pub fn set_rotate_shapes(&self, v: bool) -> bool { self.put_bool("RotateShapes", v) }
 
-    // ---- 棰滆壊娣峰悎 ----
+    // ---- 颜色混合 ----
 
     /// `cdrFountainFillBlendType`
     pub fn color_blend_type(&self) -> Option<i64> {
@@ -176,7 +176,7 @@ impl IvgEffectBlend {
         self.prop_dispatch("EndPoint").map(IvgSnapPoint::new)
     }
 
-    // ---- 鎿嶄綔 ----
+    // ---- 操作 ----
 
     /// 鍦ㄧ `step_no` 姝ュ鎷嗗垎銆?
     pub fn split(&self, step_no: i32) -> Option<IvgShape> {

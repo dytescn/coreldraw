@@ -12,8 +12,8 @@
 #[allow(nonstandard_style)]
 pub enum cdrTriState {
     Undefined = -2,
-    True      = -1,
-    False     = 0,
+    True = -1,
+    False = 0,
 }
 
 impl cdrTriState {
@@ -21,14 +21,14 @@ impl cdrTriState {
         match v {
             -2 => Some(Self::Undefined),
             -1 => Some(Self::True),
-            0  => Some(Self::False),
-            _  => None,
+            0 => Some(Self::False),
+            _ => None,
         }
     }
 
     pub fn to_bool(self) -> Option<bool> {
         match self {
-            Self::True  => Some(true),
+            Self::True => Some(true),
             Self::False => Some(false),
             Self::Undefined => None,
         }
@@ -44,18 +44,15 @@ impl cdrTriState {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrApplicationID {
-    Draw       = 0,
-    PhotoPaint = 1,
-    Designer   = 2,
-    // TODO: 完整值待补
+    CorelDRAW = 0,
+    CorelDESIGNER = 1,
 }
 
 impl cdrApplicationID {
     pub fn from_i32(v: i32) -> Option<Self> {
         match v {
-            0 => Some(Self::Draw),
-            1 => Some(Self::PhotoPaint),
-            2 => Some(Self::Designer),
+            0 => Some(Self::CorelDRAW),
+            1 => Some(Self::CorelDESIGNER),
             _ => None,
         }
     }
@@ -69,15 +66,16 @@ impl cdrApplicationID {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrApplicationClass {
-    // TODO: 完整值待补
-    Unknown = -1,
+    CreativeGraphics = 0,
+    TechnicalGraphics = 1,
 }
 
 impl cdrApplicationClass {
     pub fn from_i32(v: i32) -> Option<Self> {
         match v {
-            -1 => Some(Self::Unknown),
-            _  => None,
+            0 => Some(Self::CreativeGraphics),
+            1 => Some(Self::TechnicalGraphics),
+            _ => None,
         }
     }
 }
@@ -91,18 +89,26 @@ impl cdrApplicationClass {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrAppStartupMode {
+    StartupWelcomeScreen = 0,
+    StartupNewDocument = 1,
+    StartupOpenDocument = 2,
+    StartupLastEditedDocument = 3,
+    StartupNewFromTemplate = 4,
+    StartupTutorial = 5,
     /// 启动时什么都不做。
-    StartupDoNothing = 0,
-    /// 启动时新建文档。
-    NewDocumentMode  = 1,
-    // TODO: 启动时打开模板 —— 具体名称和值待核
+    StartupDoNothing = 6,
 }
 
 impl cdrAppStartupMode {
     pub fn from_i32(v: i32) -> Option<Self> {
         match v {
-            0 => Some(Self::StartupDoNothing),
-            1 => Some(Self::NewDocumentMode),
+            0 => Some(Self::StartupWelcomeScreen),
+            1 => Some(Self::StartupNewDocument),
+            2 => Some(Self::StartupOpenDocument),
+            3 => Some(Self::StartupLastEditedDocument),
+            4 => Some(Self::StartupNewFromTemplate),
+            5 => Some(Self::StartupTutorial),
+            6 => Some(Self::StartupDoNothing),
             _ => None,
         }
     }
@@ -124,7 +130,7 @@ impl cdrAppStatus {
     pub fn from_i32(v: i32) -> Option<Self> {
         match v {
             -1 => Some(Self::Unknown),
-            _  => None,
+            _ => None,
         }
     }
 }
@@ -137,16 +143,15 @@ impl cdrAppStatus {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrCommandCheckState {
-    Unchecked = 0,
-    Checked   = 1,
-    // TODO: 待补
+    CommandUnchecked = 0,
+    CommandChecked = 1,
 }
 
 impl cdrCommandCheckState {
     pub fn from_i32(v: i32) -> Option<Self> {
         match v {
-            0 => Some(Self::Unchecked),
-            1 => Some(Self::Checked),
+            0 => Some(Self::CommandUnchecked),
+            1 => Some(Self::CommandChecked),
             _ => None,
         }
     }

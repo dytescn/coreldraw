@@ -30,14 +30,14 @@ impl IvgPrnOptions {
         self.disp.set_property(name, vec![arg]).is_ok()
     }
 
-    // ---- 浣跨敤鑹插僵閰嶇疆鏂囦欢 ----
+    // ---- 使用色彩配置文件 ----
 
     pub fn use_color_profile(&self) -> Option<bool> { self.prop_bool("UseColorProfile") }
     pub fn set_use_color_profile(&self, v: bool) -> bool {
         self.put_bool("UseColorProfile", v)
     }
 
-    // ---- 鎵撳嵃鍐呭 ----
+    // ---- 打印内容 ----
 
     pub fn print_vectors(&self) -> Option<bool> { self.prop_bool("PrintVectors") }
     pub fn set_print_vectors(&self, v: bool) -> bool { self.put_bool("PrintVectors", v) }
@@ -67,12 +67,12 @@ impl IvgPrnOptions {
         self.put_i64("ObjectsColorMode", v as i64)
     }
 
-    // ---- 鍗板墠鏍囪 ----
+    // ---- 印前标记 ----
 
     pub fn marks_to_page(&self) -> Option<bool> { self.prop_bool("MarksToPage") }
     pub fn set_marks_to_page(&self, v: bool) -> bool { self.put_bool("MarksToPage", v) }
 
-    // ---- 娓愬彉姝ユ暟 ----
+    // ---- 渐变步数 ----
 
     pub fn fountain_steps(&self) -> Option<i64> { self.prop_i64("FountainSteps") }
     pub fn set_fountain_steps(&self, v: i32) -> bool { self.put_i64("FountainSteps", v as i64) }
@@ -107,7 +107,7 @@ impl IvgPrnOptions {
     pub fn mono_resolution(&self) -> Option<i64> { self.prop_i64("MonoResolution") }
     pub fn set_mono_resolution(&self, v: i32) -> bool { self.put_i64("MonoResolution", v as i64) }
 
-    // ---- 鎵撳嵃浣滀笟淇℃伅 ----
+    // ---- 打印作业信息 ----
 
     pub fn job_information(&self) -> Option<bool> { self.prop_bool("JobInformation") }
     pub fn set_job_information(&self, v: bool) -> bool { self.put_bool("JobInformation", v) }
@@ -135,7 +135,7 @@ impl IvgPrnOptions {
         self.put_bool("InRIPTrapInfo", v)
     }
 
-    // ---- 淇濈暀绾粦 ----
+    // ---- 保留纯黑 ----
 
     pub fn preserve_pure_black(&self) -> Option<bool> { self.prop_bool("PreservePureBlack") }
     pub fn set_preserve_pure_black(&self, v: bool) -> bool {

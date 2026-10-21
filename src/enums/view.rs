@@ -14,16 +14,16 @@ pub enum cdrViewType {
     /// 简单线框。
     SimpleWireframe = 0,
     /// 线框。
-    Wireframe       = 1,
+    Wireframe = 1,
     /// 草稿。
-    Draft           = 2,
+    Draft = 2,
     /// 正常。
-    Normal          = 3,
+    Normal = 3,
     /// 增强。
-    Enhanced        = 4,
+    Enhanced = 4,
     // 5 缺失
     /// 像素预览。
-    Pixel           = 6,
+    Pixel = 6,
 }
 
 impl cdrViewType {
@@ -49,10 +49,10 @@ impl cdrViewType {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrWindowState {
-    Normal    = 1,
+    Normal = 1,
     Minimized = 2,
     Maximized = 3,
-    Restore   = 9,
+    Restore = 9,
 }
 
 impl cdrWindowState {
@@ -75,10 +75,10 @@ impl cdrWindowState {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrWindowArrangeStyle {
-    Cascade   = 0,
-    TileHorz  = 1,
-    TileVert  = 2,
-    // TODO: 待补
+    TileHorizontally = 0,
+    TileVertically = 1,
+
+    Cascade = 2,
 }
 
 // =============================================================

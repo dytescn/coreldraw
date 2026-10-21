@@ -31,7 +31,7 @@ impl IvgSelectionInformation {
         self.disp.get_property(name).ok()?.to_idispatch().ok()
     }
 
-    // ---- 鏁伴噺 / 棣栨湯 ----
+    // ---- 数量 / 首末 ----
 
     pub fn count(&self) -> Option<i64> { self.prop_i64("Count") }
 
@@ -51,7 +51,7 @@ impl IvgSelectionInformation {
         self.prop_dispatch("FirstShapeWithFill").map(IvgShape::new)
     }
 
-    // ---- 鍒嗙被 ----
+    // ---- 分类 ----
 
     pub fn blend_top_shape(&self) -> Option<IvgShape> {
         self.prop_dispatch("BlendTopShape").map(IvgShape::new)
@@ -117,7 +117,7 @@ impl IvgSelectionInformation {
         self.prop_dispatch("NaturalMediaGroup").map(IvgShape::new)
     }
 
-    // ---- 鑳藉姏鍒ゆ柇 ----
+    // ---- 能力判断 ----
 
     pub fn can_create_blend(&self) -> Option<bool> { self.prop_bool("CanCreateBlend") }
     pub fn can_print(&self) -> Option<bool> { self.prop_bool("CanPrint") }

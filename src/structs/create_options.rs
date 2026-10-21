@@ -77,7 +77,7 @@ impl IvgStructCreateOptions {
         self.put_string("Name", v)
     }
 
-    // ---- 椤甸潰灏哄 ----
+    // ---- 页面尺寸 ----
 
     pub fn page_width(&self) -> Option<f64> { self.prop_f64("PageWidth") }
     pub fn set_page_width(&self, v: f64) -> bool { self.put_f64("PageWidth", v) }

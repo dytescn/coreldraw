@@ -1,0 +1,367 @@
+{
+  "module": "symbol",
+  "files": [
+    "src/symbol/definition.rs",
+    "src/symbol/library.rs",
+    "src/symbol/mod.rs",
+    "src/symbol/symbol.rs"
+  ],
+  "types": [
+    {
+      "name": "IvgSymbolDefinitions",
+      "file": "src/symbol/definition.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index_or_name: Variant",
+          "returns": "Option<IvgSymbolDefinition>"
+        },
+        {
+          "name": "item_by_index",
+          "params": "&self, i: i32",
+          "returns": "Option<IvgSymbolDefinition>"
+        },
+        {
+          "name": "item_by_name",
+          "params": "&self, name: impl Into<String>",
+          "returns": "Option<IvgSymbolDefinition>"
+        },
+        {
+          "name": "all",
+          "params": "&self",
+          "returns": "Vec<IvgSymbolDefinition>"
+        }
+      ]
+    },
+    {
+      "name": "IvgSymbolDefinition",
+      "file": "src/symbol/definition.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_name",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "description",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_description",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "symbol_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "linked",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "link_library_path",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "is_link_broken",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_link_updated",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "has_broken_links",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "has_updated_links",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "nested",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "has_links",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "nested_symbols",
+          "params": "&self",
+          "returns": "Option<IvgSymbolDefinitions>"
+        },
+        {
+          "name": "editable",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "instance_count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "instances",
+          "params": "&self",
+          "returns": "Option<IvgShapeRange>"
+        },
+        {
+          "name": "enter_edit_mode",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "leave_edit_mode",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "delete",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "copy",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "duplicate",
+          "params": "&self, name: impl Into<String>",
+          "returns": "Option<IvgSymbolDefinition>"
+        },
+        {
+          "name": "break_link",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "update_links",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "fix_link",
+          "params": "&self, library_path: impl Into<String>",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgSymbolLibraries",
+      "file": "src/symbol/library.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index_or_name: Variant",
+          "returns": "Option<IvgSymbolLibrary>"
+        },
+        {
+          "name": "item_by_index",
+          "params": "&self, i: i32",
+          "returns": "Option<IvgSymbolLibrary>"
+        },
+        {
+          "name": "item_by_name",
+          "params": "&self, name: impl Into<String>",
+          "returns": "Option<IvgSymbolLibrary>"
+        },
+        {
+          "name": "add",
+          "params": "&self, file_name: impl Into<String>, copy_locally: bool,",
+          "returns": "Option<IvgSymbolLibrary>"
+        },
+        {
+          "name": "add_from_folder",
+          "params": "&self, folder: impl Into<String>, recursive: bool, copy_locally: bool,",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "all",
+          "params": "&self",
+          "returns": "Vec<IvgSymbolLibrary>"
+        }
+      ]
+    },
+    {
+      "name": "IvgSymbolLibrary",
+      "file": "src/symbol/library.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "file_path",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "read_only",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "symbols",
+          "params": "&self",
+          "returns": "Option<IvgSymbolDefinitions>"
+        },
+        {
+          "name": "delete",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "purge_unused_symbols",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "paste",
+          "params": "&self, name: impl Into<String>",
+          "returns": "Option<IvgSymbolDefinition>"
+        }
+      ]
+    },
+    {
+      "name": "IvgSymbol",
+      "file": "src/symbol/symbol.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "definition",
+          "params": "&self",
+          "returns": "Option<IvgSymbolDefinition>"
+        },
+        {
+          "name": "revert_to_shapes",
+          "params": "&self",
+          "returns": "Option<IvgShapeRange>"
+        }
+      ]
+    }
+  ],
+  "tests": {
+    "files": [
+      "tests/symbol.rs"
+    ],
+    "cases": 1
+  },
+  "coverage": {
+    "method_name_count": 43,
+    "covered_method_name_count": 13,
+    "coverage_pct": 30.2
+  }
+}

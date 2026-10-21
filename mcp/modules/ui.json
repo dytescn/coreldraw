@@ -1,0 +1,1768 @@
+{
+  "module": "ui",
+  "files": [
+    "src/ui/application.rs",
+    "src/ui/automation.rs",
+    "src/ui/command_bar.rs",
+    "src/ui/control.rs",
+    "src/ui/data_context.rs",
+    "src/ui/dock_host.rs",
+    "src/ui/dock_item.rs",
+    "src/ui/frame_window.rs",
+    "src/ui/framework.rs",
+    "src/ui/image_list.rs",
+    "src/ui/mod.rs",
+    "src/ui/screen_rect.rs",
+    "src/ui/status_text.rs",
+    "src/ui/task_manager.rs",
+    "src/ui/view_host.rs",
+    "src/ui/view_window.rs",
+    "src/ui/warning.rs"
+  ],
+  "types": [
+    {
+      "name": "ICuiApplication",
+      "file": "src/ui/application.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "data_context",
+          "params": "&self",
+          "returns": "Option<ICuiDataContext>"
+        },
+        {
+          "name": "framework",
+          "params": "&self",
+          "returns": "Option<ICuiFrameWork>"
+        },
+        {
+          "name": "create_image_list",
+          "params": "&self",
+          "returns": "Option<ICuiImageList>"
+        },
+        {
+          "name": "create_bitmap_image",
+          "params": "&self, image_data: Variant, max_size: i32,",
+          "returns": "Option<ICuiBitmapImage>"
+        },
+        {
+          "name": "create_screen_rect",
+          "params": "&self, left: i32, top: i32, width: i32, height: i32,",
+          "returns": "Option<ICuiScreenRect>"
+        },
+        {
+          "name": "create_status_text",
+          "params": "&self",
+          "returns": "Option<ICuiStatusText>"
+        },
+        {
+          "name": "load_localized_string",
+          "params": "&self, guid: impl Into<String>",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "register_data_source",
+          "params": "&self, name: impl Into<String>, factory: IDispatch, category_list: impl Into<String>, auto_create_instance: bool,",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "unregister_data_source",
+          "params": "&self, name: impl Into<String>",
+          "returns": "Option<bool>"
+        }
+      ]
+    },
+    {
+      "name": "ICuiAutomation",
+      "file": "src/ui/automation.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "get_num_items_on_bar",
+          "params": "&self, bar_guid: impl Into<String>",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "get_item",
+          "params": "&self, bar_guid: impl Into<String>, index: i32",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "get_item_instance_hwnd",
+          "params": "&self, parent_guid: impl Into<String>, item_guid: impl Into<String>,",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "get_sub_bar",
+          "params": "&self, bar_guid: impl Into<String>",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "show_bar",
+          "params": "&self, bar_guid: impl Into<String>, show: bool",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "get_caption_text",
+          "params": "&self, item_guid: impl Into<String>",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "invoke",
+          "params": "&self, item_guid: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "invoke_item",
+          "params": "&self, item_guid: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "invoke_dialog_item",
+          "params": "&self, dialog_guid: impl Into<String>, item_guid: impl Into<String>,",
+          "returns": "bool"
+        },
+        {
+          "name": "is_enabled",
+          "params": "&self, item_guid: impl Into<String>",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "get_item_screen_rect",
+          "params": "&self, _parent_guid: impl Into<String>, _item_guid: impl Into<String>,",
+          "returns": "Option<(i32, i32, i32, i32, bool)>"
+        },
+        {
+          "name": "get_active_menu_item_screen_rect",
+          "params": "&self, _item_index: i32,",
+          "returns": "Option<(i32, i32, i32, i32, bool)>"
+        },
+        {
+          "name": "get_active_menu_item_guid",
+          "params": "&self, item_index: i32",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "get_control_data",
+          "params": "&self, guid: impl Into<String>",
+          "returns": "Option<ICuiControlData>"
+        },
+        {
+          "name": "get_control_data_ex",
+          "params": "&self, parent_guid: impl Into<String>, guid: impl Into<String>,",
+          "returns": "Option<ICuiControlData>"
+        }
+      ]
+    },
+    {
+      "name": "ICuiControlData",
+      "file": "src/ui/automation.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "get_value",
+          "params": "&self, property_name: impl Into<String>",
+          "returns": "Option<Variant>"
+        }
+      ]
+    },
+    {
+      "name": "ICuiCommandBars",
+      "file": "src/ui/command_bar.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index_or_name: Variant",
+          "returns": "Option<ICuiCommandBar>"
+        },
+        {
+          "name": "item_by_index",
+          "params": "&self, i: i32",
+          "returns": "Option<ICuiCommandBar>"
+        },
+        {
+          "name": "item_by_name",
+          "params": "&self, name: impl Into<String>",
+          "returns": "Option<ICuiCommandBar>"
+        },
+        {
+          "name": "add",
+          "params": "&self, name: impl Into<String>, position: i32, temporary: bool,",
+          "returns": "Option<ICuiCommandBar>"
+        }
+      ]
+    },
+    {
+      "name": "ICuiCommandBar",
+      "file": "src/ui/command_bar.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "bar_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "visible",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_visible",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "enabled",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_enabled",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "built_in",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "left",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_left",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "top",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_top",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "width",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "height",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_width",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "index",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_name",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "name_local",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_name_local",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "position",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_position",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "protection",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_protection",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "controls",
+          "params": "&self",
+          "returns": "Option<ICuiControls>"
+        },
+        {
+          "name": "modes",
+          "params": "&self",
+          "returns": "Option<ICuiCommandBarModes>"
+        },
+        {
+          "name": "delete",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "reset",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "show_popup",
+          "params": "&self, x: Variant, y: Variant",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "ICuiCommandBarModes",
+      "file": "src/ui/command_bar.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index_or_name: Variant",
+          "returns": "Option<ICuiCommandBarMode>"
+        }
+      ]
+    },
+    {
+      "name": "ICuiCommandBarMode",
+      "file": "src/ui/command_bar.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "name_local",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "controls",
+          "params": "&self",
+          "returns": "Option<ICuiControls>"
+        }
+      ]
+    },
+    {
+      "name": "ICuiControls",
+      "file": "src/ui/control.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<ICuiControl>"
+        },
+        {
+          "name": "add",
+          "params": "&self, control_id: impl Into<String>, index: i32, temporary: bool,",
+          "returns": "Option<ICuiControl>"
+        },
+        {
+          "name": "add_custom_button",
+          "params": "&self, category_id: impl Into<String>, command: impl Into<String>, index: i32, temporary: bool,",
+          "returns": "Option<ICuiControl>"
+        },
+        {
+          "name": "add_custom_control",
+          "params": "&self, class_name: impl Into<String>, assembly_path: impl Into<String>, index: i32, temporary: bool,",
+          "returns": "Option<ICuiControl>"
+        },
+        {
+          "name": "add_toggle_button",
+          "params": "&self, guid: impl Into<String>, index: i32, temporary: bool,",
+          "returns": "Option<ICuiControl>"
+        },
+        {
+          "name": "remove",
+          "params": "&self, index: i32",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "ICuiControl",
+      "file": "src/ui/control.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "caption",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_caption",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "description_text",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_description_text",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "tooltip_text",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_tooltip_text",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "tag",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_tag",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "id",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "width",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_width",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "height",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_height",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "parameter",
+          "params": "&self",
+          "returns": "Option<Variant>"
+        },
+        {
+          "name": "set_parameter",
+          "params": "&self, v: Variant",
+          "returns": "bool"
+        },
+        {
+          "name": "visible",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_visible",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "set_icon",
+          "params": "&self, row_index: i32, column_index: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "set_custom_icon",
+          "params": "&self, image_file: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "set_icon2",
+          "params": "&self, icon: impl Into<String>",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "ICuiDataContext",
+      "file": "src/ui/data_context.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "categories",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "has_category",
+          "params": "&self, category: impl Into<String>",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "create_child_data_context",
+          "params": "&self, category_list: impl Into<String>,",
+          "returns": "Option<ICuiDataContext>"
+        },
+        {
+          "name": "add_data_source",
+          "params": "&self, name: impl Into<String>, source: IDispatch,",
+          "returns": "Option<ICuiDataSourceProxy>"
+        },
+        {
+          "name": "get_data_source",
+          "params": "&self, name: impl Into<String>,",
+          "returns": "Option<ICuiDataSourceProxy>"
+        },
+        {
+          "name": "show_dialog",
+          "params": "&self, dialog_id: impl Into<String>",
+          "returns": "Option<bool>"
+        }
+      ]
+    },
+    {
+      "name": "ICuiDataSourceProxy",
+      "file": "src/ui/data_context.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "update_listeners",
+          "params": "&self, names: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "invoke_method",
+          "params": "&self, method_name: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "get_property",
+          "params": "&self, name: impl Into<String>",
+          "returns": "Option<Variant>"
+        },
+        {
+          "name": "set_property",
+          "params": "&self, name: impl Into<String>, value: Variant",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "ICuiDataSourceFactory",
+      "file": "src/ui/data_context.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "create_data_source",
+          "params": "&self, name: impl Into<String>, proxy: IDispatch,",
+          "returns": "Option<IDispatch>"
+        }
+      ]
+    },
+    {
+      "name": "ICuiDockHosts",
+      "file": "src/ui/dock_host.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<ICuiDockHost>"
+        },
+        {
+          "name": "find",
+          "params": "&self, id: impl Into<String>",
+          "returns": "Option<ICuiDockHost>"
+        },
+        {
+          "name": "first",
+          "params": "&self",
+          "returns": "Option<ICuiDockHost>"
+        },
+        {
+          "name": "last",
+          "params": "&self",
+          "returns": "Option<ICuiDockHost>"
+        }
+      ]
+    },
+    {
+      "name": "ICuiDockHost",
+      "file": "src/ui/dock_host.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "id",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "orientation",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "parent_dock_host",
+          "params": "&self",
+          "returns": "Option<ICuiDockHost>"
+        },
+        {
+          "name": "dock_item",
+          "params": "&self",
+          "returns": "Option<ICuiDockItem>"
+        },
+        {
+          "name": "children",
+          "params": "&self",
+          "returns": "Option<ICuiDockItems>"
+        },
+        {
+          "name": "position",
+          "params": "&self",
+          "returns": "Option<ICuiScreenRect>"
+        },
+        {
+          "name": "insert_view_host",
+          "params": "&self, host: &ICuiViewHost, index: i32, operation: i32,",
+          "returns": "bool"
+        },
+        {
+          "name": "insert_view",
+          "params": "&self, view: &ICuiViewWindow, index: i32, operation: i32,",
+          "returns": "Option<ICuiViewHost>"
+        }
+      ]
+    },
+    {
+      "name": "ICuiDockItems",
+      "file": "src/ui/dock_item.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<ICuiDockItem>"
+        },
+        {
+          "name": "find",
+          "params": "&self, id: impl Into<String>",
+          "returns": "Option<ICuiDockItem>"
+        },
+        {
+          "name": "first",
+          "params": "&self",
+          "returns": "Option<ICuiDockItem>"
+        },
+        {
+          "name": "last",
+          "params": "&self",
+          "returns": "Option<ICuiDockItem>"
+        }
+      ]
+    },
+    {
+      "name": "ICuiDockItem",
+      "file": "src/ui/dock_item.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "id",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "item_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "view_host",
+          "params": "&self",
+          "returns": "Option<ICuiViewHost>"
+        },
+        {
+          "name": "dock_host",
+          "params": "&self",
+          "returns": "Option<ICuiDockHost>"
+        },
+        {
+          "name": "index",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "relative_size",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_relative_size",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "position",
+          "params": "&self",
+          "returns": "Option<ICuiScreenRect>"
+        }
+      ]
+    },
+    {
+      "name": "ICuiFrameWindows",
+      "file": "src/ui/frame_window.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<ICuiFrameWindow>"
+        },
+        {
+          "name": "find",
+          "params": "&self, id: impl Into<String>",
+          "returns": "Option<ICuiFrameWindow>"
+        },
+        {
+          "name": "first",
+          "params": "&self",
+          "returns": "Option<ICuiFrameWindow>"
+        },
+        {
+          "name": "last",
+          "params": "&self",
+          "returns": "Option<ICuiFrameWindow>"
+        }
+      ]
+    },
+    {
+      "name": "ICuiFrameWindow",
+      "file": "src/ui/frame_window.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "id",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "caption",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "state",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "is_main_frame",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_active",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "handle",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "position",
+          "params": "&self",
+          "returns": "Option<ICuiScreenRect>"
+        },
+        {
+          "name": "view_hosts",
+          "params": "&self",
+          "returns": "Option<ICuiViewHosts>"
+        },
+        {
+          "name": "dock_hosts",
+          "params": "&self",
+          "returns": "Option<ICuiDockHosts>"
+        },
+        {
+          "name": "root_dock_host",
+          "params": "&self",
+          "returns": "Option<ICuiDockHost>"
+        },
+        {
+          "name": "single_view_host",
+          "params": "&self",
+          "returns": "Option<ICuiViewHost>"
+        },
+        {
+          "name": "minimize",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "maximize",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "restore",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "close",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "activate",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "tile_views",
+          "params": "&self, horizontally: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "combine_views",
+          "params": "&self",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "ICuiFrameWork",
+      "file": "src/ui/framework.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "application",
+          "params": "&self",
+          "returns": "Option<ICuiApplication>"
+        },
+        {
+          "name": "command_bars",
+          "params": "&self",
+          "returns": "Option<ICuiCommandBars>"
+        },
+        {
+          "name": "main_menu",
+          "params": "&self",
+          "returns": "Option<ICuiCommandBar>"
+        },
+        {
+          "name": "status_bar",
+          "params": "&self",
+          "returns": "Option<ICuiCommandBar>"
+        },
+        {
+          "name": "frame_windows",
+          "params": "&self",
+          "returns": "Option<ICuiFrameWindows>"
+        },
+        {
+          "name": "main_frame_window",
+          "params": "&self",
+          "returns": "Option<ICuiFrameWindow>"
+        },
+        {
+          "name": "task_manager",
+          "params": "&self",
+          "returns": "Option<ICuiTaskManager>"
+        },
+        {
+          "name": "import_workspace",
+          "params": "&self, file_name: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "show_docker",
+          "params": "&self, guid: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "hide_docker",
+          "params": "&self, guid: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "is_docker_visible",
+          "params": "&self, guid: impl Into<String>",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "add_docker",
+          "params": "&self, guid: impl Into<String>, class_name: impl Into<String>, assembly_path: impl Into<String>,",
+          "returns": "bool"
+        },
+        {
+          "name": "remove_docker",
+          "params": "&self, guid: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "show_dialog",
+          "params": "&self, guid: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "hide_dialog",
+          "params": "&self, guid: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "show_message_box",
+          "params": "&self, message: impl Into<String>, main_instruction: impl Into<String>, un_flags: i32, image: IDispatch, help_guid: impl Into<String>, warning_name: impl Into<String>, e_flags: i32, data_context: IDispatch,",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "create_frame_window_for_view_host",
+          "params": "&self, host: IDispatch,",
+          "returns": "Option<ICuiFrameWindow>"
+        },
+        {
+          "name": "create_frame_window_for_view",
+          "params": "&self, view: IDispatch,",
+          "returns": "Option<ICuiFrameWindow>"
+        }
+      ]
+    },
+    {
+      "name": "ICuiBitmapImage",
+      "file": "src/ui/image_list.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "valid",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "width",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "height",
+          "params": "&self",
+          "returns": "Option<i64>"
+        }
+      ]
+    },
+    {
+      "name": "ICuiImageList",
+      "file": "src/ui/image_list.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "image_count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "image_exists",
+          "params": "&self, key: impl Into<String>",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "remove_all",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "add_image",
+          "params": "&self, key: impl Into<String>, image_data: Variant, max_size: i32,",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "image_keys",
+          "params": "&self",
+          "returns": "Option<Variant>"
+        },
+        {
+          "name": "remove_image",
+          "params": "&self, key: impl Into<String>",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "add_bitmap",
+          "params": "&self, key: impl Into<String>, bitmap: &ICuiBitmapImage",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "ICuiScreenRect",
+      "file": "src/ui/screen_rect.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "left",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_left",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "right",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_right",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "top",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_top",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "bottom",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_bottom",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "width",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_width",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "height",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_height",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "center_x",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_center_x",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "center_y",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_center_y",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "is_read_only",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "is_empty",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_position",
+          "params": "&self, left: i32, top: i32, w: i32, h: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "resize",
+          "params": "&self, w: i32, h: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "move_by",
+          "params": "&self, left: i32, top: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "get_copy",
+          "params": "&self",
+          "returns": "Option<ICuiScreenRect>"
+        },
+        {
+          "name": "copy_assign",
+          "params": "&self, src: &ICuiScreenRect",
+          "returns": "bool"
+        },
+        {
+          "name": "offset",
+          "params": "&self, dx: i32, dy: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "inflate",
+          "params": "&self, l: i32, t: i32, r: i32, b: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "is_point_inside",
+          "params": "&self, x: i32, y: i32",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "union",
+          "params": "&self, other: &ICuiScreenRect",
+          "returns": "Option<ICuiScreenRect>"
+        },
+        {
+          "name": "intersect",
+          "params": "&self, other: &ICuiScreenRect",
+          "returns": "Option<ICuiScreenRect>"
+        }
+      ]
+    },
+    {
+      "name": "ICuiStatusText",
+      "file": "src/ui/status_text.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "set_caption_text",
+          "params": "&self, text: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "set_bitmap",
+          "params": "&self, bitmap: &ICuiBitmapImage",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "ICuiTaskManager",
+      "file": "src/ui/task_manager.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "run_on_ui_thread",
+          "params": "&self, task: &ICuiTask",
+          "returns": "bool"
+        },
+        {
+          "name": "run_in_background",
+          "params": "&self, priority: i32, task: &ICuiBackgroundTask,",
+          "returns": "Option<ICuiRunningBackgroundTask>"
+        }
+      ]
+    },
+    {
+      "name": "ICuiTask",
+      "file": "src/ui/task_manager.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "run_task",
+          "params": "&self",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "ICuiBackgroundTask",
+      "file": "src/ui/task_manager.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "finalize_task",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "free_task",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "quit_task",
+          "params": "&self",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "ICuiRunningTask",
+      "file": "src/ui/task_manager.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "try_abort",
+          "params": "&self",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "ICuiRunningBackgroundTask",
+      "file": "src/ui/task_manager.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "wait_until_done",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "reprioritize",
+          "params": "&self, priority: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "finalize_if_done",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "try_abort",
+          "params": "&self",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "ICuiViewHosts",
+      "file": "src/ui/view_host.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<ICuiViewHost>"
+        },
+        {
+          "name": "find",
+          "params": "&self, id: impl Into<String>",
+          "returns": "Option<ICuiViewHost>"
+        },
+        {
+          "name": "first",
+          "params": "&self",
+          "returns": "Option<ICuiViewHost>"
+        },
+        {
+          "name": "last",
+          "params": "&self",
+          "returns": "Option<ICuiViewHost>"
+        }
+      ]
+    },
+    {
+      "name": "ICuiViewHost",
+      "file": "src/ui/view_host.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "id",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "dock_host",
+          "params": "&self",
+          "returns": "Option<ICuiDockHost>"
+        },
+        {
+          "name": "views",
+          "params": "&self",
+          "returns": "Option<ICuiViewWindows>"
+        },
+        {
+          "name": "dock_item",
+          "params": "&self",
+          "returns": "Option<ICuiDockItem>"
+        },
+        {
+          "name": "position",
+          "params": "&self",
+          "returns": "Option<ICuiScreenRect>"
+        },
+        {
+          "name": "insert_view",
+          "params": "&self, view: &ICuiViewWindow, index: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "insert_view_host",
+          "params": "&self, host: &ICuiViewHost, index: i32",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "ICuiViewWindows",
+      "file": "src/ui/view_window.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<ICuiViewWindow>"
+        },
+        {
+          "name": "find",
+          "params": "&self, id: impl Into<String>",
+          "returns": "Option<ICuiViewWindow>"
+        },
+        {
+          "name": "first",
+          "params": "&self",
+          "returns": "Option<ICuiViewWindow>"
+        },
+        {
+          "name": "last",
+          "params": "&self",
+          "returns": "Option<ICuiViewWindow>"
+        }
+      ]
+    },
+    {
+      "name": "ICuiViewWindow",
+      "file": "src/ui/view_window.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "id",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "kind",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "title",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "description",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "index",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "view_host",
+          "params": "&self",
+          "returns": "Option<ICuiViewHost>"
+        },
+        {
+          "name": "position",
+          "params": "&self",
+          "returns": "Option<ICuiScreenRect>"
+        },
+        {
+          "name": "app_view",
+          "params": "&self",
+          "returns": "Option<IDispatch>"
+        },
+        {
+          "name": "activate",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "close",
+          "params": "&self",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "ICuiWarning",
+      "file": "src/ui/warning.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "enabled",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_enabled",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "id",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "description",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "text",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "title",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "do_warning_dialog",
+          "params": "&self, flags: i32, text: impl Into<String>",
+          "returns": "Option<i64>"
+        }
+      ]
+    }
+  ],
+  "tests": {
+    "files": [
+      "tests/ui.rs"
+    ],
+    "cases": 1
+  },
+  "coverage": {
+    "method_name_count": 182,
+    "covered_method_name_count": 53,
+    "coverage_pct": 29.1
+  }
+}

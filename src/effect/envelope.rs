@@ -36,7 +36,7 @@ impl IvgEffectEnvelope {
         self.disp.set_property(name, vec![arg]).is_ok()
     }
 
-    // ---- 瀹瑰櫒鏇茬嚎 ----
+    // ---- 容器曲线 ----
 
     pub fn container(&self) -> Option<IvgCurve> {
         self.prop_dispatch("Container").map(IvgCurve::new)
@@ -47,7 +47,7 @@ impl IvgEffectEnvelope {
         self.disp.set_property("Container", vec![arg]).is_ok()
     }
 
-    // ---- 妯″紡 ----
+    // ---- 模式 ----
 
     /// `cdrEnvelopeMode`
     pub fn mode(&self) -> Option<i64> { self.prop_i64("Mode") }
@@ -59,7 +59,7 @@ impl IvgEffectEnvelope {
     pub fn keep_lines(&self) -> Option<bool> { self.prop_bool("KeepLines") }
     pub fn set_keep_lines(&self, v: bool) -> bool { self.put_bool("KeepLines", v) }
 
-    // ---- 鎿嶄綔 ----
+    // ---- 操作 ----
 
     /// 浠庨璁惧皝濂楀舰鐘剁储寮曢€夋嫨锛坄cdrEnvelopePreset`锛夈€?
     pub fn select(&self, preset_index: i32) -> bool {
@@ -128,7 +128,7 @@ impl IvgEffectEnvelope {
             .ok()
     }
 
-    // ---- 瑙掔偣 ----
+    // ---- 角点 ----
 
     pub fn corner_indices(&self) -> Option<Variant> {
         self.disp.get_property("CornerIndices").ok()

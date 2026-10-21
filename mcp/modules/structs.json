@@ -1,0 +1,1283 @@
+{
+  "module": "structs",
+  "files": [
+    "src/structs/align_properties.rs",
+    "src/structs/color_conversion_options.rs",
+    "src/structs/create_options.rs",
+    "src/structs/export_options.rs",
+    "src/structs/font_properties.rs",
+    "src/structs/hyphenation_settings.rs",
+    "src/structs/import_options.rs",
+    "src/structs/mod.rs",
+    "src/structs/open_options.rs",
+    "src/structs/palette_options.rs",
+    "src/structs/paste_options.rs",
+    "src/structs/save_as_options.rs",
+    "src/structs/space_properties.rs"
+  ],
+  "types": [
+    {
+      "name": "IvgStructAlignProperties",
+      "file": "src/structs/align_properties.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "alignment",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_alignment",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "first_line_indent",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_first_line_indent",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "left_indent",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_left_indent",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "right_indent",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_right_indent",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "max_word_spacing",
+          "params": "&self",
+          "returns": "Option<f32>"
+        },
+        {
+          "name": "set_max_word_spacing",
+          "params": "&self, v: f32",
+          "returns": "bool"
+        },
+        {
+          "name": "min_word_spacing",
+          "params": "&self",
+          "returns": "Option<f32>"
+        },
+        {
+          "name": "set_min_word_spacing",
+          "params": "&self, v: f32",
+          "returns": "bool"
+        },
+        {
+          "name": "max_character_spacing",
+          "params": "&self",
+          "returns": "Option<f32>"
+        },
+        {
+          "name": "set_max_character_spacing",
+          "params": "&self, v: f32",
+          "returns": "bool"
+        },
+        {
+          "name": "horizontal_character_shift",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_horizontal_character_shift",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "vertical_character_shift",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_vertical_character_shift",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "character_rotation",
+          "params": "&self",
+          "returns": "Option<f32>"
+        },
+        {
+          "name": "set_character_rotation",
+          "params": "&self, v: f32",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgStructColorConversionOptions",
+      "file": "src/structs/color_conversion_options.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "color_policy",
+          "params": "&self",
+          "returns": "Option<IvgColorManagementPolicy>"
+        },
+        {
+          "name": "source_color_profile_list",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_source_color_profile_list",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "target_color_profile_list",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_target_color_profile_list",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "color_conversion_handler",
+          "params": "&self",
+          "returns": "Option<IDispatch>"
+        },
+        {
+          "name": "set_color_conversion_handler",
+          "params": "&self, h: IDispatch",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgStructCreateOptions",
+      "file": "src/structs/create_options.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "color_context",
+          "params": "&self",
+          "returns": "Option<IvgColorContext>"
+        },
+        {
+          "name": "set_color_context",
+          "params": "&self, c: &IvgColorContext",
+          "returns": "bool"
+        },
+        {
+          "name": "name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_name",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "page_width",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_page_width",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "page_height",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_page_height",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "units",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_units",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "resolution",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_resolution",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgStructExportOptions",
+      "file": "src/structs/export_options.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "size_x",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_size_x",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "size_y",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_size_y",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "resolution_x",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_resolution_x",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "resolution_y",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_resolution_y",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "anti_aliasing_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_anti_aliasing_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "image_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_image_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "compression",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_compression",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "overwrite",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_overwrite",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "dithered",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_dithered",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "transparent",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_transparent",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "use_color_profile",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_use_color_profile",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "maintain_layers",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_maintain_layers",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "maintain_aspect",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_maintain_aspect",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "matted",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_matted",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "matte_masked_only",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_matte_masked_only",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "always_overprint_black",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_always_overprint_black",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "export_area",
+          "params": "&self",
+          "returns": "Option<IvgRect>"
+        },
+        {
+          "name": "set_export_area",
+          "params": "&self, r: &IvgRect",
+          "returns": "bool"
+        },
+        {
+          "name": "matte_color",
+          "params": "&self",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "set_matte_color",
+          "params": "&self, c: &IvgColor",
+          "returns": "bool"
+        },
+        {
+          "name": "proof_color_settings",
+          "params": "&self",
+          "returns": "Option<crate::misc::IvgProperties>"
+        }
+      ]
+    },
+    {
+      "name": "IvgStructFontProperties",
+      "file": "src/structs/font_properties.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "name",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_name",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        },
+        {
+          "name": "style",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_style",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "size",
+          "params": "&self",
+          "returns": "Option<f32>"
+        },
+        {
+          "name": "set_size",
+          "params": "&self, v: f32",
+          "returns": "bool"
+        },
+        {
+          "name": "underline",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_underline",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "overscore",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_overscore",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "strikethru",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_strikethru",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "uppercase",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_uppercase",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "position",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_position",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "range_kerning",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_range_kerning",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "fill",
+          "params": "&self",
+          "returns": "Option<IvgFill>"
+        },
+        {
+          "name": "set_fill",
+          "params": "&self, f: &IvgFill",
+          "returns": "bool"
+        },
+        {
+          "name": "outline",
+          "params": "&self",
+          "returns": "Option<IvgOutline>"
+        },
+        {
+          "name": "set_outline",
+          "params": "&self, o: &IvgOutline",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgStructHyphenationSettings",
+      "file": "src/structs/hyphenation_settings.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "use_automatic_hyphenation",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_use_automatic_hyphenation",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "break_capitalized",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_break_capitalized",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "break_all_cap_words",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_break_all_cap_words",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "hot_zone",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_hot_zone",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "min_word_length",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_min_word_length",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "min_characters_before",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_min_characters_before",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "min_characters_after",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_min_characters_after",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgStructImportOptions",
+      "file": "src/structs/import_options.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "crop_handler",
+          "params": "&self",
+          "returns": "Option<IDispatch>"
+        },
+        {
+          "name": "set_crop_handler",
+          "params": "&self, h: IDispatch",
+          "returns": "bool"
+        },
+        {
+          "name": "resample_handler",
+          "params": "&self",
+          "returns": "Option<IDispatch>"
+        },
+        {
+          "name": "set_resample_handler",
+          "params": "&self, h: IDispatch",
+          "returns": "bool"
+        },
+        {
+          "name": "use_color_profile",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_use_color_profile",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "maintain_layers",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_maintain_layers",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "detect_watermark",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_detect_watermark",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "combine_multipage",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_combine_multipage",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "extract_embedded_icc",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_extract_embedded_icc",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "name_conflict",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_name_conflict",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "password",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "set_password",
+          "params": "&self, v: impl Into<String>",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgStructOpenOptions",
+      "file": "src/structs/open_options.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "code_page",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_code_page",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "color_conversion_options",
+          "params": "&self",
+          "returns": "Option<IvgStructColorConversionOptions>"
+        }
+      ]
+    },
+    {
+      "name": "IvgStructPaletteOptions",
+      "file": "src/structs/palette_options.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "palette_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_palette_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "num_colors",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_num_colors",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "dither_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_dither_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "dither_intensity",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_dither_intensity",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "smoothing",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_smoothing",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "color_sensitive",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_color_sensitive",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "target_color",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_target_color",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "importance",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_importance",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "lightness",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_lightness",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "tolerance_a",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_tolerance_a",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "tolerance_b",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_tolerance_b",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "palette",
+          "params": "&self",
+          "returns": "Option<Variant>"
+        },
+        {
+          "name": "set_palette",
+          "params": "&self, v: Variant",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgStructPasteOptions",
+      "file": "src/structs/paste_options.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "color_conversion_options",
+          "params": "&self",
+          "returns": "Option<IvgStructColorConversionOptions>"
+        }
+      ]
+    },
+    {
+      "name": "IvgStructSaveAsOptions",
+      "file": "src/structs/save_as_options.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "filter",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_filter",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "version",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_version",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "thumbnail_size",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_thumbnail_size",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "range",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_range",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "overwrite",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_overwrite",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "embed_icc_profile",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_embed_icc_profile",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "embed_vba_project",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_embed_vba_project",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "include_cmx_data",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_include_cmx_data",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "keep_appearance",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_keep_appearance",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgStructSpaceProperties",
+      "file": "src/structs/space_properties.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "character_spacing",
+          "params": "&self",
+          "returns": "Option<f32>"
+        },
+        {
+          "name": "set_character_spacing",
+          "params": "&self, v: f32",
+          "returns": "bool"
+        },
+        {
+          "name": "word_spacing",
+          "params": "&self",
+          "returns": "Option<f32>"
+        },
+        {
+          "name": "set_word_spacing",
+          "params": "&self, v: f32",
+          "returns": "bool"
+        },
+        {
+          "name": "line_spacing",
+          "params": "&self",
+          "returns": "Option<f32>"
+        },
+        {
+          "name": "set_line_spacing",
+          "params": "&self, v: f32",
+          "returns": "bool"
+        },
+        {
+          "name": "line_spacing_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_line_spacing_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "before_paragraph_spacing",
+          "params": "&self",
+          "returns": "Option<f32>"
+        },
+        {
+          "name": "set_before_paragraph_spacing",
+          "params": "&self, v: f32",
+          "returns": "bool"
+        },
+        {
+          "name": "after_paragraph_spacing",
+          "params": "&self",
+          "returns": "Option<f32>"
+        },
+        {
+          "name": "set_after_paragraph_spacing",
+          "params": "&self, v: f32",
+          "returns": "bool"
+        }
+      ]
+    }
+  ],
+  "tests": {
+    "files": [
+      "tests/structs.rs"
+    ],
+    "cases": 8
+  },
+  "coverage": {
+    "method_name_count": 183,
+    "covered_method_name_count": 56,
+    "coverage_pct": 30.6
+  }
+}

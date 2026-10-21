@@ -52,7 +52,7 @@ impl IvgArrowHead {
     }
 
     // ---------------------------------------------------------
-    // 绱㈠紩 / 鍚嶇О
+    // 索引 / 名称
     // ---------------------------------------------------------
 
     pub fn index(&self) -> Option<i64> { self.prop_i64("Index") }
@@ -63,7 +63,7 @@ impl IvgArrowHead {
     pub fn display_name(&self) -> Option<String> { self.prop_string("DisplayName") }
 
     // ---------------------------------------------------------
-    // 褰㈢姸
+    // 形状
     // ---------------------------------------------------------
 
     /// 绠ご褰㈢姸鐨勮疆寤撴洸绾匡紙鏈湴鍧愭爣锛夈€?
@@ -84,7 +84,7 @@ impl IvgArrowHead {
     pub fn line_offset(&self) -> Option<f64> { self.prop_f64("LineOffset") }
 
     // ---------------------------------------------------------
-    // 鎿嶄綔
+    // 操作
     // ---------------------------------------------------------
 
     /// 缁戝畾鍒版寚瀹氭枃妗ｏ紙鐢ㄤ簬璺ㄦ枃妗ｅ鍒舵椂纭繚褰掑睘锛夈€?
@@ -148,7 +148,7 @@ impl IvgArrowHeadOptions {
         self.disp.set_property(name, vec![arg]).is_ok()
     }
 
-    // ---- 闀垮害 / 瀹藉害 ----
+    // ---- 长度 / 宽度 ----
 
     pub fn length(&self) -> Option<f64> { self.prop_f64("Length") }
     pub fn set_length(&self, v: f64) -> bool { self.put_f64("Length", v) }
@@ -156,7 +156,7 @@ impl IvgArrowHeadOptions {
     pub fn width(&self) -> Option<f64> { self.prop_f64("Width") }
     pub fn set_width(&self, v: f64) -> bool { self.put_f64("Width", v) }
 
-    // ---- 鍋忕Щ ----
+    // ---- 偏移 ----
 
     pub fn offset_x(&self) -> Option<f64> { self.prop_f64("OffsetX") }
     pub fn set_offset_x(&self, v: f64) -> bool { self.put_f64("OffsetX", v) }
@@ -164,14 +164,14 @@ impl IvgArrowHeadOptions {
     pub fn offset_y(&self) -> Option<f64> { self.prop_f64("OffsetY") }
     pub fn set_offset_y(&self, v: f64) -> bool { self.put_f64("OffsetY", v) }
 
-    // ---- 鏃嬭浆 ----
+    // ---- 旋转 ----
 
     pub fn rotation_angle(&self) -> Option<f64> { self.prop_f64("RotationAngle") }
     pub fn set_rotation_angle(&self, v: f64) -> bool {
         self.put_f64("RotationAngle", v)
     }
 
-    // ---- 缈昏浆 ----
+    // ---- 翻转 ----
 
     pub fn flip_horizontal(&self) -> Option<bool> { self.prop_bool("FlipHorizontal") }
     pub fn set_flip_horizontal(&self, v: bool) -> bool {
@@ -195,7 +195,7 @@ impl IvgArrowHeadOptions {
         self.disp.invoke_method("Flip", args).is_ok()
     }
 
-    // ---- 澶嶅埗 ----
+    // ---- 复制 ----
 
     pub fn copy_assign(&self, src: &IvgArrowHeadOptions) -> bool {
         let args = vec![src.as_variant()];

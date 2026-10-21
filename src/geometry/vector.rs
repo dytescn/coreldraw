@@ -49,7 +49,7 @@ impl IvgVector {
     pub fn angle(&self) -> Option<f64> { self.prop_f64("Angle") }
     pub fn set_angle(&self, v: f64) -> bool { self.put_f64("Angle", v) }
 
-    // ---- 杩愮畻 ----
+    // ---- 运算 ----
 
     /// 鎶婂悜閲忓綋浣滃亸绉婚噺锛屼粠鏌愪釜鍘熺偣鍙栫鐐广€?
     pub fn get_offsetted_point(&self, origin: &IvgPoint, distance: f64) -> Option<IvgPoint> {
@@ -88,7 +88,7 @@ impl IvgVector {
         self.disp.invoke_method("Normalize", vec![]).is_ok()
     }
 
-    // ---- 鐐圭Н / 鍙夌Н / 澶硅 ----
+    // ---- 点积 / 叉积 / 夹角 ----
 
     pub fn angle_between(&self, other: &IvgVector) -> Option<f64> {
         let args = vec![other.as_variant()];

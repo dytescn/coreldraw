@@ -1,0 +1,1714 @@
+{
+  "module": "effect",
+  "files": [
+    "src/effect/blend.rs",
+    "src/effect/contour.rs",
+    "src/effect/control_path.rs",
+    "src/effect/distortion.rs",
+    "src/effect/drop_shadow.rs",
+    "src/effect/effect.rs",
+    "src/effect/effects.rs",
+    "src/effect/envelope.rs",
+    "src/effect/extrude.rs",
+    "src/effect/lens.rs",
+    "src/effect/mod.rs",
+    "src/effect/perspective.rs",
+    "src/effect/text_on_path.rs"
+  ],
+  "types": [
+    {
+      "name": "IvgEffectBlend",
+      "file": "src/effect/blend.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "start_shape",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "set_start_shape",
+          "params": "&self, s: &IvgShape",
+          "returns": "bool"
+        },
+        {
+          "name": "end_shape",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "set_end_shape",
+          "params": "&self, s: &IvgShape",
+          "returns": "bool"
+        },
+        {
+          "name": "blend_group",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "path",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "set_path",
+          "params": "&self, s: &IvgShape",
+          "returns": "bool"
+        },
+        {
+          "name": "start_shape_offset",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_start_shape_offset",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "end_shape_offset",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_end_shape_offset",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "mode",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_mode",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "steps",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_steps",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "spacing",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_spacing",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "angle",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_angle",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "looping",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_looping",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "full_path",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_full_path",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "rotate_shapes",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_rotate_shapes",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "color_blend_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_color_blend_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "spacing_acceleration",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_spacing_acceleration",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "color_acceleration",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_color_acceleration",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "link_acceleration",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_link_acceleration",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "accelerate_size",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_accelerate_size",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "map_nodes",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_map_nodes",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "start_point",
+          "params": "&self",
+          "returns": "Option<IvgSnapPoint>"
+        },
+        {
+          "name": "end_point",
+          "params": "&self",
+          "returns": "Option<IvgSnapPoint>"
+        },
+        {
+          "name": "split",
+          "params": "&self, step_no: i32",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "fuse_start",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "fuse_end",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "copy_from",
+          "params": "&self, src: &IvgEffectBlend",
+          "returns": "Option<bool>"
+        }
+      ]
+    },
+    {
+      "name": "IvgEffectContour",
+      "file": "src/effect/contour.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "direction",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_direction",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "offset",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_offset",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "steps",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_steps",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "color_blend_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_color_blend_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "outline_color",
+          "params": "&self",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "set_outline_color",
+          "params": "&self, c: &IvgColor",
+          "returns": "bool"
+        },
+        {
+          "name": "fill_color",
+          "params": "&self",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "set_fill_color",
+          "params": "&self, c: &IvgColor",
+          "returns": "bool"
+        },
+        {
+          "name": "fill_color_to",
+          "params": "&self",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "set_fill_color_to",
+          "params": "&self, c: &IvgColor",
+          "returns": "bool"
+        },
+        {
+          "name": "link_acceleration",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_link_acceleration",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "color_acceleration",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_color_acceleration",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "spacing_acceleration",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_spacing_acceleration",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "contour_group",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "end_cap_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_end_cap_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "corner_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_corner_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "miter_limit",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_miter_limit",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgEffectControlPath",
+      "file": "src/effect/control_path.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "effects",
+          "params": "&self",
+          "returns": "Option<IvgEffects>"
+        }
+      ]
+    },
+    {
+      "name": "IvgEffectDistortion",
+      "file": "src/effect/distortion.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "distortion_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_distortion_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "origin_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_origin_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "origin_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_origin_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "push_pull",
+          "params": "&self",
+          "returns": "Option<IvgEffectPushPullDistortion>"
+        },
+        {
+          "name": "zipper",
+          "params": "&self",
+          "returns": "Option<IvgEffectZipperDistortion>"
+        },
+        {
+          "name": "twister",
+          "params": "&self",
+          "returns": "Option<IvgEffectTwisterDistortion>"
+        },
+        {
+          "name": "custom",
+          "params": "&self",
+          "returns": "Option<IvgEffectCustomDistortion>"
+        },
+        {
+          "name": "center_distortion",
+          "params": "&self",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgEffectPushPullDistortion",
+      "file": "src/effect/distortion.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "amplitude",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_amplitude",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgEffectZipperDistortion",
+      "file": "src/effect/distortion.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "amplitude",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_amplitude",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "frequency",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_frequency",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "random",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_random",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "smooth",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_smooth",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "local",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_local",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgEffectTwisterDistortion",
+      "file": "src/effect/distortion.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "angle",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_angle",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgEffectCustomDistortion",
+      "file": "src/effect/distortion.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "distortion_id",
+          "params": "&self",
+          "returns": "Option<String>"
+        }
+      ]
+    },
+    {
+      "name": "IvgEffectDropShadow",
+      "file": "src/effect/drop_shadow.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "offset_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_offset_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "offset_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_offset_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "set_offset",
+          "params": "&self, x: f64, y: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "opacity",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_opacity",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "feather",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_feather",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "feather_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_feather_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "feather_edge",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_feather_edge",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "shadow_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_shadow_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "perspective_angle",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_perspective_angle",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "perspective_stretch",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_perspective_stretch",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "fade",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_fade",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "color",
+          "params": "&self",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "set_color",
+          "params": "&self, c: &IvgColor",
+          "returns": "bool"
+        },
+        {
+          "name": "merge_mode",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_merge_mode",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "shadow_group",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        }
+      ]
+    },
+    {
+      "name": "IvgEffect",
+      "file": "src/effect/effect.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "from_disp",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "raw",
+          "params": "&self",
+          "returns": "&ComObject"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "effect_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "blend",
+          "params": "&self",
+          "returns": "Option<IvgEffectBlend>"
+        },
+        {
+          "name": "control_path",
+          "params": "&self",
+          "returns": "Option<IvgEffectControlPath>"
+        },
+        {
+          "name": "extrude",
+          "params": "&self",
+          "returns": "Option<IvgEffectExtrude>"
+        },
+        {
+          "name": "envelope",
+          "params": "&self",
+          "returns": "Option<IvgEffectEnvelope>"
+        },
+        {
+          "name": "text_on_path",
+          "params": "&self",
+          "returns": "Option<IvgEffectTextOnPath>"
+        },
+        {
+          "name": "drop_shadow",
+          "params": "&self",
+          "returns": "Option<IvgEffectDropShadow>"
+        },
+        {
+          "name": "contour",
+          "params": "&self",
+          "returns": "Option<IvgEffectContour>"
+        },
+        {
+          "name": "distortion",
+          "params": "&self",
+          "returns": "Option<IvgEffectDistortion>"
+        },
+        {
+          "name": "lens",
+          "params": "&self",
+          "returns": "Option<IvgEffectLens>"
+        },
+        {
+          "name": "perspective",
+          "params": "&self",
+          "returns": "Option<IvgEffectPerspective>"
+        },
+        {
+          "name": "custom",
+          "params": "&self",
+          "returns": "Option<IvgCustomEffect>"
+        },
+        {
+          "name": "clones",
+          "params": "&self",
+          "returns": "Option<IvgEffects>"
+        },
+        {
+          "name": "clone_parent",
+          "params": "&self",
+          "returns": "Option<IvgEffect>"
+        },
+        {
+          "name": "clear",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "separate",
+          "params": "&self",
+          "returns": "Option<IvgShapeRange>"
+        }
+      ]
+    },
+    {
+      "name": "IvgCustomEffect",
+      "file": "src/effect/effect.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "effect_id",
+          "params": "&self",
+          "returns": "Option<String>"
+        },
+        {
+          "name": "effect_group",
+          "params": "&self",
+          "returns": "Option<crate::shape::IvgShape>"
+        }
+      ]
+    },
+    {
+      "name": "IvgEffects",
+      "file": "src/effect/effects.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "count",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "item",
+          "params": "&self, index: i32",
+          "returns": "Option<IvgEffect>"
+        },
+        {
+          "name": "blend_effects",
+          "params": "&self",
+          "returns": "Option<IvgEffects>"
+        },
+        {
+          "name": "custom_effects",
+          "params": "&self",
+          "returns": "Option<IvgEffects>"
+        },
+        {
+          "name": "distortion_effects",
+          "params": "&self",
+          "returns": "Option<IvgEffects>"
+        },
+        {
+          "name": "envelope_effects",
+          "params": "&self",
+          "returns": "Option<IvgEffects>"
+        },
+        {
+          "name": "perspective_effects",
+          "params": "&self",
+          "returns": "Option<IvgEffects>"
+        },
+        {
+          "name": "contour_effect",
+          "params": "&self",
+          "returns": "Option<IvgEffect>"
+        },
+        {
+          "name": "control_path_effect",
+          "params": "&self",
+          "returns": "Option<IvgEffect>"
+        },
+        {
+          "name": "drop_shadow_effect",
+          "params": "&self",
+          "returns": "Option<IvgEffect>"
+        },
+        {
+          "name": "extrude_effect",
+          "params": "&self",
+          "returns": "Option<IvgEffect>"
+        },
+        {
+          "name": "lens_effect",
+          "params": "&self",
+          "returns": "Option<IvgEffect>"
+        },
+        {
+          "name": "text_on_path_effect",
+          "params": "&self",
+          "returns": "Option<IvgEffect>"
+        }
+      ]
+    },
+    {
+      "name": "IvgEffectEnvelope",
+      "file": "src/effect/envelope.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "container",
+          "params": "&self",
+          "returns": "Option<IvgCurve>"
+        },
+        {
+          "name": "set_container",
+          "params": "&self, c: &IvgCurve",
+          "returns": "bool"
+        },
+        {
+          "name": "mode",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_mode",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "keep_lines",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_keep_lines",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "select",
+          "params": "&self, preset_index: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "copy_from",
+          "params": "&self, src: &IvgEffectEnvelope",
+          "returns": "bool"
+        },
+        {
+          "name": "create_from",
+          "params": "&self, shape: &IvgShape",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "copy_from_shape",
+          "params": "&self, source: &IvgShape, mode: i32, keep_lines: bool, copy_mode: i32, corner_indices: Variant,",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "copy_from_curve",
+          "params": "&self, source: &IvgCurve, mode: i32, keep_lines: bool, copy_mode: i32, corner_indices: Variant,",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "corner_indices",
+          "params": "&self",
+          "returns": "Option<Variant>"
+        },
+        {
+          "name": "set_corner_indices",
+          "params": "&self, v: Variant",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgExtrudeVanishingPoint",
+      "file": "src/effect/extrude.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "vp_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_vp_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "position_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_position_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "position_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_position_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "effects",
+          "params": "&self",
+          "returns": "Option<IvgEffects>"
+        },
+        {
+          "name": "share",
+          "params": "&self, src: &IvgEffectExtrude",
+          "returns": "Option<bool>"
+        }
+      ]
+    },
+    {
+      "name": "IvgEffectExtrude",
+      "file": "src/effect/extrude.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "as_variant",
+          "params": "&self",
+          "returns": "Variant"
+        },
+        {
+          "name": "extrude_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_extrude_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "vanishing_point",
+          "params": "&self",
+          "returns": "Option<IvgExtrudeVanishingPoint>"
+        },
+        {
+          "name": "depth",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_depth",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "angle_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_angle_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "angle_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_angle_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "angle_z",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_angle_z",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "shading",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_shading",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "base_color",
+          "params": "&self",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "set_base_color",
+          "params": "&self, c: &IvgColor",
+          "returns": "bool"
+        },
+        {
+          "name": "shading_color",
+          "params": "&self",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "set_shading_color",
+          "params": "&self, c: &IvgColor",
+          "returns": "bool"
+        },
+        {
+          "name": "use_full_color_range",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_use_full_color_range",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "use_bevel",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_use_bevel",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "show_bevel_only",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_show_bevel_only",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "bevel_depth",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_bevel_depth",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "bevel_angle",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_bevel_angle",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "use_extrude_color_for_bevel",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_use_extrude_color_for_bevel",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "bevel_color",
+          "params": "&self",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "set_bevel_color",
+          "params": "&self, c: &IvgColor",
+          "returns": "bool"
+        },
+        {
+          "name": "set_bevel",
+          "params": "&self, depth: f64, angle: f64, show_only: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "light_present",
+          "params": "&self, index: i32",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_light_present",
+          "params": "&self, index: i32, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "light_position",
+          "params": "&self, index: i32",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_light_position",
+          "params": "&self, index: i32, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "light_intensity",
+          "params": "&self, index: i32",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_light_intensity",
+          "params": "&self, index: i32, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "set_light",
+          "params": "&self, index: i32, position: i32, intensity: i32,",
+          "returns": "bool"
+        },
+        {
+          "name": "face_visible",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "face_shape",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "bevel_group",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "extrude_group",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "rotate",
+          "params": "&self, ax: f64, ay: f64, az: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "copy_from",
+          "params": "&self, src: &IvgEffectExtrude",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgEffectLens",
+      "file": "src/effect/lens.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "freeze",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "unfreeze",
+          "params": "&self",
+          "returns": "bool"
+        },
+        {
+          "name": "ungroup",
+          "params": "&self",
+          "returns": "Option<IvgShapeRange>"
+        },
+        {
+          "name": "frozen",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "shapes",
+          "params": "&self",
+          "returns": "Option<IvgShapes>"
+        },
+        {
+          "name": "lens_type",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_lens_type",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "rate",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_rate",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "magnification",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_magnification",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "color",
+          "params": "&self",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "set_color",
+          "params": "&self, c: &IvgColor",
+          "returns": "bool"
+        },
+        {
+          "name": "outline_color",
+          "params": "&self",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "set_outline_color",
+          "params": "&self, c: &IvgColor",
+          "returns": "bool"
+        },
+        {
+          "name": "fill_color",
+          "params": "&self",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "set_fill_color",
+          "params": "&self, c: &IvgColor",
+          "returns": "bool"
+        },
+        {
+          "name": "from_color",
+          "params": "&self",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "set_from_color",
+          "params": "&self, c: &IvgColor",
+          "returns": "bool"
+        },
+        {
+          "name": "to_color",
+          "params": "&self",
+          "returns": "Option<IvgColor>"
+        },
+        {
+          "name": "set_to_color",
+          "params": "&self, c: &IvgColor",
+          "returns": "bool"
+        },
+        {
+          "name": "use_outline_color",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_use_outline_color",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "use_fill_color",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_use_fill_color",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "color_map_palette",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_color_map_palette",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "use_view_point",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_use_view_point",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "view_point_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_view_point_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "view_point_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_view_point_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "remove_face",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_remove_face",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "palette_rotation",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_palette_rotation",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "associated_shape",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        }
+      ]
+    },
+    {
+      "name": "IvgEffectPerspective",
+      "file": "src/effect/perspective.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: windows::Win32::System::Com::IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "use_horiz_vanishing_point",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_use_horiz_vanishing_point",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "horiz_vanishing_point_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_horiz_vanishing_point_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "horiz_vanishing_point_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_horiz_vanishing_point_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "use_vert_vanishing_point",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_use_vert_vanishing_point",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "vert_vanishing_point_x",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_vert_vanishing_point_x",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "vert_vanishing_point_y",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_vert_vanishing_point_y",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        }
+      ]
+    },
+    {
+      "name": "IvgEffectTextOnPath",
+      "file": "src/effect/text_on_path.rs",
+      "methods": [
+        {
+          "name": "new",
+          "params": "disp: IDispatch",
+          "returns": "Self"
+        },
+        {
+          "name": "text",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "set_text",
+          "params": "&self, s: &IvgShape",
+          "returns": "bool"
+        },
+        {
+          "name": "path",
+          "params": "&self",
+          "returns": "Option<IvgShape>"
+        },
+        {
+          "name": "set_path",
+          "params": "&self, s: &IvgShape",
+          "returns": "bool"
+        },
+        {
+          "name": "distance_from_path",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_distance_from_path",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "offset",
+          "params": "&self",
+          "returns": "Option<f64>"
+        },
+        {
+          "name": "set_offset",
+          "params": "&self, v: f64",
+          "returns": "bool"
+        },
+        {
+          "name": "orientation",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_orientation",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "placement",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_placement",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "place_on_other_side",
+          "params": "&self",
+          "returns": "Option<bool>"
+        },
+        {
+          "name": "set_place_on_other_side",
+          "params": "&self, v: bool",
+          "returns": "bool"
+        },
+        {
+          "name": "quadrant",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_quadrant",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        },
+        {
+          "name": "vert_placement",
+          "params": "&self",
+          "returns": "Option<i64>"
+        },
+        {
+          "name": "set_vert_placement",
+          "params": "&self, v: i32",
+          "returns": "bool"
+        }
+      ]
+    }
+  ],
+  "tests": {
+    "files": [
+      "tests/effect.rs"
+    ],
+    "cases": 2
+  },
+  "coverage": {
+    "method_name_count": 261,
+    "covered_method_name_count": 26,
+    "coverage_pct": 10.0
+  }
+}

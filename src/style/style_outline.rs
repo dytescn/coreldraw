@@ -78,7 +78,7 @@ impl IvgStyleOutline {
         self.put_bool("ScaleWithShape", v)
     }
 
-    // ---- 绠ご ----
+    // ---- 箭头 ----
 
     pub fn overlap_arrow(&self) -> Option<bool> { self.prop_bool("OverlapArrow") }
     pub fn set_overlap_arrow(&self, v: bool) -> bool { self.put_bool("OverlapArrow", v) }
@@ -86,7 +86,7 @@ impl IvgStyleOutline {
     pub fn share_arrow(&self) -> Option<bool> { self.prop_bool("ShareArrow") }
     pub fn set_share_arrow(&self, v: bool) -> bool { self.put_bool("ShareArrow", v) }
 
-    // ---- 鏂滄帴 / 绗斿皷 ----
+    // ---- 斜接 / 笔尖 ----
 
     pub fn miter_limit(&self) -> Option<f64> { self.prop_f64("MiterLimit") }
     pub fn set_miter_limit(&self, v: f64) -> bool { self.put_f64("MiterLimit", v) }
@@ -100,7 +100,7 @@ impl IvgStyleOutline {
     pub fn wideline_width(&self) -> Option<f64> { self.prop_f64("WidelineWidth") }
     pub fn set_wideline_width(&self, v: f64) -> bool { self.put_f64("WidelineWidth", v) }
 
-    // ---- 绔偣 / 杩炴帴 / 瀵归綈 ----
+    // ---- 端点 / 连接 / 对齐 ----
 
     /// `cdrOutlineLineCaps`
     pub fn line_caps(&self) -> Option<i64> { self.prop_i64("LineCaps") }

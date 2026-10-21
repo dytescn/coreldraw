@@ -39,7 +39,7 @@ impl IvgStructColorConversionOptions {
         self.disp.set_property(name, vec![arg]).is_ok()
     }
 
-    // ---- 棰滆壊绛栫暐 ----
+    // ---- 颜色策略 ----
 
     pub fn color_policy(&self) -> Option<IvgColorManagementPolicy> {
         self.prop_dispatch("ColorPolicy").map(IvgColorManagementPolicy::new)
@@ -61,7 +61,7 @@ impl IvgStructColorConversionOptions {
         self.put_string("TargetColorProfileList", v)
     }
 
-    // ---- 杞崲鍥炶皟 ----
+    // ---- 转换回调 ----
 
     /// `IColorConversionHandler` 鐨?dispatch锛堢敤鎴峰疄鐜帮級銆?
     pub fn color_conversion_handler(&self) -> Option<IDispatch> {

@@ -1,0 +1,5776 @@
+{
+  "enum_count": 146,
+  "enums": [
+    {
+      "name": "cdrTriState",
+      "module": "enums/app",
+      "variants": [
+        {
+          "name": "Undefined",
+          "value": -2
+        },
+        {
+          "name": "True",
+          "value": -1
+        },
+        {
+          "name": "False",
+          "value": 0
+        }
+      ],
+      "aliases": [],
+      "variant_count": 3
+    },
+    {
+      "name": "cdrApplicationID",
+      "module": "enums/app",
+      "variants": [
+        {
+          "name": "CorelDRAW",
+          "value": 0
+        },
+        {
+          "name": "CorelDESIGNER",
+          "value": 1
+        }
+      ],
+      "aliases": [],
+      "variant_count": 2
+    },
+    {
+      "name": "cdrApplicationClass",
+      "module": "enums/app",
+      "variants": [
+        {
+          "name": "CreativeGraphics",
+          "value": 0
+        },
+        {
+          "name": "TechnicalGraphics",
+          "value": 1
+        }
+      ],
+      "aliases": [],
+      "variant_count": 2
+    },
+    {
+      "name": "cdrAppStartupMode",
+      "module": "enums/app",
+      "variants": [
+        {
+          "name": "StartupWelcomeScreen",
+          "value": 0
+        },
+        {
+          "name": "StartupNewDocument",
+          "value": 1
+        },
+        {
+          "name": "StartupOpenDocument",
+          "value": 2
+        },
+        {
+          "name": "StartupLastEditedDocument",
+          "value": 3
+        },
+        {
+          "name": "StartupNewFromTemplate",
+          "value": 4
+        },
+        {
+          "name": "StartupTutorial",
+          "value": 5
+        },
+        {
+          "name": "StartupDoNothing",
+          "value": 6
+        }
+      ],
+      "aliases": [],
+      "variant_count": 7
+    },
+    {
+      "name": "cdrAppStatus",
+      "module": "enums/app",
+      "variants": [
+        {
+          "name": "Unknown",
+          "value": -1
+        }
+      ],
+      "aliases": [],
+      "variant_count": 1
+    },
+    {
+      "name": "cdrCommandCheckState",
+      "module": "enums/app",
+      "variants": [
+        {
+          "name": "CommandUnchecked",
+          "value": 0
+        },
+        {
+          "name": "CommandChecked",
+          "value": 1
+        }
+      ],
+      "aliases": [],
+      "variant_count": 2
+    },
+    {
+      "name": "cdrColorType",
+      "module": "enums/color",
+      "variants": [
+        {
+          "name": "Undefined",
+          "value": 0
+        },
+        {
+          "name": "Pantone",
+          "value": 1
+        },
+        {
+          "name": "CMYK",
+          "value": 2
+        },
+        {
+          "name": "CMY",
+          "value": 3
+        },
+        {
+          "name": "RGB",
+          "value": 5
+        },
+        {
+          "name": "HSB",
+          "value": 6
+        },
+        {
+          "name": "HLS",
+          "value": 7
+        },
+        {
+          "name": "BlackAndWhite",
+          "value": 8
+        },
+        {
+          "name": "Grayscale",
+          "value": 9
+        },
+        {
+          "name": "YIQ",
+          "value": 10
+        },
+        {
+          "name": "Lab",
+          "value": 11
+        },
+        {
+          "name": "PantoneHex",
+          "value": 12
+        },
+        {
+          "name": "Spot",
+          "value": 13
+        },
+        {
+          "name": "Registration",
+          "value": 14
+        },
+        {
+          "name": "Mixed",
+          "value": 15
+        },
+        {
+          "name": "Custom",
+          "value": 16
+        }
+      ],
+      "aliases": [],
+      "variant_count": 16
+    },
+    {
+      "name": "cdrPaletteID",
+      "module": "enums/color",
+      "variants": [
+        {
+          "name": "Custom",
+          "value": 0
+        },
+        {
+          "name": "TRUMATCH",
+          "value": 1
+        },
+        {
+          "name": "PANTONEProcess",
+          "value": 2
+        },
+        {
+          "name": "PANTONECorel8",
+          "value": 3
+        },
+        {
+          "name": "Uniform",
+          "value": 7
+        },
+        {
+          "name": "FOCOLTONE",
+          "value": 8
+        },
+        {
+          "name": "SpectraMaster",
+          "value": 9
+        },
+        {
+          "name": "TOYO",
+          "value": 10
+        },
+        {
+          "name": "DIC",
+          "value": 11
+        },
+        {
+          "name": "Lab",
+          "value": 13
+        },
+        {
+          "name": "HKS",
+          "value": 23
+        },
+        {
+          "name": "WebSafe",
+          "value": 25
+        },
+        {
+          "name": "PANTONEMetallic",
+          "value": 30
+        },
+        {
+          "name": "PANTONEPastelCoated",
+          "value": 31
+        },
+        {
+          "name": "PANTONEPastelUncoated",
+          "value": 32
+        },
+        {
+          "name": "PANTONEHexCoated",
+          "value": 33
+        },
+        {
+          "name": "PANTONEHexUncoated",
+          "value": 34
+        },
+        {
+          "name": "PANTONEMatte",
+          "value": 35
+        },
+        {
+          "name": "PANTONECoated",
+          "value": 36
+        },
+        {
+          "name": "PANTONEUncoated",
+          "value": 37
+        },
+        {
+          "name": "PANTONEProcessCoatedEURO",
+          "value": 38
+        },
+        {
+          "name": "PANTONESolid2ProcessEURO",
+          "value": 39
+        },
+        {
+          "name": "SVGPalette",
+          "value": 40
+        },
+        {
+          "name": "UserInks",
+          "value": 16
+        }
+      ],
+      "aliases": [],
+      "variant_count": 24
+    },
+    {
+      "name": "clrRenderingIntent",
+      "module": "enums/color",
+      "variants": [
+        {
+          "name": "Perceptual",
+          "value": 0
+        },
+        {
+          "name": "RelativeColorimetric",
+          "value": 1
+        },
+        {
+          "name": "Saturation",
+          "value": 2
+        },
+        {
+          "name": "AbsoluteColorimetric",
+          "value": 3
+        }
+      ],
+      "aliases": [],
+      "variant_count": 4
+    },
+    {
+      "name": "clrColorModel",
+      "module": "enums/color",
+      "variants": [
+        {
+          "name": "ColorModelRGB",
+          "value": 0
+        },
+        {
+          "name": "ColorModelCMYK",
+          "value": 1
+        },
+        {
+          "name": "ColorModelGrayscale",
+          "value": 2
+        },
+        {
+          "name": "ColorModelLab",
+          "value": 3
+        },
+        {
+          "name": "ColorModelHexachrome",
+          "value": 4
+        }
+      ],
+      "aliases": [],
+      "variant_count": 5
+    },
+    {
+      "name": "clrDeviceType",
+      "module": "enums/color",
+      "variants": [
+        {
+          "name": "Monitor",
+          "value": 0
+        },
+        {
+          "name": "CompositePrinter",
+          "value": 1
+        },
+        {
+          "name": "SeparationPrinter",
+          "value": 2
+        },
+        {
+          "name": "Scanner",
+          "value": 3
+        },
+        {
+          "name": "InternalRGB",
+          "value": 4
+        },
+        {
+          "name": "DeviceAll",
+          "value": -1
+        }
+      ],
+      "aliases": [],
+      "variant_count": 6
+    },
+    {
+      "name": "clrColorPolicyAction",
+      "module": "enums/color",
+      "variants": [
+        {
+          "name": "AssignBaselineProfile",
+          "value": 0
+        },
+        {
+          "name": "ConvertToBaselineProfile",
+          "value": 1
+        },
+        {
+          "name": "ConvertToEmbeddedProfile",
+          "value": 2
+        },
+        {
+          "name": "AssignEmbeddedProfile",
+          "value": 3
+        }
+      ],
+      "aliases": [],
+      "variant_count": 4
+    },
+    {
+      "name": "clrImportColorCorrection",
+      "module": "enums/color",
+      "variants": [
+        {
+          "name": "NoImportCorrection",
+          "value": 0
+        },
+        {
+          "name": "ApplyEmbeddedOrDefaultProfile",
+          "value": 1
+        },
+        {
+          "name": "ApplyCustomImportProfile",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 3
+    },
+    {
+      "name": "clrExportColorCorrection",
+      "module": "enums/color",
+      "variants": [
+        {
+          "name": "NoExportCorrection",
+          "value": 0
+        },
+        {
+          "name": "EmbedInternalRGBProfile",
+          "value": 1
+        },
+        {
+          "name": "EmbedCustomExportProfile",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 3
+    },
+    {
+      "name": "cdrDuotoneType",
+      "module": "enums/color",
+      "variants": [
+        {
+          "name": "Monotone",
+          "value": 0
+        },
+        {
+          "name": "Duotone",
+          "value": 1
+        },
+        {
+          "name": "Tritone",
+          "value": 2
+        },
+        {
+          "name": "Quadtone",
+          "value": 3
+        }
+      ],
+      "aliases": [],
+      "variant_count": 4
+    },
+    {
+      "name": "cdrPaletteType",
+      "module": "enums/color",
+      "variants": [
+        {
+          "name": "FixedPalette",
+          "value": 0
+        },
+        {
+          "name": "CustomPalette",
+          "value": 1
+        },
+        {
+          "name": "DocumentPalette",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 3
+    },
+    {
+      "name": "cdrPaletteVersion",
+      "module": "enums/color",
+      "variants": [
+        {
+          "name": "PaletteVersion9",
+          "value": 0
+        },
+        {
+          "name": "PaletteVersion12",
+          "value": 1
+        }
+      ],
+      "aliases": [],
+      "variant_count": 2
+    },
+    {
+      "name": "cdrNodeType",
+      "module": "enums/curve",
+      "variants": [
+        {
+          "name": "Cusp",
+          "value": 0
+        },
+        {
+          "name": "Smooth",
+          "value": 1
+        },
+        {
+          "name": "Symmetrical",
+          "value": 2
+        },
+        {
+          "name": "Mixed",
+          "value": 3
+        }
+      ],
+      "aliases": [],
+      "variant_count": 4
+    },
+    {
+      "name": "cdrSegmentType",
+      "module": "enums/curve",
+      "variants": [
+        {
+          "name": "LineSegment",
+          "value": 0
+        },
+        {
+          "name": "CurveSegment",
+          "value": 1
+        },
+        {
+          "name": "MixedSegments",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 3
+    },
+    {
+      "name": "cdrSegmentOffsetType",
+      "module": "enums/curve",
+      "variants": [
+        {
+          "name": "Absolute",
+          "value": 0
+        },
+        {
+          "name": "Relative",
+          "value": 1
+        }
+      ],
+      "aliases": [],
+      "variant_count": 2
+    },
+    {
+      "name": "cdrWeldMethod",
+      "module": "enums/curve",
+      "variants": [
+        {
+          "name": "WeldMethodUnion",
+          "value": 0
+        },
+        {
+          "name": "WeldMethodIntersect",
+          "value": 1
+        },
+        {
+          "name": "WeldMethodSubtract",
+          "value": 2
+        },
+        {
+          "name": "WeldMethodXor",
+          "value": 3
+        }
+      ],
+      "aliases": [],
+      "variant_count": 4
+    },
+    {
+      "name": "cdrEffectType",
+      "module": "enums/effect",
+      "variants": [
+        {
+          "name": "Blend",
+          "value": 0
+        },
+        {
+          "name": "Extrude",
+          "value": 1
+        },
+        {
+          "name": "Envelope",
+          "value": 2
+        },
+        {
+          "name": "TextOnPath",
+          "value": 3
+        },
+        {
+          "name": "ControlPath",
+          "value": 4
+        },
+        {
+          "name": "DropShadow",
+          "value": 5
+        },
+        {
+          "name": "Contour",
+          "value": 6
+        },
+        {
+          "name": "Distortion",
+          "value": 7
+        },
+        {
+          "name": "Perspective",
+          "value": 8
+        },
+        {
+          "name": "CustomEffect",
+          "value": 10
+        },
+        {
+          "name": "Lens",
+          "value": 11
+        }
+      ],
+      "aliases": [],
+      "variant_count": 11
+    },
+    {
+      "name": "cdrDropShadowType",
+      "module": "enums/effect",
+      "variants": [
+        {
+          "name": "DropShadowFlat",
+          "value": 0
+        },
+        {
+          "name": "DropShadowBottom",
+          "value": 1
+        },
+        {
+          "name": "DropShadowTop",
+          "value": 2
+        },
+        {
+          "name": "DropShadowLeft",
+          "value": 3
+        },
+        {
+          "name": "DropShadowRight",
+          "value": 4
+        }
+      ],
+      "aliases": [],
+      "variant_count": 5
+    },
+    {
+      "name": "cdrDistortionType",
+      "module": "enums/effect",
+      "variants": [
+        {
+          "name": "PushPull",
+          "value": 0
+        },
+        {
+          "name": "Zipper",
+          "value": 1
+        },
+        {
+          "name": "Twister",
+          "value": 2
+        },
+        {
+          "name": "Custom",
+          "value": 3
+        }
+      ],
+      "aliases": [],
+      "variant_count": 4
+    },
+    {
+      "name": "cdrEnvelopeMode",
+      "module": "enums/effect",
+      "variants": [
+        {
+          "name": "EnvelopeHorizontal",
+          "value": 0
+        },
+        {
+          "name": "EnvelopeOriginal",
+          "value": 1
+        },
+        {
+          "name": "EnvelopePutty",
+          "value": 2
+        },
+        {
+          "name": "EnvelopeVertical",
+          "value": 3
+        }
+      ],
+      "aliases": [],
+      "variant_count": 4
+    },
+    {
+      "name": "cdrExtrudeType",
+      "module": "enums/effect",
+      "variants": [
+        {
+          "name": "ExtrudeSmallBack",
+          "value": 0
+        },
+        {
+          "name": "ExtrudeSmallFront",
+          "value": 1
+        },
+        {
+          "name": "ExtrudeBigBack",
+          "value": 2
+        },
+        {
+          "name": "ExtrudeBigFront",
+          "value": 3
+        },
+        {
+          "name": "ExtrudeBackParallel",
+          "value": 4
+        },
+        {
+          "name": "ExtrudeFrontParallel",
+          "value": 5
+        }
+      ],
+      "aliases": [],
+      "variant_count": 6
+    },
+    {
+      "name": "cdrExtrudeShading",
+      "module": "enums/effect",
+      "variants": [
+        {
+          "name": "ExtrudeObjectFill",
+          "value": 0
+        },
+        {
+          "name": "ExtrudeSolidFill",
+          "value": 1
+        },
+        {
+          "name": "ExtrudeColorShading",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 3
+    },
+    {
+      "name": "cdrExtrudeLightPosition",
+      "module": "enums/effect",
+      "variants": [
+        {
+          "name": "TopLeft",
+          "value": 0
+        },
+        {
+          "name": "TopRight",
+          "value": 1
+        },
+        {
+          "name": "BottomLeft",
+          "value": 2
+        },
+        {
+          "name": "BottomRight",
+          "value": 3
+        },
+        {
+          "name": "Top",
+          "value": 4
+        },
+        {
+          "name": "Bottom",
+          "value": 5
+        },
+        {
+          "name": "Left",
+          "value": 6
+        },
+        {
+          "name": "Right",
+          "value": 7
+        },
+        {
+          "name": "Front",
+          "value": 8
+        }
+      ],
+      "aliases": [],
+      "variant_count": 9
+    },
+    {
+      "name": "cdrExtrudeVPType",
+      "module": "enums/effect",
+      "variants": [
+        {
+          "name": "VPLockedToShape",
+          "value": 0
+        },
+        {
+          "name": "VPLockedToPage",
+          "value": 1
+        },
+        {
+          "name": "VPShared",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 3
+    },
+    {
+      "name": "cdrLensType",
+      "module": "enums/effect",
+      "variants": [
+        {
+          "name": "LensMagnify",
+          "value": 0
+        },
+        {
+          "name": "LensFishEye",
+          "value": 1
+        },
+        {
+          "name": "LensWireframe",
+          "value": 2
+        },
+        {
+          "name": "LensColorLimit",
+          "value": 3
+        },
+        {
+          "name": "LensColorAdd",
+          "value": 4
+        },
+        {
+          "name": "LensInvert",
+          "value": 5
+        },
+        {
+          "name": "LensBrighten",
+          "value": 6
+        },
+        {
+          "name": "LensTintedGrayscale",
+          "value": 7
+        },
+        {
+          "name": "LensHeatMap",
+          "value": 8
+        },
+        {
+          "name": "LensTransparency",
+          "value": 9
+        },
+        {
+          "name": "LensCustomColorMap",
+          "value": 10
+        }
+      ],
+      "aliases": [],
+      "variant_count": 11
+    },
+    {
+      "name": "cdrContourDirection",
+      "module": "enums/effect",
+      "variants": [
+        {
+          "name": "ToCenter",
+          "value": 0
+        },
+        {
+          "name": "Outside",
+          "value": 1
+        },
+        {
+          "name": "Inside",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 3
+    },
+    {
+      "name": "cdrContourEndCapType",
+      "module": "enums/effect",
+      "variants": [
+        {
+          "name": "ContourButtCap",
+          "value": 0
+        },
+        {
+          "name": "ContourRoundCap",
+          "value": 1
+        },
+        {
+          "name": "ContourSquareCap",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 3
+    },
+    {
+      "name": "cdrContourCornerType",
+      "module": "enums/effect",
+      "variants": [
+        {
+          "name": "ContourCornerBevel",
+          "value": 0
+        },
+        {
+          "name": "ContourCornerOffsetBevel",
+          "value": 1
+        },
+        {
+          "name": "ContourCornerRound",
+          "value": 2
+        },
+        {
+          "name": "ContourCornerMiteredBevel",
+          "value": 3
+        },
+        {
+          "name": "ContourCornerMiteredOffsetBevel",
+          "value": 4
+        },
+        {
+          "name": "ContourCornerMiteredRound",
+          "value": 5
+        }
+      ],
+      "aliases": [],
+      "variant_count": 6
+    },
+    {
+      "name": "cdrBlendMode",
+      "module": "enums/effect",
+      "variants": [
+        {
+          "name": "BlendSteps",
+          "value": 0
+        },
+        {
+          "name": "BlendSpacing",
+          "value": 1
+        }
+      ],
+      "aliases": [],
+      "variant_count": 2
+    },
+    {
+      "name": "cdrFeatherType",
+      "module": "enums/effect",
+      "variants": [
+        {
+          "name": "FeatherInside",
+          "value": 0
+        },
+        {
+          "name": "FeatherMiddle",
+          "value": 1
+        },
+        {
+          "name": "FeatherOutside",
+          "value": 2
+        },
+        {
+          "name": "FeatherAverage",
+          "value": 3
+        },
+        {
+          "name": "FeatherGaussianBlur",
+          "value": 4
+        }
+      ],
+      "aliases": [],
+      "variant_count": 5
+    },
+    {
+      "name": "cdrEdgeType",
+      "module": "enums/effect",
+      "variants": [
+        {
+          "name": "EdgeLinear",
+          "value": 0
+        },
+        {
+          "name": "EdgeSquared",
+          "value": 1
+        },
+        {
+          "name": "EdgeFlat",
+          "value": 2
+        },
+        {
+          "name": "EdgeInverseSquared",
+          "value": 3
+        },
+        {
+          "name": "EdgeMesa",
+          "value": 4
+        },
+        {
+          "name": "EdgeGaussian",
+          "value": 5
+        }
+      ],
+      "aliases": [],
+      "variant_count": 6
+    },
+    {
+      "name": "cdrMergeMode",
+      "module": "enums/effect",
+      "variants": [
+        {
+          "name": "MergeNormal",
+          "value": 0
+        },
+        {
+          "name": "MergeAND",
+          "value": 1
+        },
+        {
+          "name": "MergeOR",
+          "value": 2
+        },
+        {
+          "name": "MergeXOR",
+          "value": 3
+        },
+        {
+          "name": "MergeInvert",
+          "value": 6
+        },
+        {
+          "name": "MergeAdd",
+          "value": 7
+        },
+        {
+          "name": "MergeSubtract",
+          "value": 8
+        },
+        {
+          "name": "MergeMultiply",
+          "value": 9
+        },
+        {
+          "name": "MergeDivide",
+          "value": 10
+        },
+        {
+          "name": "MergeIfLighter",
+          "value": 11
+        },
+        {
+          "name": "MergeIfDarker",
+          "value": 12
+        },
+        {
+          "name": "MergeTexturize",
+          "value": 13
+        },
+        {
+          "name": "MergeColor",
+          "value": 14
+        },
+        {
+          "name": "MergeHue",
+          "value": 15
+        },
+        {
+          "name": "MergeSaturation",
+          "value": 16
+        },
+        {
+          "name": "MergeLightness",
+          "value": 17
+        },
+        {
+          "name": "MergeRed",
+          "value": 18
+        },
+        {
+          "name": "MergeGreen",
+          "value": 19
+        },
+        {
+          "name": "MergeBlue",
+          "value": 20
+        },
+        {
+          "name": "MergeDifference",
+          "value": 24
+        },
+        {
+          "name": "MergeBehind",
+          "value": 27
+        },
+        {
+          "name": "MergeScreen",
+          "value": 28
+        },
+        {
+          "name": "MergeOverlay",
+          "value": 29
+        },
+        {
+          "name": "MergeSoftlight",
+          "value": 30
+        },
+        {
+          "name": "MergeHardlight",
+          "value": 31
+        },
+        {
+          "name": "MergeDodge",
+          "value": 33
+        },
+        {
+          "name": "MergeBurn",
+          "value": 34
+        },
+        {
+          "name": "MergeExclusion",
+          "value": 36
+        }
+      ],
+      "aliases": [],
+      "variant_count": 28
+    },
+    {
+      "name": "cdrFittedOrientation",
+      "module": "enums/effect",
+      "variants": [
+        {
+          "name": "RotateOrientation",
+          "value": 0
+        },
+        {
+          "name": "VerticalSkewOrientation",
+          "value": 1
+        },
+        {
+          "name": "HorizontalSkewOrientation",
+          "value": 2
+        },
+        {
+          "name": "UprightOrientation",
+          "value": 3
+        },
+        {
+          "name": "TransformOrientation",
+          "value": 4
+        }
+      ],
+      "aliases": [],
+      "variant_count": 5
+    },
+    {
+      "name": "cdrFittedPlacement",
+      "module": "enums/effect",
+      "variants": [
+        {
+          "name": "LeftPlacement",
+          "value": 0
+        },
+        {
+          "name": "RightPlacement",
+          "value": 1
+        },
+        {
+          "name": "CenterPlacement",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 3
+    },
+    {
+      "name": "cdrFittedQuadrant",
+      "module": "enums/effect",
+      "variants": [
+        {
+          "name": "LeftQuadrant",
+          "value": 0
+        },
+        {
+          "name": "RightQuadrant",
+          "value": 1
+        },
+        {
+          "name": "TopQuadrant",
+          "value": 2
+        },
+        {
+          "name": "BottomQuadrant",
+          "value": 3
+        }
+      ],
+      "aliases": [],
+      "variant_count": 4
+    },
+    {
+      "name": "cdrFittedVertPlacement",
+      "module": "enums/effect",
+      "variants": [
+        {
+          "name": "CustomVertPlacement",
+          "value": 0
+        },
+        {
+          "name": "BaselineVertPlacement",
+          "value": 1
+        },
+        {
+          "name": "AscenderVertPlacement",
+          "value": 2
+        },
+        {
+          "name": "DescenderVertPlacement",
+          "value": 3
+        },
+        {
+          "name": "CenterVertPlacement",
+          "value": 4
+        }
+      ],
+      "aliases": [],
+      "variant_count": 5
+    },
+    {
+      "name": "cdrFillType",
+      "module": "enums/fill",
+      "variants": [
+        {
+          "name": "NoFill",
+          "value": 0
+        },
+        {
+          "name": "UniformFill",
+          "value": 1
+        },
+        {
+          "name": "FountainFill",
+          "value": 2
+        },
+        {
+          "name": "PostscriptFill",
+          "value": 3
+        },
+        {
+          "name": "TextureFill",
+          "value": 8
+        },
+        {
+          "name": "PatternFill",
+          "value": 9
+        },
+        {
+          "name": "HatchFill",
+          "value": 10
+        }
+      ],
+      "aliases": [],
+      "variant_count": 7
+    },
+    {
+      "name": "cdrFountainFillType",
+      "module": "enums/fill",
+      "variants": [
+        {
+          "name": "LinearFountainFill",
+          "value": 1
+        },
+        {
+          "name": "RadialFountainFill",
+          "value": 2
+        },
+        {
+          "name": "ConicalFountainFill",
+          "value": 3
+        },
+        {
+          "name": "SquareFountainFill",
+          "value": 4
+        }
+      ],
+      "aliases": [],
+      "variant_count": 4
+    },
+    {
+      "name": "cdrFountainFillBlendType",
+      "module": "enums/fill",
+      "variants": [
+        {
+          "name": "DirectFountainFillBlend",
+          "value": 0
+        },
+        {
+          "name": "RainbowCWFountainFillBlend",
+          "value": 1
+        },
+        {
+          "name": "RainbowCCWFountainFillBlend",
+          "value": 2
+        },
+        {
+          "name": "CustomFountainFillBlend",
+          "value": 3
+        }
+      ],
+      "aliases": [],
+      "variant_count": 4
+    },
+    {
+      "name": "cdrFountainFillSpreadMethod",
+      "module": "enums/fill",
+      "variants": [
+        {
+          "name": "Pad",
+          "value": 0
+        },
+        {
+          "name": "Reflect",
+          "value": 1
+        },
+        {
+          "name": "Repeat",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 3
+    },
+    {
+      "name": "cdrPatternFillType",
+      "module": "enums/fill",
+      "variants": [
+        {
+          "name": "TwoColorPattern",
+          "value": 0
+        },
+        {
+          "name": "FullColorPattern",
+          "value": 1
+        },
+        {
+          "name": "BitmapPattern",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 3
+    },
+    {
+      "name": "cdrHatchFillType",
+      "module": "enums/fill",
+      "variants": [
+        {
+          "name": "Custom",
+          "value": 0
+        }
+      ],
+      "aliases": [],
+      "variant_count": 1
+    },
+    {
+      "name": "cdrFillMode",
+      "module": "enums/fill",
+      "variants": [
+        {
+          "name": "Alternate",
+          "value": 0
+        },
+        {
+          "name": "Winding",
+          "value": 1
+        }
+      ],
+      "aliases": [],
+      "variant_count": 2
+    },
+    {
+      "name": "cdrTileOffsetType",
+      "module": "enums/fill",
+      "variants": [
+        {
+          "name": "TileOffsetRow",
+          "value": 0
+        },
+        {
+          "name": "TileOffsetColumn",
+          "value": 1
+        }
+      ],
+      "aliases": [],
+      "variant_count": 2
+    },
+    {
+      "name": "cdrTexturePropertyType",
+      "module": "enums/fill",
+      "variants": [
+        {
+          "name": "TexturePropertyNumeric",
+          "value": 0
+        },
+        {
+          "name": "TexturePropertyColorRGB",
+          "value": 1
+        },
+        {
+          "name": "TexturePropertyColorHSB",
+          "value": 2
+        },
+        {
+          "name": "TexturePropertyColorCMYK",
+          "value": 3
+        }
+      ],
+      "aliases": [],
+      "variant_count": 4
+    },
+    {
+      "name": "cdrFilter",
+      "module": "enums/filter",
+      "variants": [
+        {
+          "name": "AutoSense",
+          "value": 0
+        },
+        {
+          "name": "V_3DMF",
+          "value": 1559
+        },
+        {
+          "name": "AI",
+          "value": 1305
+        },
+        {
+          "name": "AI9",
+          "value": 1333
+        },
+        {
+          "name": "AT1",
+          "value": 1303
+        },
+        {
+          "name": "AVI",
+          "value": 1536
+        },
+        {
+          "name": "BMP",
+          "value": 769
+        },
+        {
+          "name": "CAL",
+          "value": 800
+        },
+        {
+          "name": "CDR",
+          "value": 1795
+        },
+        {
+          "name": "CDT",
+          "value": 1800
+        },
+        {
+          "name": "CDX",
+          "value": 1796
+        },
+        {
+          "name": "CGM",
+          "value": 1280
+        },
+        {
+          "name": "CLK",
+          "value": 1802
+        },
+        {
+          "name": "CMX5",
+          "value": 1794
+        },
+        {
+          "name": "CMX6",
+          "value": 1793
+        },
+        {
+          "name": "CPT",
+          "value": 1808
+        },
+        {
+          "name": "CPT8",
+          "value": 1799
+        },
+        {
+          "name": "CPX",
+          "value": 1797
+        },
+        {
+          "name": "CUR",
+          "value": 785
+        },
+        {
+          "name": "DCS",
+          "value": 801
+        },
+        {
+          "name": "DOC",
+          "value": 2068
+        },
+        {
+          "name": "DRW",
+          "value": 1339
+        },
+        {
+          "name": "DWG",
+          "value": 1328
+        },
+        {
+          "name": "DXF",
+          "value": 1296
+        },
+        {
+          "name": "EMF",
+          "value": 1300
+        },
+        {
+          "name": "EPS",
+          "value": 1289
+        },
+        {
+          "name": "EPSPhotoPaint",
+          "value": 804
+        },
+        {
+          "name": "EXE",
+          "value": 786
+        },
+        {
+          "name": "FH",
+          "value": 1344
+        },
+        {
+          "name": "FMV",
+          "value": 1329
+        },
+        {
+          "name": "FPX",
+          "value": 806
+        },
+        {
+          "name": "GEM",
+          "value": 1284
+        },
+        {
+          "name": "GIF",
+          "value": 773
+        },
+        {
+          "name": "GIFAnimation",
+          "value": 1558
+        },
+        {
+          "name": "HPGL",
+          "value": 1281
+        },
+        {
+          "name": "HTML",
+          "value": 1557
+        },
+        {
+          "name": "ICO",
+          "value": 784
+        },
+        {
+          "name": "IMG",
+          "value": 787
+        },
+        {
+          "name": "JP2",
+          "value": 820
+        },
+        {
+          "name": "JPC",
+          "value": 821
+        },
+        {
+          "name": "JPEG",
+          "value": 774
+        },
+        {
+          "name": "JPG2000Import",
+          "value": 818
+        },
+        {
+          "name": "MAC",
+          "value": 791
+        },
+        {
+          "name": "MacWord5",
+          "value": 2052
+        },
+        {
+          "name": "MET",
+          "value": 1291
+        },
+        {
+          "name": "MIF",
+          "value": 2165
+        },
+        {
+          "name": "NAP",
+          "value": 1292
+        },
+        {
+          "name": "OS2BMP",
+          "value": 792
+        },
+        {
+          "name": "PAT",
+          "value": 1801
+        },
+        {
+          "name": "PCD",
+          "value": 775
+        },
+        {
+          "name": "PCX",
+          "value": 770
+        },
+        {
+          "name": "PIC",
+          "value": 1334
+        },
+        {
+          "name": "PICT",
+          "value": 1293
+        },
+        {
+          "name": "PNG",
+          "value": 802
+        },
+        {
+          "name": "PP4",
+          "value": 789
+        },
+        {
+          "name": "PP5",
+          "value": 803
+        },
+        {
+          "name": "PPF",
+          "value": 819
+        },
+        {
+          "name": "PPT",
+          "value": 1548
+        },
+        {
+          "name": "PSD",
+          "value": 788
+        },
+        {
+          "name": "PSInterpreted",
+          "value": 1290
+        },
+        {
+          "name": "QTM",
+          "value": 1542
+        },
+        {
+          "name": "QTVR",
+          "value": 1560
+        },
+        {
+          "name": "QuattroPro",
+          "value": 2067
+        },
+        {
+          "name": "RIFF",
+          "value": 807
+        },
+        {
+          "name": "RTF",
+          "value": 2053
+        },
+        {
+          "name": "SAM",
+          "value": 2063
+        },
+        {
+          "name": "SCT",
+          "value": 776
+        },
+        {
+          "name": "SHW",
+          "value": 1806
+        },
+        {
+          "name": "SVG",
+          "value": 1345
+        },
+        {
+          "name": "SVGZ",
+          "value": 1347
+        },
+        {
+          "name": "SWF",
+          "value": 1343
+        },
+        {
+          "name": "TGA",
+          "value": 771
+        },
+        {
+          "name": "TIFF",
+          "value": 772
+        },
+        {
+          "name": "TTF",
+          "value": 1302
+        },
+        {
+          "name": "TXT",
+          "value": 2048
+        },
+        {
+          "name": "VSD",
+          "value": 1315
+        },
+        {
+          "name": "WI",
+          "value": 793
+        },
+        {
+          "name": "WKS",
+          "value": 2066
+        },
+        {
+          "name": "WMF",
+          "value": 1294
+        },
+        {
+          "name": "Word2",
+          "value": 2050
+        },
+        {
+          "name": "Word55",
+          "value": 2051
+        },
+        {
+          "name": "Word95",
+          "value": 2049
+        },
+        {
+          "name": "WP4",
+          "value": 2058
+        },
+        {
+          "name": "WP50",
+          "value": 2057
+        },
+        {
+          "name": "WP51",
+          "value": 2056
+        },
+        {
+          "name": "WP9",
+          "value": 2055
+        },
+        {
+          "name": "WPG",
+          "value": 1287
+        },
+        {
+          "name": "WPM",
+          "value": 2166
+        },
+        {
+          "name": "WS4",
+          "value": 2164
+        },
+        {
+          "name": "WS6",
+          "value": 2163
+        },
+        {
+          "name": "WS7",
+          "value": 2060
+        },
+        {
+          "name": "WS2000",
+          "value": 2061
+        },
+        {
+          "name": "WSW",
+          "value": 2059
+        },
+        {
+          "name": "XCF",
+          "value": 816
+        },
+        {
+          "name": "XLS",
+          "value": 2064
+        },
+        {
+          "name": "XPM",
+          "value": 809
+        },
+        {
+          "name": "XY",
+          "value": 2062
+        },
+        {
+          "name": "CSL",
+          "value": 1810
+        },
+        {
+          "name": "DES",
+          "value": 1805
+        },
+        {
+          "name": "PSP",
+          "value": 822
+        },
+        {
+          "name": "RAW",
+          "value": 823
+        },
+        {
+          "name": "CGZ",
+          "value": 2315
+        },
+        {
+          "name": "CMX64",
+          "value": 1811
+        },
+        {
+          "name": "PUB",
+          "value": 1349
+        },
+        {
+          "name": "HEIF",
+          "value": 824
+        },
+        {
+          "name": "WEBP",
+          "value": 825
+        }
+      ],
+      "aliases": [
+        {
+          "name": "CPT10",
+          "alias_of": "CPT"
+        },
+        {
+          "name": "CPT11",
+          "alias_of": "CPT"
+        },
+        {
+          "name": "CPT9",
+          "alias_of": "CPT"
+        },
+        {
+          "name": "DSF",
+          "alias_of": "DRW"
+        },
+        {
+          "name": "PDF",
+          "alias_of": "AI9"
+        },
+        {
+          "name": "PLT",
+          "alias_of": "HPGL"
+        },
+        {
+          "name": "PSEncapsulated",
+          "alias_of": "EPS"
+        },
+        {
+          "name": "Word2000",
+          "alias_of": "DOC"
+        },
+        {
+          "name": "WPD",
+          "alias_of": "WP9"
+        },
+        {
+          "name": "WSD",
+          "alias_of": "WS2000"
+        },
+        {
+          "name": "WVL",
+          "alias_of": "WI"
+        }
+      ],
+      "variant_count": 106
+    },
+    {
+      "name": "cdrFileVersion",
+      "module": "enums/filter",
+      "variants": [
+        {
+          "name": "CurrentVersion",
+          "value": 0
+        },
+        {
+          "name": "Version5",
+          "value": 5
+        },
+        {
+          "name": "Version6",
+          "value": 6
+        },
+        {
+          "name": "Version7",
+          "value": 7
+        },
+        {
+          "name": "Version8",
+          "value": 8
+        },
+        {
+          "name": "Version9",
+          "value": 9
+        },
+        {
+          "name": "Version10",
+          "value": 10
+        },
+        {
+          "name": "Version11",
+          "value": 11
+        },
+        {
+          "name": "Version12",
+          "value": 12
+        },
+        {
+          "name": "Version13",
+          "value": 13
+        },
+        {
+          "name": "Version1",
+          "value": 1
+        },
+        {
+          "name": "Version2",
+          "value": 2
+        },
+        {
+          "name": "Version3",
+          "value": 3
+        },
+        {
+          "name": "Version4",
+          "value": 4
+        },
+        {
+          "name": "Version105",
+          "value": 105
+        },
+        {
+          "name": "Version14",
+          "value": 14
+        },
+        {
+          "name": "Version15",
+          "value": 15
+        },
+        {
+          "name": "Version16",
+          "value": 16
+        },
+        {
+          "name": "Version17",
+          "value": 17
+        },
+        {
+          "name": "Version18",
+          "value": 18
+        },
+        {
+          "name": "Version19",
+          "value": 19
+        },
+        {
+          "name": "Version20",
+          "value": 20
+        },
+        {
+          "name": "Version21",
+          "value": 21
+        },
+        {
+          "name": "Version22",
+          "value": 22
+        },
+        {
+          "name": "Version23",
+          "value": 23
+        },
+        {
+          "name": "Version24",
+          "value": 24
+        },
+        {
+          "name": "Version25",
+          "value": 25
+        },
+        {
+          "name": "Version26",
+          "value": 26
+        }
+      ],
+      "aliases": [],
+      "variant_count": 28
+    },
+    {
+      "name": "cdrExportRange",
+      "module": "enums/filter",
+      "variants": [
+        {
+          "name": "AllPages",
+          "value": 0
+        },
+        {
+          "name": "CurrentPage",
+          "value": 1
+        },
+        {
+          "name": "Selection",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 3
+    },
+    {
+      "name": "cdrThumbnailSize",
+      "module": "enums/filter",
+      "variants": [
+        {
+          "name": "NoThumbnail",
+          "value": 0
+        },
+        {
+          "name": "V_1KMonoThumbnail",
+          "value": 1
+        },
+        {
+          "name": "V_5KColorThumbnail",
+          "value": 2
+        },
+        {
+          "name": "V_10KColorThumbnail",
+          "value": 3
+        }
+      ],
+      "aliases": [],
+      "variant_count": 4
+    },
+    {
+      "name": "cdrCompressionType",
+      "module": "enums/filter",
+      "variants": [
+        {
+          "name": "CompressionNone",
+          "value": 0
+        },
+        {
+          "name": "CompressionLZW",
+          "value": 1
+        },
+        {
+          "name": "CompressionPackBits",
+          "value": 2
+        },
+        {
+          "name": "CompressionHuffman",
+          "value": 3
+        },
+        {
+          "name": "CompressionCCITT3_1d",
+          "value": 4
+        },
+        {
+          "name": "CompressionCCITT3_2d",
+          "value": 5
+        },
+        {
+          "name": "CompressionCCITT4",
+          "value": 6
+        },
+        {
+          "name": "CompressionRLE_LW",
+          "value": 7
+        },
+        {
+          "name": "CompressionJPEG",
+          "value": 8
+        }
+      ],
+      "aliases": [
+        {
+          "name": "CompressionZIP",
+          "alias_of": "CompressionRLE_LW"
+        }
+      ],
+      "variant_count": 9
+    },
+    {
+      "name": "cdrDataFormatType",
+      "module": "enums/filter",
+      "variants": [
+        {
+          "name": "FormatGeneral",
+          "value": 0
+        },
+        {
+          "name": "FormatDateTime",
+          "value": 1
+        },
+        {
+          "name": "FormatLinearAngular",
+          "value": 2
+        },
+        {
+          "name": "FormatNumeric",
+          "value": 3
+        }
+      ],
+      "aliases": [],
+      "variant_count": 4
+    },
+    {
+      "name": "cdrDataType",
+      "module": "enums/filter",
+      "variants": [
+        {
+          "name": "DataTypeString",
+          "value": 0
+        },
+        {
+          "name": "DataTypeNumber",
+          "value": 1
+        },
+        {
+          "name": "DataTypeEvent",
+          "value": 2
+        },
+        {
+          "name": "DataTypeAction",
+          "value": 3
+        }
+      ],
+      "aliases": [],
+      "variant_count": 4
+    },
+    {
+      "name": "cdrImageType",
+      "module": "enums/image",
+      "variants": [
+        {
+          "name": "BlackAndWhite",
+          "value": 0
+        },
+        {
+          "name": "Colors16",
+          "value": 1
+        },
+        {
+          "name": "Grayscale",
+          "value": 2
+        },
+        {
+          "name": "Paletted",
+          "value": 3
+        },
+        {
+          "name": "RGBColor",
+          "value": 4
+        },
+        {
+          "name": "CMYKColor",
+          "value": 5
+        },
+        {
+          "name": "Duotone",
+          "value": 6
+        }
+      ],
+      "aliases": [],
+      "variant_count": 7
+    },
+    {
+      "name": "cdrAntiAliasingType",
+      "module": "enums/image",
+      "variants": [
+        {
+          "name": "NoAntiAliasing",
+          "value": 0
+        },
+        {
+          "name": "NormalAntiAliasing",
+          "value": 1
+        },
+        {
+          "name": "Supersampling",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 3
+    },
+    {
+      "name": "cdrRenderType",
+      "module": "enums/image",
+      "variants": [
+        {
+          "name": "RenderLineArt",
+          "value": 0
+        },
+        {
+          "name": "RenderOrdered",
+          "value": 1
+        },
+        {
+          "name": "RenderJarvis",
+          "value": 2
+        },
+        {
+          "name": "RenderStucki",
+          "value": 3
+        },
+        {
+          "name": "RenderFloyd",
+          "value": 4
+        },
+        {
+          "name": "RenderHalftone",
+          "value": 5
+        },
+        {
+          "name": "RenderCardinality",
+          "value": 6
+        }
+      ],
+      "aliases": [],
+      "variant_count": 7
+    },
+    {
+      "name": "cdrHalftoneType",
+      "module": "enums/image",
+      "variants": [
+        {
+          "name": "HalftoneSquare",
+          "value": 0
+        },
+        {
+          "name": "HalftoneRound",
+          "value": 1
+        },
+        {
+          "name": "HalftoneLine",
+          "value": 2
+        },
+        {
+          "name": "HalftoneCross",
+          "value": 3
+        },
+        {
+          "name": "HalftoneFixed4x4",
+          "value": 4
+        },
+        {
+          "name": "HalftoneFixed8x8",
+          "value": 5
+        }
+      ],
+      "aliases": [],
+      "variant_count": 6
+    },
+    {
+      "name": "cdrDitherType",
+      "module": "enums/image",
+      "variants": [
+        {
+          "name": "DitherNone",
+          "value": 0
+        },
+        {
+          "name": "DitherOrdered",
+          "value": 1
+        },
+        {
+          "name": "DitherJarvis",
+          "value": 2
+        },
+        {
+          "name": "DitherStucki",
+          "value": 3
+        },
+        {
+          "name": "DitherFloyd",
+          "value": 4
+        }
+      ],
+      "aliases": [],
+      "variant_count": 5
+    },
+    {
+      "name": "cdrImagePaletteType",
+      "module": "enums/image",
+      "variants": [
+        {
+          "name": "PaletteUniform",
+          "value": 0
+        },
+        {
+          "name": "PaletteStdVGA",
+          "value": 1
+        },
+        {
+          "name": "PaletteAdaptive",
+          "value": 2
+        },
+        {
+          "name": "PaletteOptimized",
+          "value": 3
+        },
+        {
+          "name": "PaletteBlackBody",
+          "value": 4
+        },
+        {
+          "name": "PaletteGrayscale",
+          "value": 5
+        },
+        {
+          "name": "PaletteSystem",
+          "value": 6
+        },
+        {
+          "name": "PaletteIE",
+          "value": 7
+        },
+        {
+          "name": "PaletteNetscape",
+          "value": 8
+        },
+        {
+          "name": "PaletteCustom",
+          "value": 9
+        }
+      ],
+      "aliases": [],
+      "variant_count": 10
+    },
+    {
+      "name": "cdrTraceType",
+      "module": "enums/image",
+      "variants": [
+        {
+          "name": "TraceLineArt",
+          "value": 1
+        },
+        {
+          "name": "TraceLogo",
+          "value": 2
+        },
+        {
+          "name": "TraceDetailedLogo",
+          "value": 3
+        },
+        {
+          "name": "TraceClipart",
+          "value": 4
+        },
+        {
+          "name": "TraceLowQualityImage",
+          "value": 5
+        },
+        {
+          "name": "TraceHighQualityImage",
+          "value": 6
+        },
+        {
+          "name": "TraceTechnical",
+          "value": 7
+        },
+        {
+          "name": "TraceLineDrawing",
+          "value": 8
+        }
+      ],
+      "aliases": [],
+      "variant_count": 8
+    },
+    {
+      "name": "cdrTraceBackgroundMode",
+      "module": "enums/image",
+      "variants": [
+        {
+          "name": "TraceBackgroundAutomatic",
+          "value": 1
+        },
+        {
+          "name": "TraceBackgroundManual",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 2
+    },
+    {
+      "name": "cdrLayerVisibility",
+      "module": "enums/layer",
+      "variants": [
+        {
+          "name": "Visible",
+          "value": 0
+        },
+        {
+          "name": "Hidden",
+          "value": 1
+        }
+      ],
+      "aliases": [],
+      "variant_count": 2
+    },
+    {
+      "name": "cdrLayerType",
+      "module": "enums/layer",
+      "variants": [
+        {
+          "name": "Normal",
+          "value": 0
+        },
+        {
+          "name": "Guides",
+          "value": 1
+        },
+        {
+          "name": "Desktop",
+          "value": 2
+        },
+        {
+          "name": "Grid",
+          "value": 3
+        },
+        {
+          "name": "Master",
+          "value": 4
+        }
+      ],
+      "aliases": [],
+      "variant_count": 5
+    },
+    {
+      "name": "cdrOutlineLineCaps",
+      "module": "enums/outline",
+      "variants": [
+        {
+          "name": "UndefinedLineCaps",
+          "value": -1
+        },
+        {
+          "name": "Flat",
+          "value": 0
+        },
+        {
+          "name": "Round",
+          "value": 1
+        },
+        {
+          "name": "Square",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 4
+    },
+    {
+      "name": "cdrOutlineLineJoin",
+      "module": "enums/outline",
+      "variants": [
+        {
+          "name": "UndefinedLineJoin",
+          "value": -1
+        },
+        {
+          "name": "Miter",
+          "value": 0
+        },
+        {
+          "name": "Round",
+          "value": 1
+        },
+        {
+          "name": "Bevel",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 4
+    },
+    {
+      "name": "cdrOutlineJustification",
+      "module": "enums/outline",
+      "variants": [
+        {
+          "name": "Middle",
+          "value": 0
+        },
+        {
+          "name": "Inside",
+          "value": 1
+        },
+        {
+          "name": "Outside",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 3
+    },
+    {
+      "name": "cdrOutlineDashAdjust",
+      "module": "enums/outline",
+      "variants": [
+        {
+          "name": "OutlineDashAdjustUndefined",
+          "value": -1
+        },
+        {
+          "name": "OutlineDashAdjustNone",
+          "value": 0
+        },
+        {
+          "name": "OutlineDashAdjustFullLineScale",
+          "value": 1
+        },
+        {
+          "name": "OutlineDashAdjustEvenCorner",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 4
+    },
+    {
+      "name": "cdrArrowHeadType",
+      "module": "enums/outline",
+      "variants": [
+        {
+          "name": "None",
+          "value": 0
+        }
+      ],
+      "aliases": [],
+      "variant_count": 1
+    },
+    {
+      "name": "cdrPageOrientation",
+      "module": "enums/page",
+      "variants": [
+        {
+          "name": "Portrait",
+          "value": 0
+        },
+        {
+          "name": "Landscape",
+          "value": 1
+        }
+      ],
+      "aliases": [],
+      "variant_count": 2
+    },
+    {
+      "name": "cdrPageBackground",
+      "module": "enums/page",
+      "variants": [
+        {
+          "name": "PageBackgroundNone",
+          "value": 0
+        },
+        {
+          "name": "PageBackgroundSolid",
+          "value": 1
+        },
+        {
+          "name": "PageBackgroundBitmap",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 3
+    },
+    {
+      "name": "cdrUnit",
+      "module": "enums/page",
+      "variants": [
+        {
+          "name": "TenthMicron",
+          "value": 0
+        },
+        {
+          "name": "Inch",
+          "value": 1
+        },
+        {
+          "name": "Foot",
+          "value": 2
+        },
+        {
+          "name": "Millimeter",
+          "value": 3
+        },
+        {
+          "name": "Centimeter",
+          "value": 4
+        },
+        {
+          "name": "Pixel",
+          "value": 5
+        },
+        {
+          "name": "Mile",
+          "value": 6
+        },
+        {
+          "name": "Meter",
+          "value": 7
+        },
+        {
+          "name": "Kilometer",
+          "value": 8
+        },
+        {
+          "name": "Didots",
+          "value": 9
+        },
+        {
+          "name": "Agate",
+          "value": 10
+        },
+        {
+          "name": "Yard",
+          "value": 11
+        },
+        {
+          "name": "Pica",
+          "value": 12
+        },
+        {
+          "name": "Cicero",
+          "value": 13
+        },
+        {
+          "name": "Point",
+          "value": 14
+        },
+        {
+          "name": "UnitQ",
+          "value": 15
+        },
+        {
+          "name": "UnitH",
+          "value": 16
+        }
+      ],
+      "aliases": [],
+      "variant_count": 17
+    },
+    {
+      "name": "cdrGuideType",
+      "module": "enums/page",
+      "variants": [
+        {
+          "name": "AllGuides",
+          "value": -1
+        },
+        {
+          "name": "HorizontalGuide",
+          "value": 0
+        },
+        {
+          "name": "VerticalGuide",
+          "value": 1
+        },
+        {
+          "name": "SlantedGuide",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 4
+    },
+    {
+      "name": "cdrGridType",
+      "module": "enums/page",
+      "variants": [
+        {
+          "name": "GridDot",
+          "value": 0
+        },
+        {
+          "name": "GridLine",
+          "value": 1
+        }
+      ],
+      "aliases": [],
+      "variant_count": 2
+    },
+    {
+      "name": "cdrSpreadType",
+      "module": "enums/page",
+      "variants": [
+        {
+          "name": "Left",
+          "value": 0
+        },
+        {
+          "name": "Right",
+          "value": 1
+        },
+        {
+          "name": "Full",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 3
+    },
+    {
+      "name": "PrnColorMode",
+      "module": "enums/print",
+      "variants": [
+        {
+          "name": "BlackAndWhite",
+          "value": 80
+        },
+        {
+          "name": "Colors16",
+          "value": 81
+        },
+        {
+          "name": "GreyScale",
+          "value": 82
+        },
+        {
+          "name": "Palette",
+          "value": 83
+        },
+        {
+          "name": "RGB",
+          "value": 84
+        },
+        {
+          "name": "CMYK",
+          "value": 85
+        }
+      ],
+      "aliases": [],
+      "variant_count": 6
+    },
+    {
+      "name": "PrnPlaceType",
+      "module": "enums/print",
+      "variants": [
+        {
+          "name": "PlaceAsInDocument",
+          "value": 0
+        },
+        {
+          "name": "PlaceFitToPage",
+          "value": 1
+        },
+        {
+          "name": "PlaceCenterPage",
+          "value": 2
+        },
+        {
+          "name": "PlaceCenterTop",
+          "value": 3
+        },
+        {
+          "name": "PlaceCenterLeft",
+          "value": 4
+        },
+        {
+          "name": "PlaceCenterRight",
+          "value": 5
+        },
+        {
+          "name": "PlaceCenterBottom",
+          "value": 6
+        },
+        {
+          "name": "PlaceLeftTop",
+          "value": 7
+        },
+        {
+          "name": "PlaceRightTop",
+          "value": 8
+        },
+        {
+          "name": "PlaceLeftBottom",
+          "value": 9
+        },
+        {
+          "name": "PlaceRightBottom",
+          "value": 10
+        },
+        {
+          "name": "PlaceCustom",
+          "value": 11
+        }
+      ],
+      "aliases": [],
+      "variant_count": 12
+    },
+    {
+      "name": "PrnPlateType",
+      "module": "enums/print",
+      "variants": [
+        {
+          "name": "Cyan",
+          "value": 0
+        },
+        {
+          "name": "Magenta",
+          "value": 1
+        },
+        {
+          "name": "Yellow",
+          "value": 2
+        },
+        {
+          "name": "Black",
+          "value": 3
+        },
+        {
+          "name": "Orange",
+          "value": 4
+        },
+        {
+          "name": "Green",
+          "value": 5
+        },
+        {
+          "name": "Spot",
+          "value": 6
+        }
+      ],
+      "aliases": [],
+      "variant_count": 7
+    },
+    {
+      "name": "PrnPrintRange",
+      "module": "enums/print",
+      "variants": [
+        {
+          "name": "WholeDocument",
+          "value": 0
+        },
+        {
+          "name": "CurrentPage",
+          "value": 1
+        },
+        {
+          "name": "Selection",
+          "value": 2
+        },
+        {
+          "name": "PageRange",
+          "value": 3
+        }
+      ],
+      "aliases": [],
+      "variant_count": 4
+    },
+    {
+      "name": "PrnFileMode",
+      "module": "enums/print",
+      "variants": [
+        {
+          "name": "SingleFile",
+          "value": 0
+        },
+        {
+          "name": "SeparatePages",
+          "value": 1
+        },
+        {
+          "name": "SeparatePlates",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 3
+    },
+    {
+      "name": "PrnPaperOrientation",
+      "module": "enums/print",
+      "variants": [
+        {
+          "name": "Portrait",
+          "value": 0
+        },
+        {
+          "name": "Landscape",
+          "value": 1
+        }
+      ],
+      "aliases": [],
+      "variant_count": 2
+    },
+    {
+      "name": "PrnPaperSize",
+      "module": "enums/print",
+      "variants": [
+        {
+          "name": "PaperSizeLetter",
+          "value": 1
+        },
+        {
+          "name": "PaperSizeLetterSmall",
+          "value": 2
+        },
+        {
+          "name": "PaperSizeTabloid",
+          "value": 3
+        },
+        {
+          "name": "PaperSizeLedger",
+          "value": 4
+        },
+        {
+          "name": "PaperSizeLegal",
+          "value": 5
+        },
+        {
+          "name": "PaperSizeStatement",
+          "value": 6
+        },
+        {
+          "name": "PaperSizeExecutive",
+          "value": 7
+        },
+        {
+          "name": "PaperSizeA3",
+          "value": 8
+        },
+        {
+          "name": "PaperSizeA4",
+          "value": 9
+        },
+        {
+          "name": "PaperSizeA4Small",
+          "value": 10
+        },
+        {
+          "name": "PaperSizeA5",
+          "value": 11
+        },
+        {
+          "name": "PaperSizeB4",
+          "value": 12
+        },
+        {
+          "name": "PaperSizeB5",
+          "value": 13
+        },
+        {
+          "name": "PaperSizeFolio",
+          "value": 14
+        },
+        {
+          "name": "PaperSizeQuarto",
+          "value": 15
+        },
+        {
+          "name": "PaperSize10x14",
+          "value": 16
+        },
+        {
+          "name": "PaperSize11x17",
+          "value": 17
+        },
+        {
+          "name": "PaperSizeNote",
+          "value": 18
+        },
+        {
+          "name": "PaperSizeEnv9",
+          "value": 19
+        },
+        {
+          "name": "PaperSizeEnv10",
+          "value": 20
+        },
+        {
+          "name": "PaperSizeEnv11",
+          "value": 21
+        },
+        {
+          "name": "PaperSizeEnv12",
+          "value": 22
+        },
+        {
+          "name": "PaperSizeEnv14",
+          "value": 23
+        },
+        {
+          "name": "PaperSizeCSheet",
+          "value": 24
+        },
+        {
+          "name": "PaperSizeDSheet",
+          "value": 25
+        },
+        {
+          "name": "PaperSizeESheet",
+          "value": 26
+        },
+        {
+          "name": "PaperSizeEnvDL",
+          "value": 27
+        },
+        {
+          "name": "PaperSizeEnvC5",
+          "value": 28
+        },
+        {
+          "name": "PaperSizeEnvC3",
+          "value": 29
+        },
+        {
+          "name": "PaperSizeEnvC4",
+          "value": 30
+        },
+        {
+          "name": "PaperSizeEnvC6",
+          "value": 31
+        },
+        {
+          "name": "PaperSizeEnvC65",
+          "value": 32
+        },
+        {
+          "name": "PaperSizeISOB4",
+          "value": 33
+        },
+        {
+          "name": "PaperSizeISOB5",
+          "value": 34
+        },
+        {
+          "name": "PaperSizeISOB6",
+          "value": 35
+        },
+        {
+          "name": "PaperSizeEnvItaly",
+          "value": 36
+        },
+        {
+          "name": "PaperSizeEnvMonarch",
+          "value": 37
+        },
+        {
+          "name": "PaperSizeEnvPersonal",
+          "value": 38
+        },
+        {
+          "name": "PaperSizeFanfoldUS",
+          "value": 39
+        },
+        {
+          "name": "PaperSizeFanfoldGerman",
+          "value": 40
+        },
+        {
+          "name": "PaperSizeFanfoldLglGerman",
+          "value": 41
+        },
+        {
+          "name": "PaperSizeJapanesePostcard",
+          "value": 43
+        },
+        {
+          "name": "PaperSize9x11",
+          "value": 44
+        },
+        {
+          "name": "PaperSize10x11",
+          "value": 45
+        },
+        {
+          "name": "PaperSize15x11",
+          "value": 46
+        },
+        {
+          "name": "PaperSizeEnvInvite",
+          "value": 47
+        },
+        {
+          "name": "PaperSizeLetterExtra",
+          "value": 50
+        },
+        {
+          "name": "PaperSizeLegalExtra",
+          "value": 51
+        },
+        {
+          "name": "PaperSizeTabloidExtra",
+          "value": 52
+        },
+        {
+          "name": "PaperSizeA4Extra",
+          "value": 53
+        },
+        {
+          "name": "PaperSizeLetterTransverse",
+          "value": 54
+        },
+        {
+          "name": "PaperSizeA4Transverse",
+          "value": 55
+        },
+        {
+          "name": "PaperSizeLetterExtraTransverse",
+          "value": 56
+        },
+        {
+          "name": "PaperSizeAPlus",
+          "value": 57
+        },
+        {
+          "name": "PaperSizeBPlus",
+          "value": 58
+        },
+        {
+          "name": "PaperSizeLetterPlus",
+          "value": 59
+        },
+        {
+          "name": "PaperSizeA4Plus",
+          "value": 60
+        },
+        {
+          "name": "PaperSizeA5Transverse",
+          "value": 61
+        },
+        {
+          "name": "PaperSizeB5Transverse",
+          "value": 62
+        },
+        {
+          "name": "PaperSizeA3Extra",
+          "value": 63
+        },
+        {
+          "name": "PaperSizeA5Extra",
+          "value": 64
+        },
+        {
+          "name": "PaperSizeB5Extra",
+          "value": 65
+        },
+        {
+          "name": "PaperSizeA2",
+          "value": 66
+        },
+        {
+          "name": "PaperSizeA3Transverse",
+          "value": 67
+        },
+        {
+          "name": "PaperSizeA3ExtraTransverse",
+          "value": 68
+        },
+        {
+          "name": "PaperSizeJapaneseDblPostcard",
+          "value": 69
+        },
+        {
+          "name": "PaperSizeA6",
+          "value": 70
+        },
+        {
+          "name": "PaperSizeLetterRotated",
+          "value": 75
+        },
+        {
+          "name": "PaperSizeA3Rotated",
+          "value": 76
+        },
+        {
+          "name": "PaperSizeA4Rotated",
+          "value": 77
+        },
+        {
+          "name": "PaperSizeA5Rotated",
+          "value": 78
+        },
+        {
+          "name": "PaperSizeB4JISRotated",
+          "value": 79
+        },
+        {
+          "name": "PaperSizeB5JISRotated",
+          "value": 80
+        },
+        {
+          "name": "PaperSizeJapanesePostcardRotated",
+          "value": 81
+        },
+        {
+          "name": "PaperSizeJapaneseDlbPostcardRotated",
+          "value": 82
+        },
+        {
+          "name": "PaperSizeA6Rotated",
+          "value": 83
+        },
+        {
+          "name": "PaperSizeB6JIS",
+          "value": 88
+        },
+        {
+          "name": "PaperSizeB6JISRotated",
+          "value": 89
+        },
+        {
+          "name": "PaperSize12x11",
+          "value": 90
+        },
+        {
+          "name": "PaperSizeP16K",
+          "value": 93
+        },
+        {
+          "name": "PaperSizeP32K",
+          "value": 94
+        },
+        {
+          "name": "PaperSizeP32KBig",
+          "value": 95
+        },
+        {
+          "name": "PaperSizePEnv1",
+          "value": 96
+        },
+        {
+          "name": "PaperSizePEnv2",
+          "value": 97
+        },
+        {
+          "name": "PaperSizePEnv3",
+          "value": 98
+        },
+        {
+          "name": "PaperSizePEnv4",
+          "value": 99
+        },
+        {
+          "name": "PaperSizePEnv5",
+          "value": 100
+        },
+        {
+          "name": "PaperSizePEnv6",
+          "value": 101
+        },
+        {
+          "name": "PaperSizePEnv7",
+          "value": 102
+        },
+        {
+          "name": "PaperSizePEnv8",
+          "value": 103
+        },
+        {
+          "name": "PaperSizePEnv9",
+          "value": 104
+        },
+        {
+          "name": "PaperSizePEnv10",
+          "value": 105
+        },
+        {
+          "name": "PaperSizeP16KRotated",
+          "value": 106
+        },
+        {
+          "name": "PaperSizeP32KRotated",
+          "value": 107
+        },
+        {
+          "name": "PaperSizeP32KBigRotated",
+          "value": 108
+        },
+        {
+          "name": "PaperSizePEnv1Rotated",
+          "value": 109
+        },
+        {
+          "name": "PaperSizePEnv2Rotated",
+          "value": 110
+        },
+        {
+          "name": "PaperSizePEnv3Rotated",
+          "value": 111
+        },
+        {
+          "name": "PaperSizePEnv4Rotated",
+          "value": 112
+        },
+        {
+          "name": "PaperSizePEnv5Rotated",
+          "value": 113
+        },
+        {
+          "name": "PaperSizePEnv6Rotated",
+          "value": 114
+        },
+        {
+          "name": "PaperSizePEnv7Rotated",
+          "value": 115
+        },
+        {
+          "name": "PaperSizePEnv8Rotated",
+          "value": 116
+        },
+        {
+          "name": "PaperSizePEnv9Rotated",
+          "value": 117
+        },
+        {
+          "name": "PaperSizePEnv10Rotated",
+          "value": 118
+        }
+      ],
+      "aliases": [],
+      "variant_count": 105
+    },
+    {
+      "name": "PrnPostScriptLevel",
+      "module": "enums/print",
+      "variants": [
+        {
+          "name": "PSLevel1",
+          "value": 1
+        },
+        {
+          "name": "PSLevel2",
+          "value": 2
+        },
+        {
+          "name": "PSLevel3",
+          "value": 3
+        }
+      ],
+      "aliases": [],
+      "variant_count": 3
+    },
+    {
+      "name": "PrnPDFStartup",
+      "module": "enums/print",
+      "variants": [
+        {
+          "name": "PDFFullScreen",
+          "value": 0
+        },
+        {
+          "name": "PDFPageOnly",
+          "value": 1
+        },
+        {
+          "name": "PDFThumbnails",
+          "value": 2
+        },
+        {
+          "name": "PDFOutlines",
+          "value": 3
+        }
+      ],
+      "aliases": [],
+      "variant_count": 4
+    },
+    {
+      "name": "PrnRegistrationStyle",
+      "module": "enums/print",
+      "variants": [
+        {
+          "name": "Standard",
+          "value": 0
+        },
+        {
+          "name": "Long",
+          "value": 1
+        },
+        {
+          "name": "Square",
+          "value": 2
+        },
+        {
+          "name": "HalfInverted",
+          "value": 3
+        },
+        {
+          "name": "Corel",
+          "value": 4
+        }
+      ],
+      "aliases": [],
+      "variant_count": 5
+    },
+    {
+      "name": "PrnTrapType",
+      "module": "enums/print",
+      "variants": [
+        {
+          "name": "LayerNormal",
+          "value": 0
+        },
+        {
+          "name": "LayerTransparent",
+          "value": 1
+        },
+        {
+          "name": "LayerOpaque",
+          "value": 2
+        },
+        {
+          "name": "LayerOpaqueIgnore",
+          "value": 3
+        }
+      ],
+      "aliases": [],
+      "variant_count": 4
+    },
+    {
+      "name": "PrnImageTrap",
+      "module": "enums/print",
+      "variants": [
+        {
+          "name": "TrapNormal",
+          "value": 0
+        },
+        {
+          "name": "TrapSpread",
+          "value": 1
+        },
+        {
+          "name": "TrapChoke",
+          "value": 2
+        },
+        {
+          "name": "TrapCenter",
+          "value": 3
+        }
+      ],
+      "aliases": [],
+      "variant_count": 4
+    },
+    {
+      "name": "PrnPageSet",
+      "module": "enums/print",
+      "variants": [
+        {
+          "name": "PageSetAll",
+          "value": 0
+        },
+        {
+          "name": "PageSetOdd",
+          "value": 1
+        },
+        {
+          "name": "PageSetEven",
+          "value": 2
+        },
+        {
+          "name": "PageSetLeft",
+          "value": 3
+        },
+        {
+          "name": "PageSetRight",
+          "value": 4
+        }
+      ],
+      "aliases": [],
+      "variant_count": 5
+    },
+    {
+      "name": "PrnPageMatchingMode",
+      "module": "enums/print",
+      "variants": [
+        {
+          "name": "PageMatchPrinterDefault",
+          "value": 0
+        },
+        {
+          "name": "PageMatchOrientation",
+          "value": 1
+        },
+        {
+          "name": "PageMatchSizeAndOrientation",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 3
+    },
+    {
+      "name": "PrnObjectsColorMode",
+      "module": "enums/print",
+      "variants": [
+        {
+          "name": "ObjectsCMYK",
+          "value": 0
+        },
+        {
+          "name": "ObjectsRGB",
+          "value": 1
+        },
+        {
+          "name": "ObjectsGrayscale",
+          "value": 2
+        },
+        {
+          "name": "ObjectsNative",
+          "value": 3
+        }
+      ],
+      "aliases": [],
+      "variant_count": 4
+    },
+    {
+      "name": "PrnBitmapColorMode",
+      "module": "enums/print",
+      "variants": [
+        {
+          "name": "BitmapCMYK",
+          "value": 0
+        },
+        {
+          "name": "BitmapRGB",
+          "value": 1
+        },
+        {
+          "name": "BitmapGrayscale",
+          "value": 2
+        },
+        {
+          "name": "BitmapNative",
+          "value": 3
+        }
+      ],
+      "aliases": [],
+      "variant_count": 4
+    },
+    {
+      "name": "pdfExportRange",
+      "module": "enums/print",
+      "variants": [
+        {
+          "name": "WholeDocument",
+          "value": 0
+        },
+        {
+          "name": "CurrentPage",
+          "value": 1
+        },
+        {
+          "name": "Selection",
+          "value": 2
+        },
+        {
+          "name": "PageRange",
+          "value": 3
+        }
+      ],
+      "aliases": [],
+      "variant_count": 4
+    },
+    {
+      "name": "pdfBitmapCompressionType",
+      "module": "enums/print",
+      "variants": [
+        {
+          "name": "None",
+          "value": 0
+        },
+        {
+          "name": "LZW",
+          "value": 1
+        },
+        {
+          "name": "JPEG",
+          "value": 2
+        },
+        {
+          "name": "ZIP",
+          "value": 3
+        },
+        {
+          "name": "JP2",
+          "value": 4
+        }
+      ],
+      "aliases": [],
+      "variant_count": 5
+    },
+    {
+      "name": "pdfEncodingType",
+      "module": "enums/print",
+      "variants": [
+        {
+          "name": "ASCII85",
+          "value": 0
+        },
+        {
+          "name": "Binary",
+          "value": 1
+        }
+      ],
+      "aliases": [],
+      "variant_count": 2
+    },
+    {
+      "name": "pdfColorMode",
+      "module": "enums/print",
+      "variants": [
+        {
+          "name": "RGB",
+          "value": 0
+        },
+        {
+          "name": "CMYK",
+          "value": 1
+        },
+        {
+          "name": "Grayscale",
+          "value": 2
+        },
+        {
+          "name": "Native",
+          "value": 3
+        }
+      ],
+      "aliases": [],
+      "variant_count": 4
+    },
+    {
+      "name": "pdfColorProfile",
+      "module": "enums/print",
+      "variants": [
+        {
+          "name": "CompositeProfile",
+          "value": 0
+        },
+        {
+          "name": "SeparationProfile",
+          "value": 1
+        }
+      ],
+      "aliases": [],
+      "variant_count": 2
+    },
+    {
+      "name": "pdfEPSAs",
+      "module": "enums/print",
+      "variants": [
+        {
+          "name": "Postscript",
+          "value": 0
+        },
+        {
+          "name": "Preview",
+          "value": 1
+        }
+      ],
+      "aliases": [],
+      "variant_count": 2
+    },
+    {
+      "name": "pdfVersion",
+      "module": "enums/print",
+      "variants": [
+        {
+          "name": "Version12",
+          "value": 0
+        },
+        {
+          "name": "Version13",
+          "value": 1
+        },
+        {
+          "name": "VersionPDFX1",
+          "value": 2
+        },
+        {
+          "name": "Version14",
+          "value": 3
+        },
+        {
+          "name": "VersionPDFX1a",
+          "value": 4
+        },
+        {
+          "name": "VersionPDFX3",
+          "value": 5
+        },
+        {
+          "name": "Version15",
+          "value": 6
+        },
+        {
+          "name": "VersionPDFA1b",
+          "value": 7
+        },
+        {
+          "name": "Version17",
+          "value": 8
+        },
+        {
+          "name": "Version17_Acrobat9",
+          "value": 9
+        },
+        {
+          "name": "VersionPDFX4",
+          "value": 10
+        }
+      ],
+      "aliases": [],
+      "variant_count": 11
+    },
+    {
+      "name": "pdfTextExportMode",
+      "module": "enums/print",
+      "variants": [
+        {
+          "name": "TextAsUnicode",
+          "value": 0
+        },
+        {
+          "name": "TextAsAscii",
+          "value": 1
+        }
+      ],
+      "aliases": [],
+      "variant_count": 2
+    },
+    {
+      "name": "pdfPrintPermissions",
+      "module": "enums/print",
+      "variants": [
+        {
+          "name": "PrintPermissionNone",
+          "value": 0
+        },
+        {
+          "name": "PrintPermissionLowResolution",
+          "value": 1
+        },
+        {
+          "name": "PrintPermissionHighResolution",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 3
+    },
+    {
+      "name": "pdfEditPermissions",
+      "module": "enums/print",
+      "variants": [
+        {
+          "name": "EditPermissionNone",
+          "value": 0
+        },
+        {
+          "name": "EditPermissionInsertDeleteRotatePage",
+          "value": 1
+        },
+        {
+          "name": "EditPermissionAny",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 3
+    },
+    {
+      "name": "pdfEncryptionType",
+      "module": "enums/print",
+      "variants": [
+        {
+          "name": "EncryptTypeNone",
+          "value": 0
+        },
+        {
+          "name": "EncryptTypeStandard",
+          "value": 1
+        },
+        {
+          "name": "EncryptTypeAES",
+          "value": 2
+        },
+        {
+          "name": "EncryptTypeAES256",
+          "value": 3
+        }
+      ],
+      "aliases": [],
+      "variant_count": 4
+    },
+    {
+      "name": "pdfSpotType",
+      "module": "enums/print",
+      "variants": [
+        {
+          "name": "SpotAsSpot",
+          "value": 0
+        },
+        {
+          "name": "SpotAsRGB",
+          "value": 1
+        },
+        {
+          "name": "SpotAsCMYK",
+          "value": 2
+        },
+        {
+          "name": "SpotAsGray",
+          "value": 3
+        }
+      ],
+      "aliases": [],
+      "variant_count": 4
+    },
+    {
+      "name": "pdfDisplayOnStart",
+      "module": "enums/print",
+      "variants": [
+        {
+          "name": "PageOnly",
+          "value": 0
+        },
+        {
+          "name": "FullScreen",
+          "value": 1
+        },
+        {
+          "name": "Bookmarks",
+          "value": 2
+        },
+        {
+          "name": "Thumbnails",
+          "value": 3
+        }
+      ],
+      "aliases": [],
+      "variant_count": 4
+    },
+    {
+      "name": "cdrShapeType",
+      "module": "enums/shape",
+      "variants": [
+        {
+          "name": "NoShape",
+          "value": 0
+        },
+        {
+          "name": "RectangleShape",
+          "value": 1
+        },
+        {
+          "name": "EllipseShape",
+          "value": 2
+        },
+        {
+          "name": "CurveShape",
+          "value": 3
+        },
+        {
+          "name": "PolygonShape",
+          "value": 4
+        },
+        {
+          "name": "BitmapShape",
+          "value": 5
+        },
+        {
+          "name": "TextShape",
+          "value": 6
+        },
+        {
+          "name": "GroupShape",
+          "value": 7
+        },
+        {
+          "name": "SelectionShape",
+          "value": 8
+        },
+        {
+          "name": "GuidelineShape",
+          "value": 9
+        },
+        {
+          "name": "BlendGroupShape",
+          "value": 10
+        },
+        {
+          "name": "ExtrudeGroupShape",
+          "value": 11
+        },
+        {
+          "name": "OLEObjectShape",
+          "value": 12
+        },
+        {
+          "name": "ContourGroupShape",
+          "value": 13
+        },
+        {
+          "name": "LinearDimensionShape",
+          "value": 14
+        },
+        {
+          "name": "BevelGroupShape",
+          "value": 15
+        },
+        {
+          "name": "DropShadowGroupShape",
+          "value": 16
+        },
+        {
+          "name": "V_3DObjectShape",
+          "value": 17
+        },
+        {
+          "name": "ArtisticMediaGroupShape",
+          "value": 18
+        },
+        {
+          "name": "ConnectorShape",
+          "value": 19
+        },
+        {
+          "name": "MeshFillShape",
+          "value": 20
+        },
+        {
+          "name": "CustomShape",
+          "value": 21
+        },
+        {
+          "name": "CustomEffectGroupShape",
+          "value": 22
+        },
+        {
+          "name": "SymbolShape",
+          "value": 23
+        },
+        {
+          "name": "HTMLFormObjectShape",
+          "value": 24
+        },
+        {
+          "name": "HTMLActiveObjectShape",
+          "value": 25
+        },
+        {
+          "name": "PerfectShape",
+          "value": 26
+        },
+        {
+          "name": "EPSShape",
+          "value": 27
+        }
+      ],
+      "aliases": [],
+      "variant_count": 28
+    },
+    {
+      "name": "cdrReferencePoint",
+      "module": "enums/shape",
+      "variants": [
+        {
+          "name": "TopLeft",
+          "value": 0
+        },
+        {
+          "name": "TopCenter",
+          "value": 1
+        },
+        {
+          "name": "TopRight",
+          "value": 2
+        },
+        {
+          "name": "MiddleLeft",
+          "value": 3
+        },
+        {
+          "name": "MiddleCenter",
+          "value": 4
+        },
+        {
+          "name": "MiddleRight",
+          "value": 5
+        },
+        {
+          "name": "BottomLeft",
+          "value": 6
+        },
+        {
+          "name": "BottomCenter",
+          "value": 7
+        },
+        {
+          "name": "BottomRight",
+          "value": 8
+        }
+      ],
+      "aliases": [],
+      "variant_count": 9
+    },
+    {
+      "name": "cdrAlignType",
+      "module": "enums/shape",
+      "variants": [
+        {
+          "name": "AlignLeft",
+          "value": 1
+        },
+        {
+          "name": "AlignRight",
+          "value": 2
+        },
+        {
+          "name": "AlignHCenter",
+          "value": 3
+        },
+        {
+          "name": "AlignTop",
+          "value": 4
+        },
+        {
+          "name": "AlignBottom",
+          "value": 8
+        },
+        {
+          "name": "AlignVCenter",
+          "value": 12
+        }
+      ],
+      "aliases": [],
+      "variant_count": 6
+    },
+    {
+      "name": "cdrShapeLevel",
+      "module": "enums/shape",
+      "variants": [
+        {
+          "name": "LevelGroup",
+          "value": 0
+        },
+        {
+          "name": "LevelContainer",
+          "value": 1
+        },
+        {
+          "name": "LevelLayer",
+          "value": 2
+        },
+        {
+          "name": "LevelPage",
+          "value": 3
+        },
+        {
+          "name": "LevelDocument",
+          "value": 4
+        }
+      ],
+      "aliases": [],
+      "variant_count": 5
+    },
+    {
+      "name": "cdrWrapStyle",
+      "module": "enums/shape",
+      "variants": [
+        {
+          "name": "WrapNone",
+          "value": -1
+        },
+        {
+          "name": "WrapContourLeft",
+          "value": 0
+        },
+        {
+          "name": "WrapContourRight",
+          "value": 1
+        },
+        {
+          "name": "WrapContourStraddle",
+          "value": 2
+        },
+        {
+          "name": "WrapSquareLeft",
+          "value": 3
+        },
+        {
+          "name": "WrapSquareRight",
+          "value": 4
+        },
+        {
+          "name": "WrapSquareStraddle",
+          "value": 5
+        },
+        {
+          "name": "WrapSquareAboveBelow",
+          "value": 6
+        }
+      ],
+      "aliases": [],
+      "variant_count": 8
+    },
+    {
+      "name": "cdrOutlineType",
+      "module": "enums/shape",
+      "variants": [
+        {
+          "name": "NoOutline",
+          "value": 0
+        },
+        {
+          "name": "Outline",
+          "value": 1
+        },
+        {
+          "name": "EnhancedOutline",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 3
+    },
+    {
+      "name": "cdrFillStyleType",
+      "module": "enums/style",
+      "variants": [
+        {
+          "name": "NoFillStyle",
+          "value": 0
+        },
+        {
+          "name": "UniformFillStyle",
+          "value": 1
+        },
+        {
+          "name": "FountainFillStyle",
+          "value": 2
+        },
+        {
+          "name": "PostscriptFillStyle",
+          "value": 3
+        },
+        {
+          "name": "TwoColorPatternFillStyle",
+          "value": 4
+        },
+        {
+          "name": "BitmapPatternFillStyle",
+          "value": 6
+        },
+        {
+          "name": "TextureFillStyle",
+          "value": 8
+        },
+        {
+          "name": "FullColorPatternFillStyle",
+          "value": 9
+        },
+        {
+          "name": "HatchFillStyle",
+          "value": 10
+        }
+      ],
+      "aliases": [],
+      "variant_count": 9
+    },
+    {
+      "name": "cdrOutlineStyleType",
+      "module": "enums/style",
+      "variants": [
+        {
+          "name": "NoOutline",
+          "value": 0
+        },
+        {
+          "name": "Solid",
+          "value": 1
+        },
+        {
+          "name": "Dashed",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 3
+    },
+    {
+      "name": "cdrTransparencyAppliedTo",
+      "module": "enums/style",
+      "variants": [
+        {
+          "name": "Fill",
+          "value": 0
+        },
+        {
+          "name": "Outline",
+          "value": 1
+        },
+        {
+          "name": "Both",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 3
+    },
+    {
+      "name": "cdrTransparencyType",
+      "module": "enums/style",
+      "variants": [
+        {
+          "name": "NoTransparency",
+          "value": 0
+        },
+        {
+          "name": "UniformTransparency",
+          "value": 1
+        },
+        {
+          "name": "FountainTransparency",
+          "value": 2
+        },
+        {
+          "name": "PatternTransparency",
+          "value": 3
+        },
+        {
+          "name": "TextureTransparency",
+          "value": 4
+        }
+      ],
+      "aliases": [],
+      "variant_count": 5
+    },
+    {
+      "name": "cdrAlignment",
+      "module": "enums/text",
+      "variants": [
+        {
+          "name": "NoAlignment",
+          "value": 0
+        },
+        {
+          "name": "LeftAlignment",
+          "value": 1
+        },
+        {
+          "name": "RightAlignment",
+          "value": 2
+        },
+        {
+          "name": "CenterAlignment",
+          "value": 3
+        },
+        {
+          "name": "FullJustifyAlignment",
+          "value": 4
+        },
+        {
+          "name": "ForceJustifyAlignment",
+          "value": 5
+        },
+        {
+          "name": "MixedAlignment",
+          "value": 6
+        }
+      ],
+      "aliases": [],
+      "variant_count": 7
+    },
+    {
+      "name": "cdrFontStyle",
+      "module": "enums/text",
+      "variants": [
+        {
+          "name": "NormalFontStyle",
+          "value": 0
+        },
+        {
+          "name": "BoldFontStyle",
+          "value": 1
+        },
+        {
+          "name": "ItalicFontStyle",
+          "value": 2
+        },
+        {
+          "name": "BoldItalicFontStyle",
+          "value": 3
+        },
+        {
+          "name": "ThinFontStyle",
+          "value": 4
+        },
+        {
+          "name": "ThinItalicFontStyle",
+          "value": 5
+        },
+        {
+          "name": "ExtraLightFontStyle",
+          "value": 6
+        },
+        {
+          "name": "ExtraLightItalicFontStyle",
+          "value": 7
+        },
+        {
+          "name": "MediumFontStyle",
+          "value": 8
+        },
+        {
+          "name": "MediumItalicFontStyle",
+          "value": 9
+        },
+        {
+          "name": "SemiBoldFontStyle",
+          "value": 10
+        },
+        {
+          "name": "SemiBoldItalicFontStyle",
+          "value": 11
+        },
+        {
+          "name": "ExtraBoldFontStyle",
+          "value": 12
+        },
+        {
+          "name": "ExtraBoldItalicFontStyle",
+          "value": 13
+        },
+        {
+          "name": "HeavyFontStyle",
+          "value": 14
+        },
+        {
+          "name": "HeavyItalicFontStyle",
+          "value": 15
+        },
+        {
+          "name": "MixedFontStyle",
+          "value": 16
+        },
+        {
+          "name": "LightFontStyle",
+          "value": 17
+        },
+        {
+          "name": "LightItalicFontStyle",
+          "value": 18
+        }
+      ],
+      "aliases": [],
+      "variant_count": 19
+    },
+    {
+      "name": "cdrFontLine",
+      "module": "enums/text",
+      "variants": [
+        {
+          "name": "NoFontLine",
+          "value": 0
+        },
+        {
+          "name": "SingleThinFontLine",
+          "value": 1
+        },
+        {
+          "name": "SingleThinWordFontLine",
+          "value": 2
+        },
+        {
+          "name": "SingleThickFontLine",
+          "value": 3
+        },
+        {
+          "name": "SingleThickWordFontLine",
+          "value": 4
+        },
+        {
+          "name": "DoubleThinFontLine",
+          "value": 5
+        },
+        {
+          "name": "DoubleThinWordFontLine",
+          "value": 6
+        },
+        {
+          "name": "MixedFontLine",
+          "value": 7
+        }
+      ],
+      "aliases": [],
+      "variant_count": 8
+    },
+    {
+      "name": "cdrFontCase",
+      "module": "enums/text",
+      "variants": [
+        {
+          "name": "Normal",
+          "value": 0
+        },
+        {
+          "name": "SmallCaps",
+          "value": 1
+        },
+        {
+          "name": "AllCaps",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 3
+    },
+    {
+      "name": "cdrFontPosition",
+      "module": "enums/text",
+      "variants": [
+        {
+          "name": "Normal",
+          "value": 0
+        },
+        {
+          "name": "Subscript",
+          "value": 1
+        },
+        {
+          "name": "Superscript",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 3
+    },
+    {
+      "name": "cdrTextType",
+      "module": "enums/text",
+      "variants": [
+        {
+          "name": "Artistic",
+          "value": 0
+        },
+        {
+          "name": "Paragraph",
+          "value": 1
+        },
+        {
+          "name": "ArtisticFitted",
+          "value": 2
+        },
+        {
+          "name": "ParagraphFitted",
+          "value": 3
+        }
+      ],
+      "aliases": [],
+      "variant_count": 4
+    },
+    {
+      "name": "cdrTextFrames",
+      "module": "enums/text",
+      "variants": [
+        {
+          "name": "ThisFrameOnly",
+          "value": 0
+        },
+        {
+          "name": "StartAtThisFrame",
+          "value": 1
+        },
+        {
+          "name": "AllFrames",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 3
+    },
+    {
+      "name": "cdrTextIndexingType",
+      "module": "enums/text",
+      "variants": [
+        {
+          "name": "CharacterIndexing",
+          "value": 0
+        },
+        {
+          "name": "WordIndexing",
+          "value": 1
+        },
+        {
+          "name": "ParagraphIndexing",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 3
+    },
+    {
+      "name": "cdrTextCharSet",
+      "module": "enums/text",
+      "variants": [
+        {
+          "name": "CharSetMixed",
+          "value": -1
+        },
+        {
+          "name": "CharSetANSI",
+          "value": 0
+        },
+        {
+          "name": "CharSetDefault",
+          "value": 1
+        },
+        {
+          "name": "CharSetSymbol",
+          "value": 2
+        },
+        {
+          "name": "CharSetShiftJIS",
+          "value": 128
+        },
+        {
+          "name": "CharSetHangul",
+          "value": 129
+        },
+        {
+          "name": "CharSetChineseBig5",
+          "value": 136
+        },
+        {
+          "name": "CharSetOEM",
+          "value": 255
+        },
+        {
+          "name": "CharSetJohab",
+          "value": 130
+        },
+        {
+          "name": "CharSetHebrew",
+          "value": 177
+        },
+        {
+          "name": "CharSetArabic",
+          "value": 178
+        },
+        {
+          "name": "CharSetGreek",
+          "value": 161
+        },
+        {
+          "name": "CharSetTurkish",
+          "value": 162
+        },
+        {
+          "name": "CharSetVietnamese",
+          "value": 163
+        },
+        {
+          "name": "CharSetThai",
+          "value": 222
+        },
+        {
+          "name": "CharSetEastEurope",
+          "value": 238
+        },
+        {
+          "name": "CharSetRussian",
+          "value": 204
+        },
+        {
+          "name": "CharSetMac",
+          "value": 77
+        },
+        {
+          "name": "CharSetBaltic",
+          "value": 186
+        }
+      ],
+      "aliases": [],
+      "variant_count": 19
+    },
+    {
+      "name": "cdrTextLanguage",
+      "module": "enums/text",
+      "variants": [
+        {
+          "name": "LanguageMixed",
+          "value": -1
+        },
+        {
+          "name": "LanguageNone",
+          "value": 0
+        },
+        {
+          "name": "Afrikaans",
+          "value": 1078
+        },
+        {
+          "name": "Albanian",
+          "value": 1052
+        },
+        {
+          "name": "ArabicAlgeria",
+          "value": 5121
+        },
+        {
+          "name": "ArabicBahrain",
+          "value": 15361
+        },
+        {
+          "name": "ArabicEgypt",
+          "value": 3073
+        },
+        {
+          "name": "ArabicIraq",
+          "value": 2049
+        },
+        {
+          "name": "ArabicJordan",
+          "value": 11265
+        },
+        {
+          "name": "ArabicKuwait",
+          "value": 13313
+        },
+        {
+          "name": "ArabicLebanon",
+          "value": 12289
+        },
+        {
+          "name": "ArabicLibya",
+          "value": 4097
+        },
+        {
+          "name": "ArabicMorocco",
+          "value": 6145
+        },
+        {
+          "name": "ArabicOman",
+          "value": 8193
+        },
+        {
+          "name": "ArabicQatar",
+          "value": 16385
+        },
+        {
+          "name": "Arabic",
+          "value": 1025
+        },
+        {
+          "name": "ArabicSyria",
+          "value": 10241
+        },
+        {
+          "name": "ArabicTunisia",
+          "value": 7169
+        },
+        {
+          "name": "ArabicUAE",
+          "value": 14337
+        },
+        {
+          "name": "ArabicYemen",
+          "value": 9217
+        },
+        {
+          "name": "Armenian",
+          "value": 1067
+        },
+        {
+          "name": "Assamese",
+          "value": 1101
+        },
+        {
+          "name": "AzeriCyrillic",
+          "value": 2092
+        },
+        {
+          "name": "AzeriLatin",
+          "value": 1068
+        },
+        {
+          "name": "Basque",
+          "value": 1069
+        },
+        {
+          "name": "Byelorussian",
+          "value": 1059
+        },
+        {
+          "name": "Bengali",
+          "value": 1093
+        },
+        {
+          "name": "Bulgarian",
+          "value": 1026
+        },
+        {
+          "name": "Burmese",
+          "value": 1109
+        },
+        {
+          "name": "Catalan",
+          "value": 1027
+        },
+        {
+          "name": "ChineseHongKong",
+          "value": 3076
+        },
+        {
+          "name": "ChineseMacao",
+          "value": 5124
+        },
+        {
+          "name": "SimplifiedChinese",
+          "value": 2052
+        },
+        {
+          "name": "ChineseSingapore",
+          "value": 4100
+        },
+        {
+          "name": "TraditionalChinese",
+          "value": 1028
+        },
+        {
+          "name": "Croatian",
+          "value": 1050
+        },
+        {
+          "name": "Czech",
+          "value": 1029
+        },
+        {
+          "name": "Danish",
+          "value": 1030
+        },
+        {
+          "name": "BelgianDutch",
+          "value": 2067
+        },
+        {
+          "name": "Dutch",
+          "value": 1043
+        },
+        {
+          "name": "EnglishAUS",
+          "value": 3081
+        },
+        {
+          "name": "EnglishBelize",
+          "value": 10249
+        },
+        {
+          "name": "EnglishCanadian",
+          "value": 4105
+        },
+        {
+          "name": "EnglishCaribbean",
+          "value": 9225
+        },
+        {
+          "name": "EnglishIreland",
+          "value": 6153
+        },
+        {
+          "name": "EnglishJamaica",
+          "value": 8201
+        },
+        {
+          "name": "EnglishNewZealand",
+          "value": 5129
+        },
+        {
+          "name": "EnglishPhilippines",
+          "value": 13321
+        },
+        {
+          "name": "EnglishSouthAfrica",
+          "value": 7177
+        },
+        {
+          "name": "EnglishTrinidad",
+          "value": 11273
+        },
+        {
+          "name": "EnglishUK",
+          "value": 2057
+        },
+        {
+          "name": "EnglishUS",
+          "value": 1033
+        },
+        {
+          "name": "EnglishZimbabwe",
+          "value": 12297
+        },
+        {
+          "name": "Estonian",
+          "value": 1061
+        },
+        {
+          "name": "Faeroese",
+          "value": 1080
+        },
+        {
+          "name": "Farsi",
+          "value": 1065
+        },
+        {
+          "name": "Finnish",
+          "value": 1035
+        },
+        {
+          "name": "BelgianFrench",
+          "value": 2060
+        },
+        {
+          "name": "FrenchCameroon",
+          "value": 11276
+        },
+        {
+          "name": "FrenchCanadian",
+          "value": 3084
+        },
+        {
+          "name": "FrenchCotedIvoire",
+          "value": 12300
+        },
+        {
+          "name": "French",
+          "value": 1036
+        },
+        {
+          "name": "FrenchLuxembourg",
+          "value": 5132
+        },
+        {
+          "name": "FrenchMali",
+          "value": 13324
+        },
+        {
+          "name": "FrenchMonaco",
+          "value": 6156
+        },
+        {
+          "name": "FrenchReunion",
+          "value": 8204
+        },
+        {
+          "name": "FrenchSenegal",
+          "value": 10252
+        },
+        {
+          "name": "SwissFrench",
+          "value": 4108
+        },
+        {
+          "name": "FrenchWestIndies",
+          "value": 7180
+        },
+        {
+          "name": "FrenchZaire",
+          "value": 9228
+        },
+        {
+          "name": "FrisianNetherlands",
+          "value": 1122
+        },
+        {
+          "name": "GaelicIreland",
+          "value": 2108
+        },
+        {
+          "name": "GaelicScotland",
+          "value": 1084
+        },
+        {
+          "name": "Galician",
+          "value": 1110
+        },
+        {
+          "name": "Georgian",
+          "value": 1079
+        },
+        {
+          "name": "GermanAustria",
+          "value": 3079
+        },
+        {
+          "name": "German",
+          "value": 1031
+        },
+        {
+          "name": "GermanLiechtenstein",
+          "value": 5127
+        },
+        {
+          "name": "GermanLuxembourg",
+          "value": 4103
+        },
+        {
+          "name": "SwissGerman",
+          "value": 2055
+        },
+        {
+          "name": "Greek",
+          "value": 1032
+        },
+        {
+          "name": "Gujarati",
+          "value": 1095
+        },
+        {
+          "name": "Hebrew",
+          "value": 1037
+        },
+        {
+          "name": "Hindi",
+          "value": 1081
+        },
+        {
+          "name": "Hungarian",
+          "value": 1038
+        },
+        {
+          "name": "Icelandic",
+          "value": 1039
+        },
+        {
+          "name": "Indonesian",
+          "value": 1057
+        },
+        {
+          "name": "Italian",
+          "value": 1040
+        },
+        {
+          "name": "SwissItalian",
+          "value": 2064
+        },
+        {
+          "name": "Japanese",
+          "value": 1041
+        },
+        {
+          "name": "Kannada",
+          "value": 1099
+        },
+        {
+          "name": "Kashmiri",
+          "value": 1120
+        },
+        {
+          "name": "Kazakh",
+          "value": 1087
+        },
+        {
+          "name": "Khmer",
+          "value": 1107
+        },
+        {
+          "name": "Kirghiz",
+          "value": 1088
+        },
+        {
+          "name": "Konkani",
+          "value": 1111
+        },
+        {
+          "name": "Korean",
+          "value": 1042
+        },
+        {
+          "name": "Lao",
+          "value": 1108
+        },
+        {
+          "name": "Latvian",
+          "value": 1062
+        },
+        {
+          "name": "Lithuanian",
+          "value": 1063
+        },
+        {
+          "name": "Macedonian",
+          "value": 1071
+        },
+        {
+          "name": "Malaysian",
+          "value": 1086
+        },
+        {
+          "name": "MalayBruneiDarussalam",
+          "value": 2110
+        },
+        {
+          "name": "Malayalam",
+          "value": 1100
+        },
+        {
+          "name": "Maltese",
+          "value": 1082
+        },
+        {
+          "name": "Manipuri",
+          "value": 1112
+        },
+        {
+          "name": "Marathi",
+          "value": 1102
+        },
+        {
+          "name": "Mongolian",
+          "value": 1104
+        },
+        {
+          "name": "Nepali",
+          "value": 1121
+        },
+        {
+          "name": "NorwegianBokmol",
+          "value": 1044
+        },
+        {
+          "name": "NorwegianNynorsk",
+          "value": 2068
+        },
+        {
+          "name": "Oriya",
+          "value": 1096
+        },
+        {
+          "name": "Polish",
+          "value": 1045
+        },
+        {
+          "name": "BrazilianPortuguese",
+          "value": 1046
+        },
+        {
+          "name": "Portuguese",
+          "value": 2070
+        },
+        {
+          "name": "Punjabi",
+          "value": 1094
+        },
+        {
+          "name": "RhaetoRomanic",
+          "value": 1047
+        },
+        {
+          "name": "RomanianMoldova",
+          "value": 2072
+        },
+        {
+          "name": "Romanian",
+          "value": 1048
+        },
+        {
+          "name": "RussianMoldova",
+          "value": 2073
+        },
+        {
+          "name": "Russian",
+          "value": 1049
+        },
+        {
+          "name": "SamiLappish",
+          "value": 1083
+        },
+        {
+          "name": "Sanskrit",
+          "value": 1103
+        },
+        {
+          "name": "SerbianCyrillic",
+          "value": 3098
+        },
+        {
+          "name": "SerbianLatin",
+          "value": 2074
+        },
+        {
+          "name": "Sindhi",
+          "value": 1113
+        },
+        {
+          "name": "Slovak",
+          "value": 1051
+        },
+        {
+          "name": "Slovenian",
+          "value": 1060
+        },
+        {
+          "name": "Sorbian",
+          "value": 1070
+        },
+        {
+          "name": "SpanishArgentina",
+          "value": 11274
+        },
+        {
+          "name": "SpanishBolivia",
+          "value": 16394
+        },
+        {
+          "name": "SpanishChile",
+          "value": 13322
+        },
+        {
+          "name": "SpanishColombia",
+          "value": 9226
+        },
+        {
+          "name": "SpanishCostaRica",
+          "value": 5130
+        },
+        {
+          "name": "SpanishDominicanRepublic",
+          "value": 7178
+        },
+        {
+          "name": "SpanishEcuador",
+          "value": 12298
+        },
+        {
+          "name": "SpanishElSalvador",
+          "value": 17418
+        },
+        {
+          "name": "SpanishGuatemala",
+          "value": 4106
+        },
+        {
+          "name": "SpanishHonduras",
+          "value": 18442
+        },
+        {
+          "name": "MexicanSpanish",
+          "value": 2058
+        },
+        {
+          "name": "SpanishNicaragua",
+          "value": 19466
+        },
+        {
+          "name": "SpanishPanama",
+          "value": 6154
+        },
+        {
+          "name": "SpanishParaguay",
+          "value": 15370
+        },
+        {
+          "name": "SpanishPeru",
+          "value": 10250
+        },
+        {
+          "name": "SpanishPuertoRico",
+          "value": 20490
+        },
+        {
+          "name": "SpanishModernSort",
+          "value": 3082
+        },
+        {
+          "name": "Spanish",
+          "value": 1034
+        },
+        {
+          "name": "SpanishUruguay",
+          "value": 14346
+        },
+        {
+          "name": "SpanishVenezuela",
+          "value": 8202
+        },
+        {
+          "name": "Sesotho",
+          "value": 1072
+        },
+        {
+          "name": "Swahili",
+          "value": 1089
+        },
+        {
+          "name": "SwedishFinland",
+          "value": 2077
+        },
+        {
+          "name": "Swedish",
+          "value": 1053
+        },
+        {
+          "name": "Tajik",
+          "value": 1064
+        },
+        {
+          "name": "Tamil",
+          "value": 1097
+        },
+        {
+          "name": "Tatar",
+          "value": 1092
+        },
+        {
+          "name": "Telugu",
+          "value": 1098
+        },
+        {
+          "name": "Thai",
+          "value": 1054
+        },
+        {
+          "name": "Tibetan",
+          "value": 1105
+        },
+        {
+          "name": "Tsonga",
+          "value": 1073
+        },
+        {
+          "name": "Tswana",
+          "value": 1074
+        },
+        {
+          "name": "Turkish",
+          "value": 1055
+        },
+        {
+          "name": "Turkmen",
+          "value": 1090
+        },
+        {
+          "name": "Ukrainian",
+          "value": 1058
+        },
+        {
+          "name": "Urdu",
+          "value": 1056
+        },
+        {
+          "name": "UzbekCyrillic",
+          "value": 2115
+        },
+        {
+          "name": "UzbekLatin",
+          "value": 1091
+        },
+        {
+          "name": "Venda",
+          "value": 1075
+        },
+        {
+          "name": "Vietnamese",
+          "value": 1066
+        },
+        {
+          "name": "Welsh",
+          "value": 1106
+        },
+        {
+          "name": "Xhosa",
+          "value": 1076
+        },
+        {
+          "name": "Zulu",
+          "value": 1077
+        }
+      ],
+      "aliases": [
+        {
+          "name": "Sutu",
+          "alias_of": "Sesotho"
+        }
+      ],
+      "variant_count": 172
+    },
+    {
+      "name": "cdrTextEffect",
+      "module": "enums/text",
+      "variants": [
+        {
+          "name": "None",
+          "value": 0
+        },
+        {
+          "name": "Bullet",
+          "value": 1
+        },
+        {
+          "name": "DropCap",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 3
+    },
+    {
+      "name": "cdrTextChangeCase",
+      "module": "enums/text",
+      "variants": [
+        {
+          "name": "Uppercase",
+          "value": 0
+        },
+        {
+          "name": "Lowercase",
+          "value": 1
+        },
+        {
+          "name": "TitleCase",
+          "value": 2
+        },
+        {
+          "name": "SentenceCase",
+          "value": 3
+        },
+        {
+          "name": "ToggleCase",
+          "value": 4
+        }
+      ],
+      "aliases": [],
+      "variant_count": 5
+    },
+    {
+      "name": "cdrTextTabAlignment",
+      "module": "enums/text",
+      "variants": [
+        {
+          "name": "Left",
+          "value": 0
+        },
+        {
+          "name": "Right",
+          "value": 1
+        },
+        {
+          "name": "Center",
+          "value": 2
+        },
+        {
+          "name": "Decimal",
+          "value": 3
+        }
+      ],
+      "aliases": [],
+      "variant_count": 4
+    },
+    {
+      "name": "cdrVerticalAlignment",
+      "module": "enums/text",
+      "variants": [
+        {
+          "name": "Top",
+          "value": 0
+        },
+        {
+          "name": "Center",
+          "value": 1
+        },
+        {
+          "name": "Bottom",
+          "value": 2
+        },
+        {
+          "name": "Full",
+          "value": 3
+        }
+      ],
+      "aliases": [],
+      "variant_count": 4
+    },
+    {
+      "name": "cdrLineSpacingType",
+      "module": "enums/text",
+      "variants": [
+        {
+          "name": "PercentOfCharacterHeightLineSpacing",
+          "value": 0
+        },
+        {
+          "name": "PointLineSpacing",
+          "value": 1
+        },
+        {
+          "name": "PercentOfPointSizeLineSpacing",
+          "value": 2
+        },
+        {
+          "name": "MixedLineSpacing",
+          "value": 3
+        }
+      ],
+      "aliases": [],
+      "variant_count": 4
+    },
+    {
+      "name": "cdrTextPropertySet",
+      "module": "enums/text",
+      "variants": [
+        {
+          "name": "TextPropertyAll",
+          "value": -1
+        },
+        {
+          "name": "TextPropertyFill",
+          "value": 1
+        },
+        {
+          "name": "TextPropertyOutline",
+          "value": 2
+        },
+        {
+          "name": "TextPropertyFont",
+          "value": 4
+        },
+        {
+          "name": "TextPropertySize",
+          "value": 8
+        },
+        {
+          "name": "TextPropertyStyle",
+          "value": 16
+        }
+      ],
+      "aliases": [],
+      "variant_count": 6
+    },
+    {
+      "name": "cuiBarPosition",
+      "module": "enums/ui",
+      "variants": [
+        {
+          "name": "BarLeft",
+          "value": 0
+        },
+        {
+          "name": "BarTop",
+          "value": 1
+        },
+        {
+          "name": "BarRight",
+          "value": 2
+        },
+        {
+          "name": "BarBottom",
+          "value": 3
+        },
+        {
+          "name": "BarFloating",
+          "value": 4
+        }
+      ],
+      "aliases": [],
+      "variant_count": 5
+    },
+    {
+      "name": "cuiBarType",
+      "module": "enums/ui",
+      "variants": [
+        {
+          "name": "BarTypeNormal",
+          "value": 0
+        },
+        {
+          "name": "BarTypeMenuBar",
+          "value": 1
+        },
+        {
+          "name": "BarTypePopup",
+          "value": 2
+        },
+        {
+          "name": "BarTypeStatusBar",
+          "value": 3
+        },
+        {
+          "name": "BarTypePropertyBar",
+          "value": 4
+        }
+      ],
+      "aliases": [],
+      "variant_count": 5
+    },
+    {
+      "name": "cuiBarProtection",
+      "module": "enums/ui",
+      "variants": [
+        {
+          "name": "BarNoProtection",
+          "value": 0
+        },
+        {
+          "name": "BarNoCustomize",
+          "value": 1
+        },
+        {
+          "name": "BarNoMove",
+          "value": 4
+        },
+        {
+          "name": "BarNoChangeVisible",
+          "value": 8
+        },
+        {
+          "name": "BarNoChangeDock",
+          "value": 16
+        },
+        {
+          "name": "BarNoVerticalDock",
+          "value": 32
+        },
+        {
+          "name": "BarNoHorizontalDock",
+          "value": 64
+        }
+      ],
+      "aliases": [],
+      "variant_count": 7
+    },
+    {
+      "name": "cuiWindowState",
+      "module": "enums/ui",
+      "variants": [
+        {
+          "name": "WindowStateRestored",
+          "value": 0
+        },
+        {
+          "name": "WindowStateMaximized",
+          "value": 1
+        },
+        {
+          "name": "WindowStateMinimized",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 3
+    },
+    {
+      "name": "cuiDockHostOrientation",
+      "module": "enums/ui",
+      "variants": [
+        {
+          "name": "DockHostHorizontal",
+          "value": 0
+        },
+        {
+          "name": "DockHostVertical",
+          "value": 1
+        }
+      ],
+      "aliases": [],
+      "variant_count": 2
+    },
+    {
+      "name": "cuiDockOperation",
+      "module": "enums/ui",
+      "variants": [
+        {
+          "name": "DockOperationInsert",
+          "value": 0
+        },
+        {
+          "name": "DockOperationSplitTopLeft",
+          "value": 1
+        },
+        {
+          "name": "DockOperationSplitBottomRight",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 3
+    },
+    {
+      "name": "cuiDockItemType",
+      "module": "enums/ui",
+      "variants": [
+        {
+          "name": "DockItemDockHost",
+          "value": 0
+        },
+        {
+          "name": "DockItemViewHost",
+          "value": 1
+        }
+      ],
+      "aliases": [],
+      "variant_count": 2
+    },
+    {
+      "name": "cuiMessageBoxFlags",
+      "module": "enums/ui",
+      "variants": [
+        {
+          "name": "Default",
+          "value": 0
+        },
+        {
+          "name": "NoAutoWrap",
+          "value": 1
+        }
+      ],
+      "aliases": [],
+      "variant_count": 2
+    },
+    {
+      "name": "cuiTaskPriority",
+      "module": "enums/ui",
+      "variants": [
+        {
+          "name": "Low",
+          "value": 0
+        },
+        {
+          "name": "Normal",
+          "value": 1
+        },
+        {
+          "name": "High",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 3
+    },
+    {
+      "name": "cdrViewType",
+      "module": "enums/view",
+      "variants": [
+        {
+          "name": "SimpleWireframe",
+          "value": 0
+        },
+        {
+          "name": "Wireframe",
+          "value": 1
+        },
+        {
+          "name": "Draft",
+          "value": 2
+        },
+        {
+          "name": "Normal",
+          "value": 3
+        },
+        {
+          "name": "Enhanced",
+          "value": 4
+        },
+        {
+          "name": "Pixel",
+          "value": 6
+        }
+      ],
+      "aliases": [],
+      "variant_count": 6
+    },
+    {
+      "name": "cdrWindowState",
+      "module": "enums/view",
+      "variants": [
+        {
+          "name": "Normal",
+          "value": 1
+        },
+        {
+          "name": "Minimized",
+          "value": 2
+        },
+        {
+          "name": "Maximized",
+          "value": 3
+        },
+        {
+          "name": "Restore",
+          "value": 9
+        }
+      ],
+      "aliases": [],
+      "variant_count": 4
+    },
+    {
+      "name": "cdrWindowArrangeStyle",
+      "module": "enums/view",
+      "variants": [
+        {
+          "name": "TileHorizontally",
+          "value": 0
+        },
+        {
+          "name": "TileVertically",
+          "value": 1
+        },
+        {
+          "name": "Cascade",
+          "value": 2
+        }
+      ],
+      "aliases": [],
+      "variant_count": 3
+    },
+    {
+      "name": "cdrWindowType",
+      "module": "enums/view",
+      "variants": [
+        {
+          "name": "DocumentWindow",
+          "value": 0
+        }
+      ],
+      "aliases": [],
+      "variant_count": 1
+    }
+  ]
+}

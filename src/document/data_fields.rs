@@ -232,7 +232,7 @@ impl IvgDataField {
         self.disp.set_property(name, vec![arg]).is_ok()
     }
 
-    // ---- 瀛楁瀹氫箟 ----
+    // ---- 字段定义 ----
 
     pub fn name(&self) -> Option<String> { self.prop_string("Name") }
     pub fn set_name(&self, v: impl Into<String>) -> bool { self.put_string("Name", v) }
@@ -276,7 +276,7 @@ impl IvgDataField {
     pub fn summarize_group(&self) -> Option<bool> { self.prop_bool("SummarizeGroup") }
     pub fn set_summarize_group(&self, v: bool) -> bool { self.put_bool("SummarizeGroup", v) }
 
-    // ---- 鎿嶄綔 ----
+    // ---- 操作 ----
 
     pub fn delete(&self) -> bool {
         self.disp.invoke_method("Delete", vec![]).is_ok()

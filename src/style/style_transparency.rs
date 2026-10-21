@@ -71,7 +71,7 @@ impl IvgStyleTransparency {
         self.put_f64("BlackTransparency", v)
     }
 
-    // ---- 搴旂敤瀵硅薄 ----
+    // ---- 应用对象 ----
 
     /// `cdrTransparencyAppliedTo`
     pub fn applies_to(&self) -> Option<i64> { self.prop_i64("AppliesTo") }
