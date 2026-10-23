@@ -48,13 +48,13 @@ impl IvgPages {
     // ---------------------------------------------------------
 
     pub fn item(&self, index: i32) -> Option<IvgPage> {
-        let args = vec![Variant::from_i64(index as i64)];
-        self.disp
-            .invoke_method("Item", args)
-            .ok()?
-            .to_idispatch()
-            .ok()
-            .map(IvgPage::new)
+        // `Item` 在类型库里可能注册为带参数的属性，也可能是方法。
+        let v = self
+            .disp
+            .get_property_with("Item", vec![Variant::from_i64(index as i64)])
+            .or_else(|_| self.disp.invoke_method("Item", vec![Variant::from_i64(index as i64)]))
+            .ok()?;
+        v.to_idispatch().ok().map(IvgPage::new)
     }
 
     pub fn first(&self) -> Option<IvgPage> {

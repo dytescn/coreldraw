@@ -52,6 +52,18 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 }
 ```
 
+## cyctron 插件（ffi/ + ts/）
+
+仓库同时提供 cyctron libary 动态库插件：`ffi/` 把核心接口导出为 C ABI，
+`ts/` 提供 HTTP 层接口测试。
+
+```bash
+bash ffi/package.sh                       # 构建并安装到 cyctron/libary
+deno run --allow-net --allow-env   --allow-read --allow-write ts/coreldraw_request.ts 44944
+```
+
+详见 [ffi/README.md](ffi/README.md)。
+
 ## Module Overview
 
 | Module | Purpose |

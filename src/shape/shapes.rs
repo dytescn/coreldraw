@@ -33,9 +33,11 @@ impl IvgShapes {
     pub fn count(&self) -> Option<i64> { self.prop_i64("Count") }
 
     pub fn item(&self, index_or_name: Variant) -> Option<IvgShape> {
+        // `Item` 是带参数的属性（parameterized property），必须用
+        // DISPATCH_PROPERTYGET；用 DISPATCH_METHOD 会返回 DISP_E_MEMBERNOTFOUND。
         let args = vec![index_or_name];
         self.disp
-            .invoke_method("Item", args)
+            .get_property_with("Item", args)
             .ok()?
             .to_idispatch()
             .ok()
@@ -49,6 +51,7 @@ impl IvgShapes {
     pub fn item_by_name(&self, name: impl Into<String>) -> Option<IvgShape> {
         self.item(Variant::from_str(name.into()))
     }
+
 
     pub fn first(&self) -> Option<IvgShape> { self.prop_dispatch("First").map(IvgShape::new) }
     pub fn last(&self) -> Option<IvgShape> { self.prop_dispatch("Last").map(IvgShape::new) }

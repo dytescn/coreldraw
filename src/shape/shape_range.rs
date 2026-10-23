@@ -66,9 +66,10 @@ impl IvgShapeRange {
     }
 
     pub fn item(&self, index_or_name: Variant) -> Option<IvgShape> {
+        // 带参数的属性：见 `IvgShapes::item`。
         let args = vec![index_or_name];
         self.disp
-            .invoke_method("Item", args)
+            .get_property_with("Item", args)
             .ok()?
             .to_idispatch()
             .ok()
@@ -76,7 +77,12 @@ impl IvgShapeRange {
     }
 
     pub fn item_by_index(&self, i: i32) -> Option<IvgShape> {
-        self.item(Variant::from_i64(i as i64))
+        let v = self
+            .disp
+            .get_property_with("Item", vec![Variant::from_i64(i as i64)])
+            .or_else(|_| self.disp.invoke_method("Item", vec![Variant::from_i64(i as i64)]))
+            .ok()?;
+        v.to_idispatch().ok().map(IvgShape::new)
     }
 
     // ---- 几何 ----

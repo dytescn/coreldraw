@@ -17,6 +17,8 @@ categories = ["api-bindings", "graphics", "os::windows-apis"]
 exclude = [
     ".github/",
     "docs/",
+    "ffi/",
+    "ts/",
     "info.md",
     "*.bat",
     "*.txt",

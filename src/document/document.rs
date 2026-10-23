@@ -12,7 +12,9 @@ use crate::document::IvgMetadata;
 use crate::layer::{IvgLayer, IvgLayers};
 use crate::page::{IvgPage, IvgPages, IvgSpread, IvgSpreads};
 use crate::shape::{IvgShape, IvgShapeRange, IvgShapes};
-use crate::structs::{IvgStructExportOptions, IvgStructSaveAsOptions};
+use crate::structs::{
+    IvgStructExportOptions, IvgStructPaletteOptions, IvgStructSaveAsOptions,
+};
 
 // =============================================================
 // IvgDocument
@@ -200,8 +202,18 @@ impl IvgDocument {
         self.prop_dispatch("ActiveSpread").map(IvgSpread::new)
     }
 
-    /// 新建页面。
+    /// 在文档末尾追加一个空白页（默认页面尺寸）。
+    ///
+    /// `Document` 没有 `CreatePage` 成员；VBA 对应方法是
+    /// `AddPages(NumberOfPages)`，返回第一个新增的页面。
     pub fn create_page(&self) -> Option<IvgPage> {
+        let args = vec![Variant::from_i64(1)];
+        if let Ok(v) = self.disp.invoke_method("AddPages", args) {
+            if let Ok(disp) = v.to_idispatch() {
+                return Some(IvgPage::new(disp));
+            }
+        }
+        // 兼容旧版 / 非标准实现
         self.disp
             .invoke_method("CreatePage", vec![])
             .ok()?
@@ -364,10 +376,15 @@ impl IvgDocument {
         self.disp.invoke_method("Save", vec![]).is_ok()
     }
 
-    /// 另存为（用默认选项）。
+    /// 另存为（自动创建默认 `IVGStructSaveAsOptions`）。
+    ///
+    /// 类型库中 `Document.SaveAs(FileName, Options)` 的 `Options` 是必需
+    /// 参数（不是可选参数），缺省会 `DISP_E_TYPEMISMATCH`。
     pub fn save_as(&self, file_name: impl Into<String>) -> bool {
-        let args = vec![Variant::from_str(&file_name.into())];
-        self.disp.invoke_method("SaveAs", args).is_ok()
+        let Some(options) = self.application().and_then(|a| a.create_save_as_options()) else {
+            return false;
+        };
+        self.save_as_ex(file_name, &options)
     }
 
     /// 另存为（带 `IVGStructSaveAsOptions`）。
@@ -380,7 +397,7 @@ impl IvgDocument {
             Variant::from_str(&file_name.into()),
             options.as_variant(),
         ];
-        self.disp.invoke_method("SaveAsEx", args).is_ok()
+        self.disp.invoke_method("SaveAs", args).is_ok()
     }
 
     /// 关闭文档。
@@ -403,12 +420,22 @@ impl IvgDocument {
     // ---------------------------------------------------------
 
     /// 导出为指定格式。
+    ///
+    /// 类型库签名是
+    /// `Export(FileName, Filter, Range, Options, PaletteOptions)`——五个
+    /// 参数全部必需。这里用默认 ExportOptions / PaletteOptions，
+    /// `Range = cdrExportRange::AllPages(0)`。
     pub fn export(&self, file_name: impl Into<String>, filter: i32) -> bool {
-        let args = vec![
-            Variant::from_str(&file_name.into()),
-            Variant::from_i64(filter as i64),
-        ];
-        self.disp.invoke_method("Export", args).is_ok()
+        let Some(app) = self.application() else {
+            return false;
+        };
+        let (Some(options), Some(palette)) = (
+            app.create_export_options(),
+            app.create_palette_options(),
+        ) else {
+            return false;
+        };
+        self.export_with(file_name, filter, &options, &palette)
     }
 
     /// 导出（带 `IVGStructExportOptions`）。
@@ -418,12 +445,30 @@ impl IvgDocument {
         filter: i32,
         options: &IvgStructExportOptions,
     ) -> bool {
+        let Some(palette) = self
+            .application()
+            .and_then(|a| a.create_palette_options())
+        else {
+            return false;
+        };
+        self.export_with(file_name, filter, options, &palette)
+    }
+
+    fn export_with(
+        &self,
+        file_name: impl Into<String>,
+        filter: i32,
+        options: &IvgStructExportOptions,
+        palette: &IvgStructPaletteOptions,
+    ) -> bool {
         let args = vec![
             Variant::from_str(&file_name.into()),
-            Variant::from_i64(filter as i64),
+            Variant::from_i32(filter),
+            Variant::from_i32(0), // cdrExportRange::AllPages
             options.as_variant(),
+            palette.as_variant(),
         ];
-        self.disp.invoke_method("ExportEx", args).is_ok()
+        self.disp.invoke_method("Export", args).is_ok()
     }
 
     /// 打印。

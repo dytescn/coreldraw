@@ -50,9 +50,10 @@ impl IvgDocuments {
 
     /// 閫氳繃绱㈠紩锛?-based锛夋垨鍚嶇О鑾峰彇鏂囨。銆?
     pub fn item(&self, index_or_name: Variant) -> Option<IvgDocument> {
+        // `Item` 是带参数的属性，必须用 DISPATCH_PROPERTYGET。
         let args = vec![index_or_name];
         self.disp
-            .invoke_method("Item", args)
+            .get_property_with("Item", args)
             .ok()?
             .to_idispatch()
             .ok()
@@ -60,11 +61,22 @@ impl IvgDocuments {
     }
 
     pub fn item_by_index(&self, i: i32) -> Option<IvgDocument> {
-        self.item(Variant::from_i64(i as i64))
+        let v = self
+            .disp
+            .get_property_with("Item", vec![Variant::from_i64(i as i64)])
+            .or_else(|_| self.disp.invoke_method("Item", vec![Variant::from_i64(i as i64)]))
+            .ok()?;
+        v.to_idispatch().ok().map(IvgDocument::new)
     }
 
     pub fn item_by_name(&self, name: impl Into<String>) -> Option<IvgDocument> {
-        self.item(Variant::from_str(name.into()))
+        let name = name.into();
+        let v = self
+            .disp
+            .get_property_with("Item", vec![Variant::from_str(name.clone())])
+            .or_else(|_| self.disp.invoke_method("Item", vec![Variant::from_str(name)]))
+            .ok()?;
+        v.to_idispatch().ok().map(IvgDocument::new)
     }
 
     // ---------------------------------------------------------
@@ -116,14 +128,16 @@ impl IvgDocuments {
     }
 
     /// 鎵撳紑鏂囦欢銆?
+    /// 打开文档。
+    ///
+    /// `Documents` 集合没有 `Open` 成员；正确入口是
+    /// `Application.OpenDocument(FileName)`，随后取活动文档。
     pub fn open(&self, file_name: impl Into<String>) -> Option<IvgDocument> {
-        let args = vec![Variant::from_str(file_name.into())];
-        self.disp
-            .invoke_method("Open", args)
-            .ok()?
-            .to_idispatch()
-            .ok()
-            .map(IvgDocument::new)
+        let app = self.application()?;
+        if !app.open_document(file_name) {
+            return None;
+        }
+        app.active_document()
     }
 
     /// 鍏抽棴鎵€鏈夋枃妗ｃ€?
