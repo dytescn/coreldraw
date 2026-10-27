@@ -1,0 +1,10 @@
+{
+  "name": "shape_rotate",
+  "description": "CorelDRAW 接口：shape_rotate",
+  "inputSchema": {
+    "type": "object"
+  },
+  "outputSchema": {
+    "type": "object"
+  }
+}

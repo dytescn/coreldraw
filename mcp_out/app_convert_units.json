@@ -1,0 +1,10 @@
+{
+  "name": "app_convert_units",
+  "description": "CorelDRAW 接口：app_convert_units",
+  "inputSchema": {
+    "type": "object"
+  },
+  "outputSchema": {
+    "type": "object"
+  }
+}

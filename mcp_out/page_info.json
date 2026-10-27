@@ -1,0 +1,10 @@
+{
+  "name": "page_info",
+  "description": "CorelDRAW 接口：page_info",
+  "inputSchema": {
+    "type": "object"
+  },
+  "outputSchema": {
+    "type": "object"
+  }
+}

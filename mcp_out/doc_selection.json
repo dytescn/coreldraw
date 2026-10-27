@@ -1,0 +1,10 @@
+{
+  "name": "doc_selection",
+  "description": "CorelDRAW 接口：doc_selection",
+  "inputSchema": {
+    "type": "object"
+  },
+  "outputSchema": {
+    "type": "object"
+  }
+}

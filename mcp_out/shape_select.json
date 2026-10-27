@@ -1,0 +1,10 @@
+{
+  "name": "shape_select",
+  "description": "CorelDRAW 接口：shape_select",
+  "inputSchema": {
+    "type": "object"
+  },
+  "outputSchema": {
+    "type": "object"
+  }
+}

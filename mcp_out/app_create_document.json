@@ -1,0 +1,10 @@
+{
+  "name": "app_create_document",
+  "description": "CorelDRAW 接口：app_create_document",
+  "inputSchema": {
+    "type": "object"
+  },
+  "outputSchema": {
+    "type": "object"
+  }
+}

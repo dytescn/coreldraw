@@ -1,0 +1,10 @@
+{
+  "name": "page_set_size",
+  "description": "CorelDRAW 接口：page_set_size",
+  "inputSchema": {
+    "type": "object"
+  },
+  "outputSchema": {
+    "type": "object"
+  }
+}

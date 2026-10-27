@@ -1,0 +1,10 @@
+{
+  "name": "doc_create_page",
+  "description": "CorelDRAW 接口：doc_create_page",
+  "inputSchema": {
+    "type": "object"
+  },
+  "outputSchema": {
+    "type": "object"
+  }
+}

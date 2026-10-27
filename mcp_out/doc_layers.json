@@ -1,0 +1,10 @@
+{
+  "name": "doc_layers",
+  "description": "CorelDRAW 接口：doc_layers",
+  "inputSchema": {
+    "type": "object"
+  },
+  "outputSchema": {
+    "type": "object"
+  }
+}

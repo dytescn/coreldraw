@@ -1,0 +1,10 @@
+{
+  "name": "doc_export",
+  "description": "CorelDRAW 接口：doc_export",
+  "inputSchema": {
+    "type": "object"
+  },
+  "outputSchema": {
+    "type": "object"
+  }
+}

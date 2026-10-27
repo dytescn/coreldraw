@@ -1,0 +1,10 @@
+{
+  "name": "health",
+  "description": "CorelDRAW 插件健康检查",
+  "inputSchema": {
+    "type": "object"
+  },
+  "outputSchema": {
+    "type": "object"
+  }
+}

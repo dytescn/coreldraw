@@ -1,0 +1,10 @@
+{
+  "name": "app_create_color",
+  "description": "CorelDRAW 接口：app_create_color",
+  "inputSchema": {
+    "type": "object"
+  },
+  "outputSchema": {
+    "type": "object"
+  }
+}

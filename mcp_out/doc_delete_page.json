@@ -1,0 +1,10 @@
+{
+  "name": "doc_delete_page",
+  "description": "CorelDRAW 接口：doc_delete_page",
+  "inputSchema": {
+    "type": "object"
+  },
+  "outputSchema": {
+    "type": "object"
+  }
+}

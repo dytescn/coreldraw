@@ -1,0 +1,10 @@
+{
+  "name": "view_set_zoom",
+  "description": "CorelDRAW 接口：view_set_zoom",
+  "inputSchema": {
+    "type": "object"
+  },
+  "outputSchema": {
+    "type": "object"
+  }
+}

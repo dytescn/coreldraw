@@ -1,0 +1,10 @@
+{
+  "name": "shape_move",
+  "description": "CorelDRAW 接口：shape_move",
+  "inputSchema": {
+    "type": "object"
+  },
+  "outputSchema": {
+    "type": "object"
+  }
+}
