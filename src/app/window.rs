@@ -4,15 +4,20 @@
 
 use wincom::{ComObject, Variant};
 
+/// CorelDRAW `IVGAppWindow` 对象的后期绑定包装（应用窗口）。
+///
+/// 所有属性与方法通过 `IDispatch::Invoke` 按名称调用，调用失败时一般返回 `None` 或 `false`。
 pub struct IvgAppWindow {
     disp: ComObject,
 }
 
 impl IvgAppWindow {
+    /// 由 COM `IDispatch` 构造包装对象。
     pub fn new(disp: ComObject) -> Self {
         Self { disp }
     }
 
+    /// 获取底层 `ComObject` 的引用。
     pub fn raw(&self) -> &ComObject {
         &self.disp
     }
@@ -58,6 +63,7 @@ impl IvgAppWindow {
         self.prop_string("Caption")
     }
 
+    /// 设置标题（`Caption`）。
     pub fn set_caption(&self, s: impl Into<String>) -> bool {
         self.put_string("Caption", s)
     }
@@ -69,46 +75,56 @@ impl IvgAppWindow {
 
     // ---- 位置 ----
 
+    /// 读取左（`Left`）。
     pub fn left(&self) -> Option<i64> {
         self.prop_i64("Left")
     }
 
+    /// 设置左（`Left`）。
     pub fn set_left(&self, v: i32) -> bool {
         self.put_i64("Left", v as i64)
     }
 
+    /// 读取顶（`Top`）。
     pub fn top(&self) -> Option<i64> {
         self.prop_i64("Top")
     }
 
+    /// 设置顶（`Top`）。
     pub fn set_top(&self, v: i32) -> bool {
         self.put_i64("Top", v as i64)
     }
 
     // ---- 尺寸 ----
 
+    /// 读取宽度（`Width`）。
     pub fn width(&self) -> Option<i64> {
         self.prop_i64("Width")
     }
 
+    /// 设置宽度（`Width`）。
     pub fn set_width(&self, v: i32) -> bool {
         self.put_i64("Width", v as i64)
     }
 
+    /// 读取高度（`Height`）。
     pub fn height(&self) -> Option<i64> {
         self.prop_i64("Height")
     }
 
+    /// 设置高度（`Height`）。
     pub fn set_height(&self, v: i32) -> bool {
         self.put_i64("Height", v as i64)
     }
 
     // ---- 客户区 ----
 
+    /// 读取 COM 属性 `ClientWidth`。
     pub fn client_width(&self) -> Option<i64> {
         self.prop_i64("ClientWidth")
     }
 
+    /// 读取 COM 属性 `ClientHeight`。
     pub fn client_height(&self) -> Option<i64> {
         self.prop_i64("ClientHeight")
     }
@@ -125,6 +141,7 @@ impl IvgAppWindow {
         self.prop_i64("WindowState")
     }
 
+    /// 设置窗口状态（`WindowState`）。
     pub fn set_window_state(&self, v: i32) -> bool {
         self.put_i64("WindowState", v as i64)
     }

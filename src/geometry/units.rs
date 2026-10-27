@@ -26,6 +26,7 @@ fn to_inch_factor(u: cdrUnit) -> Option<f64> {
     })
 }
 
+/// 转换。
 pub fn convert(value: f64, from: cdrUnit, to: cdrUnit) -> Option<f64> {
     let f = to_inch_factor(from)?;
     let t = to_inch_factor(to)?;

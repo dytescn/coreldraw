@@ -20,29 +20,37 @@ use crate::structs::{
 // IvgDocument
 // =============================================================
 
+/// CorelDRAW `IVGDocument` 对象的后期绑定包装（文档）。
+///
+/// 所有属性与方法通过 `IDispatch::Invoke` 按名称调用，调用失败时一般返回 `None` 或 `false`。
 pub struct IvgDocument {
     disp: ComObject,
 }
 
 impl IvgDocument {
+    /// 由 COM `IDispatch` 构造包装对象。
     pub fn new(disp: IDispatch) -> Self {
         Self {
             disp: ComObject::from_dispatch(disp, crate::types::IID_IDISPATCH),
         }
     }
 
+    /// 从…构造分发。
     pub fn from_dispatch(disp: IDispatch) -> Self {
         Self::new(disp)
     }
 
+    /// 从 COM `IDispatch` 构造包装对象，等价于 `new`。
     pub fn from_disp(disp: IDispatch) -> Self {
         Self::new(disp)
     }
 
+    /// 获取底层 `ComObject` 的引用。
     pub fn raw(&self) -> &ComObject {
         &self.disp
     }
 
+    /// 把底层 COM 对象包装成 `VARIANT`，用于传给其它 COM 调用。
     pub fn as_variant(&self) -> Variant {
         self.disp.as_variant()
     }
@@ -121,7 +129,7 @@ impl IvgDocument {
     /// 设置 Dirty 标志。
     ///
     /// ⚠️ `Dirty` 在 RIDL 里是**只读**属性；`Application` 层可能支持写，
-    /// 失败会返回 `false`。需要"清空未保存标记"时用 [`reset_dirty`]。
+    /// 失败会返回 `false`。需要"清空未保存标记"时用 `reset_dirty()`。
     pub fn set_dirty(&self, v: bool) -> bool {
         self.put_bool("Dirty", v)
     }
@@ -151,6 +159,7 @@ impl IvgDocument {
         self.prop_i64("Unit")
     }
 
+    /// 设置单位（`Unit`）。
     pub fn set_unit(&self, unit: i32) -> bool {
         self.put_i64("Unit", unit as i64)
     }
@@ -160,6 +169,7 @@ impl IvgDocument {
         self.prop_i64("ReferencePoint")
     }
 
+    /// 设置参考点（`ReferencePoint`）。
     pub fn set_reference_point(&self, v: i32) -> bool {
         self.put_i64("ReferencePoint", v as i64)
     }
@@ -169,6 +179,7 @@ impl IvgDocument {
         self.prop_f64("WorldScale")
     }
 
+    /// 设置世界缩放（`WorldScale`）。
     pub fn set_world_scale(&self, v: f64) -> bool {
         self.put_f64("WorldScale", v)
     }
@@ -177,6 +188,7 @@ impl IvgDocument {
     // 上层对象
     // ---------------------------------------------------------
 
+    /// 读取应用（`Application`）。
     pub fn application(&self) -> Option<crate::app::IvgApplication> {
         self.prop_dispatch("Application")
             .map(crate::app::IvgApplication::from_dispatch)
@@ -186,18 +198,22 @@ impl IvgDocument {
     // 页面
     // ---------------------------------------------------------
 
+    /// 读取页面集（`Pages`）。
     pub fn pages(&self) -> Option<IvgPages> {
         self.prop_dispatch("Pages").map(IvgPages::new)
     }
 
+    /// 读取活动页面（`ActivePage`）。
     pub fn active_page(&self) -> Option<IvgPage> {
         self.prop_dispatch("ActivePage").map(IvgPage::new)
     }
 
+    /// 读取跨页集（`Spreads`）。
     pub fn spreads(&self) -> Option<IvgSpreads> {
         self.prop_dispatch("Spreads").map(IvgSpreads::new)
     }
 
+    /// 读取活动跨页（`ActiveSpread`）。
     pub fn active_spread(&self) -> Option<IvgSpread> {
         self.prop_dispatch("ActiveSpread").map(IvgSpread::new)
     }
@@ -324,6 +340,7 @@ impl IvgDocument {
     // 曲线工厂
     // ---------------------------------------------------------
 
+    /// 创建曲线（COM 方法 `CreateCurve`）。
     pub fn create_curve(&self) -> Option<IvgCurve> {
         let args = vec![self.as_variant()];
         self.disp
@@ -351,6 +368,7 @@ impl IvgDocument {
     // 数据字段
     // ---------------------------------------------------------
 
+    /// 读取 COM 属性 `DataFields`。
     pub fn data_fields(&self) -> Option<crate::document::IvgDataFields> {
         self.prop_dispatch("DataFields")
             .map(crate::document::IvgDataFields::new)
@@ -360,6 +378,7 @@ impl IvgDocument {
     // 元数据
     // ---------------------------------------------------------
 
+    /// 读取元数据（`Metadata`）。
     pub fn metadata(&self) -> Option<IvgMetadata> {
         self.prop_dispatch("Metadata").map(IvgMetadata::new)
     }
@@ -490,6 +509,7 @@ impl IvgDocument {
     // PDF 设置
     // ---------------------------------------------------------
 
+    /// PDF 设置集（COM 方法 `PDFSettings`）。
     pub fn pdf_settings(&self) -> Option<crate::print::IvgPdfVbaSettings> {
         self.disp
             .invoke_method("PDFSettings", vec![])
@@ -523,10 +543,12 @@ impl IvgDocument {
     // 视图 / 窗口
     // ---------------------------------------------------------
 
+    /// 读取视图集（`Views`）。
     pub fn views(&self) -> Option<crate::view::IvgViews> {
         self.prop_dispatch("Views").map(crate::view::IvgViews::new)
     }
 
+    /// 读取窗口集（`Windows`）。
     pub fn windows(&self) -> Option<crate::view::IvgWindows> {
         self.prop_dispatch("Windows")
             .map(crate::view::IvgWindows::new)
@@ -536,10 +558,12 @@ impl IvgDocument {
     // 网格 / 标尺
     // ---------------------------------------------------------
 
+    /// 读取网格（`Grid`）。
     pub fn grid(&self) -> Option<crate::misc::IvgGrid> {
         self.prop_dispatch("Grid").map(crate::misc::IvgGrid::new)
     }
 
+    /// 读取标尺（`Rulers`）。
     pub fn rulers(&self) -> Option<crate::misc::IvgRulers> {
         self.prop_dispatch("Rulers").map(crate::misc::IvgRulers::new)
     }
@@ -548,6 +572,7 @@ impl IvgDocument {
     // 样式
     // ---------------------------------------------------------
 
+    /// 读取 COM 属性 `StyleSheet`。
     pub fn style_sheet(&self) -> Option<crate::style::IvgStyleSheet> {
         self.prop_dispatch("StyleSheet")
             .map(crate::style::IvgStyleSheet::new)
@@ -557,6 +582,7 @@ impl IvgDocument {
     // 对象管理器（Tree）
     // ---------------------------------------------------------
 
+    /// 读取对象树管理器（`ActiveTreeManager`）。
     pub fn tree_manager(&self) -> Option<crate::tree::IvgTreeManager> {
         self.prop_dispatch("ActiveTreeManager")
             .map(crate::tree::IvgTreeManager::new)
@@ -566,6 +592,7 @@ impl IvgDocument {
     // 选择信息
     // ---------------------------------------------------------
 
+    /// 读取选择信息（`SelectionInfo`）。
     pub fn selection_info(&self) -> Option<crate::shape::IvgSelectionInformation> {
         self.prop_dispatch("SelectionInfo")
             .map(crate::shape::IvgSelectionInformation::new)

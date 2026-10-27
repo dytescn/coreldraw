@@ -130,6 +130,6 @@ Most methods return `Option<T>` or `bool`. For raw `HRESULT`, use `.raw()`.
 
 ## License
 
-- MIT license ([LICENSE-MIT](LICENSE-MIT))
+- MIT license (see the `LICENSE` file)
 
 at your option.

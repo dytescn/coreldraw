@@ -7,6 +7,9 @@ use crate::info::{layer_info, shapes_list};
 use crate::json::{ApiError, ApiResult};
 use crate::resolve::{resolve_doc, resolve_layer};
 
+/// `layer_info` 接口：信息。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn info(input: &serde_json::Value) -> ApiResult {
     with_app(|app| {
         let doc = resolve_doc(app, input)?;
@@ -15,6 +18,9 @@ pub fn info(input: &serde_json::Value) -> ApiResult {
     })
 }
 
+/// `layer_shapes` 接口：图形集。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn shapes(input: &serde_json::Value) -> ApiResult {
     with_app(|app| {
         let doc = resolve_doc(app, input)?;
@@ -26,6 +32,9 @@ pub fn shapes(input: &serde_json::Value) -> ApiResult {
     })
 }
 
+/// `layer_delete` 接口：删除。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn delete(input: &serde_json::Value) -> ApiResult {
     with_app(|app| {
         let doc = resolve_doc(app, input)?;

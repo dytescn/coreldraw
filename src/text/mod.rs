@@ -10,7 +10,7 @@
 //! - [`IvgTextLines`]         : 行视图
 //! - [`IvgTextParagraphs`]    : 段落视图
 //! - [`IvgTextColumns`]       : 分栏视图
-//! - [`IvgTextTabPosition(s)`]: 制表位
+//! - [`IvgTextTabPosition`] / [`IvgTextTabPositions`] : 制表位
 
 pub mod text;
 pub mod range;

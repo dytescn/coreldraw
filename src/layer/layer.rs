@@ -1,4 +1,4 @@
-﻿//! `IVGLayer` 鈥斺€?鍥惧眰瀵硅薄
+﻿//! `IVGLayer` —— 图层对象
 //!
 //! 图层既承载图形（`Shapes` / `SelectableShapes`），
 //! 又是**图形工厂**：`CreateRectangle` / `CreateEllipse` / `CreateArtisticText` ...
@@ -15,22 +15,29 @@ use crate::shape::{IvgShape, IvgShapeRange, IvgShapes};
 use crate::structs::{IvgStructImportOptions, IvgStructPasteOptions};
 use crate::tree::IvgTreeNode;
 
+/// CorelDRAW `IVGLayer` 对象的后期绑定包装（图层）。
+///
+/// 所有属性与方法通过 `IDispatch::Invoke` 按名称调用，调用失败时一般返回 `None` 或 `false`。
 pub struct IvgLayer {
     disp: ComObject,
 }
 
 impl IvgLayer {
+    /// 由 COM `IDispatch` 构造包装对象。
     pub fn new(disp: IDispatch) -> Self {
         Self { disp: ComObject::from_dispatch(disp, crate::types::IID_IDISPATCH) }
     }
 
+    /// 从 COM `IDispatch` 构造包装对象，等价于 `new`。
     pub fn from_disp(disp: IDispatch) -> Self {
         Self::new(disp)
     }
 
+    /// 把底层 COM 对象包装成 `VARIANT`，用于传给其它 COM 调用。
     pub fn as_variant(&self) -> Variant {
         self.disp.as_variant()
     }
+    /// 获取底层 `ComObject` 的引用。
     pub fn raw(&self) -> &ComObject {
         &self.disp
     }
@@ -70,53 +77,71 @@ impl IvgLayer {
     }
 
     // ---------------------------------------------------------
-    // 鍩烘湰灞炴€?
+    // 基本属性
     // ---------------------------------------------------------
 
+    /// 读取名称（`Name`）。
     pub fn name(&self) -> Option<String> { self.prop_string("Name") }
+    /// 设置名称（`Name`）。
     pub fn set_name(&self, v: impl Into<String>) -> bool {
         self.put_string("Name", v)
     }
 
+    /// 读取索引（`Index`）。
     pub fn index(&self) -> Option<i64> { self.prop_i64("Index") }
+    /// 读取绝对索引（`AbsoluteIndex`）。
     pub fn absolute_index(&self) -> Option<i64> { self.prop_i64("AbsoluteIndex") }
 
+    /// 读取页面（`Page`）。
     pub fn page(&self) -> Option<IvgPage> {
         self.prop_dispatch("Page").map(IvgPage::new)
     }
 
+    /// 读取对象树节点（`TreeNode`）。
     pub fn tree_node(&self) -> Option<IvgTreeNode> {
         self.prop_dispatch("TreeNode").map(IvgTreeNode::new)
     }
 
     // ---------------------------------------------------------
-    // 鍙鎬?/ 鎵撳嵃 / 缂栬緫 / 涓诲眰
+    // 可见性/ 打印 / 编辑 / 主层
     // ---------------------------------------------------------
 
+    /// 读取可见性（`Visible`）。
     pub fn visible(&self) -> Option<bool> { self.prop_bool("Visible") }
+    /// 设置可见性（`Visible`）。
     pub fn set_visible(&self, v: bool) -> bool { self.put_bool("Visible", v) }
 
+    /// 读取 COM 属性 `Printable`。
     pub fn printable(&self) -> Option<bool> { self.prop_bool("Printable") }
+    /// 设置 COM 属性 `Printable`。
     pub fn set_printable(&self, v: bool) -> bool { self.put_bool("Printable", v) }
 
+    /// 读取可编辑（`Editable`）。
     pub fn editable(&self) -> Option<bool> { self.prop_bool("Editable") }
+    /// 设置可编辑（`Editable`）。
     pub fn set_editable(&self, v: bool) -> bool { self.put_bool("Editable", v) }
 
+    /// 读取主（`Master`）。
     pub fn master(&self) -> Option<bool> { self.prop_bool("Master") }
+    /// 设置主（`Master`）。
     pub fn set_master(&self, v: bool) -> bool { self.put_bool("Master", v) }
 
     // ---------------------------------------------------------
-    // 鍥惧眰棰滆壊锛堢敤浜?UI 鏄剧ず锛?
+    // 图层颜色（用于 UI 显示）
     // ---------------------------------------------------------
 
+    /// 读取覆盖颜色（`OverrideColor`）。
     pub fn override_color(&self) -> Option<bool> { self.prop_bool("OverrideColor") }
+    /// 设置覆盖颜色（`OverrideColor`）。
     pub fn set_override_color(&self, v: bool) -> bool {
         self.put_bool("OverrideColor", v)
     }
 
+    /// 读取颜色（`Color`）。
     pub fn color(&self) -> Option<IvgColor> {
         self.prop_dispatch("Color").map(IvgColor::new)
     }
+    /// 设置颜色（`Color`）。
     pub fn set_color(&self, c: &IvgColor) -> bool {
         self.put_dispatch("Color", c.as_variant())
     }
@@ -125,17 +150,21 @@ impl IvgLayer {
     // 类型判定（特殊图层）
     // ---------------------------------------------------------
 
+    /// 是否参考线集图层（`IsGuidesLayer`）。
     pub fn is_guides_layer(&self) -> Option<bool> { self.prop_bool("IsGuidesLayer") }
+    /// 是否桌面图层（`IsDesktopLayer`）。
     pub fn is_desktop_layer(&self) -> Option<bool> { self.prop_bool("IsDesktopLayer") }
+    /// 是否网格图层（`IsGridLayer`）。
     pub fn is_grid_layer(&self) -> Option<bool> { self.prop_bool("IsGridLayer") }
+    /// 读取 COM 属性 `IsSpecialLayer`。
     pub fn is_special_layer(&self) -> Option<bool> { self.prop_bool("IsSpecialLayer") }
 
-    /// 涓诲浘灞傜殑寮曠敤銆?
+    /// 主图层的引用。
     pub fn master_layer(&self) -> Option<IvgLayer> {
         self.prop_dispatch("MasterLayer").map(IvgLayer::new)
     }
 
-    /// 涓婁竴灞傦紙`IgnoreMasters` 鍐冲畾鏄惁璺宠繃涓诲眰锛夈€?
+    /// 上一层（`IgnoreMasters` 决定是否跳过主层）。
     pub fn above(&self, ignore_masters: bool) -> Option<IvgLayer> {
         let args = vec![Variant::from_bool(ignore_masters)];
         self.disp
@@ -146,7 +175,7 @@ impl IvgLayer {
             .map(IvgLayer::new)
     }
 
-    /// 涓嬩竴灞傘€?
+    /// 下一层。
     pub fn below(&self, ignore_masters: bool) -> Option<IvgLayer> {
         let args = vec![Variant::from_bool(ignore_masters)];
         self.disp
@@ -161,10 +190,12 @@ impl IvgLayer {
     // 属性包
     // ---------------------------------------------------------
 
+    /// 读取属性集（`Properties`）。
     pub fn properties(&self) -> Option<crate::misc::IvgProperties> {
         self.prop_dispatch("Properties").map(crate::misc::IvgProperties::new)
     }
 
+    /// 读取主属性集（`MasterProperties`）。
     pub fn master_properties(&self) -> Option<crate::misc::IvgProperties> {
         self.prop_dispatch("MasterProperties").map(crate::misc::IvgProperties::new)
     }
@@ -173,32 +204,37 @@ impl IvgLayer {
     // 图形集合
     // ---------------------------------------------------------
 
+    /// 读取图形集（`Shapes`）。
     pub fn shapes(&self) -> Option<IvgShapes> {
         self.prop_dispatch("Shapes").map(IvgShapes::new)
     }
 
-    /// 浠呭彲閫夋嫨鐨勫浘褰€?
+    /// 仅可选择的图形。
     pub fn selectable_shapes(&self) -> Option<IvgShapes> {
         self.prop_dispatch("SelectableShapes").map(IvgShapes::new)
     }
 
     // ---------------------------------------------------------
-    // 婵€娲?/ 鍒犻櫎 / 绉诲姩
+    // 激活/ 删除 / 移动
     // ---------------------------------------------------------
 
+    /// activate（COM 方法 `Activate`）。
     pub fn activate(&self) -> bool {
         self.disp.invoke_method("Activate", vec![]).is_ok()
     }
 
+    /// 删除（COM 方法 `Delete`）。
     pub fn delete(&self) -> bool {
         self.disp.invoke_method("Delete", vec![]).is_ok()
     }
 
+    /// 移动上方（COM 方法 `MoveAbove`）。
     pub fn move_above(&self, other: &IvgLayer) -> bool {
         let args = vec![other.as_variant()];
         self.disp.invoke_method("MoveAbove", args).is_ok()
     }
 
+    /// 调用 COM 方法 `MoveBelow`。
     pub fn move_below(&self, other: &IvgLayer) -> bool {
         let args = vec![other.as_variant()];
         self.disp.invoke_method("MoveBelow", args).is_ok()
@@ -208,7 +244,7 @@ impl IvgLayer {
     // 导入
     // ---------------------------------------------------------
 
-    /// 瀵煎叆鏂囦欢鍒版湰鍥惧眰锛堥粯璁?filter锛夈€?
+    /// 导入文件到本图层（默认 filter）。
     pub fn import(
         &self,
         file_name: impl Into<String>,
@@ -223,7 +259,7 @@ impl IvgLayer {
         self.disp.invoke_method("Import", args).is_ok()
     }
 
-    /// 瀵煎叆鏂囦欢锛岃繑鍥?`ICorelImportFilter`锛堝彲缁х画浜や簰寮忔帶鍒跺鍏ワ級銆?
+    /// 导入文件，返回 `ICorelImportFilter`（可继续交互式控制导入）。
     pub fn import_ex(
         &self,
         file_name: impl Into<String>,
@@ -247,6 +283,7 @@ impl IvgLayer {
     // 粘贴
     // ---------------------------------------------------------
 
+    /// paste（COM 方法 `Paste`）。
     pub fn paste(&self) -> Option<IvgShape> {
         self.disp
             .invoke_method("Paste", vec![])
@@ -256,6 +293,7 @@ impl IvgLayer {
             .map(IvgShape::new)
     }
 
+    /// 粘贴扩展版（COM 方法 `PasteEx`）。
     pub fn paste_ex(&self, options: &IvgStructPasteOptions) -> Option<IvgShapeRange> {
         let args = vec![options.as_variant()];
         self.disp
@@ -266,6 +304,7 @@ impl IvgLayer {
             .map(IvgShapeRange::new)
     }
 
+    /// 调用 COM 方法 `PasteSpecial`。
     pub fn paste_special(
         &self,
         format_name: impl Into<String>,
@@ -292,6 +331,7 @@ impl IvgLayer {
     // 查找
     // ---------------------------------------------------------
 
+    /// 查找图形（COM 方法 `FindShape`）。
     pub fn find_shape(
         &self,
         name: impl Into<String>,
@@ -313,6 +353,7 @@ impl IvgLayer {
             .map(IvgShape::new)
     }
 
+    /// 查找图形集（COM 方法 `FindShapes`）。
     pub fn find_shapes(
         &self,
         name: impl Into<String>,
@@ -333,10 +374,10 @@ impl IvgLayer {
     }
 
     // ---------------------------------------------------------
-    // 鍥惧舰宸ュ巶锛堢煩褰?/ 妞渾 / 澶氳竟褰?/ 铻烘棆锛?
+    // 图形工厂（矩形/ 椭圆 / 多边形/ 螺旋）
     // ---------------------------------------------------------
 
-    /// 鐢?4 鏉¤竟鍒涘缓鐭╁舰銆?
+    /// 由 4 条边创建矩形。
     #[allow(clippy::too_many_arguments)]
     pub fn create_rectangle(
         &self,
@@ -361,7 +402,7 @@ impl IvgLayer {
             .map(IvgShape::new)
     }
 
-    /// 鐢?浣嶇疆 + 灏哄 + 4 涓崐寰?鍒涘缓鐭╁舰銆?
+    /// 由位置 + 尺寸 + 4 个半径创建矩形。
     #[allow(clippy::too_many_arguments)]
     pub fn create_rectangle2(
         &self,
@@ -386,7 +427,7 @@ impl IvgLayer {
             .map(IvgShape::new)
     }
 
-    /// 鐢?`IvgRect` 鍒涘缓鐭╁舰銆?
+    /// 由 `IvgRect` 创建矩形。
     #[allow(clippy::too_many_arguments)]
     pub fn create_rectangle_rect(
         &self,
@@ -408,6 +449,7 @@ impl IvgLayer {
             .map(IvgShape::new)
     }
 
+    /// 创建椭圆（COM 方法 `CreateEllipse`）。
     #[allow(clippy::too_many_arguments)]
     pub fn create_ellipse(
         &self,
@@ -431,6 +473,7 @@ impl IvgLayer {
             .map(IvgShape::new)
     }
 
+    /// 调用 COM 方法 `CreateEllipse2`。
     #[allow(clippy::too_many_arguments)]
     pub fn create_ellipse2(
         &self,
@@ -454,6 +497,7 @@ impl IvgLayer {
             .map(IvgShape::new)
     }
 
+    /// 创建椭圆矩形（COM 方法 `CreateEllipseRect`）。
     pub fn create_ellipse_rect(
         &self,
         rect: &IvgRect,
@@ -473,6 +517,7 @@ impl IvgLayer {
             .map(IvgShape::new)
     }
 
+    /// 创建多边形（COM 方法 `CreatePolygon`）。
     #[allow(clippy::too_many_arguments)]
     pub fn create_polygon(
         &self,
@@ -500,6 +545,7 @@ impl IvgLayer {
             .map(IvgShape::new)
     }
 
+    /// 调用 COM 方法 `CreatePolygon2`。
     #[allow(clippy::too_many_arguments)]
     pub fn create_polygon2(
         &self,
@@ -524,6 +570,7 @@ impl IvgLayer {
             .map(IvgShape::new)
     }
 
+    /// 调用 COM 方法 `CreateGridBoxes`。
     pub fn create_grid_boxes(
         &self,
         left: f64, top: f64, right: f64, bottom: f64,
@@ -545,6 +592,7 @@ impl IvgLayer {
             .map(IvgShape::new)
     }
 
+    /// 调用 COM 方法 `CreateSpiral`。
     pub fn create_spiral(
         &self,
         left: f64, top: f64, right: f64, bottom: f64,
@@ -568,9 +616,10 @@ impl IvgLayer {
     }
 
     // ---------------------------------------------------------
-    // 鍥惧舰宸ュ巶锛堢嚎娈?/ 鏇茬嚎 / 杩炴帴鍣級
+    // 图形工厂（线段/ 曲线 / 连接器）
     // ---------------------------------------------------------
 
+    /// 创建线线段（COM 方法 `CreateLineSegment`）。
     pub fn create_line_segment(
         &self,
         start_x: f64, start_y: f64, end_x: f64, end_y: f64,
@@ -589,6 +638,7 @@ impl IvgLayer {
             .map(IvgShape::new)
     }
 
+    /// 创建曲线线段（COM 方法 `CreateCurveSegment`）。
     #[allow(clippy::too_many_arguments)]
     pub fn create_curve_segment(
         &self,
@@ -614,6 +664,7 @@ impl IvgLayer {
             .map(IvgShape::new)
     }
 
+    /// 调用 COM 方法 `CreateCurveSegment2`。
     #[allow(clippy::too_many_arguments)]
     pub fn create_curve_segment2(
         &self,
@@ -640,7 +691,7 @@ impl IvgLayer {
             .map(IvgShape::new)
     }
 
-    /// 鐢?`IvgCurve` 鍒涘缓鏇茬嚎鍥惧舰銆?
+    /// 由 `IvgCurve` 创建曲线图形。
     pub fn create_curve(&self, source: &IvgCurve) -> Option<IvgShape> {
         let args = vec![source.as_variant()];
         self.disp
@@ -651,7 +702,7 @@ impl IvgLayer {
             .map(IvgShape::new)
     }
 
-    /// 鐢?`IvgBSpline` 鍒涘缓 B 鏍锋潯鍥惧舰銆?
+    /// 由 `IvgBSpline` 创建 B 样条图形。
     pub fn create_bspline(&self, source: &crate::curve::IvgBSpline) -> Option<IvgShape> {
         let args = vec![source.as_variant()];
         self.disp
@@ -662,8 +713,9 @@ impl IvgLayer {
             .map(IvgShape::new)
     }
 
-    // ---- 杩炴帴鍣?----
+    // ---- 连接器----
 
+    /// 创建连接器（COM 方法 `CreateConnector`）。
     pub fn create_connector(
         &self,
         start: &IvgSnapPoint,
@@ -678,6 +730,7 @@ impl IvgLayer {
             .map(IvgShape::new)
     }
 
+    /// 创建连接器扩展版（COM 方法 `CreateConnectorEx`）。
     pub fn create_connector_ex(
         &self,
         conn_type: i32,
@@ -697,6 +750,7 @@ impl IvgLayer {
             .map(IvgShape::new)
     }
 
+    /// 创建右角度连接器（COM 方法 `CreateRightAngleConnector`）。
     pub fn create_right_angle_connector(
         &self,
         start: &IvgSnapPoint,
@@ -716,6 +770,7 @@ impl IvgLayer {
             .map(IvgShape::new)
     }
 
+    /// 调用 COM 方法 `CreateFreeConnector`。
     pub fn create_free_connector(
         &self,
         x1: f64, y1: f64, x2: f64, y2: f64,
@@ -738,6 +793,7 @@ impl IvgLayer {
     // 图形工厂（文本）
     // ---------------------------------------------------------
 
+    /// 创建艺术文本（COM 方法 `CreateArtisticText`）。
     #[allow(clippy::too_many_arguments)]
     pub fn create_artistic_text(
         &self,
@@ -770,7 +826,7 @@ impl IvgLayer {
             .map(IvgShape::new)
     }
 
-    /// 涓?`create_artistic_text` 鍚岋紝浣嗙敤瀹藉瓧绗︾増锛堢敤浜庡璇█锛夈€?
+    /// 与 `create_artistic_text` 相同，但使用宽字符版（用于多语言）。
     #[allow(clippy::too_many_arguments)]
     pub fn create_artistic_text_wide(
         &self,
@@ -803,6 +859,7 @@ impl IvgLayer {
             .map(IvgShape::new)
     }
 
+    /// 创建段落文本（COM 方法 `CreateParagraphText`）。
     #[allow(clippy::too_many_arguments)]
     pub fn create_paragraph_text(
         &self,
@@ -837,6 +894,7 @@ impl IvgLayer {
             .map(IvgShape::new)
     }
 
+    /// 创建段落文本宽（COM 方法 `CreateParagraphTextWide`）。
     #[allow(clippy::too_many_arguments)]
     pub fn create_paragraph_text_wide(
         &self,
@@ -872,9 +930,10 @@ impl IvgLayer {
     }
 
     // ---------------------------------------------------------
-    // 鍥惧舰宸ュ巶锛堝紩瀵肩嚎锛?
+    // 图形工厂（引导线）
     // ---------------------------------------------------------
 
+    /// 创建参考线角度（COM 方法 `CreateGuideAngle`）。
     pub fn create_guide_angle(
         &self,
         x: f64, y: f64, angle: f64,
@@ -892,6 +951,7 @@ impl IvgLayer {
             .map(IvgShape::new)
     }
 
+    /// 创建参考线（COM 方法 `CreateGuide`）。
     pub fn create_guide(
         &self,
         x1: f64, y1: f64, x2: f64, y2: f64,
@@ -911,10 +971,10 @@ impl IvgLayer {
     }
 
     // ---------------------------------------------------------
-    // 鍥惧舰宸ュ巶锛堣嚜瀹氫箟 / 宸ュ叿鍥惧舰 / 浣嶅浘锛?
+    // 图形工厂（自定义 / 工具图形 / 位图）
     // ---------------------------------------------------------
 
-    /// `Parameters` 涓?`SAFEARRAY`銆?
+    /// `Parameters` 是 `SAFEARRAY`。
     pub fn create_custom_shape(
         &self,
         type_id: impl Into<String>,
@@ -932,6 +992,7 @@ impl IvgLayer {
             .map(IvgShape::new)
     }
 
+    /// 创建工具图形（COM 方法 `CreateToolShape`）。
     pub fn create_tool_shape(
         &self,
         tool_shape_guid: impl Into<String>,
@@ -949,6 +1010,7 @@ impl IvgLayer {
             .map(IvgShape::new)
     }
 
+    /// 创建位图（COM 方法 `CreateBitmap`）。
     #[allow(clippy::too_many_arguments,unused)]
     pub fn create_bitmap(
         &self,
@@ -971,6 +1033,7 @@ impl IvgLayer {
             .ok()
             .map(IvgShape::new)
     }
+    /// 调用 COM 方法 `CreateBitmap2`。
     #[allow(unused)]
     pub fn create_bitmap2(
         &self,
@@ -993,6 +1056,7 @@ impl IvgLayer {
             .ok()
             .map(IvgShape::new)
     }
+    /// 创建位图矩形（COM 方法 `CreateBitmapRect`）。
     #[allow(unused)]
     pub fn create_bitmap_rect(
         &self,
@@ -1014,9 +1078,10 @@ impl IvgLayer {
     }
 
     // ---------------------------------------------------------
-    // 鍥惧舰宸ュ巶锛堟爣娉?/ 绗﹀彿 / OLE锛?
+    // 图形工厂（标法/ 符号 / OLE）
     // ---------------------------------------------------------
 
+    /// 创建线性尺寸（COM 方法 `CreateLinearDimension`）。
     #[allow(clippy::too_many_arguments)]
     pub fn create_linear_dimension(
         &self,
@@ -1074,6 +1139,7 @@ impl IvgLayer {
             .map(IvgShape::new)
     }
 
+    /// 调用 COM 方法 `CreateAngularDimension`。
     #[allow(clippy::too_many_arguments)]
     pub fn create_angular_dimension(
         &self,
@@ -1123,6 +1189,7 @@ impl IvgLayer {
             .map(IvgShape::new)
     }
 
+    /// 创建符号（COM 方法 `CreateSymbol`）。
     pub fn create_symbol(
         &self,
         x: f64, y: f64,
@@ -1143,6 +1210,7 @@ impl IvgLayer {
             .map(IvgShape::new)
     }
 
+    /// 创建 OLE 对象（COM 方法 `CreateOLEObject`）。
     pub fn create_ole_object(
         &self,
         object_id: impl Into<String>,
@@ -1164,6 +1232,7 @@ impl IvgLayer {
             .map(IvgShape::new)
     }
 
+    /// 创建 OLE 对象文件（COM 方法 `CreateOLEObjectFromFile`）。
     pub fn create_ole_object_from_file(
         &self,
         file_name: impl Into<String>,
@@ -1188,9 +1257,10 @@ impl IvgLayer {
     }
 
     // ---------------------------------------------------------
-    // 鑷畾涔夊懡浠?
+    // 自定义命令
     // ---------------------------------------------------------
 
+    /// 自定义命令（COM 方法 `CustomCommand`）。
     pub fn custom_command(
         &self,
         component_id: impl Into<String>,

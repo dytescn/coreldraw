@@ -4,15 +4,21 @@
 // cdrPageOrientation —— 页面方向
 // =============================================================
 
+/// CorelDRAW 枚举 `cdrPageOrientation`：页面方向。
+///
+/// 对应类型库中的 `VGCore::cdrPageOrientation`，用 `#[repr(i32)]` 映射实际整数值。
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrPageOrientation {
+    /// portrait。
     Portrait = 0,
+    /// landscape。
     Landscape = 1,
 }
 
 impl cdrPageOrientation {
+    /// 由整数值构造枚举。
     pub fn from_i32(v: i32) -> Option<Self> {
         match v {
             0 => Some(Self::Portrait),
@@ -26,12 +32,18 @@ impl cdrPageOrientation {
 // cdrPageBackground —— 页面背景
 // =============================================================
 
+/// CorelDRAW 枚举 `cdrPageBackground`：页面背景。
+///
+/// 对应类型库中的 `VGCore::cdrPageBackground`，用 `#[repr(i32)]` 映射实际整数值。
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrPageBackground {
+    /// 页面背景无。
     PageBackgroundNone = 0,
+    /// 页面背景 solid。
     PageBackgroundSolid = 1,
+    /// 页面背景位图。
     PageBackgroundBitmap = 2,
 }
 
@@ -44,6 +56,7 @@ pub enum cdrPageBackground {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrUnit {
+    /// tenthmicron。
     TenthMicron = 0,
     /// 英寸。
     Inch = 1,
@@ -61,6 +74,7 @@ pub enum cdrUnit {
     Meter = 7,
     /// 千米。
     Kilometer = 8,
+    /// didots。
     Didots = 9,
     /// 阿加特（agate）。
     Agate = 10,
@@ -72,11 +86,14 @@ pub enum cdrUnit {
     Cicero = 13,
     /// 磅（point）。
     Point = 14,
+    /// 单位 q。
     UnitQ = 15,
+    /// 单位高。
     UnitH = 16,
 }
 
 impl cdrUnit {
+    /// 由整数值构造枚举。
     pub fn from_i32(v: i32) -> Option<Self> {
         match v {
             0 => Some(Self::TenthMicron),
@@ -105,17 +122,25 @@ impl cdrUnit {
 // cdrGuideType —— 参考线类型
 // =============================================================
 
+/// CorelDRAW 枚举 `cdrGuideType`：参考线类型。
+///
+/// 对应类型库中的 `VGCore::cdrGuideType`，用 `#[repr(i32)]` 映射实际整数值。
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrGuideType {
+    /// 全部参考线集。
     AllGuides = -1,
+    /// 水平参考线。
     HorizontalGuide = 0,
+    /// 垂直参考线。
     VerticalGuide = 1,
+    /// slanted 参考线。
     SlantedGuide = 2,
 }
 
 impl cdrGuideType {
+    /// 由整数值构造枚举。
     pub fn from_i32(v: i32) -> Option<Self> {
         match v {
             -1 => Some(Self::AllGuides),
@@ -131,11 +156,16 @@ impl cdrGuideType {
 // cdrGridType —— 网格类型
 // =============================================================
 
+/// CorelDRAW 枚举 `cdrGridType`：网格类型。
+///
+/// 对应类型库中的 `VGCore::cdrGridType`，用 `#[repr(i32)]` 映射实际整数值。
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrGridType {
+    /// 网格点。
     GridDot = 0,
+    /// 网格线。
     GridLine = 1,
 }
 
@@ -143,12 +173,18 @@ pub enum cdrGridType {
 // cdrSpreadType —— 跨页类型
 // =============================================================
 
+/// CorelDRAW 枚举 `cdrSpreadType`：跨页类型。
+///
+/// 对应类型库中的 `VGCore::cdrSpreadType`，用 `#[repr(i32)]` 映射实际整数值。
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrSpreadType {
     // TODO: 待补
+    /// 左。
     Left = 0,
+    /// 右。
     Right = 1,
+    /// 完整。
     Full = 2,
 }

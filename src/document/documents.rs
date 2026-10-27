@@ -1,12 +1,12 @@
-﻿//! `Documents` 鈥斺€?鏂囨。闆嗗悎
+﻿//! `Documents` —— 文档集合
 //!
 //! `IVGDocuments`（RIDL）：
 //! ```text
-//! get_Application  鈫?Application
-//! get_Parent       鈫?Application
-//! get_Item(Index)  鈫?Document
-//! get__NewEnum     鈫?IEnumVARIANT
-//! get_Count        鈫?i32
+//! get_Application  → Application
+//! get_Parent       → Application
+//! get_Item(Index)  → Document
+//! get__NewEnum     → IEnumVARIANT
+//! get_Count        → i32
 //! ```
 
 use wincom::{ComObject, Variant};
@@ -14,15 +14,20 @@ use windows::Win32::System::Com::IDispatch;
 
 use crate::document::IvgDocument;
 
+/// CorelDRAW `IVGDocuments` 对象的后期绑定包装（文档集）。
+///
+/// 所有属性与方法通过 `IDispatch::Invoke` 按名称调用，调用失败时一般返回 `None` 或 `false`。
 pub struct IvgDocuments {
     disp: ComObject,
 }
 
 impl IvgDocuments {
+    /// 由 COM `IDispatch` 构造包装对象。
     pub fn new(disp: IDispatch) -> Self {
         Self { disp: ComObject::from_dispatch(disp, crate::types::IID_IDISPATCH) }
     }
 
+    /// 把底层 COM 对象包装成 `VARIANT`，用于传给其它 COM 调用。
     pub fn as_variant(&self) -> Variant {
         self.disp.as_variant()
     }
@@ -31,10 +36,12 @@ impl IvgDocuments {
     // 基本信息
     // ---------------------------------------------------------
 
+    /// 读取返回条目数量（`Count`）。
     pub fn count(&self) -> Option<i64> {
         self.disp.get_property("Count").ok()?.to_i64().ok()
     }
 
+    /// 读取应用（`Application`）。
     pub fn application(&self) -> Option<crate::app::IvgApplication> {
         self.disp
             .get_property("Application")
@@ -48,7 +55,7 @@ impl IvgDocuments {
     // 索引访问
     // ---------------------------------------------------------
 
-    /// 閫氳繃绱㈠紩锛?-based锛夋垨鍚嶇О鑾峰彇鏂囨。銆?
+    /// 通过索引＂-based）或名称获取文档。
     pub fn item(&self, index_or_name: Variant) -> Option<IvgDocument> {
         // `Item` 是带参数的属性，必须用 DISPATCH_PROPERTYGET。
         let args = vec![index_or_name];
@@ -60,6 +67,7 @@ impl IvgDocuments {
             .map(IvgDocument::new)
     }
 
+    /// 读取条目索引（`Item`）。
     pub fn item_by_index(&self, i: i32) -> Option<IvgDocument> {
         let v = self
             .disp
@@ -69,6 +77,7 @@ impl IvgDocuments {
         v.to_idispatch().ok().map(IvgDocument::new)
     }
 
+    /// 读取条目名称（`Item`）。
     pub fn item_by_name(&self, name: impl Into<String>) -> Option<IvgDocument> {
         let name = name.into();
         let v = self
@@ -80,10 +89,10 @@ impl IvgDocuments {
     }
 
     // ---------------------------------------------------------
-    // 杩唬杈呭姪锛氶亶鍘嗘墍鏈夋枃妗?
+    // 迭代辅助：遍历所有文档
     // ---------------------------------------------------------
 
-    /// 杩斿洖鎵€鏈夋枃妗ｇ殑 Vec銆?
+    /// 返回所有文档的 Vec。
     pub fn all(&self) -> Vec<IvgDocument> {
         let n = self.count().unwrap_or(0) as i32;
         let mut out = Vec::with_capacity(n.max(0) as usize);
@@ -99,7 +108,7 @@ impl IvgDocuments {
     // 集合操作
     // ---------------------------------------------------------
 
-    /// 鏂板缓绌烘枃妗ｃ€?
+    /// 新建空文档。
     pub fn add(&self) -> Option<IvgDocument> {
         self.disp
             .invoke_method("Add", vec![])
@@ -109,7 +118,7 @@ impl IvgDocuments {
             .map(IvgDocument::new)
     }
 
-    /// 浠庢ā鏉挎柊寤烘枃妗ｃ€?
+    /// 从模板新建文档。
     pub fn add_from_template(
         &self,
         template: impl Into<String>,
@@ -127,7 +136,7 @@ impl IvgDocuments {
             .map(IvgDocument::new)
     }
 
-    /// 鎵撳紑鏂囦欢銆?
+    /// 打开文件。
     /// 打开文档。
     ///
     /// `Documents` 集合没有 `Open` 成员；正确入口是
@@ -140,7 +149,7 @@ impl IvgDocuments {
         app.active_document()
     }
 
-    /// 鍏抽棴鎵€鏈夋枃妗ｃ€?
+    /// 关闭所有文档。
     pub fn close_all(&self) -> bool {
         self.disp.invoke_method("CloseAll", vec![]).is_ok()
     }

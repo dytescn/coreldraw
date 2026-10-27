@@ -4,6 +4,9 @@
 // cdrOutlineLineCaps —— 线条端点样式
 // =============================================================
 
+/// CorelDRAW 枚举 `cdrOutlineLineCaps`：线条端点样式。
+///
+/// 对应类型库中的 `VGCore::cdrOutlineLineCaps`，用 `#[repr(i32)]` 映射实际整数值。
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[repr(i32)]
 #[allow(nonstandard_style)]
@@ -19,6 +22,7 @@ pub enum cdrOutlineLineCaps {
 }
 
 impl cdrOutlineLineCaps {
+    /// 由整数值构造枚举。
     pub fn from_i32(v: i32) -> Option<Self> {
         match v {
             -1 => Some(Self::UndefinedLineCaps),
@@ -34,6 +38,9 @@ impl cdrOutlineLineCaps {
 // cdrOutlineLineJoin —— 线条连接样式
 // =============================================================
 
+/// CorelDRAW 枚举 `cdrOutlineLineJoin`：线条连接样式。
+///
+/// 对应类型库中的 `VGCore::cdrOutlineLineJoin`，用 `#[repr(i32)]` 映射实际整数值。
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[repr(i32)]
 #[allow(nonstandard_style)]
@@ -49,6 +56,7 @@ pub enum cdrOutlineLineJoin {
 }
 
 impl cdrOutlineLineJoin {
+    /// 由整数值构造枚举。
     pub fn from_i32(v: i32) -> Option<Self> {
         match v {
             -1 => Some(Self::UndefinedLineJoin),
@@ -64,6 +72,9 @@ impl cdrOutlineLineJoin {
 // cdrOutlineJustification —— 轮廓对齐方式
 // =============================================================
 
+/// CorelDRAW 枚举 `cdrOutlineJustification`：轮廓对齐方式。
+///
+/// 对应类型库中的 `VGCore::cdrOutlineJustification`，用 `#[repr(i32)]` 映射实际整数值。
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[repr(i32)]
 #[allow(nonstandard_style)]
@@ -80,13 +91,20 @@ pub enum cdrOutlineJustification {
 // cdrOutlineDashAdjust —— 虚线调整方式
 // =============================================================
 
+/// CorelDRAW 枚举 `cdrOutlineDashAdjust`：虚线调整方式。
+///
+/// 对应类型库中的 `VGCore::cdrOutlineDashAdjust`，用 `#[repr(i32)]` 映射实际整数值。
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrOutlineDashAdjust {
+    /// 轮廓虚线调整 undefined。
     OutlineDashAdjustUndefined = -1,
+    /// 轮廓虚线调整无。
     OutlineDashAdjustNone = 0,
+    /// 轮廓虚线调整完整线缩放。
     OutlineDashAdjustFullLineScale = 1,
+    /// 轮廓虚线调整 even 圆角。
     OutlineDashAdjustEvenCorner = 2,
 }
 
@@ -94,11 +112,15 @@ pub enum cdrOutlineDashAdjust {
 // cdrArrowHeadType —— 箭头类型
 // =============================================================
 
+/// CorelDRAW 枚举 `cdrArrowHeadType`：箭头类型。
+///
+/// 对应类型库中的 `VGCore::cdrArrowHeadType`，用 `#[repr(i32)]` 映射实际整数值。
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrArrowHeadType {
     // TODO: 待补
+    /// 无。
     None = 0,
     // ...
 }

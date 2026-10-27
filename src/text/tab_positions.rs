@@ -1,4 +1,4 @@
-﻿//! `IVGTextTabPosition(s)` 鈥斺€?鍒惰〃浣?
+﻿//! `IVGTextTabPosition(s)` —— 制表位
 
 use wincom::{ComObject, Variant};
 use windows::Win32::System::Com::IDispatch;
@@ -7,15 +7,20 @@ use windows::Win32::System::Com::IDispatch;
 // IvgTextTabPositions
 // =============================================================
 
+/// CorelDRAW 对象的后期绑定包装（文本制表位位置）。
+///
+/// 所有属性与方法通过 `IDispatch::Invoke` 按名称调用，调用失败时一般返回 `None` 或 `false`。
 pub struct IvgTextTabPositions {
     disp: ComObject,
 }
 
 impl IvgTextTabPositions {
+    /// 由 COM `IDispatch` 构造包装对象。
     pub fn new(disp: IDispatch) -> Self {
         Self { disp: ComObject::from_dispatch(disp, crate::types::IID_IDISPATCH) }
     }
 
+    /// 从 COM `IDispatch` 构造包装对象，等价于 `new`。
     pub fn from_disp(disp: IDispatch) -> Self {
         Self::new(disp)
     }
@@ -38,8 +43,10 @@ impl IvgTextTabPositions {
         self.disp.set_property(name, vec![arg]).is_ok()
     }
 
+    /// 读取返回条目数量（`Count`）。
     pub fn count(&self) -> Option<i64> { self.prop_i64("Count") }
 
+    /// 按索引或名称取条目（COM 方法 `Item`）。
     pub fn item(&self, index: i32) -> Option<IvgTextTabPosition> {
         let args = vec![Variant::from_i64(index as i64)];
         self.disp
@@ -50,22 +57,26 @@ impl IvgTextTabPositions {
             .map(IvgTextTabPosition::new)
     }
 
-    /// 鍓嶅绗︼紙leadered锛夐棿闅斻€?
+    /// 前导符（leadered）间隔。
     pub fn leader_spacing(&self) -> Option<i64> { self.prop_i64("LeaderSpacing") }
+    /// 设置引出线间距（`LeaderSpacing`）。
     pub fn set_leader_spacing(&self, v: i32) -> bool {
         self.put_i64("LeaderSpacing", v as i64)
     }
 
+    /// 读取引出线字符（`LeaderCharacter`）。
     pub fn leader_character(&self) -> Option<String> { self.prop_string("LeaderCharacter") }
+    /// 设置引出线字符（`LeaderCharacter`）。
     pub fn set_leader_character(&self, v: impl Into<String>) -> bool {
         self.put_string("LeaderCharacter", v)
     }
 
+    /// 清空全部内容（COM 方法 `Clear`）。
     pub fn clear(&self) -> bool {
         self.disp.invoke_method("Clear", vec![]).is_ok()
     }
 
-    /// 娣诲姞鍒惰〃浣嶃€?
+    /// 添加制表位。
     pub fn add(
         &self,
         position: f64,
@@ -85,7 +96,7 @@ impl IvgTextTabPositions {
             .map(IvgTextTabPosition::new)
     }
 
-    /// 绛夐棿闅旀坊鍔犮€?
+    /// 等间隔添加。
     pub fn add_every(
         &self,
         position: f64,
@@ -105,11 +116,15 @@ impl IvgTextTabPositions {
 // IvgTextTabPosition
 // =============================================================
 
+/// CorelDRAW 对象的后期绑定包装（文本制表位位置）。
+///
+/// 所有属性与方法通过 `IDispatch::Invoke` 按名称调用，调用失败时一般返回 `None` 或 `false`。
 pub struct IvgTextTabPosition {
     disp: ComObject,
 }
 
 impl IvgTextTabPosition {
+    /// 由 COM `IDispatch` 构造包装对象。
     pub fn new(disp: IDispatch) -> Self {
         Self { disp: ComObject::from_dispatch(disp, crate::types::IID_IDISPATCH) }
     }
@@ -141,18 +156,25 @@ impl IvgTextTabPosition {
         self.disp.set_property(name, vec![arg]).is_ok()
     }
 
+    /// 读取位置（`Position`）。
     pub fn position(&self) -> Option<f64> { self.prop_f64("Position") }
+    /// 设置位置（`Position`）。
     pub fn set_position(&self, v: f64) -> bool { self.put_f64("Position", v) }
 
+    /// 读取索引（`Index`）。
     pub fn index(&self) -> Option<i64> { self.prop_i64("Index") }
 
     /// `cdrTextTabAlignment`
     pub fn alignment(&self) -> Option<i64> { self.prop_i64("Alignment") }
+    /// 设置对齐（`Alignment`）。
     pub fn set_alignment(&self, v: i32) -> bool { self.put_i64("Alignment", v as i64) }
 
+    /// 读取 COM 属性 `Leadered`。
     pub fn leadered(&self) -> Option<bool> { self.prop_bool("Leadered") }
+    /// 设置 COM 属性 `Leadered`。
     pub fn set_leadered(&self, v: bool) -> bool { self.put_bool("Leadered", v) }
 
+    /// 删除（COM 方法 `Delete`）。
     pub fn delete(&self) -> bool {
         self.disp.invoke_method("Delete", vec![]).is_ok()
     }

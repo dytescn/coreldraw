@@ -26,6 +26,11 @@ fn finish(shape: &IvgShape, name: &str) -> ApiResult {
     Ok(shape_info(shape))
 }
 
+/// `shape_create_rectangle` 接口：创建矩形。
+///
+/// 入参字段：`x`、`y`、`width`、`height`、`radius`。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn create_rectangle(input: &serde_json::Value) -> ApiResult {
     let name = unique_name(input);
     let x = opt_f64(input, "x").unwrap_or(0.0);
@@ -44,6 +49,11 @@ pub fn create_rectangle(input: &serde_json::Value) -> ApiResult {
     })
 }
 
+/// `shape_create_ellipse` 接口：创建椭圆。
+///
+/// 入参字段：`cx`、`cy`、`rx`、`ry`。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn create_ellipse(input: &serde_json::Value) -> ApiResult {
     let name = unique_name(input);
     let cx = get_f64(input, "cx")?;
@@ -61,6 +71,11 @@ pub fn create_ellipse(input: &serde_json::Value) -> ApiResult {
     })
 }
 
+/// `shape_create_polygon` 接口：创建多边形。
+///
+/// 入参字段：`x`、`y`、`width`、`height`、`sides`、`star`。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn create_polygon(input: &serde_json::Value) -> ApiResult {
     let name = unique_name(input);
     let x = opt_f64(input, "x").unwrap_or(0.0);
@@ -91,6 +106,11 @@ pub fn create_polygon(input: &serde_json::Value) -> ApiResult {
     })
 }
 
+/// `shape_create_text` 接口：创建文本。
+///
+/// 入参字段：`text`、`font`、`size`、`x`、`y`。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn create_text(input: &serde_json::Value) -> ApiResult {
     let name = unique_name(input);
     let text = get_str(input, "text")?;
@@ -109,6 +129,9 @@ pub fn create_text(input: &serde_json::Value) -> ApiResult {
     })
 }
 
+/// `shape_info` 接口：信息。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn info(input: &serde_json::Value) -> ApiResult {
     with_app(|app| {
         let doc = resolve_doc(app, input)?;
@@ -117,6 +140,11 @@ pub fn info(input: &serde_json::Value) -> ApiResult {
     })
 }
 
+/// `shape_move` 接口：移动。
+///
+/// 入参字段：`dx`、`dy`。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn move_by(input: &serde_json::Value) -> ApiResult {
     let dx = get_f64(input, "dx")?;
     let dy = get_f64(input, "dy")?;
@@ -130,6 +158,11 @@ pub fn move_by(input: &serde_json::Value) -> ApiResult {
     })
 }
 
+/// `shape_set_size` 接口：设置尺寸。
+///
+/// 入参字段：`width`、`height`。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn set_size(input: &serde_json::Value) -> ApiResult {
     let width = get_f64(input, "width")?;
     let height = get_f64(input, "height")?;
@@ -143,6 +176,11 @@ pub fn set_size(input: &serde_json::Value) -> ApiResult {
     })
 }
 
+/// `shape_rotate` 接口：rotate。
+///
+/// 入参字段：`angle`。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn rotate(input: &serde_json::Value) -> ApiResult {
     let angle = get_f64(input, "angle")?;
     with_app(|app| {
@@ -155,6 +193,11 @@ pub fn rotate(input: &serde_json::Value) -> ApiResult {
     })
 }
 
+/// `shape_set_fill` 接口：设置填充。
+///
+/// 入参字段：`r`、`g`、`b`。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn set_fill(input: &serde_json::Value) -> ApiResult {
     let r = opt_i32(input, "r").unwrap_or(255).clamp(0, 255);
     let g = opt_i32(input, "g").unwrap_or(0).clamp(0, 255);
@@ -182,6 +225,11 @@ pub fn set_fill(input: &serde_json::Value) -> ApiResult {
     })
 }
 
+/// `shape_set_outline` 接口：设置轮廓。
+///
+/// 入参字段：`width`、`r`、`g`、`b`。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn set_outline(input: &serde_json::Value) -> ApiResult {
     let width = opt_f64(input, "width");
     let r = opt_i32(input, "r").unwrap_or(0).clamp(0, 255);
@@ -218,6 +266,11 @@ pub fn set_outline(input: &serde_json::Value) -> ApiResult {
     })
 }
 
+/// `shape_select` 接口：选择。
+///
+/// 入参字段：`selected`。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn select(input: &serde_json::Value) -> ApiResult {
     let selected = opt_bool(input, "selected").unwrap_or(true);
     with_app(|app| {
@@ -236,6 +289,9 @@ pub fn select(input: &serde_json::Value) -> ApiResult {
     })
 }
 
+/// `shape_delete` 接口：删除。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn delete(input: &serde_json::Value) -> ApiResult {
     with_app(|app| {
         let doc = resolve_doc(app, input)?;

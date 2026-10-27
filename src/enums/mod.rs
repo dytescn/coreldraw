@@ -4,7 +4,7 @@
 //! 每个枚举用 `#[repr(i32)]` 映射 COM 的实际整数值。
 //!
 //! ```no_run
-//! use cdrsdk::enums::cdrShapeType;                 // ← 改
+//! use cdrsdk::enums::cdrShapeType;                 // → 改
 //! let t: i32 = 6;
 //! assert_eq!(cdrShapeType::from_i32(t), Some(cdrShapeType::TextShape));
 //! ```

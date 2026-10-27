@@ -7,6 +7,7 @@ use serde_json::Value;
 
 use crate::json::{opt_i64, opt_str, ApiError};
 
+/// 解析 `doc` 选择器：数字为 1-based 索引，字符串为名称，省略时取活动文档。
 pub fn resolve_doc(app: &IvgApplication, input: &Value) -> Result<IvgDocument, ApiError> {
     if let Some(index) = opt_i64(input, "doc") {
         let docs = app
@@ -28,6 +29,7 @@ pub fn resolve_doc(app: &IvgApplication, input: &Value) -> Result<IvgDocument, A
         .ok_or_else(|| ApiError::new("no_document", "no active document"))
 }
 
+/// 解析 `page` 选择器：数字为 1-based 索引，字符串为名称，省略时取活动页。
 pub fn resolve_page(doc: &IvgDocument, input: &Value) -> Result<IvgPage, ApiError> {
     if let Some(index) = opt_i64(input, "page") {
         let pages = doc
@@ -51,6 +53,7 @@ pub fn resolve_page(doc: &IvgDocument, input: &Value) -> Result<IvgPage, ApiErro
         .ok_or_else(|| ApiError::new("no_page", "no active page"))
 }
 
+/// 解析 `layer` 选择器：数字为 1-based 索引，字符串为名称，省略时取活动图层。
 pub fn resolve_layer(doc: &IvgDocument, input: &Value) -> Result<IvgLayer, ApiError> {
     let page = resolve_page(doc, input)?;
     let layers = page
@@ -84,6 +87,7 @@ fn layers_bottom_up(layers: &IvgLayers) -> Vec<IvgLayer> {
     out
 }
 
+/// 解析 `name` / `index` 选择器定位图形。
 pub fn resolve_shape(doc: &IvgDocument, input: &Value) -> Result<IvgShape, ApiError> {
     if let Some(name) = opt_str(input, "name") {
         if let Some(shape) = doc.find_shape(&name, 0, 0, true) {

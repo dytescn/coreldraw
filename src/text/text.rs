@@ -1,6 +1,6 @@
-﻿//! `IVGText` 鈥斺€?鏂囨湰瀵硅薄
+﻿//! `IVGText` —— 文本对象
 //!
-//! 鐢?`shape.text()` 鍙栧緱锛屾槸鏂囨湰鎿嶄綔鐨?*鎬诲叆鍙?*銆?
+//! 由 `shape.text()` 取得，是文本操作的**总入口**。
 
 use wincom::{ComObject, Variant};
 use windows::Win32::System::Com::IDispatch;
@@ -13,23 +13,30 @@ use crate::structs::{
 };
 use crate::text::{IvgTextFrame, IvgTextFrames, IvgTextRange};
 
+/// CorelDRAW `IVGText` 对象的后期绑定包装（文本）。
+///
+/// 所有属性与方法通过 `IDispatch::Invoke` 按名称调用，调用失败时一般返回 `None` 或 `false`。
 pub struct IvgText {
     disp: ComObject,
 }
 
 impl IvgText {
+    /// 由 COM `IDispatch` 构造包装对象。
     pub fn new(disp: IDispatch) -> Self {
         Self { disp: ComObject::from_dispatch(disp, crate::types::IID_IDISPATCH) }
     }
 
+    /// 从 COM `IDispatch` 构造包装对象，等价于 `new`。
     pub fn from_disp(disp: IDispatch) -> Self {
         Self::new(disp)
     }
 
+    /// 把底层 COM 对象包装成 `VARIANT`，用于传给其它 COM 调用。
     pub fn as_variant(&self) -> Variant {
         self.disp.as_variant()
     }
 
+    /// 获取底层 `ComObject` 的引用。
     pub fn raw(&self) -> &ComObject {
         &self.disp
     }
@@ -55,32 +62,36 @@ impl IvgText {
     // }
 
     // ---------------------------------------------------------
-    // 鍩烘湰灞炴€?
+    // 基本属性
     // ---------------------------------------------------------
 
-    /// `cdrTextType` 鈥斺€?Artistic / Paragraph
+    /// `cdrTextType` ——Artistic / Paragraph
     pub fn text_type(&self) -> Option<i64> { self.prop_i64("Type") }
 
-    /// 閾句腑鐨勬枃鏈鏁伴噺銆?
+    /// 链中的文本框数量。
     pub fn frames_in_link(&self) -> Option<i64> { self.prop_i64("FramesInLink") }
+    /// 读取链接中的未使用文本框集（`UnusedFramesInLink`）。
     pub fn unused_frames_in_link(&self) -> Option<i64> {
         self.prop_i64("UnusedFramesInLink")
     }
 
-    /// 鏄惁鏈夋孩鍑烘枃鏈€?
+    /// 是否有溢出文本。
     pub fn overflow(&self) -> Option<bool> { self.prop_bool("Overflow") }
 
+    /// 是否艺术文本（`IsArtisticText`）。
     pub fn is_artistic_text(&self) -> Option<bool> { self.prop_bool("IsArtisticText") }
+    /// 是否编辑中（`IsEditing`）。
     pub fn is_editing(&self) -> Option<bool> { self.prop_bool("IsEditing") }
+    /// 读取 COM 属性 `IsHTMLCompatible`。
     pub fn is_html_compatible(&self) -> Option<bool> {
         self.prop_bool("IsHTMLCompatible")
     }
 
     // ---------------------------------------------------------
-    // 瀛椾綋灞炴€?
+    // 字体属性
     // ---------------------------------------------------------
 
-    /// `cdrTextFrames` 鑼冨洿锛岃繑鍥?`IvgStructFontProperties`銆?
+    /// `cdrTextFrames` 范围，返回 `IvgStructFontProperties`。
     pub fn font_properties(&self, frames: i32) -> Option<IvgStructFontProperties> {
         let args = vec![Variant::from_i64(frames as i64)];
         self.disp
@@ -91,6 +102,7 @@ impl IvgText {
             .map(IvgStructFontProperties::new)
     }
 
+    /// 设置字体属性集（`put_FontProperties`）。
     pub fn set_font_properties(
         &self,
         frames: i32,
@@ -103,7 +115,7 @@ impl IvgText {
         self.disp.invoke_method("put_FontProperties", args).is_ok()
     }
 
-    /// `cdrTextIndexingType`銆?
+    /// `cdrTextIndexingType`。
     pub fn font_properties_in_range(
         &self,
         start: i32,
@@ -123,6 +135,7 @@ impl IvgText {
             .map(IvgStructFontProperties::new)
     }
 
+    /// 设置范围中的字体属性集（`put_FontPropertiesInRange`）。
     pub fn set_font_properties_in_range(
         &self,
         start: i32,
@@ -142,9 +155,10 @@ impl IvgText {
     }
 
     // ---------------------------------------------------------
-    // 瀵归綈灞炴€?
+    // 对齐属性
     // ---------------------------------------------------------
 
+    /// 对齐属性集（COM 方法 `AlignProperties`）。
     pub fn align_properties(&self, frames: i32) -> Option<IvgStructAlignProperties> {
         let args = vec![Variant::from_i64(frames as i64)];
         self.disp
@@ -155,6 +169,7 @@ impl IvgText {
             .map(IvgStructAlignProperties::new)
     }
 
+    /// 设置对齐属性集（`put_AlignProperties`）。
     pub fn set_align_properties(
         &self,
         frames: i32,
@@ -167,6 +182,7 @@ impl IvgText {
         self.disp.invoke_method("put_AlignProperties", args).is_ok()
     }
 
+    /// 对齐范围中的属性集（COM 方法 `AlignPropertiesInRange`）。
     pub fn align_properties_in_range(
         &self,
         start: i32,
@@ -186,6 +202,7 @@ impl IvgText {
             .map(IvgStructAlignProperties::new)
     }
 
+    /// 设置对齐范围中的属性集（`put_AlignPropertiesInRange`）。
     pub fn set_align_properties_in_range(
         &self,
         start: i32,
@@ -205,9 +222,10 @@ impl IvgText {
     }
 
     // ---------------------------------------------------------
-    // 闂磋窛灞炴€?
+    // 间距属性
     // ---------------------------------------------------------
 
+    /// 间距属性集（COM 方法 `SpaceProperties`）。
     pub fn space_properties(&self, frames: i32) -> Option<IvgStructSpaceProperties> {
         let args = vec![Variant::from_i64(frames as i64)];
         self.disp
@@ -218,6 +236,7 @@ impl IvgText {
             .map(IvgStructSpaceProperties::new)
     }
 
+    /// 设置间距属性集（`put_SpaceProperties`）。
     pub fn set_space_properties(
         &self,
         frames: i32,
@@ -232,6 +251,7 @@ impl IvgText {
             .is_ok()
     }
 
+    /// 范围中的间距属性集（COM 方法 `SpacePropertiesInRange`）。
     pub fn space_properties_in_range(
         &self,
         start: i32,
@@ -251,6 +271,7 @@ impl IvgText {
             .map(IvgStructSpaceProperties::new)
     }
 
+    /// 设置范围中的间距属性集（`put_SpacePropertiesInRange`）。
     pub fn set_space_properties_in_range(
         &self,
         start: i32,
@@ -270,9 +291,10 @@ impl IvgText {
     }
 
     // ---------------------------------------------------------
-    // 鏂瓧灞炴€?
+    // 断字属性
     // ---------------------------------------------------------
 
+    /// 断字设置集（COM 方法 `HyphenationSettings`）。
     pub fn hyphenation_settings(
         &self,
         frames: i32,
@@ -286,6 +308,7 @@ impl IvgText {
             .map(IvgStructHyphenationSettings::new)
     }
 
+    /// 设置断字设置集（`put_HyphenationSettings`）。
     pub fn set_hyphenation_settings(
         &self,
         frames: i32,
@@ -300,6 +323,7 @@ impl IvgText {
             .is_ok()
     }
 
+    /// 范围中的断字设置集（COM 方法 `HyphenationSettingsInRange`）。
     pub fn hyphenation_settings_in_range(
         &self,
         start: i32,
@@ -319,6 +343,7 @@ impl IvgText {
             .map(IvgStructHyphenationSettings::new)
     }
 
+    /// 设置范围中的断字设置集（`put_HyphenationSettingsInRange`）。
     pub fn set_hyphenation_settings_in_range(
         &self,
         start: i32,
@@ -341,6 +366,7 @@ impl IvgText {
     // 内容
     // ---------------------------------------------------------
 
+    /// 内容（COM 方法 `Contents`）。
     pub fn contents(&self, frames: i32) -> Option<String> {
         let args = vec![Variant::from_i64(frames as i64)];
         self.disp
@@ -350,6 +376,7 @@ impl IvgText {
             .ok()
     }
 
+    /// 设置内容（`put_Contents`）。
     pub fn set_contents(&self, frames: i32, v: impl Into<String>) -> bool {
         let args = vec![
             Variant::from_i64(frames as i64),
@@ -362,7 +389,7 @@ impl IvgText {
     // 路径
     // ---------------------------------------------------------
 
-    /// 璁╂枃鏈€傞厤鍒拌矾寰勩€?
+    /// 让文本适配到路径。
     pub fn fit_to_path(&self, path: &IvgShape) -> Option<IvgEffect> {
         let args = vec![path.as_variant()];
         self.disp
@@ -373,7 +400,7 @@ impl IvgText {
             .map(IvgEffect::new)
     }
 
-    /// 璁╂枃鏈嚜鍔ㄩ€傞厤鏂囨湰妗嗐€?
+    /// 让文本自动适配文本框。
     pub fn fit_text_to_frame(&self) -> bool {
         self.disp.invoke_method("FitTextToFrame", vec![]).is_ok()
     }
@@ -382,6 +409,7 @@ impl IvgText {
     // 查找 / 替换
     // ---------------------------------------------------------
 
+    /// 查找（COM 方法 `Find`）。
     pub fn find(
         &self,
         text: impl Into<String>,
@@ -400,6 +428,7 @@ impl IvgText {
         self.disp.invoke_method("Find", args).ok()?.to_i64().ok()
     }
 
+    /// 替换（COM 方法 `Replace`）。
     pub fn replace(
         &self,
         old_text: impl Into<String>,
@@ -426,6 +455,7 @@ impl IvgText {
     // 导入 / 导出
     // ---------------------------------------------------------
 
+    /// 导入文件（COM 方法 `ImportFromFile`）。
     pub fn import_from_file(
         &self,
         file_name: impl Into<String>,
@@ -440,6 +470,7 @@ impl IvgText {
         self.disp.invoke_method("ImportFromFile", args).is_ok()
     }
 
+    /// 导出文件（COM 方法 `ExportToFile`）。
     pub fn export_to_file(
         &self,
         file_name: impl Into<String>,
@@ -460,14 +491,17 @@ impl IvgText {
     // 转换
     // ---------------------------------------------------------
 
+    /// 转换艺术（COM 方法 `ConvertToArtistic`）。
     pub fn convert_to_artistic(&self) -> bool {
         self.disp.invoke_method("ConvertToArtistic", vec![]).is_ok()
     }
 
+    /// 转换段落（COM 方法 `ConvertToParagraph`）。
     pub fn convert_to_paragraph(&self) -> bool {
         self.disp.invoke_method("ConvertToParagraph", vec![]).is_ok()
     }
 
+    /// 调用 COM 方法 `MakeHTMLCompatible`。
     pub fn make_html_compatible(&self, html: bool) -> Option<bool> {
         let args = vec![Variant::from_bool(html)];
         self.disp
@@ -481,17 +515,17 @@ impl IvgText {
     // 范围 / 选择 / 编辑
     // ---------------------------------------------------------
 
-    /// 鏁翠釜鏁呬簨锛堝叏閮ㄦ枃鏈級銆?
+    /// 整个故事（全部文本）。
     pub fn story(&self) -> Option<IvgTextRange> {
         self.prop_dispatch("Story").map(IvgTextRange::new)
     }
 
-    /// 褰撳墠閫夋嫨鐨勬枃鏈寖鍥淬€?
+    /// 当前选择的文本范围。
     pub fn selection(&self) -> Option<IvgTextRange> {
         self.prop_dispatch("Selection").map(IvgTextRange::new)
     }
 
-    /// 鎸夎捣姝綅缃彇鑼冨洿銆?
+    /// 按起止位置取范围。
     pub fn range(&self, start: i32, end: i32) -> Option<IvgTextRange> {
         let args = vec![
             Variant::from_i64(start as i64),
@@ -505,18 +539,21 @@ impl IvgText {
             .map(IvgTextRange::new)
     }
 
+    /// 开始编辑（COM 方法 `BeginEdit`）。
     pub fn begin_edit(&self) -> bool {
         self.disp.invoke_method("BeginEdit", vec![]).is_ok()
     }
 
     // ---------------------------------------------------------
-    // 鏂囨湰妗?
+    // 文本框
     // ---------------------------------------------------------
 
+    /// 读取文本框（`Frame`）。
     pub fn frame(&self) -> Option<IvgTextFrame> {
         self.prop_dispatch("Frame").map(IvgTextFrame::new)
     }
 
+    /// 读取文本框集（`Frames`）。
     pub fn frames(&self) -> Option<IvgTextFrames> {
         self.prop_dispatch("Frames").map(IvgTextFrames::new)
     }

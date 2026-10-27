@@ -10,6 +10,7 @@ use serde_json::{json, Value};
 use std::ffi::c_char;
 use std::os::raw::c_int;
 
+/// `OUT_BUF_SIZE` 常量。
 pub const OUT_BUF_SIZE: usize = 65536;
 
 /// 业务错误。`code` 供 TS 测试断言，`message` 供人阅读。
@@ -20,6 +21,7 @@ pub struct ApiError {
 }
 
 impl ApiError {
+    /// 创建包装对象。
     pub fn new(code: &str, message: impl Into<String>) -> Self {
         Self {
             code: code.to_string(),
@@ -28,12 +30,15 @@ impl ApiError {
     }
 }
 
+/// `ApiResult` 类型别名。
 pub type ApiResult = Result<Value, ApiError>;
 
+/// 构造“缺少必填字段”错误。
 pub fn missing(key: &str) -> ApiError {
     ApiError::new("missing_param", format!("missing required parameter: {key}"))
 }
 
+/// 构造“字段类型不正确”错误。
 pub fn invalid(key: &str, expect: &str) -> ApiError {
     ApiError::new(
         "invalid_param",
@@ -62,6 +67,7 @@ pub fn read_input(json_in: *const c_char) -> Value {
 // 参数提取
 // ---------------------------------------------------------------
 
+/// 读取str。
 pub fn get_str(input: &Value, key: &str) -> Result<String, ApiError> {
     match input.get(key).and_then(|v| v.as_str()) {
         Some(s) => Ok(s.to_string()),
@@ -69,10 +75,12 @@ pub fn get_str(input: &Value, key: &str) -> Result<String, ApiError> {
     }
 }
 
+/// optstr。
 pub fn opt_str(input: &Value, key: &str) -> Option<String> {
     input.get(key).and_then(|v| v.as_str()).map(|s| s.to_string())
 }
 
+/// opti64。
 pub fn opt_i64(input: &Value, key: &str) -> Option<i64> {
     input.get(key).and_then(|v| match v {
         Value::Number(n) => n.as_i64(),
@@ -81,16 +89,19 @@ pub fn opt_i64(input: &Value, key: &str) -> Option<i64> {
     })
 }
 
+/// 读取整数。
 pub fn get_i32(input: &Value, key: &str) -> Result<i32, ApiError> {
     opt_i64(input, key)
         .map(|v| v as i32)
         .ok_or_else(|| missing(key))
 }
 
+/// opt整数。
 pub fn opt_i32(input: &Value, key: &str) -> Option<i32> {
     opt_i64(input, key).map(|v| v as i32)
 }
 
+/// 读取f64。
 pub fn get_f64(input: &Value, key: &str) -> Result<f64, ApiError> {
     match input.get(key) {
         Some(Value::Number(n)) => n.as_f64().ok_or_else(|| invalid(key, "a number")),
@@ -101,6 +112,7 @@ pub fn get_f64(input: &Value, key: &str) -> Result<f64, ApiError> {
     }
 }
 
+/// optf64。
 pub fn opt_f64(input: &Value, key: &str) -> Option<f64> {
     match input.get(key) {
         Some(Value::Number(n)) => n.as_f64(),
@@ -109,6 +121,7 @@ pub fn opt_f64(input: &Value, key: &str) -> Option<f64> {
     }
 }
 
+/// opt布尔值。
 pub fn opt_bool(input: &Value, key: &str) -> Option<bool> {
     input.get(key).and_then(|v| v.as_bool())
 }

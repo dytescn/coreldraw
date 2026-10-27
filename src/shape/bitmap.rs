@@ -1,4 +1,4 @@
-﻿//! `IVGBitmap` 鈥斺€?浣嶅浘
+﻿//! `IVGBitmap` —— 位图
 
 use wincom::{ComObject, Variant};
 use windows::Win32::System::Com::IDispatch;
@@ -8,17 +8,23 @@ use crate::import_export::ICorelExportFilter;
 use crate::shape::IvgImage;
 use crate::structs::IvgStructPaletteOptions;
 
+/// CorelDRAW `IVGBitmap` 对象的后期绑定包装（位图）。
+///
+/// 所有属性与方法通过 `IDispatch::Invoke` 按名称调用，调用失败时一般返回 `None` 或 `false`。
 pub struct IvgBitmap {
     disp: ComObject,
 }
 
 impl IvgBitmap {
+    /// 由 COM `IDispatch` 构造包装对象。
     pub fn new(disp: IDispatch) -> Self {
         Self { disp: ComObject::from_dispatch(disp, crate::types::IID_IDISPATCH) }
     }
 
+    /// 从 COM `IDispatch` 构造包装对象，等价于 `new`。
     pub fn from_disp(disp: IDispatch) -> Self { Self::new(disp) }
 
+    /// 获取底层 `ComObject` 的引用。
     pub fn raw(&self) -> &ComObject { &self.disp }
 
     fn prop_i64(&self, name: &str) -> Option<i64> {
@@ -44,13 +50,20 @@ impl IvgBitmap {
 
     // ---- 基本信息 ----
 
+    /// 读取尺寸宽度（`SizeWidth`）。
     pub fn size_width(&self) -> Option<i64> { self.prop_i64("SizeWidth") }
+    /// 读取尺寸高度（`SizeHeight`）。
     pub fn size_height(&self) -> Option<i64> { self.prop_i64("SizeHeight") }
+    /// 读取分辨率 X 坐标（`ResolutionX`）。
     pub fn resolution_x(&self) -> Option<i64> { self.prop_i64("ResolutionX") }
+    /// 读取分辨率 Y 坐标（`ResolutionY`）。
     pub fn resolution_y(&self) -> Option<i64> { self.prop_i64("ResolutionY") }
 
+    /// 读取 COM 属性 `ExternallyLinked`。
     pub fn externally_linked(&self) -> Option<bool> { self.prop_bool("ExternallyLinked") }
+    /// 读取链接文件名称（`LinkFileName`）。
     pub fn link_file_name(&self) -> Option<String> { self.prop_string("LinkFileName") }
+    /// 设置链接文件名称（`LinkFileName`）。
     pub fn set_link_file_name(&self, v: impl Into<String>) -> bool {
         self.put_string("LinkFileName", v)
     }
@@ -58,27 +71,39 @@ impl IvgBitmap {
     /// `cdrImageType`
     pub fn mode(&self) -> Option<i64> { self.prop_i64("Mode") }
 
+    /// 读取透明（`Transparent`）。
     pub fn transparent(&self) -> Option<bool> { self.prop_bool("Transparent") }
+    /// 读取 COM 属性 `Watermarked`。
     pub fn watermarked(&self) -> Option<bool> { self.prop_bool("Watermarked") }
+    /// 读取 OPI 已链接（`OPILinked`）。
     pub fn opi_linked(&self) -> Option<bool> { self.prop_bool("OPILinked") }
+    /// 是否 EPS（`IsEPS`）。
     pub fn is_eps(&self) -> Option<bool> { self.prop_bool("IsEPS") }
+    /// 读取 COM 属性 `Embedded`。
     pub fn embedded(&self) -> Option<bool> { self.prop_bool("Embedded") }
+    /// 读取 COM 属性 `Cropped`。
     pub fn cropped(&self) -> Option<bool> { self.prop_bool("Cropped") }
+    /// 读取 COM 属性 `CropEnvelopeModified`。
     pub fn crop_envelope_modified(&self) -> Option<bool> { self.prop_bool("CropEnvelopeModified") }
 
+    /// 读取裁剪封套（`CropEnvelope`）。
     pub fn crop_envelope(&self) -> Option<IvgCurve> {
         self.prop_dispatch("CropEnvelope").map(IvgCurve::new)
     }
 
+    /// 读取边界框路径（`BoundingBoxPath`）。
     pub fn bounding_box_path(&self) -> Option<IvgCurve> {
         self.prop_dispatch("BoundingBoxPath").map(IvgCurve::new)
     }
 
     // ---- 操作 ----
 
+    /// 调用 COM 方法 `ResolveLink`。
     pub fn resolve_link(&self) -> bool { self.disp.invoke_method("ResolveLink", vec![]).is_ok() }
+    /// 更新链接（COM 方法 `UpdateLink`）。
     pub fn update_link(&self) -> bool { self.disp.invoke_method("UpdateLink", vec![]).is_ok() }
 
+    /// 膨胀（COM 方法 `Inflate`）。
     pub fn inflate(&self, w: i32, h: i32) -> bool {
         let args = vec![
             Variant::from_i64(w as i64),
@@ -87,6 +112,7 @@ impl IvgBitmap {
         self.disp.invoke_method("Inflate", args).is_ok()
     }
 
+    /// 重采样（COM 方法 `Resample`）。
     pub fn resample(
         &self,
         width: i32, height: i32,
@@ -103,11 +129,13 @@ impl IvgBitmap {
         self.disp.invoke_method("Resample", args).is_ok()
     }
 
+    /// 转换（COM 方法 `ConvertTo`）。
     pub fn convert_to(&self, mode: i32) -> bool {
         let args = vec![Variant::from_i64(mode as i64)];
         self.disp.invoke_method("ConvertTo", args).is_ok()
     }
 
+    /// 应用位图效果（COM 方法 `ApplyBitmapEffect`）。
     pub fn apply_bitmap_effect(
         &self,
         undo_string: impl Into<String>,
@@ -120,13 +148,16 @@ impl IvgBitmap {
         self.disp.invoke_method("ApplyBitmapEffect", args).is_ok()
     }
 
+    /// 裁剪（COM 方法 `Crop`）。
     pub fn crop(&self) -> bool { self.disp.invoke_method("Crop", vec![]).is_ok() }
+    /// 重置裁剪封套（COM 方法 `ResetCropEnvelope`）。
     pub fn reset_crop_envelope(&self) -> bool {
         self.disp.invoke_method("ResetCropEnvelope", vec![]).is_ok()
     }
 
     // ---- 保存 ----
 
+    /// 保存 as（COM 方法 `SaveAs`）。
     pub fn save_as(
         &self,
         file_name: impl Into<String>,
@@ -146,8 +177,9 @@ impl IvgBitmap {
             .map(ICorelExportFilter::new)
     }
 
-    // ---- 璋冭壊鏉?----
+    // ---- 调色板----
 
+    /// 调用 COM 方法 `ConvertToPaletted`。
     pub fn convert_to_paletted(
         &self,
         palette_type: i32,
@@ -180,11 +212,13 @@ impl IvgBitmap {
         self.disp.invoke_method("ConvertToPaletted", args).is_ok()
     }
 
+    /// 调用 COM 方法 `ConvertToPaletted2`。
     pub fn convert_to_paletted2(&self, options: &IvgStructPaletteOptions) -> bool {
         let args = vec![options.as_variant()];
         self.disp.invoke_method("ConvertToPaletted2", args).is_ok()
     }
 
+    /// 转换黑白（COM 方法 `ConvertToBW`）。
     pub fn convert_to_bw(
         &self,
         render_type: i32,
@@ -207,13 +241,16 @@ impl IvgBitmap {
 
     // ---- 图像数据 ----
 
+    /// 读取图像（`Image`）。
     pub fn image(&self) -> Option<IvgImage> {
         self.prop_dispatch("Image").map(IvgImage::new)
     }
 
+    /// 读取图像透明度（`ImageAlpha`）。
     pub fn image_alpha(&self) -> Option<IvgImage> {
         self.prop_dispatch("ImageAlpha").map(IvgImage::new)
     }
+    /// 设置图像数据（`SetImageData`）。
     #[allow(unused)]
     pub fn set_image_data(
         &self,
@@ -233,6 +270,7 @@ impl IvgBitmap {
 
     // ---- 描摹 ----
 
+    /// 描摹（COM 方法 `Trace`）。
     #[allow(clippy::too_many_arguments)]
     pub fn trace(
         &self,

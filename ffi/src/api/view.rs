@@ -26,6 +26,9 @@ fn view_info(view: &IvgActiveView) -> serde_json::Value {
     })
 }
 
+/// `view_info` 接口：信息。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn info(_: &serde_json::Value) -> ApiResult {
     with_app(|app| {
         let view = active_view(app)?;
@@ -33,6 +36,11 @@ pub fn info(_: &serde_json::Value) -> ApiResult {
     })
 }
 
+/// `view_set_zoom` 接口：设置缩放。
+///
+/// 入参字段：`zoom`。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn set_zoom(input: &serde_json::Value) -> ApiResult {
     let zoom = get_f64(input, "zoom")?;
     with_app(|app| {

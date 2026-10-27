@@ -27,6 +27,7 @@ pub enum cdrViewType {
 }
 
 impl cdrViewType {
+    /// 由整数值构造枚举。
     pub fn from_i32(v: i32) -> Option<Self> {
         match v {
             0 => Some(Self::SimpleWireframe),
@@ -49,13 +50,18 @@ impl cdrViewType {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrWindowState {
+    /// 常规。
     Normal = 1,
+    /// minimized。
     Minimized = 2,
+    /// maximized。
     Maximized = 3,
+    /// restore。
     Restore = 9,
 }
 
 impl cdrWindowState {
+    /// 由整数值构造枚举。
     pub fn from_i32(v: i32) -> Option<Self> {
         match v {
             1 => Some(Self::Normal),
@@ -71,13 +77,19 @@ impl cdrWindowState {
 // cdrWindowArrangeStyle —— 窗口排列方式
 // =============================================================
 
+/// CorelDRAW 枚举 `cdrWindowArrangeStyle`：窗口排列方式。
+///
+/// 对应类型库中的 `VGCore::cdrWindowArrangeStyle`，用 `#[repr(i32)]` 映射实际整数值。
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrWindowArrangeStyle {
+    /// 平铺 horizontally。
     TileHorizontally = 0,
+    /// 平铺 vertically。
     TileVertically = 1,
 
+    /// cascade。
     Cascade = 2,
 }
 
@@ -85,10 +97,14 @@ pub enum cdrWindowArrangeStyle {
 // cdrWindowType —— 窗口类型
 // =============================================================
 
+/// CorelDRAW 枚举 `cdrWindowType`：窗口类型。
+///
+/// 对应类型库中的 `VGCore::cdrWindowType`，用 `#[repr(i32)]` 映射实际整数值。
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrWindowType {
+    /// 文档窗口。
     DocumentWindow = 0,
     // TODO: 待补
 }

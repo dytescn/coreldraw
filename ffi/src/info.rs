@@ -3,6 +3,7 @@
 use cdrsdk::prelude::*;
 use serde_json::{json, Value};
 
+/// 把 CorelDRAW 的 `color` 对象序列化为接口返回用的 JSON。
 pub fn color_info(color: &IvgColor) -> Value {
     json!({
         "type": color.color_type(),
@@ -18,6 +19,7 @@ pub fn color_info(color: &IvgColor) -> Value {
     })
 }
 
+/// 把 CorelDRAW 的 `fill` 对象序列化为接口返回用的 JSON。
 pub fn fill_info(fill: &IvgFill) -> Value {
     json!({
         "type": fill.fill_type(),
@@ -26,6 +28,7 @@ pub fn fill_info(fill: &IvgFill) -> Value {
     })
 }
 
+/// 把 CorelDRAW 的 `outline` 对象序列化为接口返回用的 JSON。
 pub fn outline_info(outline: &IvgOutline) -> Value {
     json!({
         "type": outline.outline_type(),
@@ -35,6 +38,7 @@ pub fn outline_info(outline: &IvgOutline) -> Value {
     })
 }
 
+/// 把 CorelDRAW 的 `text` 对象序列化为接口返回用的 JSON。
 pub fn text_info(text: &IvgText) -> Value {
     let story = text.story();
     let content = story.as_ref().and_then(|s| s.text());
@@ -48,6 +52,7 @@ pub fn text_info(text: &IvgText) -> Value {
     })
 }
 
+/// 把 CorelDRAW 的 `shape` 对象序列化为接口返回用的 JSON。
 pub fn shape_info(shape: &IvgShape) -> Value {
     let text = if shape.shape_type() == Some(6) {
         shape.text().map(|t| text_info(&t))
@@ -87,6 +92,7 @@ pub fn shape_info(shape: &IvgShape) -> Value {
     })
 }
 
+/// 把 CorelDRAW 的 `shapes` 集合序列化为 JSON 数组。
 pub fn shapes_list(shapes: &IvgShapes) -> Value {
     let items: Vec<Value> = shapes.all().iter().map(shape_info).collect();
     json!({
@@ -95,6 +101,7 @@ pub fn shapes_list(shapes: &IvgShapes) -> Value {
     })
 }
 
+/// 把 CorelDRAW 的 `page` 对象序列化为接口返回用的 JSON。
 pub fn page_info(page: &IvgPage) -> Value {
     json!({
         "name": page.name(),
@@ -123,6 +130,7 @@ pub fn page_info(page: &IvgPage) -> Value {
     })
 }
 
+/// 把 CorelDRAW 的 `pages` 集合序列化为 JSON 数组。
 pub fn pages_list(pages: &IvgPages) -> Value {
     let items: Vec<Value> = pages.all().iter().map(page_info).collect();
     json!({
@@ -131,6 +139,7 @@ pub fn pages_list(pages: &IvgPages) -> Value {
     })
 }
 
+/// 把 CorelDRAW 的 `layer` 对象序列化为接口返回用的 JSON。
 pub fn layer_info(layer: &IvgLayer) -> Value {
     json!({
         "name": layer.name(),
@@ -147,6 +156,7 @@ pub fn layer_info(layer: &IvgLayer) -> Value {
     })
 }
 
+/// 把 CorelDRAW 的 `layers` 集合序列化为 JSON 数组。
 pub fn layers_list(layers: &IvgLayers) -> Value {
     let items: Vec<Value> = layers.all().iter().map(layer_info).collect();
     json!({
@@ -155,6 +165,7 @@ pub fn layers_list(layers: &IvgLayers) -> Value {
     })
 }
 
+/// 把 CorelDRAW 的 `documents` 集合序列化为 JSON 数组。
 pub fn documents_list(docs: &IvgDocuments) -> Value {
     let items: Vec<Value> = docs
         .all()
@@ -176,6 +187,7 @@ pub fn documents_list(docs: &IvgDocuments) -> Value {
     })
 }
 
+/// 把 CorelDRAW 的 `doc` 对象序列化为接口返回用的 JSON。
 pub fn doc_info(doc: &IvgDocument) -> Value {
     json!({
         "name": doc.name(),

@@ -11,37 +11,66 @@
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrShapeType {
+    /// 无图形。
     NoShape = 0,
+    /// 矩形图形。
     RectangleShape = 1,
+    /// 椭圆图形。
     EllipseShape = 2,
+    /// 曲线图形。
     CurveShape = 3,
+    /// 多边形图形。
     PolygonShape = 4,
+    /// 位图图形。
     BitmapShape = 5,
+    /// 文本图形。
     TextShape = 6,
+    /// 组图形。
     GroupShape = 7,
+    /// 选择图形。
     SelectionShape = 8,
+    /// 参考线图形。
     GuidelineShape = 9,
+    /// 调和组图形。
     BlendGroupShape = 10,
+    /// 立体化组图形。
     ExtrudeGroupShape = 11,
+    /// OLE 对象图形。
     OLEObjectShape = 12,
+    /// 轮廓组图形。
     ContourGroupShape = 13,
+    /// 线性尺寸图形。
     LinearDimensionShape = 14,
+    /// 斜角组图形。
     BevelGroupShape = 15,
+    /// 投影阴影组图形。
     DropShadowGroupShape = 16,
+    /// 3d 对象图形。
     V_3DObjectShape = 17,
+    /// 艺术媒体组图形。
     ArtisticMediaGroupShape = 18,
+    /// 连接器图形。
     ConnectorShape = 19,
+    /// 网格填充图形。
     MeshFillShape = 20,
+    /// 自定义图形。
     CustomShape = 21,
+    /// 自定义效果组图形。
     CustomEffectGroupShape = 22,
+    /// 符号图形。
     SymbolShape = 23,
+    /// HTML 表单对象图形。
     HTMLFormObjectShape = 24,
+    /// HTML 活动对象图形。
     HTMLActiveObjectShape = 25,
+    /// 完美图形。
     PerfectShape = 26,
+    /// EPS 图形。
     EPSShape = 27,
 }
 
 impl cdrShapeType {
+    /// 由整数值构造枚举。
     pub fn from_i32(v: i32) -> Option<Self> {
         match v {
             0 => Some(Self::NoShape),
@@ -86,18 +115,28 @@ impl cdrShapeType {
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrReferencePoint {
+    /// 左顶。
     TopLeft = 0,
+    /// 顶部中心。
     TopCenter = 1,
+    /// 右顶。
     TopRight = 2,
+    /// 左 middle。
     MiddleLeft = 3,
+    /// middle 中心。
     MiddleCenter = 4,
+    /// 右 middle。
     MiddleRight = 5,
+    /// 左底。
     BottomLeft = 6,
+    /// 底部中心。
     BottomCenter = 7,
+    /// 右底。
     BottomRight = 8,
 }
 
 impl cdrReferencePoint {
+    /// 由整数值构造枚举。
     pub fn from_i32(v: i32) -> Option<Self> {
         match v {
             0 => Some(Self::TopLeft),
@@ -118,15 +157,24 @@ impl cdrReferencePoint {
 // cdrAlignType —— 对齐方式
 // =============================================================
 
+/// CorelDRAW 枚举 `cdrAlignType`：对齐方式。
+///
+/// 对应类型库中的 `VGCore::cdrAlignType`，用 `#[repr(i32)]` 映射实际整数值。
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrAlignType {
+    /// 左对齐。
     AlignLeft = 1,
+    /// 右对齐。
     AlignRight = 2,
+    /// 对齐高中心。
     AlignHCenter = 3,
+    /// 顶对齐。
     AlignTop = 4,
+    /// 底对齐。
     AlignBottom = 8,
+    /// 对齐中心。
     AlignVCenter = 12,
 }
 
@@ -134,14 +182,22 @@ pub enum cdrAlignType {
 // cdrShapeLevel —— 图形层次（用于 Next/Previous 遍历）
 // =============================================================
 
+/// CorelDRAW 枚举 `cdrShapeLevel`：图形层次（用于 Next/Previous 遍历）。
+///
+/// 对应类型库中的 `VGCore::cdrShapeLevel`，用 `#[repr(i32)]` 映射实际整数值。
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrShapeLevel {
+    /// 级别组。
     LevelGroup = 0,
+    /// 级别容器。
     LevelContainer = 1,
+    /// 级别图层。
     LevelLayer = 2,
+    /// 级别页面。
     LevelPage = 3,
+    /// 级别文档。
     LevelDocument = 4,
 }
 
@@ -149,17 +205,28 @@ pub enum cdrShapeLevel {
 // cdrWrapStyle —— 文本环绕方式
 // =============================================================
 
+/// CorelDRAW 枚举 `cdrWrapStyle`：文本环绕方式。
+///
+/// 对应类型库中的 `VGCore::cdrWrapStyle`，用 `#[repr(i32)]` 映射实际整数值。
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrWrapStyle {
+    /// 绕排无。
     WrapNone = -1,
+    /// 左绕排轮廓。
     WrapContourLeft = 0,
+    /// 右绕排轮廓。
     WrapContourRight = 1,
+    /// 绕排轮廓 straddle。
     WrapContourStraddle = 2,
+    /// 左绕排 square。
     WrapSquareLeft = 3,
+    /// 右绕排 square。
     WrapSquareRight = 4,
+    /// 绕排 squarestraddle。
     WrapSquareStraddle = 5,
+    /// 绕排 square 上方 below。
     WrapSquareAboveBelow = 6,
 }
 
@@ -167,16 +234,23 @@ pub enum cdrWrapStyle {
 // cdrOutlineType —— 轮廓类型
 // =============================================================
 
+/// CorelDRAW 枚举 `cdrOutlineType`：轮廓类型。
+///
+/// 对应类型库中的 `VGCore::cdrOutlineType`，用 `#[repr(i32)]` 映射实际整数值。
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[repr(i32)]
 #[allow(nonstandard_style)]
 pub enum cdrOutlineType {
+    /// 无轮廓。
     NoOutline = 0,
+    /// 轮廓。
     Outline = 1,
+    /// 增强轮廓。
     EnhancedOutline = 2,
 }
 
 impl cdrOutlineType {
+    /// 由整数值构造枚举。
     pub fn from_i32(v: i32) -> Option<Self> {
         match v {
             0 => Some(Self::NoOutline),

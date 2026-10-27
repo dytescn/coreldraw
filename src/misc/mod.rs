@@ -8,13 +8,13 @@
 //! - [`IvgClipboard`]      : 剪贴板（`IVGClipboard`）
 //! - [`IvgRulers`]         : 标尺（`IVGRulers`）
 //! - [`IvgGrid`]           : 网格（`IVGGrid`）
-//! - [`IvgRecentFile(s)`]  : 最近文件
+//! - `IvgRecentFile` / `IvgRecentFiles` : 最近文件
 //! - [`IvgFontList`]       : 字体列表
-//! - [`IvgWorkspace(s)`]   : 工作区
-//! - [`IvgPalette(s)`]     : 调色板 / 调色板管理器
+//! - `IvgWorkspace` / `IvgWorkspaces` : 工作区
+//! - `IvgPalette` / `IvgPalettes` : 调色板 / 调色板管理器
 //! - [`ICorelScriptTools`] : 脚本工具
 //! - [`IvgGmsManager`] 等  : GMS 宏
-//! - [`IvgOnScreen*`]      : 屏幕绘制对象
+//! - `IvgOnScreenCurve` / `IvgOnScreenHandle` / `IvgOnScreenText` : 屏幕绘制对象
 //! - [`IvgToolState`] 等   : 工具状态 / 工具图形
 //! - [`IvgTraceSettings`]  : 描摹设置
 

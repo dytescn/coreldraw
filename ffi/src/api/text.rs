@@ -14,6 +14,9 @@ fn shape_text(shape: &IvgShape) -> Result<IvgText, ApiError> {
         .ok_or_else(|| ApiError::new("not_text", "shape is not a text object"))
 }
 
+/// `text_info` 接口：信息。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn info(input: &serde_json::Value) -> ApiResult {
     with_app(|app| {
         let doc = resolve_doc(app, input)?;
@@ -23,6 +26,11 @@ pub fn info(input: &serde_json::Value) -> ApiResult {
     })
 }
 
+/// `text_set_content` 接口：设置content。
+///
+/// 入参字段：`text`。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn set_content(input: &serde_json::Value) -> ApiResult {
     let content = get_str(input, "text")?;
     with_app(|app| {

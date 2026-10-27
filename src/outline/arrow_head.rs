@@ -1,4 +1,4 @@
-﻿//! `IVGArrowHead` / `IVGArrowHeads` / `IVGArrowHeadOptions` 鈥斺€?绠ご
+﻿//! `IVGArrowHead` / `IVGArrowHeads` / `IVGArrowHeadOptions` —— 箭头
 
 use wincom::{ComObject, Variant};
 use windows::Win32::System::Com::IDispatch;
@@ -9,23 +9,30 @@ use crate::curve::IvgCurve;
 // IvgArrowHead
 // =============================================================
 
+/// CorelDRAW `IVGArrowHead` 对象的后期绑定包装（箭头头）。
+///
+/// 所有属性与方法通过 `IDispatch::Invoke` 按名称调用，调用失败时一般返回 `None` 或 `false`。
 pub struct IvgArrowHead {
     disp: ComObject,
 }
 
 impl IvgArrowHead {
+    /// 由 COM `IDispatch` 构造包装对象。
     pub fn new(disp: IDispatch) -> Self {
         Self { disp: ComObject::from_dispatch(disp, crate::types::IID_IDISPATCH) }
     }
 
+    /// 从 COM `IDispatch` 构造包装对象，等价于 `new`。
     pub fn from_disp(disp: IDispatch) -> Self {
         Self::new(disp)
     }
 
+    /// 把底层 COM 对象包装成 `VARIANT`，用于传给其它 COM 调用。
     pub fn as_variant(&self) -> Variant {
         self.disp.as_variant()
     }
 
+    /// 获取底层 `ComObject` 的引用。
     pub fn raw(&self) -> &ComObject {
         &self.disp
     }
@@ -55,39 +62,44 @@ impl IvgArrowHead {
     // 索引 / 名称
     // ---------------------------------------------------------
 
+    /// 读取索引（`Index`）。
     pub fn index(&self) -> Option<i64> { self.prop_i64("Index") }
 
+    /// 读取名称（`Name`）。
     pub fn name(&self) -> Option<String> { self.prop_string("Name") }
+    /// 设置名称（`Name`）。
     pub fn set_name(&self, v: impl Into<String>) -> bool { self.put_string("Name", v) }
 
+    /// 读取显示名称（`DisplayName`）。
     pub fn display_name(&self) -> Option<String> { self.prop_string("DisplayName") }
 
     // ---------------------------------------------------------
     // 形状
     // ---------------------------------------------------------
 
-    /// 绠ご褰㈢姸鐨勮疆寤撴洸绾匡紙鏈湴鍧愭爣锛夈€?
+    /// 箭头形状的轮廓曲线（本地坐标）。
     pub fn curve(&self) -> Option<IvgCurve> {
         self.prop_dispatch("Curve").map(IvgCurve::new)
     }
 
-    /// 鐩稿浜庣嚎瀹界殑鍩哄噯缂╂斁銆?
+    /// 相对于线宽的基准缩放。
     pub fn base_outline_scale(&self) -> Option<f64> {
         self.prop_f64("BaseOutlineScale")
     }
 
-    /// 绠ご涓績鐩稿鏈湴鍧愭爣鍘熺偣鐨?X 鍋忕Щ銆?
+    /// 箭头中心相对本地坐标原点的 X 偏移。
     pub fn center_x(&self) -> Option<f64> { self.prop_f64("CenterX") }
+    /// 读取中心 Y 坐标（`CenterY`）。
     pub fn center_y(&self) -> Option<f64> { self.prop_f64("CenterY") }
 
-    /// 鐩稿绾挎绔偣鐨勫亸绉汇€?
+    /// 相对线段端点的偏移。
     pub fn line_offset(&self) -> Option<f64> { self.prop_f64("LineOffset") }
 
     // ---------------------------------------------------------
     // 操作
     // ---------------------------------------------------------
 
-    /// 缁戝畾鍒版寚瀹氭枃妗ｏ紙鐢ㄤ簬璺ㄦ枃妗ｅ鍒舵椂纭繚褰掑睘锛夈€?
+    /// 绑定到指定文档（用于跨文档复制时确保归属）。
     pub fn bind_to_document(&self, doc: &crate::document::IvgDocument) -> Option<IvgArrowHead> {
         let args = vec![doc.as_variant()];
         self.disp
@@ -98,6 +110,7 @@ impl IvgArrowHead {
             .map(IvgArrowHead::new)
     }
 
+    /// 比较（COM 方法 `CompareWith`）。
     pub fn compare_with(&self, other: &IvgArrowHead) -> Option<bool> {
         let args = vec![other.as_variant()];
         self.disp
@@ -112,20 +125,23 @@ impl IvgArrowHead {
 // IvgArrowHeadOptions
 // =============================================================
 
-/// 鍗曚釜鍥惧舰涓婄澶寸殑**鍑犱綍璋冩暣**锛堜笌 `IvgArrowHead` 鏄ā鏉夸笉鍚岋級銆?
+/// 单个图形上箭头的**几何调整**（与 `IvgArrowHead` 是模板不同）。
 pub struct IvgArrowHeadOptions {
     disp: ComObject,
 }
 
 impl IvgArrowHeadOptions {
+    /// 由 COM `IDispatch` 构造包装对象。
     pub fn new(disp: IDispatch) -> Self {
         Self { disp: ComObject::from_dispatch(disp, crate::types::IID_IDISPATCH) }
     }
 
+    /// 从 COM `IDispatch` 构造包装对象，等价于 `new`。
     pub fn from_disp(disp: IDispatch) -> Self {
         Self::new(disp)
     }
 
+    /// 把底层 COM 对象包装成 `VARIANT`，用于传给其它 COM 调用。
     pub fn as_variant(&self) -> Variant {
         self.disp.as_variant()
     }
@@ -150,41 +166,56 @@ impl IvgArrowHeadOptions {
 
     // ---- 长度 / 宽度 ----
 
+    /// 读取长度（`Length`）。
     pub fn length(&self) -> Option<f64> { self.prop_f64("Length") }
+    /// 设置长度（`Length`）。
     pub fn set_length(&self, v: f64) -> bool { self.put_f64("Length", v) }
 
+    /// 读取宽度（`Width`）。
     pub fn width(&self) -> Option<f64> { self.prop_f64("Width") }
+    /// 设置宽度（`Width`）。
     pub fn set_width(&self, v: f64) -> bool { self.put_f64("Width", v) }
 
     // ---- 偏移 ----
 
+    /// 读取偏移 X 坐标（`OffsetX`）。
     pub fn offset_x(&self) -> Option<f64> { self.prop_f64("OffsetX") }
+    /// 设置偏移 X 坐标（`OffsetX`）。
     pub fn set_offset_x(&self, v: f64) -> bool { self.put_f64("OffsetX", v) }
 
+    /// 读取偏移 Y 坐标（`OffsetY`）。
     pub fn offset_y(&self) -> Option<f64> { self.prop_f64("OffsetY") }
+    /// 设置偏移 Y 坐标（`OffsetY`）。
     pub fn set_offset_y(&self, v: f64) -> bool { self.put_f64("OffsetY", v) }
 
     // ---- 旋转 ----
 
+    /// 读取旋转角度（`RotationAngle`）。
     pub fn rotation_angle(&self) -> Option<f64> { self.prop_f64("RotationAngle") }
+    /// 设置旋转角度（`RotationAngle`）。
     pub fn set_rotation_angle(&self, v: f64) -> bool {
         self.put_f64("RotationAngle", v)
     }
 
     // ---- 翻转 ----
 
+    /// 读取水平翻转（`FlipHorizontal`）。
     pub fn flip_horizontal(&self) -> Option<bool> { self.prop_bool("FlipHorizontal") }
+    /// 设置水平翻转（`FlipHorizontal`）。
     pub fn set_flip_horizontal(&self, v: bool) -> bool {
         self.put_bool("FlipHorizontal", v)
     }
 
+    /// 读取垂直翻转（`FlipVertical`）。
     pub fn flip_vertical(&self) -> Option<bool> { self.prop_bool("FlipVertical") }
+    /// 设置垂直翻转（`FlipVertical`）。
     pub fn set_flip_vertical(&self, v: bool) -> bool {
         self.put_bool("FlipVertical", v)
     }
 
-    /// RIDL 閲岃繕鏈変竴涓嫾鍐欓敊璇殑 `FlipVerical`锛屼竴骞舵毚闇层€?
+    /// RIDL 里还有一个拼写错误的 `FlipVerical`，一并暴露。
     pub fn flip_verical(&self) -> Option<bool> { self.prop_bool("FlipVerical") }
+    /// 设置 COM 属性 `FlipVerical`。
     pub fn set_flip_verical(&self, v: bool) -> bool {
         self.put_bool("FlipVerical", v)
     }
@@ -197,11 +228,13 @@ impl IvgArrowHeadOptions {
 
     // ---- 复制 ----
 
+    /// 复制 assign（COM 方法 `CopyAssign`）。
     pub fn copy_assign(&self, src: &IvgArrowHeadOptions) -> bool {
         let args = vec![src.as_variant()];
         self.disp.invoke_method("CopyAssign", args).is_ok()
     }
 
+    /// 读取复制（`GetCopy`）。
     pub fn get_copy(&self) -> Option<IvgArrowHeadOptions> {
         self.disp
             .invoke_method("GetCopy", vec![])
@@ -216,12 +249,13 @@ impl IvgArrowHeadOptions {
 // IvgArrowHeads
 // =============================================================
 
-/// 鏂囨。绾х澶撮泦鍚堬紙`Application.ArrowHeads`锛夈€?
+/// 文档级箭头集合（`Application.ArrowHeads`）。
 pub struct IvgArrowHeads {
     disp: ComObject,
 }
 
 impl IvgArrowHeads {
+    /// 由 COM `IDispatch` 构造包装对象。
     pub fn new(disp: IDispatch) -> Self {
         Self { disp: ComObject::from_dispatch(disp, crate::types::IID_IDISPATCH) }
     }
@@ -230,8 +264,10 @@ impl IvgArrowHeads {
         self.disp.get_property(name).ok()?.to_i64().ok()
     }
 
+    /// 读取返回条目数量（`Count`）。
     pub fn count(&self) -> Option<i64> { self.prop_i64("Count") }
 
+    /// 按索引或名称取条目（COM 方法 `Item`）。
     pub fn item(&self, index: i32) -> Option<IvgArrowHead> {
         let args = vec![Variant::from_i64(index as i64)];
         self.disp
@@ -242,7 +278,7 @@ impl IvgArrowHeads {
             .map(IvgArrowHead::new)
     }
 
-    /// 娣诲姞涓€涓澶淬€?
+    /// 添加一个箭头。
     pub fn add(&self, arrow: &IvgArrowHead) -> Option<IvgArrowHead> {
         let args = vec![arrow.as_variant()];
         self.disp
@@ -253,7 +289,7 @@ impl IvgArrowHeads {
             .map(IvgArrowHead::new)
     }
 
-    /// 鏇挎崲鎸囧畾绱㈠紩鐨勭澶淬€?
+    /// 替换指定索引的箭头。
     pub fn replace(&self, index: i32, arrow: &IvgArrowHead) -> Option<IvgArrowHead> {
         let args = vec![
             Variant::from_i64(index as i64),
@@ -267,6 +303,7 @@ impl IvgArrowHeads {
             .map(IvgArrowHead::new)
     }
 
+    /// 移除（COM 方法 `Remove`）。
     pub fn remove(&self, index: i32) -> bool {
         let args = vec![Variant::from_i64(index as i64)];
         self.disp.invoke_method("Remove", args).is_ok()

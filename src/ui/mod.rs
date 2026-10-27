@@ -4,13 +4,13 @@
 //!
 //! - [`ICuiApplication`]      : UI 应用入口
 //! - [`ICuiFrameWork`]        : 框架
-//! - [`ICuiCommandBar(s)`]    : 工具条
-//! - [`ICuiControl(s)`]       : 工具条上的控件
-//! - [`ICuiFrameWindow(s)`]   : 框架窗口
-//! - [`ICuiViewHost(s)`]      : 视图宿主
-//! - [`ICuiViewWindow(s)`]    : 视图窗口
-//! - [`ICuiDockHost(s)`]      : 停靠宿主
-//! - [`ICuiDockItem(s)`]      : 停靠项
+//! - `ICuiCommandBar` / `ICuiCommandBars` : 工具条
+//! - `ICuiControl` / `ICuiControls` : 工具条上的控件
+//! - `ICuiFrameWindow` / `ICuiFrameWindows` : 框架窗口
+//! - `ICuiViewHost` / `ICuiViewHosts` : 视图宿主
+//! - `ICuiViewWindow` / `ICuiViewWindows` : 视图窗口
+//! - `ICuiDockHost` / `ICuiDockHosts` : 停靠宿主
+//! - `ICuiDockItem` / `ICuiDockItems` : 停靠项
 //! - [`ICuiScreenRect`]       : 屏幕坐标矩形
 //! - [`ICuiDataContext`] 等   : 数据上下文
 //! - [`ICuiImageList`]        : 图像列表

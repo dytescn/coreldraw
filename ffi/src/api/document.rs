@@ -21,6 +21,9 @@ fn export_filter(input: &serde_json::Value) -> Result<i32, ApiError> {
     }
 }
 
+/// `doc_info` 接口：信息。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn info(input: &serde_json::Value) -> ApiResult {
     with_app(|app| {
         let doc = resolve_doc(app, input)?;
@@ -28,6 +31,9 @@ pub fn info(input: &serde_json::Value) -> ApiResult {
     })
 }
 
+/// `doc_pages` 接口：页面集。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn pages(input: &serde_json::Value) -> ApiResult {
     with_app(|app| {
         let doc = resolve_doc(app, input)?;
@@ -38,6 +44,9 @@ pub fn pages(input: &serde_json::Value) -> ApiResult {
     })
 }
 
+/// `doc_create_page` 接口：创建页面。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn create_page(input: &serde_json::Value) -> ApiResult {
     with_app(|app| {
         let doc = resolve_doc(app, input)?;
@@ -48,6 +57,9 @@ pub fn create_page(input: &serde_json::Value) -> ApiResult {
     })
 }
 
+/// `doc_delete_page` 接口：删除页面。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn delete_page(input: &serde_json::Value) -> ApiResult {
     with_app(|app| {
         let doc = resolve_doc(app, input)?;
@@ -71,6 +83,9 @@ pub fn delete_page(input: &serde_json::Value) -> ApiResult {
     })
 }
 
+/// `doc_layers` 接口：图层集。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn layers(input: &serde_json::Value) -> ApiResult {
     with_app(|app| {
         let doc = resolve_doc(app, input)?;
@@ -82,6 +97,11 @@ pub fn layers(input: &serde_json::Value) -> ApiResult {
     })
 }
 
+/// `doc_create_layer` 接口：创建图层。
+///
+/// 入参字段：`layer`、`name`。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn create_layer(input: &serde_json::Value) -> ApiResult {
     let name = opt_str(input, "layer")
         .or_else(|| opt_str(input, "name"))
@@ -95,6 +115,9 @@ pub fn create_layer(input: &serde_json::Value) -> ApiResult {
     })
 }
 
+/// `doc_shapes` 接口：图形集。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn shapes(input: &serde_json::Value) -> ApiResult {
     with_app(|app| {
         let doc = resolve_doc(app, input)?;
@@ -107,6 +130,9 @@ pub fn shapes(input: &serde_json::Value) -> ApiResult {
     })
 }
 
+/// `doc_selection` 接口：选择。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn selection(input: &serde_json::Value) -> ApiResult {
     with_app(|app| {
         let doc = resolve_doc(app, input)?;
@@ -120,6 +146,9 @@ pub fn selection(input: &serde_json::Value) -> ApiResult {
     })
 }
 
+/// `doc_clear_selection` 接口：清除选择。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn clear_selection(input: &serde_json::Value) -> ApiResult {
     with_app(|app| {
         let doc = resolve_doc(app, input)?;
@@ -134,6 +163,11 @@ pub fn clear_selection(input: &serde_json::Value) -> ApiResult {
     })
 }
 
+/// `doc_save_as` 接口：保存as。
+///
+/// 入参字段：`path`。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn save_as(input: &serde_json::Value) -> ApiResult {
     let path = get_str(input, "path")?;
     if let Some(parent) = std::path::Path::new(&path).parent() {
@@ -158,6 +192,11 @@ pub fn save_as(input: &serde_json::Value) -> ApiResult {
     })
 }
 
+/// `doc_export` 接口：导出。
+///
+/// 入参字段：`path`。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn export(input: &serde_json::Value) -> ApiResult {
     let path = get_str(input, "path")?;
     let filter = export_filter(input)?;
@@ -192,6 +231,11 @@ pub fn export(input: &serde_json::Value) -> ApiResult {
     })
 }
 
+/// `doc_close` 接口：关闭。
+///
+/// 入参字段：`save`。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn close(input: &serde_json::Value) -> ApiResult {
     let save = opt_bool(input, "save").unwrap_or(false);
     with_app(|app| {

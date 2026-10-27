@@ -1,7 +1,7 @@
-﻿//! `IVGMathUtils` 鈥斺€?鏁板宸ュ叿
+﻿//! `IVGMathUtils` —— 数学工具
 //!
-//! 鐢?`Application.Math` 鍙栧緱銆傛彁渚涘父鐢ㄥ嚑浣曡繍绠楋紝杩斿洖鐨勬槸
-//! **鏂板璞?*锛坄IvgPoint` / `IvgVector` / ...锛夛紝涓嶄細缁戝畾鍒版枃妗ｃ€?
+//! 由 `Application.Math` 取得。提供常用几何运算，返回的是
+//! **新对象*（`IvgPoint` / `IvgVector` / ...），不会绑定到文档。
 
 use wincom::{ComObject, Variant};
 use windows::Win32::System::Com::IDispatch;
@@ -10,15 +10,20 @@ use crate::geometry::{
     IvgPoint, IvgPointRange, IvgTransformMatrix, IvgVector,
 };
 
+/// CorelDRAW `IVGMathUtils` 对象的后期绑定包装。
+///
+/// 所有属性与方法通过 `IDispatch::Invoke` 按名称调用，调用失败时一般返回 `None` 或 `false`。
 pub struct IvgMathUtils {
     disp: ComObject,
 }
 
 impl IvgMathUtils {
+    /// 由 COM `IDispatch` 构造包装对象。
     pub fn new(disp: IDispatch) -> Self {
         Self { disp: ComObject::from_dispatch(disp, crate::types::IID_IDISPATCH) }
     }
 
+    /// 从 COM `IDispatch` 构造包装对象，等价于 `new`。
     pub fn from_disp(disp: IDispatch) -> Self {
         Self::new(disp)
     }
@@ -31,7 +36,7 @@ impl IvgMathUtils {
     // 线段相关
     // ---------------------------------------------------------
 
-    /// 鍦ㄤ袱鐐逛箣闂寸嚎鎬ф彃鍊硷紙t 鈭?[0, 1]锛夈€?
+    /// 在两点之间线性插值（t ∈[0, 1]）。
     pub fn interpolate(&self, s: &IvgPoint, e: &IvgPoint, t: f64) -> Option<IvgPoint> {
         self.invoke_dispatch("Interpolate", vec![
             s.as_variant(),
@@ -41,7 +46,7 @@ impl IvgMathUtils {
         .map(IvgPoint::new)
     }
 
-    /// 姹備袱绾挎浜ょ偣锛岃繑鍥?`(鐐? 鏄惁鐩镐氦)`銆?
+    /// 求两线段交点，返回 `(点, 是否相交)`。
     pub fn intersect_line_segments(
         &self,
         s1: &IvgPoint,
@@ -49,7 +54,7 @@ impl IvgMathUtils {
         s2: &IvgPoint,
         e2: &IvgPoint,
     ) -> Option<IvgPoint> {
-        // 鍙?out 鍙傛暟鐢ㄥ崟 dispatch 绠€鍖栵紙鍙彇鐐癸級
+        // 多 out 参数用单 dispatch 简化（只取点）
         self.invoke_dispatch("IntersectLineSegments", vec![
             s1.as_variant(),
             e1.as_variant(),
@@ -59,6 +64,7 @@ impl IvgMathUtils {
         .map(IvgPoint::new)
     }
 
+    /// 距离线线段（COM 方法 `DistanceToLineSegment`）。
     pub fn distance_to_line_segment(
         &self,
         s: &IvgPoint,
@@ -76,6 +82,7 @@ impl IvgMathUtils {
             .ok()
     }
 
+    /// 最近点线线段。
     pub fn closest_point_to_line_segment(
         &self,
         s: &IvgPoint,
@@ -90,6 +97,7 @@ impl IvgMathUtils {
         .map(IvgPoint::new)
     }
 
+    /// 相交无限线。
     pub fn intersect_infinite_lines(
         &self,
         s1: &IvgPoint,
@@ -106,6 +114,7 @@ impl IvgMathUtils {
         .map(IvgPoint::new)
     }
 
+    /// 距离无限线（COM 方法 `DistanceToInfiniteLine`）。
     pub fn distance_to_infinite_line(
         &self,
         s: &IvgPoint,
@@ -123,6 +132,7 @@ impl IvgMathUtils {
             .ok()
     }
 
+    /// 最近点无限线。
     pub fn closest_point_to_infinite_line(
         &self,
         s: &IvgPoint,
@@ -138,9 +148,10 @@ impl IvgMathUtils {
     }
 
     // ---------------------------------------------------------
-    // 闅忔満鏁?
+    // 随机数
     // ---------------------------------------------------------
 
+    /// 调用 COM 方法 `GetRandomReal`。
     pub fn random_real(&self, low: f64, high: f64) -> Option<f64> {
         self.disp
             .invoke_method("GetRandomReal", vec![
@@ -152,6 +163,7 @@ impl IvgMathUtils {
             .ok()
     }
 
+    /// 调用 COM 方法 `GetRandomInteger`。
     pub fn random_integer(&self, low: i32, high: i32) -> Option<i32> {
         self.disp
             .invoke_method("GetRandomInteger", vec![
@@ -168,8 +180,8 @@ impl IvgMathUtils {
     // 拟合 / 中点
     // ---------------------------------------------------------
 
-    /// 鎷熷悎鐩寸嚎鍒扮偣闆嗐€?
-    /// 杩斿洖 `(鍘熺偣, 鏂瑰悜)`銆?
+    /// 拟合直线到点集。
+    /// 返回 `(原点, 方向)`。
    pub fn fit_line_to_points(&self, points: &IvgPointRange) -> Option<IvgPoint> {
             self.invoke_dispatch(
                 "FitLineToPoints",
@@ -178,15 +190,17 @@ impl IvgMathUtils {
             .map(IvgPoint::new)
         }
 
+    /// 调用 CorelDRAW COM 接口。
     pub fn midpoint(&self, s: &IvgPoint, e: &IvgPoint) -> Option<IvgPoint> {
         self.invoke_dispatch("MidPoint", vec![s.as_variant(), e.as_variant()])
             .map(IvgPoint::new)
     }
 
     // ---------------------------------------------------------
-    // 宸ュ巶锛氫复鏃跺嚑浣曞璞?
+    // 工厂：临时几何对象
     // ---------------------------------------------------------
 
+    /// 创建点。
     pub fn create_point(&self, x: f64, y: f64) -> Option<IvgPoint> {
         self.invoke_dispatch("CreatePoint", vec![
             Variant::from_f64(x),
@@ -195,6 +209,7 @@ impl IvgMathUtils {
         .map(IvgPoint::new)
     }
 
+    /// 创建向量。
     pub fn create_vector(&self, x: f64, y: f64) -> Option<IvgVector> {
         self.invoke_dispatch("CreateVector", vec![
             Variant::from_f64(x),
@@ -203,20 +218,23 @@ impl IvgMathUtils {
         .map(IvgVector::new)
     }
 
+    /// 创建点范围。
     pub fn create_point_range(&self) -> Option<IvgPointRange> {
         self.invoke_dispatch("CreatePointRange", vec![])
             .map(IvgPointRange::new)
     }
 
     // ---------------------------------------------------------
-    // 宸ュ巶锛氬彉鎹㈢煩闃?
+    // 工厂：变换矩阵
     // ---------------------------------------------------------
 
+    /// 创建单位变换矩阵。
     pub fn create_identity_transform_matrix(&self) -> Option<IvgTransformMatrix> {
         self.invoke_dispatch("CreateIdentityTransformMatrix", vec![])
             .map(IvgTransformMatrix::new)
     }
 
+    /// 创建旋转变换矩阵。
     pub fn create_rotation_transform_matrix(
         &self,
         angle: f64,
@@ -231,6 +249,7 @@ impl IvgMathUtils {
         .map(IvgTransformMatrix::new)
     }
 
+    /// 创建平移变换矩阵。
     pub fn create_translation_transform_matrix(
         &self,
         tx: f64,
@@ -243,6 +262,7 @@ impl IvgMathUtils {
         .map(IvgTransformMatrix::new)
     }
 
+    /// 创建缩放变换矩阵。
     pub fn create_scale_transform_matrix(
         &self,
         sx: f64,
@@ -259,6 +279,7 @@ impl IvgMathUtils {
         .map(IvgTransformMatrix::new)
     }
 
+    /// 创建线线段变换矩阵。
     pub fn create_line_segment_transform_matrix(
         &self,
         from_start: &IvgPoint,

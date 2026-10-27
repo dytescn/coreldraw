@@ -1,6 +1,6 @@
 [package]
 name = "cdrsdk"
-version = "0.3.0"
+version = "1.0.0"
 edition = "2021"
 rust-version = "1.75"
 authors = ["dowell <dowell@funxdata.com>"]
@@ -16,9 +16,14 @@ categories = ["api-bindings", "graphics", "os::windows-apis"]
 # tests/ 保留作为使用示例
 exclude = [
     ".github/",
+    ".reasonix/",
     "docs/",
     "ffi/",
     "ts/",
+    "mcp/",
+    "mcp_out/",
+    "dytes.json",
+    "mcp.json",
     "info.md",
     "*.bat",
     "*.txt",

@@ -1,10 +1,10 @@
 ﻿
-/// 浜嬩欢 Cookie锛坄AdviseEvents` 杩斿洖鍊硷級銆?
+/// 事件 Cookie（`AdviseEvents` 返回值）。
 pub type EventCookie = i32;
 
-/// Rust 渚у缓璁殑浜嬩欢鍥炶皟 trait锛堢敤鎴峰疄鐜帮紝SDK 璐熻矗妗ユ帴鍒?COM锛?
+/// Rust 侧建议的事件回调 trait（用户实现，SDK 负责桥接到 COM）
 ///
-/// 瀵瑰簲 `IVGApplicationEvents` 閲岀殑鏂规硶锛?
+/// 对应 `IVGApplicationEvents` 里的方法：
 /// ```text
 /// DocumentOpen(Doc, FileName)
 /// DocumentNew(Doc, FromTemplate, Template, IncludeGraphics)
@@ -32,8 +32,8 @@ pub trait ApplicationEvents {
     fn on_application_event(&self, _event_name: &str) {}
 }
 
-// TODO: 鐢?`windows::Win32::System::Com` 瀹炵幇 `IDispatch`锛?
-//       鍦?`Invoke` 閲屾牴鎹?`disp_id` 鍒嗗彂鍒?`ApplicationEvents` 鐨勬柟娉曘€?
-//       鐒跺悗鍦?`IvgApplication` 涓婂姞锛?
+// TODO: 由 `windows::Win32::System::Com` 实现 `IDispatch`：
+//       在 `Invoke` 里根据 `disp_id` 分发到 `ApplicationEvents` 的方法。
+//       然后场 `IvgApplication` 上加：
 //         pub fn advise_events(&self, sink: &impl ApplicationEvents) -> Option<EventCookie>
 //         pub fn unadvise_events(&self, cookie: EventCookie) -> bool

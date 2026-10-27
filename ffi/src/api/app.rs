@@ -16,6 +16,9 @@ pub fn health(_: &serde_json::Value) -> ApiResult {
     }))
 }
 
+/// `app_info` 接口：信息。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn info(_: &serde_json::Value) -> ApiResult {
     with_app(|app| {
         Ok(json!({
@@ -37,6 +40,9 @@ pub fn info(_: &serde_json::Value) -> ApiResult {
     })
 }
 
+/// `app_documents` 接口：文档集。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn documents(_: &serde_json::Value) -> ApiResult {
     with_app(|app| {
         let docs = app
@@ -46,6 +52,9 @@ pub fn documents(_: &serde_json::Value) -> ApiResult {
     })
 }
 
+/// `app_create_document` 接口：创建文档。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn create_document(_: &serde_json::Value) -> ApiResult {
     with_app(|app| {
         let doc = app
@@ -55,6 +64,11 @@ pub fn create_document(_: &serde_json::Value) -> ApiResult {
     })
 }
 
+/// `app_open_document` 接口：打开文档。
+///
+/// 入参字段：`path`。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn open_document(input: &serde_json::Value) -> ApiResult {
     let path = get_str(input, "path")?;
     if !std::path::Path::new(&path).is_file() {
@@ -74,6 +88,11 @@ pub fn open_document(input: &serde_json::Value) -> ApiResult {
     })
 }
 
+/// `app_convert_units` 接口：转换单位。
+///
+/// 入参字段：`value`、`from`、`to`。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn convert_units(input: &serde_json::Value) -> ApiResult {
     let value = get_f64(input, "value")?;
     let from = get_i32(input, "from")?;
@@ -91,6 +110,11 @@ pub fn convert_units(input: &serde_json::Value) -> ApiResult {
     })
 }
 
+/// `app_set_visible` 接口：设置可见性。
+///
+/// 入参字段：`visible`。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn set_visible(input: &serde_json::Value) -> ApiResult {
     let visible = crate::json::opt_bool(input, "visible").unwrap_or(true);
     with_app(|app| {
@@ -104,6 +128,11 @@ pub fn set_visible(input: &serde_json::Value) -> ApiResult {
     })
 }
 
+/// `app_create_color` 接口：创建颜色。
+///
+/// 入参字段：`r`、`g`、`b`。
+///
+/// 选择器约定：`doc` / `page` / `layer` / `name` 为 1-based 索引或名称，省略时取活动对象。
 pub fn create_color(input: &serde_json::Value) -> ApiResult {
     let r = opt_i32(input, "r").unwrap_or(0).clamp(0, 255);
     let g = opt_i32(input, "g").unwrap_or(0).clamp(0, 255);

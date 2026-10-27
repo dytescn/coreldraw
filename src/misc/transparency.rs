@@ -1,22 +1,28 @@
-﻿//! `IVGTransparency` 鈥斺€?鍥惧舰閫忔槑
+﻿//! `IVGTransparency` —— 图形透明
 
 use wincom::{ComObject, Variant};
 use windows::Win32::System::Com::IDispatch;
 
 use crate::fill::{IvgFountainFill, IvgPatternFill, IvgTextureFill};
 
+/// CorelDRAW `IVGTransparency` 对象的后期绑定包装（透明度）。
+///
+/// 所有属性与方法通过 `IDispatch::Invoke` 按名称调用，调用失败时一般返回 `None` 或 `false`。
 pub struct IvgTransparency {
     disp: ComObject,
 }
 
 impl IvgTransparency {
+    /// 由 COM `IDispatch` 构造包装对象。
     pub fn new(disp: IDispatch) -> Self {
         Self { disp: ComObject::from_dispatch(disp, crate::types::IID_IDISPATCH) }
     }
 
+    /// 从 COM `IDispatch` 构造包装对象，等价于 `new`。
     pub fn from_disp(disp: IDispatch) -> Self {
         Self::new(disp)
     }
+    /// 把底层 COM 对象包装成 `VARIANT`，用于传给其它 COM 调用。
     pub fn as_variant(&self) -> Variant {
         self.disp.as_variant()
     }
@@ -53,16 +59,20 @@ impl IvgTransparency {
     // 单色
     // ---------------------------------------------------------
 
+    /// 读取均匀（`Uniform`）。
     pub fn uniform(&self) -> Option<i64> { self.prop_i64("Uniform") }
+    /// 设置均匀（`Uniform`）。
     pub fn set_uniform(&self, v: i32) -> bool { self.put_i64("Uniform", v as i64) }
 
     // ---------------------------------------------------------
     // 渐变
     // ---------------------------------------------------------
 
+    /// 读取渐变（`Fountain`）。
     pub fn fountain(&self) -> Option<IvgFountainFill> {
         self.prop_dispatch("Fountain").map(IvgFountainFill::new)
     }
+    /// 设置渐变（`Fountain`）。
     pub fn set_fountain(&self, f: &IvgFountainFill) -> bool {
         self.put_dispatch("Fountain", f.as_variant())
     }
@@ -71,16 +81,20 @@ impl IvgTransparency {
     // 图案 / 纹理
     // ---------------------------------------------------------
 
+    /// 读取图案（`Pattern`）。
     pub fn pattern(&self) -> Option<IvgPatternFill> {
         self.prop_dispatch("Pattern").map(IvgPatternFill::new)
     }
+    /// 设置图案（`Pattern`）。
     pub fn set_pattern(&self, f: &IvgPatternFill) -> bool {
         self.put_dispatch("Pattern", f.as_variant())
     }
 
+    /// 读取纹理（`Texture`）。
     pub fn texture(&self) -> Option<IvgTextureFill> {
         self.prop_dispatch("Texture").map(IvgTextureFill::new)
     }
+    /// 设置纹理（`Texture`）。
     pub fn set_texture(&self, f: &IvgTextureFill) -> bool {
         self.put_dispatch("Texture", f.as_variant())
     }
@@ -89,31 +103,39 @@ impl IvgTransparency {
     // 起止
     // ---------------------------------------------------------
 
+    /// 读取开始（`Start`）。
     pub fn start(&self) -> Option<i64> { self.prop_i64("Start") }
+    /// 设置开始（`Start`）。
     pub fn set_start(&self, v: i32) -> bool { self.put_i64("Start", v as i64) }
 
+    /// 读取 end（`End`）。
     pub fn end(&self) -> Option<i64> { self.prop_i64("End") }
+    /// 设置 end（`End`）。
     pub fn set_end(&self, v: i32) -> bool { self.put_i64("End", v as i64) }
 
     // ---------------------------------------------------------
-    // 鐘舵€?
+    // 状态
     // ---------------------------------------------------------
 
+    /// 读取 COM 属性 `Frozen`。
     pub fn frozen(&self) -> Option<bool> { self.prop_bool("Frozen") }
 
     // ---------------------------------------------------------
     // 应用
     // ---------------------------------------------------------
 
+    /// 应用无透明度（COM 方法 `ApplyNoTransparency`）。
     pub fn apply_no_transparency(&self) -> bool {
         self.disp.invoke_method("ApplyNoTransparency", vec![]).is_ok()
     }
 
+    /// 应用均匀透明度（COM 方法 `ApplyUniformTransparency`）。
     pub fn apply_uniform_transparency(&self, value: i32) -> bool {
         let args = vec![Variant::from_i64(value as i64)];
         self.disp.invoke_method("ApplyUniformTransparency", args).is_ok()
     }
 
+    /// 应用渐变透明度（COM 方法 `ApplyFountainTransparency`）。
     #[allow(clippy::too_many_arguments)]
     pub fn apply_fountain_transparency(
         &self,
@@ -141,6 +163,7 @@ impl IvgTransparency {
             .map(IvgFountainFill::new)
     }
 
+    /// 应用图案透明度（COM 方法 `ApplyPatternTransparency`）。
     pub fn apply_pattern_transparency(
         &self,
         pattern_type: i32,
@@ -166,6 +189,7 @@ impl IvgTransparency {
             .map(IvgPatternFill::new)
     }
 
+    /// 应用纹理透明度（COM 方法 `ApplyTextureTransparency`）。
     pub fn apply_texture_transparency(
         &self,
         texture_name: impl Into<String>,
@@ -191,9 +215,11 @@ impl IvgTransparency {
     // 冻结 / 解冻
     // ---------------------------------------------------------
 
+    /// 调用 COM 方法 `Freeze`。
     pub fn freeze(&self) -> bool {
         self.disp.invoke_method("Freeze", vec![]).is_ok()
     }
+    /// 调用 COM 方法 `Unfreeze`。
     pub fn unfreeze(&self) -> bool {
         self.disp.invoke_method("Unfreeze", vec![]).is_ok()
     }
@@ -204,20 +230,23 @@ impl IvgTransparency {
 
     /// `cdrTransparencyAppliedTo`
     pub fn applied_to(&self) -> Option<i64> { self.prop_i64("AppliedTo") }
+    /// 设置 COM 属性 `AppliedTo`。
     pub fn set_applied_to(&self, v: i32) -> bool {
         self.put_i64("AppliedTo", v as i64)
     }
 
     /// `cdrMergeMode`
     pub fn merge_mode(&self) -> Option<i64> { self.prop_i64("MergeMode") }
+    /// 设置合并模式（`MergeMode`）。
     pub fn set_merge_mode(&self, v: i32) -> bool {
         self.put_i64("MergeMode", v as i64)
     }
 
     // ---------------------------------------------------------
-    // 浜や簰寮忚缃?
+    // 交互式设置
     // ---------------------------------------------------------
 
+    /// 用户 assign（COM 方法 `UserAssign`）。
     pub fn user_assign(
         &self,
         transparency_type: i32,

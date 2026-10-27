@@ -1,8 +1,8 @@
 ﻿pub type EventCookie = i32;
 
-/// Rust 渚ф枃妗ｄ簨浠跺洖璋?trait銆?
+/// Rust 侧文档事件回调 trait。
 ///
-/// 鐢ㄦ埛瀹炵幇杩欎釜 trait锛孲DK 閫氳繃 `IDispatch` 妗ユ帴鍒?COM銆?
+/// 用户实现这个 trait，SDK 通过 `IDispatch` 桥接到 COM。
 pub trait DocumentEvents {
     fn on_open(&self) {}
     fn on_close(&self) {}
@@ -33,8 +33,8 @@ pub trait DocumentEvents {
     fn on_query_export(&self) -> bool { true }
 }
 
-// TODO: 瀹炵幇 `IDispatch` 妗ユ帴銆?
-//       `Invoke` 閲屾牴鎹?`disp_id` 鍒嗗彂鍒颁笂闈㈢殑鍥炶皟銆?
-//       鐒跺悗鍦?`IvgDocument` 涓婂姞锛?
+// TODO: 实现 `IDispatch` 桥接。
+//       `Invoke` 里根据 `disp_id` 分发到上面的回调。
+//       然后场 `IvgDocument` 上加：
 //         pub fn advise_events(&self, sink: &impl DocumentEvents) -> Option<EventCookie>
 //         pub fn unadvise_events(&self, cookie: EventCookie) -> bool
